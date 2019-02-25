@@ -1,11 +1,13 @@
 # DRList (Diminishing Returns Database)
 Library that contains (hopefully) the most up to date diminishing return categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
   
-**This addon is a fork of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**  
+**This addon is a fork/rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**  
 Some of the main differences between *DRData* and *DRList* are:
 - Spell data is updated for patch 8.1.0. Support for Classic is planned once it's released.
-- Data structure has changed but if you use the API functions there should be no conflicts. Upgrading from DRData to DRList is plug and play in most scenarios.
 - Now on Github instead of WoWAce. This should hopefully make contributing easier for people.
+- Data structure has slightly changed but if you only use the API functions there should be no conflicts. Upgrading from DRData to DRList is plug and play in most scenarios.  
+  If you access the tables directly, you'll now need to add the current expansion as an extra table property. E.g ```pairs(DRData.categoryNames)``` to ```pairs(DRList.categoryNames.retail)``` or ```pairs(DRList.categoryNames.classic)```.  
+  The only exception for this is on the spell list table.
 
 ## Install
 Installing from source/master is not always guaranteed to work. You can download a packaged version here instead:
@@ -67,9 +69,6 @@ end)
 
 ## Usage with Curseforge Packager
 You can ignore this section if you don't use the [Curseforge packager](https://authors.curseforge.com/knowledge-base/world-of-warcraft/527-preparing-the-packagemeta-file).
-  
-When including DRList as an external dependency for the packager, make sure to include the 'latest' tag or else you will end up getting the unpackaged version of DRList.
-You might also want to have your packager ignore the *DRList* .toc file, and the *LibStub* folder if you already have *LibStub* included.
   
 **addon/.pkgmeta**
 ```

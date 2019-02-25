@@ -352,6 +352,7 @@ if Lib.gameExpansion == "retail" then
         [51490]   = "knockback",        -- Thunderstorm
     }
 else
+
     Lib.spellList = {}
 end
 

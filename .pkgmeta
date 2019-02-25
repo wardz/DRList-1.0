@@ -1,0 +1,16 @@
+package-as: DRList-1.0
+
+externals:
+  libs/LibStub:
+    url: svn://svn.wowace.com/wow/libstub/mainline/trunk
+
+required-dependencies:
+  - libstub
+
+ignore:
+  - README.md
+  - LICENSE.md
+  - release.sh
+  - tests/*
+  - libs/LibStub/LibStub.toc
+  - libs/LibStub/tests

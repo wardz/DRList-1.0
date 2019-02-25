@@ -1,0 +1,15 @@
+## Interface: 80100
+## Title: Lib: Diminishing Returns Database
+## Notes: List of abilties that have diminishing returns and its categories.
+## Version: @project-version@
+## X-Category: Library
+## X-Curse-Project-ID: 315757
+
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+#@end-no-lib-strip@
+
+DRList-1.0.xml
+#@do-not-package@
+tests\test.lua
+#@end-do-not-package@

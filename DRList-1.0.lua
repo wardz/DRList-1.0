@@ -408,7 +408,7 @@ end
 --- Get next successive diminished duration
 -- @tparam number diminished How many times the DR has been applied so far
 -- @tparam[opt="default"] string category Unlocalized category name
--- @treturn number DR percentage in decimals. Returns 0 if max DR is reached or 'diminished' is invalid.
+-- @treturn number DR percentage in decimals. Returns 0 if max DR is reached or arguments are invalid.
 function Lib:GetNextDR(diminished, category)
     local durations = Lib.diminishedDurations[Lib.gameExpansion][category or "default"]
     if not durations and Lib.categoryNames[Lib.gameExpansion][category] then
@@ -416,7 +416,6 @@ function Lib:GetNextDR(diminished, category)
         durations = Lib.diminishedDurations[Lib.gameExpansion]["default"]
     end
 
-    -- TODO: return max if DR is reached instead of 0?
     return durations and durations[diminished] or 0
 end
 

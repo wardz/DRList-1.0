@@ -43,7 +43,7 @@ addon:SetScript("OnEvent", function(self, event)
         -- This is the unlocalized category name, used for API functions.
         local category = DRList:GetCategoryBySpellID(spellID)
         if not category or category == "knockback" then return end
-        -- knockback is experimental, ignore for now unless you know what you're doing
+        -- knockback category is experimental, you can keep it if you want but it is not that accurate.
 
         -- Check if unit that got Crowd Control aura is a player
         -- You might also want to check if it's hostile or not depending on your needs

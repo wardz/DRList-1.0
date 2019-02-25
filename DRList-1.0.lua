@@ -450,3 +450,5 @@ Lib.NextDR = Lib.GetNextDR
 Lib.GetSpellCategory = Lib.GetCategoryBySpellID
 Lib.IterateSpells = Lib.IterateSpellsByCategory
 Lib.RESET_TIME = Lib.resetTimes[Lib.gameExpansion].default
+Lib.spells = Lib.spellList
+Lib.pveDR = Lib.categoriesPvE

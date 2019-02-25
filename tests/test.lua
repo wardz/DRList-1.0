@@ -12,7 +12,7 @@ if _G.loadfile then -- not running in game
     format = _G.string.format
     debugprofilestop = _G.os.clock
     GetLocale = function() return "enUS" end
-    GetBuildInfo = function() return nil, nil, nil, 80000 end
+    GetBuildInfo = function() return nil, nil, nil, 80000 end -- always set this to retail
     GetSpellInfo = function() return "" end
 
     assert(loadfile("libs/LibStub/LibStub.lua"))()
@@ -106,6 +106,8 @@ end
 ---------------------------------------------------------------------------
 
 function Tests:BeforeTest()
+    -- We always run a test for retail first, then we can run tests for classic later
+    -- by setting DRList.gameExpansion = "classic" in the test function itself
     DRList.gameExpansion = "retail"
 end
 

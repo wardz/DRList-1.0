@@ -338,12 +338,16 @@ if Lib.gameExpansion == "retail" then
 
         -------------------------------------------------------------------------------
         -- Knockbacks (Experimental)
-        -- Warning: These may only be tracked on first SPELL_AURA_APPLIED, not SPELL_AURA_BROKEN.
+        -- Warning:
+        -- * Only multi target knockbacks have a DR.
+        -- * These may only be tracked on first SPELL_AURA_APPLIED.
+        -- * Most spell IDs below are untested.
+        -- * DR duration for knockbacks are 10s instead of 18s and is immediately immune after first DR.
         -------------------------------------------------------------------------------
---      [108199]  = "knockback",        -- Gorefiend's Grasp (has no debuff)
+--      [108199]  = "knockback",        -- Gorefiend's Grasp (has no debuff) -- TODO: see if can be detected using SPELL_DAMAGE or similar event
 --      [202249]  = "knockback",        -- Overrun TODO: verify spell id
         [132469]  = "knockback",        -- Typhoon
-        [102793]  = "knockback",        -- Ursol's Vortex (Warning: May only be tracked on SPELL_AURA_REFRESH)
+        [102793]  = "knockback",        -- Ursol's Vortex (Warning: May only be tracked on SPELL_AURA_REFRESH afaik)
         [186387]  = "knockback",        -- Bursting Shot
         [236775]  = "knockback",        -- Hi-Explosive Trap
         [157981]  = "knockback",        -- Blast Wave

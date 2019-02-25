@@ -10,8 +10,6 @@ install:
   - luarocks install --local luacheck
   - sudo luarocks install luafilesystem
   - sudo luarocks install penlight
-  - curl -L -s https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz | tar -xz
-  - curl -s https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh
 
 script:
   - |
@@ -19,16 +17,17 @@ script:
       /home/travis/.luarocks/bin/luacheck DRList-1.0.lua tests/test.lua
       lua tests/test.lua
     fi
+
   - |
     if [ "$TRAVIS_PULL_REQUEST" == "false" -a -n "$TRAVIS_TAG" ]; then
       rm -rf libs # libs/ is kept before so tests.lua works, but we need to remove it here to make nolib-creation work with packager script below
+      curl -L -s https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz | tar -xz
+      curl -L -s -o release.sh https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh
       lua LDoc-1.4.6/ldoc.lua DRList-1.0.lua
       chmod +x ./release.sh
       ./release.sh -d
       ./release.sh -d -e -s
     fi
-
-  # TODO: curl -s https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh | bash
 
 branches:
   only:

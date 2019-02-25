@@ -1,8 +1,7 @@
 package-as: DRList-1.0
 
 externals:
-  libs/LibStub:
-    url: svn://svn.wowace.com/wow/libstub/mainline/trunk
+  libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
 
 required-dependencies:
   - libstub

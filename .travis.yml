@@ -15,12 +15,12 @@ install:
 
 script:
   - |
-    if [ "$TRAVIS_BRANCH" == "master" ]; then
+    if [ "$TRAVIS_BRANCH" == "master" -o -n "$TRAVIS_TAG" ]; then
       /home/travis/.luarocks/bin/luacheck DRList-1.0.lua tests/test.lua
       lua tests/test.lua
     fi
   - |
-    if [ "$TRAVIS_BRANCH" == "master" -a "$TRAVIS_PULL_REQUEST" == "false" -a -n "$TRAVIS_TAG" ]; then
+    if [ "$TRAVIS_PULL_REQUEST" == "false" -a -n "$TRAVIS_TAG" ]; then
       rm -rf libs # libs/ is kept before so tests.lua works, but we need to remove it here to make nolib-creation work with packager script below
       lua LDoc-1.4.6/ldoc.lua DRList-1.0.lua
       chmod +x ./release.sh
@@ -45,7 +45,7 @@ deploy:
   on:
     tags: true
     all_branches: true
-    condition: $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false"
+    condition: ($TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG) && $TRAVIS_PULL_REQUEST == "false"
 
 notifications:
   email:

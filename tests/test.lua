@@ -3,7 +3,7 @@
 -- > lua tests\test.lua
 --
 -- Running tests ingame:
--- /drlist true
+-- /drlist
 
 if loadfile then
     assert(loadfile("tests/engine.lua"))()

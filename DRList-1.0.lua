@@ -250,7 +250,7 @@ if Lib.gameExpansion == "retail" then
         [203123]  = "stun",            -- Maim
         [163505]  = "stun",            -- Rake (Prowl)
         [5211]    = "stun",            -- Mighty Bash
-        [202244]  = "stun",            -- Overrun (Also a knockback)
+        [202244]  = "stun",            -- Overrun
         [24394]   = "stun",            -- Intimidation
         [119381]  = "stun",            -- Leg Sweep
         [202346]  = "stun",            -- Double Barrel
@@ -345,8 +345,8 @@ if Lib.gameExpansion == "retail" then
         -- * Most spell IDs below are untested.
         -- * DR duration for knockbacks are 10s instead of 18s and is immediately immune after first DR.
         -------------------------------------------------------------------------------
---      [108199]  = "knockback",        -- Gorefiend's Grasp (has no debuff) -- TODO: see if can be detected using SPELL_DAMAGE or similar event
---      [202249]  = "knockback",        -- Overrun TODO: verify spell id
+--      [108199]  = "knockback",        -- Gorefiend's Grasp (has no debuff)
+--      [202249]  = "knockback",        -- Overrun TODO: needs verification
         [132469]  = "knockback",        -- Typhoon
         [102793]  = "knockback",        -- Ursol's Vortex (Warning: May only be tracked on SPELL_AURA_REFRESH afaik)
         [186387]  = "knockback",        -- Bursting Shot
@@ -365,7 +365,7 @@ end
 -------------------------------------------------------------------------------
 
 --- Get table of all spells that DRs.
--- Key is the spellID, and value is the DR category.
+-- Key is the spellID, and value is the unlocalized DR category.
 -- @see IterateSpellsByCategory() to only get spellIDs for a certain category.
 -- @treturn table {number=string}
 function Lib:GetSpells()

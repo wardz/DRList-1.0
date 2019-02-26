@@ -1,5 +1,7 @@
 # DRList (Diminishing Returns Database)
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
+
+[API Documentation](https://wardz.github.io/DRList-1.0/)
   
 **This addon is a fork/rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**  
 Some of the main differences between *DRData* and *DRList* are:
@@ -18,6 +20,7 @@ You may also install it as a standalone addon by putting it directly in ```WoW/I
 forking the library or creating addon packs/plugins where multiple addons use the lib.
 
 ## Example Usage
+See [here](https://wardz.github.io/DRList-1.0/) for API documentation.  
 **addon/addon.toc**
 ```
 ## Interface: 80100

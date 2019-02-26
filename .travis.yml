@@ -26,7 +26,6 @@ script:
       lua LDoc-1.4.6/ldoc.lua DRList-1.0.lua
       chmod +x ./release.sh
       ./release.sh
-      ./release.sh -e -s
     fi
 
 branches:

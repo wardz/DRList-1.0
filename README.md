@@ -1,12 +1,12 @@
 # DRList (Diminishing Returns Database)
-Library that contains (hopefully) the most up to date diminishing return categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
+Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
   
 **This addon is a fork/rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**  
 Some of the main differences between *DRData* and *DRList* are:
 - Spell data is updated for patch 8.1.0. Support for Classic is planned once it's released.
 - Now on Github instead of WoWAce. This should hopefully make contributing easier for people.
-- Data structure has slightly changed but if you only use the API functions there should be no conflicts. Upgrading from DRData to DRList is plug and play in most scenarios.  
-  If you access the tables directly, you'll now need to add the current expansion as an extra table property. E.g ```pairs(DRData.categoryNames)``` to ```pairs(DRList.categoryNames.retail)``` or ```pairs(DRList.categoryNames.classic)```.  
+- Table structure has slightly changed but if you only use the API functions there should be no conflicts. Upgrading from DRData to DRList is plug and play in most scenarios.  
+  If you used to access the tables directly, you'll now need to add the current game version as an extra table property. E.g ```DRData.categoryNames``` to ```DRList.categoryNames.retail``` or ```DRList.categoryNames.classic```.  
   The only exception for this is on the spell list table.
 
 ## Install

@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>DRList-1.0</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>DRList-1.0</code></h1>
+<p>DRList-1.0</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetSpells">Lib:GetSpells ()</a></td>
+	<td class="summary">Get table of all spells that DRs.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetCategories">Lib:GetCategories ()</a></td>
+	<td class="summary">Get table of all DR categories.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetPvECategories">Lib:GetPvECategories ()</a></td>
+	<td class="summary">Get table of all categories that DRs in PvE only.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetResetTime">Lib:GetResetTime ([category="default"])</a></td>
+	<td class="summary">Get constant for how long a DR lasts.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetCategoryBySpellID">Lib:GetCategoryBySpellID (spellID)</a></td>
+	<td class="summary">Get unlocalized DR category by spell ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetCategoryLocalization">Lib:GetCategoryLocalization (category)</a></td>
+	<td class="summary">Get localized category from unlocalized category name, case sensitive.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:IsPvECategory">Lib:IsPvECategory (category)</a></td>
+	<td class="summary">Check if a category has DR against mobs.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:GetNextDR">Lib:GetNextDR (diminished[, category="default"])</a></td>
+	<td class="summary">Get next successive diminished duration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:IterateSpellsByCategory">Lib:IterateSpellsByCategory (category)</a></td>
+	<td class="summary">Iterate through the spells of a given category.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Lib:GetSpells"></a>
+    <strong>Lib:GetSpells ()</strong>
+    </dt>
+    <dd>
+    Get table of all spells that DRs.
+ Key is the spellID, and value is the DR category.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        {number=string}
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Lib:GetCategories"></a>
+    <strong>Lib:GetCategories ()</strong>
+    </dt>
+    <dd>
+    Get table of all DR categories.
+ Key is unlocalized name used for API functions, value is localized name used for UI.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        {string=string}
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:GetPvECategories"></a>
+    <strong>Lib:GetPvECategories ()</strong>
+    </dt>
+    <dd>
+    Get table of all categories that DRs in PvE only.
+ Key is unlocalized name used for API functions, value is localized name used for UI.
+ Tip: you can combine :GetPvECategories() and :IterateSpellsByCategory() to get spellIDs only for PvE aswell.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        {string=string}
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:GetResetTime"></a>
+    <strong>Lib:GetResetTime ([category="default"])</strong>
+    </dt>
+    <dd>
+    Get constant for how long a DR lasts.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">category</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Unlocalized category name
+         (<em>default</em> "default")
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:GetCategoryBySpellID"></a>
+    <strong>Lib:GetCategoryBySpellID (spellID)</strong>
+    </dt>
+    <dd>
+    Get unlocalized DR category by spell ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">spellID</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">nil</span></span>
+        The category name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:GetCategoryLocalization"></a>
+    <strong>Lib:GetCategoryLocalization (category)</strong>
+    </dt>
+    <dd>
+    Get localized category from unlocalized category name, case sensitive.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">category</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Unlocalized category name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">nil</span></span>
+        The localized category name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:IsPvECategory"></a>
+    <strong>Lib:IsPvECategory (category)</strong>
+    </dt>
+    <dd>
+    Check if a category has DR against mobs.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">category</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Unlocalized category name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:GetNextDR"></a>
+    <strong>Lib:GetNextDR (diminished[, category="default"])</strong>
+    </dt>
+    <dd>
+    Get next successive diminished duration
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">diminished</span>
+            <span class="types"><span class="type">number</span></span>
+         How many times the DR has been applied so far
+        </li>
+        <li><span class="parameter">category</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Unlocalized category name
+         (<em>default</em> "default")
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        DR percentage in decimals. Returns 0 if max DR is reached or arguments are invalid.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Lib:IterateSpellsByCategory"></a>
+    <strong>Lib:IterateSpellsByCategory (category)</strong>
+    </dt>
+    <dd>
+    Iterate through the spells of a given category.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">category</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Unlocalized category name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Iterator function
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> spellID <span class="keyword">in</span> DRList:IterateSpellsByCategory(<span class="string">"root"</span>) <span class="keyword">do</span> <span class="global">print</span>(spellID) <span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2019-02-26 19:07:01 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

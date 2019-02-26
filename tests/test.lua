@@ -147,6 +147,15 @@ function Tests:_GetsCategoryNames()
     assert(DRList:GetCategories().knockback == nil)
 end
 
+function Tests:_GetsCategoryNamesPvE()
+    assert(type(DRList:GetPvECategories().stun) == "string")
+    assert(type(DRList:GetPvECategories().taunt) == "string")
+    assert(DRList:GetPvECategories().disorient == nil)
+
+    DRList.gameExpansion = "classic"
+    assert(DRList:GetPvECategories().taunt == nil)
+end
+
 function Tests:_GetsCategoryFromSpell()
     assert(DRList:GetCategoryBySpellID(853) == "stun")
     assert(DRList:GetCategoryBySpellID(339) == "root")
@@ -233,12 +242,22 @@ end
 
 function Tests:_IteratesSpells()
     local ran = false
-    for k, v in DRList:IterateSpellsByCategory("root") do
-        assert(type(k) == "number")
-        assert(v == "root")
+    for spellID, category in DRList:IterateSpellsByCategory("root") do
+        assert(type(spellID) == "number")
+        assert(category == "root")
         ran = true
     end
+    assert(ran)
+    ran = false
 
+    for category, localizedCategory in pairs(DRList:GetPvECategories()) do
+        for spellID, cat in DRList:IterateSpellsByCategory(category) do -- luacheck: ignore
+            assert(type(spellID) == "number")
+            assert(category == cat)
+            ran = true
+            break
+        end
+    end
     assert(ran)
 end
 

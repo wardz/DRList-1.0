@@ -75,8 +75,9 @@ Lib.resetTimes = {
     },
 }
 
--- List of DR categories
--- english -> localized
+-- List of DR categories, english -> localized
+-- Note: unlocalized categories used for the API are always singular,
+-- and localized user facing categories are always plural.
 Lib.categoryNames = {
     retail = {
         ["disorient"] = L.DISORIENTS,
@@ -115,10 +116,10 @@ Lib.categoryNames = {
 -- @see UnitClassification() and UnitIsQuestBoss().
 Lib.categoriesPvE = {
     retail = {
-        ["taunt"] = true,
-        ["stun"] = true,
-        ["root"] = true,
-        ["cyclone"] = true,
+        ["taunt"] = L.TAUNTS,
+        ["stun"] = L.STUNS,
+        ["root"] = L.ROOTS,
+--      ["cyclone"] = L.CYCLONE,
     },
 
     classic = {},
@@ -365,6 +366,7 @@ end
 
 --- Get table of all spells that DRs.
 -- Key is the spellID, and value is the DR category.
+-- @see IterateSpellsByCategory() to only get spellIDs for a certain category.
 -- @treturn table {number=string}
 function Lib:GetSpells()
     return Lib.spellList
@@ -375,6 +377,14 @@ end
 -- @treturn table {string=string}
 function Lib:GetCategories()
     return Lib.categoryNames[Lib.gameExpansion]
+end
+
+--- Get table of all categories that DRs in PvE only.
+-- Key is unlocalized name used for API functions, value is localized name used for UI.
+-- Tip: you can combine :GetPvECategories() and :IterateSpellsByCategory() to get spellIDs only for PvE aswell.
+-- @treturn table {string=string}
+function Lib:GetPvECategories()
+    return Lib.categoriesPvE[Lib.gameExpansion]
 end
 
 --- Get constant for how long a DR lasts.
@@ -402,7 +412,7 @@ end
 -- @tparam string category Unlocalized category name
 -- @treturn bool
 function Lib:IsPvECategory(category)
-    return Lib.categoriesPvE[Lib.gameExpansion][category] or false -- make sure false is always returned instead of nil here
+    return Lib.categoriesPvE[Lib.gameExpansion][category] and true or false -- make sure bool is always returned here
 end
 
 --- Get next successive diminished duration

@@ -20,6 +20,7 @@ globals = {
     "strmatch",
 
     -- Tests
+    "SimpleTesting",
     "SLASH_DRLIST1",
     "SlashCmdList",
     "GetSpellInfo",

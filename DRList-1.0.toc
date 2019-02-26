@@ -11,5 +11,6 @@ libs\LibStub\LibStub.lua
 
 DRList-1.0.xml
 #@do-not-package@
+tests\engine.lua
 tests\test.lua
 #@end-do-not-package@

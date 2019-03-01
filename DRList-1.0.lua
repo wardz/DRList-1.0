@@ -110,16 +110,13 @@ Lib.categoryNames = {
     },
 }
 
--- Categories that have DR against non player characters.
--- Note that this is only for mobs, player pets have DR on all categories.
--- Also taunt, root & cyclone only have DR against special mobs.
--- @see UnitClassification() and UnitIsQuestBoss().
+-- Categories that have DR against mobs
 Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["root"] = L.ROOTS,
---      ["cyclone"] = L.CYCLONE,
+--      ["cyclone"] = L.CYCLONE, -- TODO: verify
     },
 
     classic = {},
@@ -409,6 +406,9 @@ function Lib:GetCategoryLocalization(category)
 end
 
 --- Check if a category has DR against mobs.
+-- Note that this is only for mobs, player pets have DR on all categories.
+-- Also taunt, root & cyclone only have DR against special mobs.
+-- See UnitClassification() and UnitIsQuestBoss().
 -- @tparam string category Unlocalized category name
 -- @treturn bool
 function Lib:IsPvECategory(category)

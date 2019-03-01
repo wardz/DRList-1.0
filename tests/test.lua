@@ -205,6 +205,7 @@ if Tests:IsInGame() then
     SLASH_DRLIST1 = "/drlist"
     SlashCmdList["DRLIST"] = function()
         Tests:RunAll()
+        DRList.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
     end
 else
     Tests:RunAll()

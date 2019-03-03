@@ -1,4 +1,3 @@
-package-as: DRList-1.0
 enable-nolib-creation: yes
 
 externals:

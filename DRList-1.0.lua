@@ -91,6 +91,7 @@ Lib.categoryNames = {
     },
 
     classic = {
+        -- placeholders
         ["disorient"] = L.DISORIENTS,
         ["incapacitate"] = L.INCAPACITATES,
         ["silence"] = L.SILENCES,
@@ -98,7 +99,7 @@ Lib.categoryNames = {
         ["root"] = L.ROOTS,
         ["disarm"] = L.DISARMS,
         ["charge"] = L.CHARGE,
-        ["cheap_shot"] = L.CHEAP_SHOT, -- TODO: shared with pounce?
+        ["cheap_shot"] = L.CHEAP_SHOT,
         ["short_stun"] = L.SHORT_STUNS,
         ["fear"] = L.FEARS,
         ["horror"] = L.HORRORS,
@@ -418,6 +419,7 @@ end
 --- Get next successive diminished duration
 -- @tparam number diminished How many times the DR has been applied so far
 -- @tparam[opt="default"] string category Unlocalized category name
+-- @usage local reduction = DRList:GetNextDR(1) -- returns 0.50, half duration on debuff
 -- @treturn number DR percentage in decimals. Returns 0 if max DR is reached or arguments are invalid.
 function Lib:GetNextDR(diminished, category)
     local durations = Lib.diminishedDurations[Lib.gameExpansion][category or "default"]

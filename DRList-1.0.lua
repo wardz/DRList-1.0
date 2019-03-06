@@ -365,7 +365,7 @@ end
 
 --- Get table of all spells that DRs.
 -- Key is the spellID, and value is the unlocalized DR category.
--- @see IterateSpellsByCategory() to only get spellIDs for a certain category.
+-- @see IterateSpellsByCategory
 -- @treturn table {number=string}
 function Lib:GetSpells()
     return Lib.spellList

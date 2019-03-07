@@ -14,7 +14,7 @@ install:
 script:
   - |
     if [ "$TRAVIS_BRANCH" == "master" -o -n "$TRAVIS_TAG" ]; then
-      /home/travis/.luarocks/bin/luacheck DRList-1.0.lua tests/test.lua
+      /home/travis/.luarocks/bin/luacheck .
       lua tests/test.lua
     fi
 

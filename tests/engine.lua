@@ -28,7 +28,7 @@ end
 
 function SimpleTesting:TriggerTest(testFunc, funcName)
     local status, err = pcall(testFunc)
-    if not err then
+    if status then
         self.completedTests = self.completedTests + 1
     else
         table.insert(self.errors, {

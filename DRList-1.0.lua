@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 1
+local MAJOR, MINOR = "DRList-1.0", 2
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -32,12 +32,13 @@ L["ROOTS"] = "Roots"
 L["SILENCES"] = "Silences"
 L["STUNS"] = "Stuns"
 L["TAUNTS"] = "Taunts"
-L["MIND_CONTROL"] = GetSpellInfo(605)
-L["SCATTER_SHOT"] = GetSpellInfo(37506)
+L["OPENER_STUN"] = "Opener stun" -- Cheap Shot & Pounce
+L["MIND_CONTROL"] = GetSpellInfo(605) -- TODO: mock these for unit testing
 L["HIBERNATE"] =  GetSpellInfo(2637)
-L["FROST_SHOCK"] = GetSpellInfo(196840)
 L["CHARGE"] = GetSpellInfo(100)
-L["CHEAP_SHOT"] = GetSpellInfo(1833)
+L["ENTRAPMENT"] = GetSpellInfo(19184) or GetSpellInfo(19387)
+L["SCATTER_SHOT"] = GetSpellInfo(19503) or GetSpellInfo(213691)
+L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840)
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -93,35 +94,39 @@ Lib.categoryNames = {
 
     classic = {
         -- placeholders
-        ["disorient"] = L.DISORIENTS,
         ["incapacitate"] = L.INCAPACITATES,
         ["silence"] = L.SILENCES,
-        ["stun"] = L.STUNS,
-        ["root"] = L.ROOTS,
+        ["stun"] = L.STUNS, -- controlled stun
+        ["root"] = L.ROOTS, -- controlled root
         ["disarm"] = L.DISARMS,
-        ["charge"] = L.CHARGE,
-        ["cheap_shot"] = L.CHEAP_SHOT,
-        ["short_stun"] = L.SHORT_STUNS,
-        ["fear"] = L.FEARS,
-        ["horror"] = L.HORRORS,
-        ["mind_control"] = L.MIND_CONTROL,
+        ["opener_stun"] = L.OPENER_STUN, -- Cheap Shot & Pounce
+        ["short_stun"] = L.SHORT_STUNS, -- random proc stun, usually short
         ["short_root"] = L.SHORT_ROOTS,
+        ["fear"] = L.FEARS,
+        ["horror"] = L.HORRORS, -- short fears
+        ["mind_control"] = L.MIND_CONTROL,
         ["scatter_shot"] = L.SCATTER_SHOT,
         ["hibernate"] = L.HIBERNATE,
         ["frost_shock"] = L.FROST_SHOCK,
+        ["entrapment"] = L.ENTRAPMENT,
+        ["charge"] = L.CHARGE,
     },
 }
 
 -- Categories that have DR against mobs
+-- Note that only elites usually have root/taunt DR.
 Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["root"] = L.ROOTS,
 --      ["cyclone"] = L.CYCLONE, -- TODO: verify
+--      ["banish"] = L.BANISH, -- TODO: verify
     },
 
-    classic = {},
+    classic = {
+        ["stun"] = L.STUNS, -- TODO: verify, might be opener_stun aswell
+    },
 }
 
 -- Successives diminished durations
@@ -141,7 +146,7 @@ Lib.diminishedDurations = {
 }
 
 -- List of spellIDs that cause DR
--- Spells tagged "Item" are from consumables or equipment and can't be used in rated pvp.
+-- Spells tagged "Item" are from consumables or equipment and can't be used in rated pvp. (retail)
 if Lib.gameExpansion == "retail" then
     Lib.spellList = {
         -------------------------------------------------------------------------------
@@ -356,7 +361,143 @@ if Lib.gameExpansion == "retail" then
         [51490]   = "knockback",        -- Thunderstorm
     }
 else
-    Lib.spellList = {}
+    -- Spell list for Classic patch 1.13.x.
+    -- Note: In Classic WoW most abilities have several ranks, where each rank has a different spellID.
+    -- It'd be a lot easier to use GetSpellInfo here and store spell names instead to avoid having
+    -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
+    -- use spellIDs here. (Some spells have same name but different effects. It's also easy for spell names to clash with NPC spells.)
+    Lib.spellList = {
+        [339]     = "root",           -- Entangling Roots Rank 1
+        [1062]    = "root",           -- Entangling Roots Rank 2
+        [5195]    = "root",           -- Entangling Roots Rank 3
+        [5196]    = "root",           -- Entangling Roots Rank 4
+        [9852]    = "root",           -- Entangling Roots Rank 5
+        [9853]    = "root",           -- Entangling Roots Rank 6
+        [19306]   = "root",           -- Counterattack
+        [122]     = "root",           -- Frost Nova Rank 1
+        [865]     = "root",           -- Frost Nova Rank 2
+        [6131]    = "root",           -- Frost Nova Rank 3
+        [10230]   = "root",           -- Frost Nova rank 4
+        [8377]    = "root",           -- Earthgrab (Totem)
+
+        [5211]    = "stun",           -- Bash Rank 1
+        [6798]    = "stun",           -- Bash Rank 2
+        [8983]    = "stun",           -- Bash Rank 3
+        [24394]   = "stun",           -- Intimidation
+        [853]     = "stun",           -- Hammer of Justice Rank 1
+        [5588]    = "stun",           -- Hammer of Justice Rank 2
+        [5589]    = "stun",           -- Hammer of Justice Rank 3
+        [10308]   = "stun",           -- Hammer of Justice Rank 4
+        [22703]   = "stun",           -- Inferno Effect (Summon Infernal)
+        [408]     = "stun",           -- Kidney Shot Rank 1
+        [8643]    = "stun",           -- Kidney Shot Rank 2
+        [12809]   = "stun",           -- Concussion Blow
+        [20253]   = "stun",           -- Intercept Stun Rank 1
+        [20614]   = "stun",           -- Intercept Stun Rank 2
+        [20615]   = "stun",           -- Intercept Stun Rank 3
+        [20549]   = "stun",           -- War Stomp (Racial) TODO: confirm category
+
+        [676]     = "disarm",         -- Disarm
+
+        [2637]    = "incapacitate",   -- Hibernate Rank 1
+        [18657]   = "incapacitate",   -- Hibernate Rank 2
+        [18658]   = "incapacitate",   -- Hibernate Rank 3
+        [3355]    = "incapacitate",   -- Freezing Trap Rank 1
+        [14308]   = "incapacitate",   -- Freezing Trap Rank 2
+        [14309]   = "incapacitate",   -- Freezing Trap Rank 3
+        [19386]   = "incapacitate",   -- Wyvern Sting Rank 1
+        [24132]   = "incapacitate",   -- Wyvern Sting Rank 2
+        [24133]   = "incapacitate",   -- Wyvern Sting Rank 3
+        [28271]   = "incapacitate",   -- Polymorph: Turtle
+        [28270]   = "incapacitate",   -- Polymorph: Cow
+        [28272]   = "incapacitate",   -- Polymorph: Pig
+        [118]     = "incapacitate",   -- Polymorph Rank 1
+        [12824]   = "incapacitate",   -- Polymorph Rank 2
+        [12825]   = "incapacitate",   -- Polymorph Rank 3
+        [12826]   = "incapacitate",   -- Polymorph Rank 4
+        [20066]   = "incapacitate",   -- Repentance
+        [1776]    = "incapacitate",   -- Gouge Rank 1
+        [1777]    = "incapacitate",   -- Gouge Rank 2
+        [8629]    = "incapacitate",   -- Gouge Rank 3
+        [11285]   = "incapacitate",   -- Gouge Rank 4
+        [11286]   = "incapacitate",   -- Gouge Rank 5
+        [6770]    = "incapacitate",   -- Sap Rank 1
+        [2070]    = "incapacitate",   -- Sap Rank 2
+        [11297]   = "incapacitate",   -- Sap Rank 3
+
+        [1513]    = "fear",          -- Scare Beast Rank 1
+        [14326]   = "fear",          -- Scare Beast Rank 2
+        [14327]   = "fear",          -- Scare Beast Rank 3
+        [8122]    = "fear",          -- Psychic Scream Rank 1
+        [8124]    = "fear",          -- Psychic Scream Rank 2
+        [10888]   = "fear",          -- Psychic Scream Rank 3
+        [10890]   = "fear",          -- Psychic Scream Rank 4
+        [2094]    = "fear",          -- Blind
+        [5782]    = "fear",          -- Fear Rank 1
+        [6213]    = "fear",          -- Fear Rank 2
+        [6215]    = "fear",          -- Fear Rank 3
+        [5484]    = "fear",          -- Howl of Terror Rank 1
+        [17928]   = "fear",          -- Howl of Terror Rank 1
+        [6358]    = "fear",          -- Seduction
+        [5246]    = "fear",          -- Intimidating Shout
+
+        [6789]    = "horror",        -- Death Coil Rank 1
+        [17925]   = "horror",        -- Death Coil Rank 2
+        [17926]   = "horror",        -- Death Coil Rank 2
+
+        [9005]    = "opener_stun",   -- Pounce Rank 1
+        [9823]    = "opener_stun",   -- Pounce Rank 2
+        [9827]    = "opener_stun",   -- Pounce Rank 3
+        [1833]    = "opener_stun",   -- Cheap Shot
+
+        [23694]   = "short_root",   -- Improved Hamstring
+
+        [16922]   = "short_stun",   -- Improved Starfire
+        [19410]   = "short_stun",   -- Improved Concussive Shot
+        [12355]   = "short_stun",   -- Impact
+        [20170]   = "short_stun",   -- Seal of Justice Stun
+        [15269]   = "short_stun",   -- Blackout
+        [18093]   = "short_stun",   -- Pyroclasm
+        [12798]   = "short_stun",   -- Revenge Stun
+        [5530]    = "short_stun",   -- Mace Stun Effect (Mace Specilization)
+
+        [18469]   = "silence",      -- Counterspell - Silenced
+        [15487]   = "silence",      -- Silence
+        [18425]   = "silence",      -- Kick - Silenced
+        [24259]   = "silence",      -- Spell Lock
+        [18498]   = "silence",      -- Shield Bash - Silenced
+
+        --[19675] = "feral_charge",   -- Feral Charge
+        [19185]   = "entrapment",     -- Entrapment
+        [19503]   = "scatter_shot",   -- Scatter Shot
+        [605]     = "mind_control",   -- Mind Control Rank 1
+        [10911]   = "mind_control",   -- Mind Control Rank 2
+        [10912]   = "mind_control",   -- Mind Control Rank 3
+        [7922]    = "charge",         -- Charge Stun
+
+        --[[ TODO: need to figure out if these cause any DRs, same with procs from gear/weapons
+        [13327] = "", -- Reckless Charge
+        [16566] = "", -- Net-o-Matic
+        [1090] = "", -- Sleep
+        [8312] = "", -- Trap
+
+        [5134] = "", -- Flash Bomb Fear
+        [19821] = "", -- Arcane Bomb Silence
+
+        [4068] = "", -- Iron Grenade
+        [19769] = "", -- Thorium Grenade
+        [13808] = "", -- M73 Frag Grenade
+        [4069] = "", -- Big Iron Bomb
+        [12543] = "", -- Hi-Explosive Bomb
+        [4064] = "", -- Rough Copper Bomb
+        [12421] = "", -- Mithril Frag Bomb
+        [19784] = "", -- Dark Iron Bomb
+        [4067] = "", -- Big Bronze Bomb
+        [4066] = "", -- Small Bronze Bomb
+        [4065] = "", -- Large Copper Bomb
+        [13237] = "", -- Goblin Mortar
+        [835] = "", -- Tidal Charm]]
+    }
 end
 
 -------------------------------------------------------------------------------

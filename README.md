@@ -1,18 +1,18 @@
 # DRList (Diminishing Returns Database)
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
 
-[API Documentation](https://wardz.github.io/DRList-1.0/)
+[API Documentation.](https://wardz.github.io/DRList-1.0/)
   
 **This addon is a fork/rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**  
 Some of the main differences between *DRData* and *DRList* are:
-- Spell data is updated for patch 8.1.0. Support for Classic is planned once it's released.
+- Spell data is updated for Retail patch 8.1.0 and Classic patch 1.13.2.
 - Now on Github instead of WoWAce. This should hopefully make contributing easier for people.
 - Table structure has slightly changed but if you only use the API functions there should be no conflicts. Upgrading from DRData to DRList is plug and play in most scenarios.  
   If you used to access the tables directly, you'll now need to add the current game version as an extra table property. E.g ```DRData.categoryNames``` to ```DRList.categoryNames.retail``` or ```DRList.categoryNames.classic```.  
   The only exception for this is on the spell list table.
 
 ## Install
-Installing from source/master is not always guaranteed to work. You can download a packaged version here instead:
+Installing from source/master is not guaranteed to work. You should download a packaged version here instead:
 - [Curseforge Download](https://wow.curseforge.com/projects/drlist-1-0)  
 - [Github Download](https://github.com/wardz/drlist/releases) (Choose binary)  
 Unzip it into ```WoW/Interface/AddOns/YourAddon/libs``` and add an entry for it in your addon's .toc file. (See Example Usage).

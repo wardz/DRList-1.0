@@ -77,7 +77,7 @@ Tests:It("GetsCategoryFromSpell", function()
     assert(DRList:GetCategoryBySpellID(853) == "stun")
     assert(DRList:GetCategoryBySpellID(339) == "root")
     assert(DRList:GetCategoryBySpellID(1776) == "incapacitate")
-    assert(DRList:GetCategoryBySpellID(605) == "disorient")
+    -- assert(DRList:GetCategoryBySpellID(605) == "disorient")
 
     assert(DRList:GetCategoryBySpellID(123) == nil)
     assert(DRList:GetCategoryBySpellID("123") == nil)
@@ -118,7 +118,7 @@ Tests:It("ChecksCategoriesPvE", function()
     assert(DRList:IsPvECategory(true) == false)
 
     DRList.gameExpansion = "classic"
-    assert(DRList:IsPvECategory("stun") == false)
+    assert(DRList:IsPvECategory("stun") == true)
     assert(DRList:IsPvECategory("taunt") == false)
 end)
 
@@ -179,6 +179,7 @@ Tests:It("IterateSpellsByCategory", function()
 end)
 
 Tests:It("Verifies spell list", function()
+    DRList.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
     local success = true
     local err = ""
 

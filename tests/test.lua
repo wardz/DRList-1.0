@@ -70,6 +70,7 @@ Tests:It("GetsCategoryNamesPvE", function()
     assert(DRList:GetPvECategories().disorient == nil)
 
     DRList.gameExpansion = "classic"
+    assert(type(DRList:GetPvECategories().stun) == "string")
     assert(DRList:GetPvECategories().taunt == nil)
 end)
 
@@ -84,6 +85,13 @@ Tests:It("GetsCategoryFromSpell", function()
     assert(DRList:GetCategoryBySpellID(true) == nil)
     assert(DRList:GetCategoryBySpellID({}) == nil)
     assert(DRList:GetCategoryBySpellID() == nil)
+
+    -- Run same test again for classic
+    if DRList.gameExpansion == "retail" then
+        DRList.gameExpansion = "classic"
+        -- assert(DRList:GetCategoryBySpellID(605) == "mind_control")
+        Tests.tests.GetsCategoryFromSpell()
+    end
 end)
 
 Tests:It("GetsLocalizations", function()
@@ -102,6 +110,7 @@ Tests:It("GetsLocalizations", function()
     DRList.gameExpansion = "classic"
     assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
     assert(low(DRList:GetCategoryLocalization("short_root")) == low(DRList.L.SHORT_ROOTS))
+    assert(low(DRList:GetCategoryLocalization("mind_control")) == low(DRList.L.MIND_CONTROL))
     assert(DRList:GetCategoryLocalization("knockback") == nil)
 end)
 
@@ -155,6 +164,7 @@ Tests:It("GetsNextDR", function()
     assert(DRList:GetNextDR(1, "taunt") ==  0)
     assert(DRList:GetNextDR(1, "short_stun") == 0.50)
     assert(DRList:GetNextDR(2, "short_root") == 0.25)
+    assert(DRList:GetNextDR(1, "mind_control") == 0.50)
 end)
 
 Tests:It("IterateSpellsByCategory", function()
@@ -176,8 +186,14 @@ Tests:It("IterateSpellsByCategory", function()
         end
     end
     assert(ran)
+
+    if DRList.gameExpansion == "retail" then
+        DRList.gameExpansion = "classic"
+        Tests.tests.IterateSpellsByCategory()
+    end
 end)
 
+-- This test is only ran ingame
 Tests:It("Verifies spell list", function()
     DRList.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
     local success = true

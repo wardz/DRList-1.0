@@ -367,6 +367,8 @@ else
     -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
     -- use spellIDs here. (Some spells have same name but different effects. It's also easy for spell names to clash with NPC spells.)
     Lib.spellList = {
+        -- NO SPELLIDS OR CATEGORIES ARE VERIFIED SO FAR FOR CLASSIC
+        -- THESE ARE ONLY PLACEHOLDERS
         [339]     = "root",           -- Entangling Roots Rank 1
         [1062]    = "root",           -- Entangling Roots Rank 2
         [5195]    = "root",           -- Entangling Roots Rank 3
@@ -374,6 +376,7 @@ else
         [9852]    = "root",           -- Entangling Roots Rank 5
         [9853]    = "root",           -- Entangling Roots Rank 6
         [19306]   = "root",           -- Counterattack
+        [19229]   = "root",           -- Improved Wing Clip
         [122]     = "root",           -- Frost Nova Rank 1
         [865]     = "root",           -- Frost Nova Rank 2
         [6131]    = "root",           -- Frost Nova Rank 3
@@ -474,6 +477,10 @@ else
         [10911]   = "mind_control",   -- Mind Control Rank 2
         [10912]   = "mind_control",   -- Mind Control Rank 3
         [7922]    = "charge",         -- Charge Stun
+        [8056]    = "frost_shock",    -- Frost Shock Rank 1
+        [8058]    = "frost_shock",    -- Frost Shock Rank 2
+        [10472]   = "frost_shock",    -- Frost Shock Rank 3
+        [10473]   = "frost_shock",    -- Frost Shock Rank 4
 
         --[[ TODO: need to figure out if these cause any DRs, same with procs from gear/weapons
         [13327] = "", -- Reckless Charge

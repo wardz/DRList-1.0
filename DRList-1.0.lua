@@ -95,7 +95,7 @@ Lib.categoryNames = {
     classic = {
         -- placeholders
         ["incapacitate"] = L.INCAPACITATES,
-        ["silence"] = L.SILENCES,
+        -- ["silence"] = L.SILENCES,
         ["stun"] = L.STUNS, -- controlled stun
         ["root"] = L.ROOTS, -- controlled root
         ["disarm"] = L.DISARMS,
@@ -465,11 +465,12 @@ else
         [12798]   = "short_stun",   -- Revenge Stun
         [5530]    = "short_stun",   -- Mace Stun Effect (Mace Specilization)
 
-        [18469]   = "silence",      -- Counterspell - Silenced
-        [15487]   = "silence",      -- Silence
-        [18425]   = "silence",      -- Kick - Silenced
-        [24259]   = "silence",      -- Spell Lock
-        [18498]   = "silence",      -- Shield Bash - Silenced
+        -- These most likely only DRs with themselves
+        -- [18469]   = "silence",      -- Counterspell - Silenced
+        -- [15487]   = "silence",      -- Silence
+        -- [18425]   = "silence",      -- Kick - Silenced
+        -- [24259]   = "silence",      -- Spell Lock
+        -- [18498]   = "silence",      -- Shield Bash - Silenced
 
         --[19675] = "feral_charge",   -- Feral Charge
         [19185]   = "entrapment",     -- Entrapment

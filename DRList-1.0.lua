@@ -79,7 +79,7 @@ Lib.resetTimes = {
 
 -- List of DR categories, english -> localized
 -- Note: unlocalized categories used for the API are always singular,
--- and localized user facing categories are always plural.
+-- and localized user facing categories are always plural. (Except spell names)
 Lib.categoryNames = {
     retail = {
         ["disorient"] = L.DISORIENTS,
@@ -93,7 +93,6 @@ Lib.categoryNames = {
     },
 
     classic = {
-        -- placeholders
         ["incapacitate"] = L.INCAPACITATES,
         -- ["silence"] = L.SILENCES,
         ["stun"] = L.STUNS, -- controlled stun
@@ -367,8 +366,6 @@ else
     -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
     -- use spellIDs here. (Some spells have same name but different effects. It's also easy for spell names to clash with NPC spells.)
     Lib.spellList = {
-        -- NO SPELLIDS OR CATEGORIES ARE VERIFIED SO FAR FOR CLASSIC
-        -- THESE ARE ONLY PLACEHOLDERS
         [339]     = "root",           -- Entangling Roots Rank 1
         [1062]    = "root",           -- Entangling Roots Rank 2
         [5195]    = "root",           -- Entangling Roots Rank 3
@@ -399,6 +396,7 @@ else
         [20615]   = "stun",           -- Intercept Stun Rank 3
         [20549]   = "stun",           -- War Stomp (Racial) TODO: confirm category
 
+        -- TODO: no idea if DRs
         [676]     = "disarm",         -- Disarm
 
         [2637]    = "incapacitate",   -- Hibernate Rank 1
@@ -411,7 +409,6 @@ else
         [24132]   = "incapacitate",   -- Wyvern Sting Rank 2
         [24133]   = "incapacitate",   -- Wyvern Sting Rank 3
         [28271]   = "incapacitate",   -- Polymorph: Turtle
-        [28270]   = "incapacitate",   -- Polymorph: Cow
         [28272]   = "incapacitate",   -- Polymorph: Pig
         [118]     = "incapacitate",   -- Polymorph Rank 1
         [12824]   = "incapacitate",   -- Polymorph Rank 2
@@ -434,7 +431,7 @@ else
         [8124]    = "fear",          -- Psychic Scream Rank 2
         [10888]   = "fear",          -- Psychic Scream Rank 3
         [10890]   = "fear",          -- Psychic Scream Rank 4
-        [2094]    = "fear",          -- Blind
+        -- [2094]    = "fear",      -- Blind TODO: confirm category
         [5782]    = "fear",          -- Fear Rank 1
         [6213]    = "fear",          -- Fear Rank 2
         [6215]    = "fear",          -- Fear Rank 3
@@ -443,6 +440,7 @@ else
         [6358]    = "fear",          -- Seduction
         [5246]    = "fear",          -- Intimidating Shout
 
+        -- TODO: does coil only DR with itself? if so we should rename category
         [6789]    = "horror",        -- Death Coil Rank 1
         [17925]   = "horror",        -- Death Coil Rank 2
         [17926]   = "horror",        -- Death Coil Rank 2
@@ -486,13 +484,15 @@ else
 
         --[[ TODO: need to figure out if these cause any DRs
         [13327] = "", -- Reckless Charge
-        [16566] = "", -- Net-o-Matic
+        [13099] = "", -- Net-o-Matic
+        [16566] = "", -- Net-o-Matic Backfire 1
+        [13138] = "", -- Net-o-Matic Backfire 2
         [1090] = "", -- Sleep
         [8312] = "", -- Trap
+        [13181] = "", -- Gnomish Mind Control Cap
 
         [5134] = "", -- Flash Bomb Fear
         [19821] = "", -- Arcane Bomb Silence
-
         [4068] = "", -- Iron Grenade
         [19769] = "", -- Thorium Grenade
         [13808] = "", -- M73 Frag Grenade
@@ -512,7 +512,6 @@ else
         [56] = "", -- Stun (Weapon Proc)
         [23454] = "", -- Stun 1s (Weapon Proc)
         [26108] = "", -- Glimpse of Madness
-        [13181] = "", -- Gnomish Mind Control Cap
         ]]
     }
 end

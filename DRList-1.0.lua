@@ -121,7 +121,6 @@ Lib.categoriesPvE = {
         ["stun"] = L.STUNS,
         ["root"] = L.ROOTS,
 --      ["cyclone"] = L.CYCLONE, -- TODO: verify
---      ["banish"] = L.BANISH, -- TODO: verify
     },
 
     classic = {

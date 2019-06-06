@@ -376,7 +376,6 @@ else
         [9852]    = "root",           -- Entangling Roots Rank 5
         [9853]    = "root",           -- Entangling Roots Rank 6
         [19306]   = "root",           -- Counterattack
-        [19229]   = "root",           -- Improved Wing Clip
         [122]     = "root",           -- Frost Nova Rank 1
         [865]     = "root",           -- Frost Nova Rank 2
         [6131]    = "root",           -- Frost Nova Rank 3
@@ -454,6 +453,7 @@ else
         [9827]    = "stun",         -- Pounce Rank 3
         [1833]    = "opener_stun",  -- Cheap Shot
 
+        [19229]   = "short_root",   -- Improved Wing Clip
         [23694]   = "short_root",   -- Improved Hamstring
 
         [16922]   = "short_stun",   -- Improved Starfire

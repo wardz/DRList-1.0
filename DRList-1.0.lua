@@ -99,7 +99,7 @@ Lib.categoryNames = {
         ["stun"] = L.STUNS, -- controlled stun
         ["root"] = L.ROOTS, -- controlled root
         ["disarm"] = L.DISARMS,
-        ["opener_stun"] = L.OPENER_STUN, -- Cheap Shot & Pounce
+        ["opener_stun"] = L.OPENER_STUN,
         ["short_stun"] = L.SHORT_STUNS, -- random proc stun, usually short
         ["short_root"] = L.SHORT_ROOTS,
         ["fear"] = L.FEARS,
@@ -124,7 +124,8 @@ Lib.categoriesPvE = {
     },
 
     classic = {
-        ["stun"] = L.STUNS, -- TODO: verify, might be opener_stun aswell
+        ["stun"] = L.STUNS,
+        ["opener_stun"] = L.OPENER_STUN,
     },
 }
 
@@ -447,10 +448,11 @@ else
         [17925]   = "horror",        -- Death Coil Rank 2
         [17926]   = "horror",        -- Death Coil Rank 2
 
-        [9005]    = "opener_stun",   -- Pounce Rank 1
-        [9823]    = "opener_stun",   -- Pounce Rank 2
-        [9827]    = "opener_stun",   -- Pounce Rank 3
-        [1833]    = "opener_stun",   -- Cheap Shot
+        -- TODO: need to confirm if Pounce shares DR with Cheap Shot
+        [9005]    = "stun",         -- Pounce Rank 1
+        [9823]    = "stun",         -- Pounce Rank 2
+        [9827]    = "stun",         -- Pounce Rank 3
+        [1833]    = "opener_stun",  -- Cheap Shot
 
         [23694]   = "short_root",   -- Improved Hamstring
 

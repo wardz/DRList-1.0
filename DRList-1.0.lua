@@ -482,7 +482,7 @@ else
         [10472]   = "frost_shock",    -- Frost Shock Rank 3
         [10473]   = "frost_shock",    -- Frost Shock Rank 4
 
-        --[[ TODO: need to figure out if these cause any DRs, same with procs from gear/weapons
+        --[[ TODO: need to figure out if these cause any DRs
         [13327] = "", -- Reckless Charge
         [16566] = "", -- Net-o-Matic
         [1090] = "", -- Sleep
@@ -503,7 +503,15 @@ else
         [4066] = "", -- Small Bronze Bomb
         [4065] = "", -- Large Copper Bomb
         [13237] = "", -- Goblin Mortar
-        [835] = "", -- Tidal Charm]]
+        [835] = "", -- Tidal Charm
+        [18278] = "", -- Silence (Weapon Proc)
+        [12562] = "", -- The Big One
+        [15283] = "", -- Stunning Blow (Weapon Proc)
+        [56] = "", -- Stun (Weapon Proc)
+        [23454] = "", -- Stun 1s (Weapon Proc)
+        [26108] = "", -- Glimpse of Madness
+        [13181] = "", -- Gnomish Mind Control Cap
+        ]]
     }
 end
 

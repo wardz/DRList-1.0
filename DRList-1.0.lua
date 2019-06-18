@@ -153,7 +153,6 @@ if Lib.gameExpansion == "retail" then
         -------------------------------------------------------------------------------
         [207167]  = "disorient",       -- Blinding Sleet
         [207685]  = "disorient",       -- Sigil of Misery
-        [2637]    = "disorient",       -- Hibernate
         [33786]   = "disorient",       -- Cyclone
         [209753]  = "disorient",       -- Cyclone (Honor talent)
         [31661]   = "disorient",       -- Dragon's Breath
@@ -179,6 +178,7 @@ if Lib.gameExpansion == "retail" then
         -------------------------------------------------------------------------------
         [217832]  = "incapacitate",    -- Imprison
         [221527]  = "incapacitate",    -- Imprison (Honor talent)
+        [2637]    = "incapacitate",    -- Hibernate
         [99]      = "incapacitate",    -- Incapacitating Roar
         [3355]    = "incapacitate",    -- Freezing Trap
         [203337]  = "incapacitate",    -- Freezing Trap (Honor talent)
@@ -398,6 +398,10 @@ else
 
         -- TODO: no idea if DRs
         [676]     = "disarm",         -- Disarm
+        [27581]   = "disarm",         -- Disarm 2
+        --[15752] = "disarm",         -- Disarm (Linken's Boomerang)
+        --[11879] = "disarm",         -- Disarm (Shoni's Disarming Tool)
+        --[13534] = "disarm",         -- Disarm (The Shatterer)
 
         [2637]    = "incapacitate",   -- Hibernate Rank 1
         [18657]   = "incapacitate",   -- Hibernate Rank 2
@@ -469,6 +473,7 @@ else
         -- [18425]   = "silence",      -- Kick - Silenced
         -- [24259]   = "silence",      -- Spell Lock
         -- [18498]   = "silence",      -- Shield Bash - Silenced
+        -- [27559]   = "silence",      -- Silence (Jagged Obsidian Shield)
 
         --[19675] = "feral_charge",   -- Feral Charge
         [19185]   = "entrapment",     -- Entrapment
@@ -488,6 +493,7 @@ else
         [16566] = "", -- Net-o-Matic Backfire 1
         [13138] = "", -- Net-o-Matic Backfire 2
         [1090] = "", -- Sleep
+        [9159] = "", -- Sleep (Green Whelp Armor)
         [8312] = "", -- Trap
         [13181] = "", -- Gnomish Mind Control Cap
 

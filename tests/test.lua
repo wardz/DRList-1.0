@@ -18,6 +18,7 @@ if not Tests:IsInGame() then
 
     assert(loadfile("libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0.lua"))()
+    assert(loadfile("Spells.lua"))()
 end
 
 local DRList = LibStub("DRList-1.0")

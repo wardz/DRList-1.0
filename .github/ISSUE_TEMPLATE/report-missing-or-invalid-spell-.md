@@ -12,6 +12,3 @@ assignees: ''
 
 **Does the spell(s) trigger DR incorrectly or do they never trigger at all?**
 <!-- For example, wrong DR category or only triggers once? -->
-
-
-**Do you play on a non-english locale, if yes, which one?**

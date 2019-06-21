@@ -8,7 +8,6 @@ assignees: ''
 ---
 
 <!-- Make sure you're using the latest version of DRList-1.0 before reporting a bug. -->
-<!-- For issues about missing spell IDs, you can just remove the text below and just submit the spell name or ID. -->
 
 
 **What is the problem? Is there any Lua errors?**

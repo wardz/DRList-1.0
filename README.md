@@ -92,12 +92,13 @@ You can ignore this section if you don't use the [Curseforge packager](https://a
 ```
 externals:
   libs/DRList-1.0:
-    url: git://github.com/wardz/DRList
+    url: git://github.com/wardz/DRList-1.0
     tag: latest
 
 ignore:
-  - libs/DRList-1.0/DRList-1.0.toc
-  - libs/DRList-1.0/libs/LibStub # optional if LibStub already exists
+  - libs/DRList-1.0/DRList-1.0.toc # ignore here is optional, it's only to cleanup the folder,
+  - libs/DRList-1.0/tests # these aren't actually loaded ingame.
+  - libs/DRList-1.0/libs/LibStub # this one is only optional if LibStub already exists
 ```
 
 ## Contributing

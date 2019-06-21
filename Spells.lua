@@ -1,8 +1,6 @@
 local Lib = LibStub and LibStub("DRList-1.0")
 
--- List of spellIDs that cause DR
--- Spells tagged "Item" are from consumables or equipment and can't be used in rated pvp, (Retail)
-
+-- List of spellIDs that causes DR.
 if Lib.gameExpansion == "retail" then
     Lib.spellList = {
         -- Disorients
@@ -133,7 +131,7 @@ if Lib.gameExpansion == "retail" then
         [245638]  = "stun",            -- Thick Shell (Item)
 
         -- Roots
-        -- Note: Short roots (<= 2s) usually have no DR, e.g Thunderstruck (199045).
+        -- Note: Short roots (<= 2s) usually have no DR, e.g Thunderstruck.
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
         [339]     = "root",            -- Entangling Roots
@@ -171,7 +169,7 @@ if Lib.gameExpansion == "retail" then
         [51399]   = "taunt",           -- Death Grip
         [185245]  = "taunt",           -- Torment
         [6795]    = "taunt",           -- Growl (Druid)
-        [2649]    = "taunt",           -- Growl (Hunter Pet)
+        [2649]    = "taunt",           -- Growl (Hunter Pet) -- TODO: verify if DRs
         [20736]   = "taunt",           -- Distracting Shot
         [116189]  = "taunt",           -- Provoke
         [118635]  = "taunt",           -- Provoke (Black Ox Statue)
@@ -184,7 +182,7 @@ if Lib.gameExpansion == "retail" then
 
         -- Knockbacks (Experimental)
 --      [108199]  = "knockback",        -- Gorefiend's Grasp (has no debuff)
---      [202249]  = "knockback",        -- Overrun TODO: needs verification
+--      [202249]  = "knockback",        -- Overrun TODO: verify
         [132469]  = "knockback",        -- Typhoon
         [102793]  = "knockback",        -- Ursol's Vortex (Warning: May only be tracked on SPELL_AURA_REFRESH afaik)
         [186387]  = "knockback",        -- Bursting Shot
@@ -194,12 +192,13 @@ if Lib.gameExpansion == "retail" then
         [51490]   = "knockback",        -- Thunderstorm
     }
 else
-    -- Spell list for Classic patch 1.13.2 (WIP)
+    -- Spell list for Classic patch 1.13.2 (** Work in progress **)
     -- Note: In Classic WoW most abilities have several ranks, where each rank has a different spellID.
     -- It'd be a lot easier to use GetSpellInfo here and store spell names instead to avoid having
     -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
     -- use spellIDs here. (Some spells have same name but different effects. It's also easy for spell names to clash with NPC spells.)
     Lib.spellList = {
+        -- Controlled roots
         [339]     = "root",           -- Entangling Roots Rank 1
         [1062]    = "root",           -- Entangling Roots Rank 2
         [5195]    = "root",           -- Entangling Roots Rank 3
@@ -213,6 +212,7 @@ else
         [10230]   = "root",           -- Frost Nova rank 4
         [8377]    = "root",           -- Earthgrab (Totem)
 
+        -- Controlled stuns
         [5211]    = "stun",           -- Bash Rank 1
         [6798]    = "stun",           -- Bash Rank 2
         [8983]    = "stun",           -- Bash Rank 3
@@ -230,13 +230,14 @@ else
         [20615]   = "stun",           -- Intercept Stun Rank 3
         [20549]   = "stun",           -- War Stomp (Racial) TODO: confirm category
 
-        -- TODO: no idea if DRs
+        -- Disarms (TODO: no idea if DRs in Classic)
         [676]     = "disarm",         -- Disarm
         [27581]   = "disarm",         -- Disarm 2
         --[15752] = "disarm",         -- Disarm (Linken's Boomerang)
         --[11879] = "disarm",         -- Disarm (Shoni's Disarming Tool)
         --[13534] = "disarm",         -- Disarm (The Shatterer)
 
+        -- Incapacitates
         [2637]    = "incapacitate",   -- Hibernate Rank 1
         [18657]   = "incapacitate",   -- Hibernate Rank 2
         [18658]   = "incapacitate",   -- Hibernate Rank 3
@@ -263,6 +264,7 @@ else
         [2070]    = "incapacitate",   -- Sap Rank 2
         [11297]   = "incapacitate",   -- Sap Rank 3
 
+        -- Fears
         [1513]    = "fear",          -- Scare Beast Rank 1
         [14326]   = "fear",          -- Scare Beast Rank 2
         [14327]   = "fear",          -- Scare Beast Rank 3
@@ -270,7 +272,7 @@ else
         [8124]    = "fear",          -- Psychic Scream Rank 2
         [10888]   = "fear",          -- Psychic Scream Rank 3
         [10890]   = "fear",          -- Psychic Scream Rank 4
-        -- [2094]    = "fear",      -- Blind TODO: confirm category
+        [2094]    = "fear",          -- Blind TODO: confirm category
         [5782]    = "fear",          -- Fear Rank 1
         [6213]    = "fear",          -- Fear Rank 2
         [6215]    = "fear",          -- Fear Rank 3
@@ -279,20 +281,23 @@ else
         [6358]    = "fear",          -- Seduction
         [5246]    = "fear",          -- Intimidating Shout
 
+        -- Short Fears
         -- TODO: does coil only DR with itself? if so we should rename category
         [6789]    = "horror",        -- Death Coil Rank 1
         [17925]   = "horror",        -- Death Coil Rank 2
         [17926]   = "horror",        -- Death Coil Rank 2
 
-        -- TODO: need to confirm if Pounce shares DR with Cheap Shot
+        -- Controlled stuns
         [9005]    = "stun",         -- Pounce Rank 1
         [9823]    = "stun",         -- Pounce Rank 2
         [9827]    = "stun",         -- Pounce Rank 3
-        [1833]    = "opener_stun",  -- Cheap Shot
+        [1833]    = "opener_stun",  -- Cheap Shot TODO: need to confirm if Pounce shares DR with Cheap Shot
 
+        -- Random/short roots
         [19229]   = "short_root",   -- Improved Wing Clip
         [23694]   = "short_root",   -- Improved Hamstring
 
+        -- Random/short stuns
         [16922]   = "short_stun",   -- Improved Starfire
         [19410]   = "short_stun",   -- Improved Concussive Shot
         [12355]   = "short_stun",   -- Impact
@@ -302,7 +307,7 @@ else
         [12798]   = "short_stun",   -- Revenge Stun
         [5530]    = "short_stun",   -- Mace Stun Effect (Mace Specilization)
 
-        -- These most likely only DRs with themselves
+        -- Silences
         -- [18469]   = "silence",      -- Counterspell - Silenced
         -- [15487]   = "silence",      -- Silence
         -- [18425]   = "silence",      -- Kick - Silenced
@@ -310,6 +315,7 @@ else
         -- [18498]   = "silence",      -- Shield Bash - Silenced
         -- [27559]   = "silence",      -- Silence (Jagged Obsidian Shield)
 
+        -- Spells that DRs with itself only
         --[19675] = "feral_charge",   -- Feral Charge
         [19185]   = "entrapment",     -- Entrapment
         [19503]   = "scatter_shot",   -- Scatter Shot
@@ -322,7 +328,9 @@ else
         [10472]   = "frost_shock",    -- Frost Shock Rank 3
         [10473]   = "frost_shock",    -- Frost Shock Rank 4
 
-        --[[ TODO: need to figure out if these cause any DRs
+        --[[
+        -- Items
+        TODO: need to figure out if these cause any DRs
         [13327] = "", -- Reckless Charge
         [13099] = "", -- Net-o-Matic
         [16566] = "", -- Net-o-Matic Backfire 1

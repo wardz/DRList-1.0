@@ -22,19 +22,20 @@ local L = {}
 Lib.L = L
 L["DISARMS"] = "Disarms"
 L["DISORIENTS"] = "Disorients"
-L["FEARS"] = "Fears"
-L["HORRORS"] = "Horrors"
 L["INCAPACITATES"] = "Incapacitates"
 L["KNOCKBACKS"] = "Knockbacks"
-L["SHORT_ROOTS"] = "Roots (short)"
-L["SHORT_STUNS"] = "Stuns (short)"
 L["ROOTS"] = "Roots"
 L["SILENCES"] = "Silences"
 L["STUNS"] = "Stuns"
 L["TAUNTS"] = "Taunts"
+
+-- Classic
+L["FEARS"] = "Fears"
+L["HORRORS"] = "Horrors"
+L["SHORT_ROOTS"] = "Roots (short)"
+L["SHORT_STUNS"] = "Stuns (short)"
 L["OPENER_STUN"] = "Opener stun" -- Cheap Shot & Pounce
 L["MIND_CONTROL"] = GetSpellInfo(605)
--- L["HIBERNATE"] =  GetSpellInfo(2637)
 L["CHARGE"] = GetSpellInfo(100)
 L["ENTRAPMENT"] = GetSpellInfo(19184) or GetSpellInfo(19387)
 L["SCATTER_SHOT"] = GetSpellInfo(19503) or GetSpellInfo(213691)
@@ -77,9 +78,9 @@ Lib.resetTimes = {
     },
 }
 
--- List of DR categories, english -> localized
+-- List of all DR categories, english -> localized.
 -- Note: unlocalized categories used for the API are always singular,
--- and localized user facing categories are always plural. (Except spell names)
+-- and localized user facing categories are always plural. (Except spell names in classic)
 Lib.categoryNames = {
     retail = {
         ["disorient"] = L.DISORIENTS,
@@ -105,7 +106,6 @@ Lib.categoryNames = {
         ["horror"] = L.HORRORS, -- short fears
         ["mind_control"] = L.MIND_CONTROL,
         ["scatter_shot"] = L.SCATTER_SHOT,
-        -- ["hibernate"] = L.HIBERNATE,
         ["frost_shock"] = L.FROST_SHOCK,
         ["entrapment"] = L.ENTRAPMENT,
         ["charge"] = L.CHARGE,
@@ -124,7 +124,7 @@ Lib.categoriesPvE = {
     classic = {
         ["stun"] = L.STUNS,
         ["opener_stun"] = L.OPENER_STUN,
-        -- TODO: banish?
+        -- TODO: banish/MC?
     },
 }
 

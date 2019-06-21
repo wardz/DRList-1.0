@@ -68,12 +68,12 @@ Lib.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
 -- How long it takes for a DR to expire
 Lib.resetTimes = {
     retail = {
-        ["default"] = 18.4, -- Always 18s after patch 6.1. (We add extra 0.4s to account for any latency)
-        ["knockback"] = 10.4, -- Knockbacks are immediately immune and only DRs for 10s
+        ["default"] = 18.3, -- Always 18s after patch 6.1. (We add extra 0.3s to account for latency)
+        ["knockback"] = 10.3, -- Knockbacks are immediately immune and only DRs for 10s
     },
 
     classic = {
-        ["default"] = 19.0, -- In classic this is between 15s and 20s, (first server batch tick after 15s have passed)
+        ["default"] = 18.5, -- In classic this is between 15s and 20s, (first server batch tick after 15s have passed)
     },
 }
 

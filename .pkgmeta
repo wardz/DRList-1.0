@@ -14,6 +14,6 @@ ignore:
   - README.md
   - LICENSE.md
   - release.sh
-  - tests/*
+  - DRList-1.0/tests/*
   - DRList-1.0/libs/LibStub/LibStub.toc
   - DRList-1.0/libs/LibStub/tests

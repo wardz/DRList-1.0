@@ -1,12 +1,11 @@
 -- Running tests from command line: (Make sure you run from root/main folder)
--- > cd DRList-1.0
--- > lua tests\test.lua
+-- > lua DRList-1.0/tests/test.lua
 --
 -- Running tests ingame:
 -- /drlist
 
 if loadfile then
-    assert(loadfile("tests/engine.lua"))()
+    assert(loadfile("DRList-1.0/tests/engine.lua"))()
 end
 
 local Tests = SimpleTesting:New("DRList-1.0")

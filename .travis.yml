@@ -14,7 +14,7 @@ install:
 script:
   - |
     if [ "$TRAVIS_BRANCH" == "master" -o -n "$TRAVIS_TAG" ]; then
-      /home/travis/.luarocks/bin/luacheck .
+      /home/travis/.luarocks/bin/luacheck . --exclude-files 'DRList-1.0/libs/LibStub/LibStub.lua'
       lua tests/test.lua
     fi
 

@@ -1,7 +1,11 @@
 enable-nolib-creation: yes
+package-as: DRList-1.0
 
 externals:
   libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
+
+move-folders:
+  DRList-1.0/DRList-1.0: DRList-1.0
 
 required-dependencies:
   - libstub
@@ -11,5 +15,3 @@ ignore:
   - LICENSE.md
   - release.sh
   - tests/*
-  - libs/LibStub/LibStub.toc
-  - libs/LibStub/tests

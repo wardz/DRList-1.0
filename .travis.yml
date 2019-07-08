@@ -20,6 +20,7 @@ script:
 
   - |
     if [ "$TRAVIS_PULL_REQUEST" == "false" -a -n "$TRAVIS_TAG" ]; then
+      cd DRList-1.0
       rm -rf libs # libs/ is kept before so tests.lua works, but we need to remove it here to make nolib-creation work with packager script below
       curl -L -s https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz | tar -xz
       lua LDoc-1.4.6/ldoc.lua DRList-1.0.lua

@@ -1,4 +1,4 @@
--- Running tests from command line:
+-- Running tests from command line: (Make sure you run from root/main folder)
 -- > cd DRList-1.0
 -- > lua tests\test.lua
 --
@@ -16,9 +16,9 @@ if not Tests:IsInGame() then
     GetBuildInfo = function() return nil, nil, nil, 80000 end -- always set this to retail
     GetSpellInfo = function() return "" end
 
-    assert(loadfile("libs/LibStub/LibStub.lua"))()
-    assert(loadfile("DRList-1.0.lua"))()
-    assert(loadfile("Spells.lua"))()
+    assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
+    assert(loadfile("DRList-1.0/DRList-1.0.lua"))()
+    assert(loadfile("DRList-1.0/Spells.lua"))()
 end
 
 local DRList = LibStub("DRList-1.0")

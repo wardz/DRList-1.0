@@ -96,15 +96,14 @@ externals:
     tag: latest
 
 ignore:
-  - libs/DRList-1.0/DRList-1.0.toc # ignore here is optional, it's only to cleanup the folder,
-  - libs/DRList-1.0/tests # these aren't actually loaded ingame.
-  - libs/DRList-1.0/libs/LibStub # this one is only optional if LibStub already exists
+  - libs/DRList-1.0/DRList-1.0.toc # Optional
+  - libs/DRList-1.0/libs/LibStub # Optional if LibStub already exists
 ```
 
 ## Contributing
 
 - [Submit a pull request.](https://gist.github.com/Chaser324/ce0505fbed06b947d962)  
-  You may run tests ingame by typing ```/drlist```.  
+  You may run tests by typing `/drlist` ingame or running `$ lua tests\test.lua` from root folder.
 - [Report bugs, requests or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://wow.curseforge.com/projects/drlist-1-0/localization)
 

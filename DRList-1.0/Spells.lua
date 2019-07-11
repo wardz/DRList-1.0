@@ -112,7 +112,7 @@ if Lib.gameExpansion == "retail" then
         [199804]  = "stun",            -- Between the Eyes
         [118905]  = "stun",            -- Static Charge (Capacitor Totem)
         [118345]  = "stun",            -- Pulverize (Primal Earth Elemental)
-        [204437]  = "stun",            -- Lightning Lasso
+        [305485]  = "stun",            -- Lightning Lasso
         [89766]   = "stun",            -- Axe Toss
         [171017]  = "stun",            -- Meteor Strike (Infernal)
         [171018]  = "stun",            -- Meteor Strike (Abyssal)

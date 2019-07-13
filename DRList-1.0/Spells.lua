@@ -246,6 +246,7 @@ else
         [3355]    = "incapacitate",   -- Freezing Trap Rank 1
         [14308]   = "incapacitate",   -- Freezing Trap Rank 2
         [14309]   = "incapacitate",   -- Freezing Trap Rank 3
+        [19503]   = "incapacitate",   -- Scatter Shot
         [19386]   = "incapacitate",   -- Wyvern Sting Rank 1
         [24132]   = "incapacitate",   -- Wyvern Sting Rank 2
         [24133]   = "incapacitate",   -- Wyvern Sting Rank 3
@@ -319,7 +320,6 @@ else
         -- Spells that DRs with itself only
         --[19675] = "feral_charge",   -- Feral Charge
         [19185]   = "entrapment",     -- Entrapment
-        [19503]   = "scatter_shot",   -- Scatter Shot
         [605]     = "mind_control",   -- Mind Control Rank 1
         [10911]   = "mind_control",   -- Mind Control Rank 2
         [10912]   = "mind_control",   -- Mind Control Rank 3

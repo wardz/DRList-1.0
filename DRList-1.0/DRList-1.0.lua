@@ -38,7 +38,6 @@ L["OPENER_STUN"] = "Opener stun" -- Cheap Shot & Pounce
 L["MIND_CONTROL"] = GetSpellInfo(605)
 L["CHARGE"] = GetSpellInfo(100)
 L["ENTRAPMENT"] = GetSpellInfo(19184) or GetSpellInfo(19387)
-L["SCATTER_SHOT"] = GetSpellInfo(19503) or GetSpellInfo(213691)
 L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840)
 
 -- luacheck: push ignore 542
@@ -105,7 +104,6 @@ Lib.categoryNames = {
         ["fear"] = L.FEARS,
         ["horror"] = L.HORRORS, -- short fears
         ["mind_control"] = L.MIND_CONTROL,
-        ["scatter_shot"] = L.SCATTER_SHOT,
         ["frost_shock"] = L.FROST_SHOCK,
         ["entrapment"] = L.ENTRAPMENT,
         ["charge"] = L.CHARGE,

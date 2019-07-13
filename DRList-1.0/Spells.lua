@@ -233,6 +233,7 @@ else
         -- Disarms (TODO: no idea if DRs in Classic)
         [676]     = "disarm",         -- Disarm
         [27581]   = "disarm",         -- Disarm 2
+        [14251]   = "disarm",         -- Riposte
         --[15752] = "disarm",         -- Disarm (Linken's Boomerang)
         --[11879] = "disarm",         -- Disarm (Shoni's Disarming Tool)
         --[13534] = "disarm",         -- Disarm (The Shatterer)

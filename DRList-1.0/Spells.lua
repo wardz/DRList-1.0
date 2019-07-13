@@ -267,6 +267,9 @@ else
         [6770]    = "incapacitate",   -- Sap Rank 1
         [2070]    = "incapacitate",   -- Sap Rank 2
         [11297]   = "incapacitate",   -- Sap Rank 3
+        [1090]    = "incapacitate",   -- Sleep
+        [9159]    = "incapacitate",   -- Sleep (Green Whelp Armor)
+        [13327]   = "incapacitate",   -- Reckless Charge (Rocket Helmet)
 
         -- Fears
         [1513]    = "fear",          -- Scare Beast Rank 1
@@ -333,12 +336,9 @@ else
         --[[
         -- Items
         TODO: need to figure out if these cause any DRs
-        [13327] = "", -- Reckless Charge
         [13099] = "", -- Net-o-Matic
         [16566] = "", -- Net-o-Matic Backfire 1
         [13138] = "", -- Net-o-Matic Backfire 2
-        [1090] = "", -- Sleep
-        [9159] = "", -- Sleep (Green Whelp Armor)
         [8312] = "", -- Trap
         [13181] = "", -- Gnomish Mind Control Cap
 

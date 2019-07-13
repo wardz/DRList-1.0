@@ -12,16 +12,6 @@ Some of the main differences between *DRData* and *DRList* are:
 - Repository is now hosted on Github instead of WoWAce and also has unit testing. This should hopefully make contributing
   easier for people.
 
-## Install
-
-Installing from source/master is not guaranteed to work. You should download a packaged version here instead:
-
-- [Curseforge Download](https://wow.curseforge.com/projects/drlist-1-0)  
-- [Github Download](https://github.com/wardz/drlist/releases) (Choose binary)  
-Unzip it into ```WoW/Interface/AddOns/YourAddon/libs``` and add an entry for it in your addon's .toc file. (See Example Usage).
-You may also install it as a standalone addon by putting it directly in ```WoW/Interface/AddOns/```. This is recommended when
-forking the library or creating addon packs/plugins where multiple addons use the lib.
-
 ## Upgrading from DRData to DRList
 
 - All occurances of `DRData` must be renamed to `DRList`.
@@ -29,59 +19,15 @@ forking the library or creating addon packs/plugins where multiple addons use th
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. For API functions
   there should be no need for changes.
 
-## Example Usage
+## Manual Install
 
-See [here](https://wardz.github.io/DRList-1.0/) for API documentation.  
-**addon/addon.toc**
+Installing from source/master is not guaranteed to work. You should download a packaged version here instead:
 
-```
-## Interface: 80100
-## Title: addon
-libs/DRList-1.0/libs/LibStub/LibStub.lua # Only needed if LibStub is not already included
-libs/DRList-1.0/DRList-1.0.xml
-
-addon.lua
-```
-
-**addon/addon.lua**
-
-```lua
--- Get lib instance.
-local DRList = LibStub("DRList-1.0")
-
--- Register a combat log event handler
-local addon = CreateFrame("Frame")
-addon:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-addon:SetScript("OnEvent", function(self, event)
-    local _, eventType, _, _, _, _, _, destGUID, _, destFlags, _, spellID, _, _, auraType = CombatLogGetCurrentEventInfo()
-
-    -- Check all debuffs found in the combat log
-    if auraType == "DEBUFF" then
-        -- Get the DR category or exit immediately if spell/debuff doesn't have a DR
-        -- This is the unlocalized category name, used for API functions.
-        local category = DRList:GetCategoryBySpellID(spellID)
-        if not category or category == "knockback" then return end
-        -- knockback category is experimental, you can keep it if you want but it is not that accurate.
-
-        -- Check if unit that got Crowd Control aura is a player
-        -- You might also want to check if it's hostile or not depending on your needs
-        -- https://wow.gamepedia.com/UnitFlag
-        local isPlayer = bit.band(destFlags, COMBATLOG_OBJECT_TYPE_PLAYER) ~= 0
-        if not isPlayer then return end
-
-        -- CC aura has faded or refreshed, DR starts
-        if eventType == "SPELL_AURA_REMOVED" or eventType == "SPELL_AURA_REFRESH" then
-            -- Store some data relative to destGUID, do your stuff, etc, then make sure to wipe it after 18s (DRList:GetResetTime())
-            -- If you want to track target, focus etc you need to also keep track of every guid so that data
-            -- is not overwritten or reset on target lost/switched. For static units such as arena123, you
-            -- can just reset their guids on PLAYER_ENTERING_WORLD, or GROUP_ROSTER_UPDATE for party members.
-            --
-            -- You probably also want to track how many times the DR has been triggered for a guid so you can get
-            -- the current DR status (immune, half, etc), @see DRLib:GetNextDR()
-        end
-    end
-end)
-```
+- [Curseforge Download](https://wow.curseforge.com/projects/drlist-1-0)  
+- [Github Download](https://github.com/wardz/drlist/releases)  
+Unzip it into ```WoW/Interface/AddOns/YourAddon/libs``` and add an entry for it in your addon's .toc file. (See Example Usage).
+You may also install it as a standalone addon by putting it directly in ```WoW/Interface/AddOns/```. This is recommended when
+forking the library or creating addon packs/plugins where multiple addons use the lib.
 
 ## Usage with Curseforge Packager
 
@@ -100,13 +46,19 @@ ignore:
   - libs/DRList-1.0/libs/LibStub # Optional if LibStub already exists
 ```
 
+## Example Usage
+
+See [here](https://github.com/wardz/DRList-1.0/wiki/Example-Usage) for example usage code.  
+Feel free to open an issue ticket if you have any questions.
+
+
 ## Contributing
 
-- [Submit a pull request.](https://gist.github.com/Chaser324/ce0505fbed06b947d962)  
+- [Submit a pull request.](https://github.com/wardz/diminish/pulls)  
   You may run tests by typing `/drlist` ingame or running `$ lua tests\test.lua` from root folder.
 - [Report bugs, requests or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://wow.curseforge.com/projects/drlist-1-0/localization)
 
 ## License
 
-[MIT License](https://opensource.org/licenses/mit-license.php).
+Copyright (C) 2019 Wardz | [MIT License](https://opensource.org/licenses/mit-license.php).

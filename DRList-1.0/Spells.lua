@@ -1,7 +1,8 @@
 local Lib = LibStub and LibStub("DRList-1.0")
 
--- List of spellIDs that causes DR.
 if Lib.gameExpansion == "retail" then
+
+    -- SpellID list for Retail WoW
     Lib.spellList = {
         -- Disorients
         [207167]  = "disorient",       -- Blinding Sleet
@@ -191,12 +192,14 @@ if Lib.gameExpansion == "retail" then
         [204263]  = "knockback",        -- Shining Force
         [51490]   = "knockback",        -- Thunderstorm
     }
+
 else
+
     -- Spell list for Classic patch 1.13.2 (** Work in progress **)
-    -- Note: In Classic WoW most abilities have several ranks, where each rank has a different spellID.
-    -- It'd be a lot easier to use GetSpellInfo here and store spell names instead to avoid having
+    -- Note: In Classic WoW most abilities have several ranks, where each rank have a different spellID.
+    -- It'd be a lot easier to use GetSpellInfo here and store spell names instead of having
     -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
-    -- use spellIDs here. (Some spells have same name but different effects. It's also easy for spell names to clash with NPC spells.)
+    -- use spellIDs here. (Some spells have same name but different effects. It's also easy for player spell names to clash with NPC spells.)
     Lib.spellList = {
         -- Controlled roots
         [339]     = "root",           -- Entangling Roots Rank 1
@@ -221,7 +224,7 @@ else
         [5588]    = "stun",           -- Hammer of Justice Rank 2
         [5589]    = "stun",           -- Hammer of Justice Rank 3
         [10308]   = "stun",           -- Hammer of Justice Rank 4
-        [22703]   = "stun",           -- Inferno Effect (Summon Infernal)
+        [22703]   = "stun",           -- Inferno Effect (Summon Infernal) TODO: confirm if DRs
         [408]     = "stun",           -- Kidney Shot Rank 1
         [8643]    = "stun",           -- Kidney Shot Rank 2
         [12809]   = "stun",           -- Concussion Blow
@@ -242,7 +245,6 @@ else
         [2637]    = "incapacitate",   -- Hibernate Rank 1
         [18657]   = "incapacitate",   -- Hibernate Rank 2
         [18658]   = "incapacitate",   -- Hibernate Rank 3
-        --[22570]   = "incapacitate",   -- Mangle Rank 1
         [3355]    = "incapacitate",   -- Freezing Trap Rank 1
         [14308]   = "incapacitate",   -- Freezing Trap Rank 2
         [14309]   = "incapacitate",   -- Freezing Trap Rank 3
@@ -284,16 +286,15 @@ else
         [5246]    = "fear",          -- Intimidating Shout
 
         -- Short Fears
-        -- TODO: does coil only DR with itself? if so we should rename category
         [6789]    = "horror",        -- Death Coil Rank 1
         [17925]   = "horror",        -- Death Coil Rank 2
         [17926]   = "horror",        -- Death Coil Rank 2
 
-        -- Controlled stuns
-        [9005]    = "stun",         -- Pounce Rank 1
+        -- Stealth stuns
+        [9005]    = "stun",         -- Pounce Rank 1 TODO: need to confirm if Pounce shares DR with Cheap Shot
         [9823]    = "stun",         -- Pounce Rank 2
         [9827]    = "stun",         -- Pounce Rank 3
-        [1833]    = "opener_stun",  -- Cheap Shot TODO: need to confirm if Pounce shares DR with Cheap Shot
+        [1833]    = "opener_stun",  -- Cheap Shot
 
         -- Random/short roots
         [19229]   = "short_root",   -- Improved Wing Clip
@@ -307,7 +308,7 @@ else
         [15269]   = "short_stun",   -- Blackout
         [18093]   = "short_stun",   -- Pyroclasm
         [12798]   = "short_stun",   -- Revenge Stun
-        [5530]    = "short_stun",   -- Mace Stun Effect (Mace Specilization)
+        [5530]    = "short_stun",   -- Mace Stun Effect (Mace Specialization)
 
         -- Silences
         -- [18469]   = "silence",      -- Counterspell - Silenced
@@ -318,16 +319,16 @@ else
         -- [27559]   = "silence",      -- Silence (Jagged Obsidian Shield)
 
         -- Spells that DRs with itself only
-        --[19675] = "feral_charge",   -- Feral Charge
+        --[19675] = "feral_charge",   -- Feral Charge Effect
         [19185]   = "entrapment",     -- Entrapment
         [605]     = "mind_control",   -- Mind Control Rank 1
         [10911]   = "mind_control",   -- Mind Control Rank 2
         [10912]   = "mind_control",   -- Mind Control Rank 3
-        [7922]    = "charge",         -- Charge Stun
         [8056]    = "frost_shock",    -- Frost Shock Rank 1
         [8058]    = "frost_shock",    -- Frost Shock Rank 2
         [10472]   = "frost_shock",    -- Frost Shock Rank 3
         [10473]   = "frost_shock",    -- Frost Shock Rank 4
+        [7922]    = "charge",         -- Charge Stun
 
         --[[
         -- Items

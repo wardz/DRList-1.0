@@ -73,7 +73,11 @@ Lib.resetTimes = {
     },
 
     classic = {
-        ["default"] = 18.5, -- In classic this is between 15s and 20s, (first server batch tick after 15s have passed)
+        -- In classic this is between 15s and 20s, (first server tick after 15s have passed)
+        -- We use 18.5 as an average reset time, 20s reset should only be in worst case scenarios.
+        -- Note: This is how it worked in Vanilla, but I haven't confirmed yet if it still work this way
+        -- on Classic.
+        ["default"] = 18.5,
     },
 }
 
@@ -99,7 +103,7 @@ Lib.categoryNames = {
         ["root"] = L.ROOTS, -- controlled root
         ["disarm"] = L.DISARMS,
         ["opener_stun"] = L.OPENER_STUN,
-        ["short_stun"] = L.SHORT_STUNS, -- random proc stun, usually short
+        ["short_stun"] = L.SHORT_STUNS, -- random proc stun, usually short (<3s)
         ["short_root"] = L.SHORT_ROOTS,
         ["fear"] = L.FEARS,
         ["horror"] = L.HORRORS, -- short fears
@@ -110,8 +114,8 @@ Lib.categoryNames = {
     },
 }
 
--- Categories that have DR against mobs.
--- Note that only elites usually have root/taunt DR.
+-- Categories that have DR against mobs (not pets).
+-- Note that only elites and quest bosses usually have root/taunt DR.
 Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS,

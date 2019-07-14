@@ -300,18 +300,21 @@ else
         [1833]    = "opener_stun",  -- Cheap Shot
 
         -- Random/short roots
-        [19229]   = "short_root",   -- Improved Wing Clip
-        [23694]   = "short_root",   -- Improved Hamstring
+        [19229]   = "random_root",   -- Improved Wing Clip
+        [23694]   = "random_root",   -- Improved Hamstring
 
         -- Random/short stuns
-        [16922]   = "short_stun",   -- Improved Starfire
-        [19410]   = "short_stun",   -- Improved Concussive Shot
-        [12355]   = "short_stun",   -- Impact
-        [20170]   = "short_stun",   -- Seal of Justice Stun
-        [15269]   = "short_stun",   -- Blackout
-        [18093]   = "short_stun",   -- Pyroclasm
-        [12798]   = "short_stun",   -- Revenge Stun
-        [5530]    = "short_stun",   -- Mace Stun Effect (Mace Specialization)
+        [16922]   = "random_stun",   -- Improved Starfire
+        [19410]   = "random_stun",   -- Improved Concussive Shot
+        [12355]   = "random_stun",   -- Impact
+        [20170]   = "random_stun",   -- Seal of Justice Stun
+        [15269]   = "random_stun",   -- Blackout
+        [18093]   = "random_stun",   -- Pyroclasm
+        [12798]   = "random_stun",   -- Revenge Stun
+        [5530]    = "random_stun",   -- Mace Stun Effect (Mace Specialization)
+        [15283]   = "random_stun",   -- Stunning Blow (Weapon Proc)
+        [56]      = "random_stun",   -- Stun (Weapon Proc)
+        [23454]   = "random_stun",   -- Stun 2 (Weapon Proc)
 
         -- Silences
         -- [18469]   = "silence",      -- Counterspell - Silenced

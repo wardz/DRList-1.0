@@ -31,9 +31,8 @@ L["TAUNTS"] = "Taunts"
 
 -- Classic
 L["FEARS"] = "Fears"
-L["HORRORS"] = "Horrors"
-L["SHORT_ROOTS"] = "Roots (short)"
-L["SHORT_STUNS"] = "Stuns (short)"
+L["RANDOM_ROOTS"] = "Random roots"
+L["RANDOM_STUNS"] = "Random stuns"
 L["OPENER_STUN"] = "Opener stun" -- Cheap Shot & Pounce
 L["MIND_CONTROL"] = GetSpellInfo(605)
 L["CHARGE"] = GetSpellInfo(100)
@@ -103,8 +102,8 @@ Lib.categoryNames = {
         ["root"] = L.ROOTS, -- controlled root
         ["disarm"] = L.DISARMS,
         ["opener_stun"] = L.OPENER_STUN,
-        ["short_stun"] = L.SHORT_STUNS, -- random proc stun, usually short (<3s)
-        ["short_root"] = L.SHORT_ROOTS,
+        ["random_stun"] = L.RANDOM_STUNS, -- random proc stun, usually short (<3s)
+        ["random_root"] = L.RANDOM_ROOTS,
         ["fear"] = L.FEARS,
         ["horror"] = L.HORRORS, -- short fears
         ["mind_control"] = L.MIND_CONTROL,

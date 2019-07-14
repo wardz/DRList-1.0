@@ -288,11 +288,6 @@ else
         [6358]    = "fear",          -- Seduction
         [5246]    = "fear",          -- Intimidating Shout
 
-        -- Short Fears
-        [6789]    = "horror",        -- Death Coil Rank 1
-        [17925]   = "horror",        -- Death Coil Rank 2
-        [17926]   = "horror",        -- Death Coil Rank 2
-
         -- Stealth stuns
         [9005]    = "stun",         -- Pounce Rank 1 TODO: need to confirm if Pounce shares DR with Cheap Shot
         [9823]    = "stun",         -- Pounce Rank 2
@@ -334,6 +329,9 @@ else
         [8058]    = "frost_shock",    -- Frost Shock Rank 2
         [10472]   = "frost_shock",    -- Frost Shock Rank 3
         [10473]   = "frost_shock",    -- Frost Shock Rank 4
+        [6789]    = "death_coil",     -- Death Coil Rank 1
+        [17925]   = "death_coil",     -- Death Coil Rank 2
+        [17926]   = "death_coil",     -- Death Coil Rank 2
         [7922]    = "charge",         -- Charge Stun
 
         --[[

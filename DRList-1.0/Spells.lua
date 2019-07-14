@@ -195,7 +195,7 @@ if Lib.gameExpansion == "retail" then
 
 else
 
-    -- Spell list for Classic patch 1.13.2 (** Work in progress **)
+    -- Spell list for Classic patch 1.13.2 (** Work in progress, a lot is unconfirmed **)
     -- Note: In Classic WoW most abilities have several ranks, where each rank have a different spellID.
     -- It'd be a lot easier to use GetSpellInfo here and store spell names instead of having
     -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
@@ -214,6 +214,10 @@ else
         [6131]    = "root",           -- Frost Nova Rank 3
         [10230]   = "root",           -- Frost Nova rank 4
         [8377]    = "root",           -- Earthgrab (Totem)
+        [13099]   = "root",           -- Net-o-Matic
+        [16566]   = "root",           -- Net-o-Matic Backfire 1
+        [13138]   = "root",           -- Net-o-Matic Backfire 2
+        [8312]    = "root",           -- Trap
 
         -- Controlled stuns
         [5211]    = "stun",           -- Bash Rank 1
@@ -231,15 +235,29 @@ else
         [20253]   = "stun",           -- Intercept Stun Rank 1
         [20614]   = "stun",           -- Intercept Stun Rank 2
         [20615]   = "stun",           -- Intercept Stun Rank 3
-        [20549]   = "stun",           -- War Stomp (Racial) TODO: confirm category
+        [20549]   = "stun",           -- War Stomp (Racial)
+        [4068]    = "stun",           -- Iron Grenade
+        [19769]   = "stun",           -- Thorium Grenade
+        [13808]   = "stun",           -- M73 Frag Grenade
+        [4069]    = "stun",           -- Big Iron Bomb
+        [12543]   = "stun",           -- Hi-Explosive Bomb
+        [4064]    = "stun",           -- Rough Copper Bomb
+        [12421]   = "stun",           -- Mithril Frag Bomb
+        [19784]   = "stun",           -- Dark Iron Bomb
+        [4067]    = "stun",           -- Big Bronze Bomb
+        [4066]    = "stun",           -- Small Bronze Bomb
+        [4065]    = "stun",           -- Large Copper Bomb
+        [13237]   = "stun",           -- Goblin Mortar
+        [835]     = "stun",           -- Tidal Charm
+        [12562]   = "stun",           -- The Big One
 
-        -- Disarms (TODO: no idea if DRs in Classic)
+        -- Disarms
         [676]     = "disarm",         -- Disarm
         [27581]   = "disarm",         -- Disarm 2
         [14251]   = "disarm",         -- Riposte
-        --[15752] = "disarm",         -- Disarm (Linken's Boomerang)
-        --[11879] = "disarm",         -- Disarm (Shoni's Disarming Tool)
-        --[13534] = "disarm",         -- Disarm (The Shatterer)
+        [15752]   = "disarm",         -- Disarm (Linken's Boomerang)
+        [11879]   = "disarm",         -- Disarm (Shoni's Disarming Tool)
+        [13534]   = "disarm",         -- Disarm (The Shatterer)
 
         -- Incapacitates
         [2637]    = "incapacitate",   -- Hibernate Rank 1
@@ -270,6 +288,8 @@ else
         [1090]    = "incapacitate",   -- Sleep
         [9159]    = "incapacitate",   -- Sleep (Green Whelp Armor)
         [13327]   = "incapacitate",   -- Reckless Charge (Rocket Helmet)
+        [13181]   = "incapacitate",   -- Gnomish Mind Control Cap
+        [26108]   = "incapacitate",   -- Glimpse of Madness
 
         -- Fears
         [1513]    = "fear",          -- Scare Beast Rank 1
@@ -287,11 +307,12 @@ else
         [17928]   = "fear",          -- Howl of Terror Rank 1
         [6358]    = "fear",          -- Seduction
         [5246]    = "fear",          -- Intimidating Shout
+        [5134]    = "fear",          -- Flash Bomb Fear
 
         -- Stealth stuns
-        [9005]    = "stun",         -- Pounce Rank 1 TODO: need to confirm if Pounce shares DR with Cheap Shot
-        [9823]    = "stun",         -- Pounce Rank 2
-        [9827]    = "stun",         -- Pounce Rank 3
+        [9005]    = "opener_stun",  -- Pounce Rank 1 TODO: need to confirm these
+        [9823]    = "opener_stun",  -- Pounce Rank 2
+        [9827]    = "opener_stun",  -- Pounce Rank 3
         [1833]    = "opener_stun",  -- Cheap Shot
 
         -- Random/short roots
@@ -312,12 +333,14 @@ else
         [23454]   = "random_stun",   -- Stun 2 (Weapon Proc)
 
         -- Silences
-        -- [18469]   = "silence",      -- Counterspell - Silenced
-        -- [15487]   = "silence",      -- Silence
-        -- [18425]   = "silence",      -- Kick - Silenced
-        -- [24259]   = "silence",      -- Spell Lock
-        -- [18498]   = "silence",      -- Shield Bash - Silenced
-        -- [27559]   = "silence",      -- Silence (Jagged Obsidian Shield)
+        [18469]   = "silence",      -- Counterspell - Silenced
+        [15487]   = "silence",      -- Silence
+        [18425]   = "silence",      -- Kick - Silenced
+        [24259]   = "silence",      -- Spell Lock
+        [18498]   = "silence",      -- Shield Bash - Silenced
+        [27559]   = "silence",      -- Silence (Jagged Obsidian Shield)
+        [19821]   = "silence",      -- Arcane Bomb Silence
+        [18278]   = "silence",      -- Silence (Weapon Proc)
 
         -- Spells that DRs with itself only
         --[19675] = "feral_charge",   -- Feral Charge Effect
@@ -333,37 +356,5 @@ else
         [17925]   = "death_coil",     -- Death Coil Rank 2
         [17926]   = "death_coil",     -- Death Coil Rank 2
         [7922]    = "charge",         -- Charge Stun
-
-        --[[
-        -- Items
-        TODO: need to figure out if these cause any DRs
-        [13099] = "", -- Net-o-Matic
-        [16566] = "", -- Net-o-Matic Backfire 1
-        [13138] = "", -- Net-o-Matic Backfire 2
-        [8312] = "", -- Trap
-        [13181] = "", -- Gnomish Mind Control Cap
-
-        [5134] = "", -- Flash Bomb Fear
-        [19821] = "", -- Arcane Bomb Silence
-        [4068] = "", -- Iron Grenade
-        [19769] = "", -- Thorium Grenade
-        [13808] = "", -- M73 Frag Grenade
-        [4069] = "", -- Big Iron Bomb
-        [12543] = "", -- Hi-Explosive Bomb
-        [4064] = "", -- Rough Copper Bomb
-        [12421] = "", -- Mithril Frag Bomb
-        [19784] = "", -- Dark Iron Bomb
-        [4067] = "", -- Big Bronze Bomb
-        [4066] = "", -- Small Bronze Bomb
-        [4065] = "", -- Large Copper Bomb
-        [13237] = "", -- Goblin Mortar
-        [835] = "", -- Tidal Charm
-        [18278] = "", -- Silence (Weapon Proc)
-        [12562] = "", -- The Big One
-        [15283] = "", -- Stunning Blow (Weapon Proc)
-        [56] = "", -- Stun (Weapon Proc)
-        [23454] = "", -- Stun 1s (Weapon Proc)
-        [26108] = "", -- Glimpse of Madness
-        ]]
     }
 end

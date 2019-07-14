@@ -60,7 +60,7 @@ Tests:It("GetsCategoryNames", function()
     DRList.gameExpansion = "classic"
     assert(type(DRList.categoryNames["classic"].stun) == "string")
     assert(type(DRList:GetCategories().root) == "string")
-    assert(type(DRList:GetCategories().short_root) == "string")
+    assert(type(DRList:GetCategories().random_root) == "string")
     assert(DRList:GetCategories().knockback == nil)
 end)
 
@@ -109,7 +109,7 @@ Tests:It("GetsLocalizations", function()
 
     DRList.gameExpansion = "classic"
     assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
-    assert(low(DRList:GetCategoryLocalization("short_root")) == low(DRList.L.SHORT_ROOTS))
+    assert(low(DRList:GetCategoryLocalization("random_root")) == low(DRList.L.RANDOM_ROOTS))
     assert(low(DRList:GetCategoryLocalization("mind_control")) == low(DRList.L.MIND_CONTROL))
     assert(DRList:GetCategoryLocalization("knockback") == nil)
 end)
@@ -146,7 +146,7 @@ Tests:It("GetsNextDR", function()
     assert(DRList:GetNextDR(true) == 0)
     assert(DRList:GetNextDR() == 0)
     assert(DRList:GetNextDR(-1, {}) == 0)
-    assert(DRList:GetNextDR(1, "short_stun") == 0)
+    assert(DRList:GetNextDR(1, "random_stun") == 0)
 
     assert(DRList:GetNextDR(1, "disorient") == 0.50)
     assert(DRList:GetNextDR(2, "disorient") == 0.25)
@@ -162,8 +162,8 @@ Tests:It("GetsNextDR", function()
 
     DRList.gameExpansion = "classic"
     assert(DRList:GetNextDR(1, "taunt") ==  0)
-    assert(DRList:GetNextDR(1, "short_stun") == 0.50)
-    assert(DRList:GetNextDR(2, "short_root") == 0.25)
+    assert(DRList:GetNextDR(1, "random_stun") == 0.50)
+    assert(DRList:GetNextDR(2, "random_root") == 0.25)
     assert(DRList:GetNextDR(1, "mind_control") == 0.50)
 end)
 

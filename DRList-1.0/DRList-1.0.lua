@@ -98,7 +98,7 @@ Lib.categoryNames = {
 
     classic = {
         ["incapacitate"] = L.INCAPACITATES,
-        -- ["silence"] = L.SILENCES,
+        ["silence"] = L.SILENCES,
         ["stun"] = L.STUNS, -- controlled stun
         ["root"] = L.ROOTS, -- controlled root
         ["disarm"] = L.DISARMS,

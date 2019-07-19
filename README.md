@@ -55,9 +55,9 @@ Feel free to open an issue ticket if you have any questions.
 ## Contributing
 
 - [Submit a pull request.](https://github.com/wardz/diminish/pulls)  
-  You may run tests by typing `/drlist` ingame or running `$ lua tests\test.lua` from root folder.
+  You may run tests by typing `/drlist` ingame or running `$ lua DRList-1.0\tests\test.lua` from root folder.
 - [Report bugs, requests or missing spells.](https://github.com/wardz/drlist-1.0/issues)
-- [Help translate.](https://wow.curseforge.com/projects/drlist-1-0/localization)
+- [Help translate.](https://www.curseforge.com/wow/addons/drlist-1-0/localization)
 
 ## License
 

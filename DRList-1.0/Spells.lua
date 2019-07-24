@@ -290,6 +290,7 @@ else
         [13327]   = "incapacitate",   -- Reckless Charge (Rocket Helmet)
         [13181]   = "incapacitate",   -- Gnomish Mind Control Cap
         [26108]   = "incapacitate",   -- Glimpse of Madness
+        --[18798]   = "incapacitate",   -- Freeze (Freezing Band) TODO: confirm category
 
         -- Fears
         [1513]    = "fear",          -- Scare Beast Rank 1
@@ -358,3 +359,6 @@ else
         [7922]    = "charge",         -- Charge Stun
     }
 end
+
+-- keep same API as DRData-1.0 for easier transitions
+Lib.spells = Lib.spellList

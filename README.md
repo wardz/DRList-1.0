@@ -16,8 +16,8 @@ Some of the main differences between *DRData* and *DRList* are:
 
 - All occurances of `DRData` must be renamed to `DRList`.
 - If you used to access the tables directly, you'll now need to add the current expansion as an extra table property.
-  E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. For API functions
-  there should be no need for changes.
+  E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
+  the spell list table. For API functions there should be no need for changes.
 
 ## Manual Install
 

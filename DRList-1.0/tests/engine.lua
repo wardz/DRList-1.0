@@ -1,8 +1,8 @@
 SimpleTesting = {}
 SimpleTesting.__index = SimpleTesting
 
-format = format or string.format
-debugprofilestop = debugprofilestop or os.clock
+local format = format or string.format
+local debugprofilestop = debugprofilestop or os.clock
 
 function SimpleTesting:New(addonName)
     assert(type(addonName) == "string")

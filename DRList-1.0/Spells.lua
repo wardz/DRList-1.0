@@ -78,12 +78,10 @@ if Lib.gameExpansion == "retail" then
         [204490]  = "silence",         -- Sigil of Silence
 --      [78675]   = "silence",         -- Solar Beam (doesn't seem to DR)
         [202933]  = "silence",         -- Spider Sting
-        [233022]  = "silence",         -- Spider Sting 2 (TODO: incorrect?)
         [217824]  = "silence",         -- Shield of Virtue
         [15487]   = "silence",         -- Silence
         [1330]    = "silence",         -- Garrote
-        [43523]   = "silence",         -- Unstable Affliction Silence Effect (TODO: incorrect?)
-        [196364]  = "silence",         -- Unstable Affliction Silence Effect 2
+        [196364]  = "silence",         -- Unstable Affliction Silence Effect
 
         -- Stuns
         [210141]  = "stun",            -- Zombie Explosion

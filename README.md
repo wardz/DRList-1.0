@@ -20,7 +20,7 @@ DRList is updated to seamlessly support both Classic and Retail World of Warcraf
 Installing from source/master is not guaranteed to work. You should download a packaged version here instead:
 
 - [Curseforge Download](https://wow.curseforge.com/projects/drlist-1-0)  
-- [Github Download](https://github.com/wardz/drlist/releases)  
+- [Github Download](https://github.com/wardz/drlist/releases)
 Unzip it into ```WoW/Interface/AddOns/YourAddon/libs``` and add an entry for it in your addon's .toc file. (See Example Usage).
 You may also install it as a standalone addon by putting it directly in ```WoW/Interface/AddOns/```. This is recommended when
 forking the library or creating addon packs/plugins where multiple addons use the lib.
@@ -49,8 +49,8 @@ Feel free to open an issue ticket if you have any questions.
 
 ## Contributing
 
-- [Submit a pull request.](https://github.com/wardz/diminish/pulls)  
-  I recommend creating a symlink between your WoW addons folder and `DRList-1.0/DRList-1.0/` when forking.
+- [Submit a pull request.](https://github.com/wardz/DRList-1.0/pulls)  
+  I recommend creating a symlink between your WoW addons folder and `DRList-1.0/DRList-1.0/` when forking.  
   Tests will be ran automatically on pull requests but you can also run them ingame by typing `/drlist`.  
 - [Report bugs, requests or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://www.curseforge.com/wow/addons/drlist-1-0/localization)

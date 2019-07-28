@@ -1,20 +1,16 @@
 # DRList (Diminishing Returns Database)
 
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
-
-[API Documentation.](https://wardz.github.io/DRList-1.0/)
   
 **This addon is a fork/rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**  
-Some of the main differences between *DRData* and *DRList* are:
-
-- Spell data is updated for Retail patch 8.1.0 and Classic patch 1.13.2. (Classic is still WIP)
-- Library works for both Classic and Retail, no need to have two seperate versions.
-- Repository is now hosted on Github instead of WoWAce and also has unit testing. This should hopefully make contributing
-  easier for people.
+DRList is updated to seamlessly support both Classic and Retail World of Warcraft. (Classic spell list is still WIP)
+  
+[API Documentation.](https://wardz.github.io/DRList-1.0/)
 
 ## Upgrading from DRData to DRList
 
 - All occurances of `DRData` must be renamed to `DRList`.
+- There's a new category added for Disarms, depending on how your addon is coded you might need to account for this.
 - If you used to access the tables directly, you'll now need to add the current expansion as an extra table property.
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table. For API functions there should be no need for changes.
@@ -51,11 +47,11 @@ ignore:
 See [here](https://github.com/wardz/DRList-1.0/wiki/Example-Usage) for example usage code.  
 Feel free to open an issue ticket if you have any questions.
 
-
 ## Contributing
 
 - [Submit a pull request.](https://github.com/wardz/diminish/pulls)  
-  You may run tests by typing `/drlist` ingame or running `$ lua DRList-1.0\tests\test.lua` from root folder.
+  I recommend creating a symlink between your WoW addons folder and `DRList-1.0/DRList-1.0/` when forking.
+  Tests will be ran automatically on pull requests but you can also run them ingame by typing `/drlist`.  
 - [Report bugs, requests or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://www.curseforge.com/wow/addons/drlist-1-0/localization)
 

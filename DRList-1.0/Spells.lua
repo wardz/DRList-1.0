@@ -137,7 +137,7 @@ if Lib.gameExpansion == "retail" then
         [170855]  = "root",            -- Entangling Roots (Nature's Grasp)
 --      [45334]   = "root",            -- Immobilized (Wild Charge, doesn't seem to DR)
         [102359]  = "root",            -- Mass Entanglement
-        [117526]  = "root",            -- Binding Shot
+        [117526]  = "root",            -- Binding Shot (Note: debuff says stun but it's actually a root)
         [162480]  = "root",            -- Steel Trap
 --      [190927]  = "root_harpoon",    -- Harpoon (TODO: check if DRs with itself)
         [212638]  = "root",            -- Tracker's Net
@@ -194,167 +194,108 @@ if Lib.gameExpansion == "retail" then
 else
 
     -- Spell list for Classic patch 1.13.2 (** Work in progress, a lot is unconfirmed **)
-    -- Note: In Classic WoW most abilities have several ranks, where each rank have a different spellID.
-    -- It'd be a lot easier to use GetSpellInfo here and store spell names instead of having
-    -- to list an spellID for every single rank. However, for compatibility and accuracy reasons we still
-    -- use spellIDs here. (Some spells have same name but different effects. It's also easy for player spell names to clash with NPC spells.)
+    -- In Classic the spell ID payload is gone from the combat log, so we need the key here to be
+    -- spell name instead. We also provide spell ID in the table value so it's possible to retrieve
+    -- for example spell icon using GetSpellTexture(spellID) later on. (These functions only accept
+    -- spell names if the player has the spell in their spell book)
     Lib.spellList = {
         -- Controlled roots
-        [339]     = "root",           -- Entangling Roots Rank 1
-        [1062]    = "root",           -- Entangling Roots Rank 2
-        [5195]    = "root",           -- Entangling Roots Rank 3
-        [5196]    = "root",           -- Entangling Roots Rank 4
-        [9852]    = "root",           -- Entangling Roots Rank 5
-        [9853]    = "root",           -- Entangling Roots Rank 6
-        [19306]   = "root",           -- Counterattack
-        [122]     = "root",           -- Frost Nova Rank 1
-        [865]     = "root",           -- Frost Nova Rank 2
-        [6131]    = "root",           -- Frost Nova Rank 3
-        [10230]   = "root",           -- Frost Nova rank 4
-        [8377]    = "root",           -- Earthgrab (Totem)
-        [13099]   = "root",           -- Net-o-Matic
-        [16566]   = "root",           -- Net-o-Matic Backfire 1
-        [13138]   = "root",           -- Net-o-Matic Backfire 2
-        [8312]    = "root",           -- Trap
+        [GetSpellInfo(339)]     = { category = "root", spellID = 339 },      -- Entangling Roots
+        [GetSpellInfo(19306)]   = { category = "root", spellID = 19306 },    -- Counterattack
+        [GetSpellInfo(122)]     = { category = "root", spellID = 122 },      -- Frost Nova
+        [GetSpellInfo(8377)]    = { category = "root", spellID = 8377 },     -- Earthgrab (Totem)
+        [GetSpellInfo(13099)]   = { category = "root", spellID = 13099 },    -- Net-o-Matic
+        [GetSpellInfo(8312)]    = { category = "root", spellID = 8312 },     -- Trap
 
         -- Controlled stuns
-        [5211]    = "stun",           -- Bash Rank 1
-        [6798]    = "stun",           -- Bash Rank 2
-        [8983]    = "stun",           -- Bash Rank 3
-        [24394]   = "stun",           -- Intimidation
-        [853]     = "stun",           -- Hammer of Justice Rank 1
-        [5588]    = "stun",           -- Hammer of Justice Rank 2
-        [5589]    = "stun",           -- Hammer of Justice Rank 3
-        [10308]   = "stun",           -- Hammer of Justice Rank 4
-        [22703]   = "stun",           -- Inferno Effect (Summon Infernal) TODO: confirm if DRs
-        [408]     = "stun",           -- Kidney Shot Rank 1
-        [8643]    = "stun",           -- Kidney Shot Rank 2
-        [12809]   = "stun",           -- Concussion Blow
-        [20253]   = "stun",           -- Intercept Stun Rank 1
-        [20614]   = "stun",           -- Intercept Stun Rank 2
-        [20615]   = "stun",           -- Intercept Stun Rank 3
-        [20549]   = "stun",           -- War Stomp (Racial)
-        [4068]    = "stun",           -- Iron Grenade
-        [19769]   = "stun",           -- Thorium Grenade
-        [13808]   = "stun",           -- M73 Frag Grenade
-        [4069]    = "stun",           -- Big Iron Bomb
-        [12543]   = "stun",           -- Hi-Explosive Bomb
-        [4064]    = "stun",           -- Rough Copper Bomb
-        [12421]   = "stun",           -- Mithril Frag Bomb
-        [19784]   = "stun",           -- Dark Iron Bomb
-        [4067]    = "stun",           -- Big Bronze Bomb
-        [4066]    = "stun",           -- Small Bronze Bomb
-        [4065]    = "stun",           -- Large Copper Bomb
-        [13237]   = "stun",           -- Goblin Mortar
-        [835]     = "stun",           -- Tidal Charm
-        [12562]   = "stun",           -- The Big One
+        [GetSpellInfo(5211)]    = { category = "stun", spellID = 5211 },     -- Bash
+        [GetSpellInfo(24394)]   = { category = "stun", spellID = 24394 },    -- Intimidation
+        [GetSpellInfo(853)]     = { category = "stun", spellID = 853 },      -- Hammer of Justice
+        [GetSpellInfo(22703)]   = { category = "stun", spellID = 22703 },    -- Inferno Effect (Summon Infernal) TODO: confirm if DRs
+        [GetSpellInfo(408)]     = { category = "stun", spellID = 408 },      -- Kidney Shot
+        [GetSpellInfo(12809)]   = { category = "stun", spellID = 12809 },    -- Concussion Blow
+        [GetSpellInfo(20253)]   = { category = "stun", spellID = 20253 },    -- Intercept Stun
+        [GetSpellInfo(20549)]   = { category = "stun", spellID = 20549 },    -- War Stomp (Racial)
+        [GetSpellInfo(4068)]    = { category = "stun", spellID = 4068 },     -- Iron Grenade
+        [GetSpellInfo(19769)]   = { category = "stun", spellID = 19769 },    -- Thorium Grenade
+        [GetSpellInfo(13808)]   = { category = "stun", spellID = 13808 },    -- M73 Frag Grenade
+        [GetSpellInfo(4069)]    = { category = "stun", spellID = 4069 },     -- Big Iron Bomb
+        [GetSpellInfo(12543)]   = { category = "stun", spellID = 12543 },    -- Hi-Explosive Bomb
+        [GetSpellInfo(4064)]    = { category = "stun", spellID = 4064 },     -- Rough Copper Bomb
+        [GetSpellInfo(12421)]   = { category = "stun", spellID = 12421 },    -- Mithril Frag Bomb
+        [GetSpellInfo(19784)]   = { category = "stun", spellID = 19784 },    -- Dark Iron Bomb
+        [GetSpellInfo(4067)]    = { category = "stun", spellID = 4067 },     -- Big Bronze Bomb
+        [GetSpellInfo(4066)]    = { category = "stun", spellID = 4066 },     -- Small Bronze Bomb
+        [GetSpellInfo(4065)]    = { category = "stun", spellID = 4065 },     -- Large Copper Bomb
+        [GetSpellInfo(13237)]   = { category = "stun", spellID = 13237 },    -- Goblin Mortar
+        [GetSpellInfo(835)]     = { category = "stun", spellID = 835 },      -- Tidal Charm
+        [GetSpellInfo(12562)]   = { category = "stun", spellID = 12562 },    -- The Big One
 
         -- Disarms
-        [676]     = "disarm",         -- Disarm
-        [27581]   = "disarm",         -- Disarm 2
-        [14251]   = "disarm",         -- Riposte
-        [15752]   = "disarm",         -- Disarm (Linken's Boomerang)
-        [11879]   = "disarm",         -- Disarm (Shoni's Disarming Tool)
-        [13534]   = "disarm",         -- Disarm (The Shatterer)
+        [GetSpellInfo(676)]     = { category = "disarm", spellID = 676 },         -- Disarm
 
         -- Incapacitates
-        [2637]    = "incapacitate",   -- Hibernate Rank 1
-        [18657]   = "incapacitate",   -- Hibernate Rank 2
-        [18658]   = "incapacitate",   -- Hibernate Rank 3
-        [3355]    = "incapacitate",   -- Freezing Trap Rank 1
-        [14308]   = "incapacitate",   -- Freezing Trap Rank 2
-        [14309]   = "incapacitate",   -- Freezing Trap Rank 3
-        [19503]   = "incapacitate",   -- Scatter Shot
-        [19386]   = "incapacitate",   -- Wyvern Sting Rank 1
-        [24132]   = "incapacitate",   -- Wyvern Sting Rank 2
-        [24133]   = "incapacitate",   -- Wyvern Sting Rank 3
-        [28271]   = "incapacitate",   -- Polymorph: Turtle
-        [28272]   = "incapacitate",   -- Polymorph: Pig
-        [118]     = "incapacitate",   -- Polymorph Rank 1
-        [12824]   = "incapacitate",   -- Polymorph Rank 2
-        [12825]   = "incapacitate",   -- Polymorph Rank 3
-        [12826]   = "incapacitate",   -- Polymorph Rank 4
-        [20066]   = "incapacitate",   -- Repentance
-        [1776]    = "incapacitate",   -- Gouge Rank 1
-        [1777]    = "incapacitate",   -- Gouge Rank 2
-        [8629]    = "incapacitate",   -- Gouge Rank 3
-        [11285]   = "incapacitate",   -- Gouge Rank 4
-        [11286]   = "incapacitate",   -- Gouge Rank 5
-        [6770]    = "incapacitate",   -- Sap Rank 1
-        [2070]    = "incapacitate",   -- Sap Rank 2
-        [11297]   = "incapacitate",   -- Sap Rank 3
-        [1090]    = "incapacitate",   -- Sleep
-        [9159]    = "incapacitate",   -- Sleep (Green Whelp Armor)
-        [13327]   = "incapacitate",   -- Reckless Charge (Rocket Helmet)
-        [13181]   = "incapacitate",   -- Gnomish Mind Control Cap
-        [26108]   = "incapacitate",   -- Glimpse of Madness
-        --[18798]   = "incapacitate",   -- Freeze (Freezing Band) TODO: confirm category
+        [GetSpellInfo(2637)]    = { category = "incapacitate", spellID = 2637 },    -- Hibernate
+        [GetSpellInfo(3355)]    = { category = "incapacitate", spellID = 3355 },    -- Freezing Trap
+        [GetSpellInfo(19503)]   = { category = "incapacitate", spellID = 19503 },   -- Scatter Shot
+        [GetSpellInfo(19386)]   = { category = "incapacitate", spellID = 19386 },   -- Wyvern Sting
+        [GetSpellInfo(28271)]   = { category = "incapacitate", spellID = 28271 },   -- Polymorph: Turtle
+        [GetSpellInfo(28272)]   = { category = "incapacitate", spellID = 28272 },   -- Polymorph: Pig
+        [GetSpellInfo(118)]     = { category = "incapacitate", spellID = 118 },     -- Polymorph
+        [GetSpellInfo(20066)]   = { category = "incapacitate", spellID = 20066 },   -- Repentance
+        [GetSpellInfo(1776)]    = { category = "incapacitate", spellID = 1776 },    -- Gouge
+        [GetSpellInfo(6770)]    = { category = "incapacitate", spellID = 6770 },    -- Sap
+        [GetSpellInfo(1090)]    = { category = "incapacitate", spellID = 1090 },    -- Sleep
+        [GetSpellInfo(13327)]   = { category = "incapacitate", spellID = 13327 },   -- Reckless Charge (Rocket Helmet)
+        [GetSpellInfo(13181)]   = { category = "incapacitate", spellID = 13181 },   -- Gnomish Mind Control Cap
+        [GetSpellInfo(26108)]   = { category = "incapacitate", spellID = 26108 },   -- Glimpse of Madness
+        --[GetSpellInfo(18798)]   = { category = "incapacitate", spellID = 18798 }, -- Freeze (Freezing Band) TODO: confirm category
 
         -- Fears
-        [1513]    = "fear",          -- Scare Beast Rank 1
-        [14326]   = "fear",          -- Scare Beast Rank 2
-        [14327]   = "fear",          -- Scare Beast Rank 3
-        [8122]    = "fear",          -- Psychic Scream Rank 1
-        [8124]    = "fear",          -- Psychic Scream Rank 2
-        [10888]   = "fear",          -- Psychic Scream Rank 3
-        [10890]   = "fear",          -- Psychic Scream Rank 4
-        [2094]    = "fear",          -- Blind TODO: confirm category
-        [5782]    = "fear",          -- Fear Rank 1
-        [6213]    = "fear",          -- Fear Rank 2
-        [6215]    = "fear",          -- Fear Rank 3
-        [5484]    = "fear",          -- Howl of Terror Rank 1
-        [17928]   = "fear",          -- Howl of Terror Rank 1
-        [6358]    = "fear",          -- Seduction
-        [5246]    = "fear",          -- Intimidating Shout
-        [5134]    = "fear",          -- Flash Bomb Fear
+        [GetSpellInfo(1513)]    = { category = "fear", spellID = 1513 },          -- Scare Beast
+        [GetSpellInfo(8122)]    = { category = "fear", spellID = 8122 },          -- Psychic Scream
+        [GetSpellInfo(2094)]    = { category = "fear", spellID = 2094 },          -- Blind TODO: confirm category
+        [GetSpellInfo(5782)]    = { category = "fear", spellID = 5782 },          -- Fear
+        [GetSpellInfo(5484)]    = { category = "fear", spellID = 5484 },          -- Howl of Terror
+        [GetSpellInfo(6358)]    = { category = "fear", spellID = 6358 },          -- Seduction
+        [GetSpellInfo(5246)]    = { category = "fear", spellID = 5246 },          -- Intimidating Shout
+        [GetSpellInfo(5134)]    = { category = "fear", spellID = 5134 },          -- Flash Bomb Fear
 
         -- Stealth stuns
-        [9005]    = "opener_stun",  -- Pounce Rank 1 TODO: need to confirm these
-        [9823]    = "opener_stun",  -- Pounce Rank 2
-        [9827]    = "opener_stun",  -- Pounce Rank 3
-        [1833]    = "opener_stun",  -- Cheap Shot
+        [GetSpellInfo(9005)]    = { category = "opener_stun", spellID = 9005 },  -- Pounce Rank 1
+        [GetSpellInfo(1833)]    = { category = "opener_stun", spellID = 1833 },  -- Cheap Shot
 
         -- Random/short roots
-        [19229]   = "random_root",   -- Improved Wing Clip
-        [23694]   = "random_root",   -- Improved Hamstring
+        [GetSpellInfo(19229)]   = { category = "random_root", spellID = 19229 },   -- Improved Wing Clip
+        [GetSpellInfo(23694)]   = { category = "random_root", spellID = 23694 },   -- Improved Hamstring
 
         -- Random/short stuns
-        [16922]   = "random_stun",   -- Improved Starfire
-        [19410]   = "random_stun",   -- Improved Concussive Shot
-        [12355]   = "random_stun",   -- Impact
-        [20170]   = "random_stun",   -- Seal of Justice Stun
-        [15269]   = "random_stun",   -- Blackout
-        [18093]   = "random_stun",   -- Pyroclasm
-        [12798]   = "random_stun",   -- Revenge Stun
-        [5530]    = "random_stun",   -- Mace Stun Effect (Mace Specialization)
-        [15283]   = "random_stun",   -- Stunning Blow (Weapon Proc)
-        [56]      = "random_stun",   -- Stun (Weapon Proc)
-        [23454]   = "random_stun",   -- Stun 2 (Weapon Proc)
+        [GetSpellInfo(16922)]   = { category = "random_stun", spellID = 16922 },   -- Improved Starfire
+        [GetSpellInfo(19410)]   = { category = "random_stun", spellID = 19410 },   -- Improved Concussive Shot
+        [GetSpellInfo(12355)]   = { category = "random_stun", spellID = 12355 },   -- Impact
+        [GetSpellInfo(20170)]   = { category = "random_stun", spellID = 20170 },   -- Seal of Justice Stun
+        [GetSpellInfo(15269)]   = { category = "random_stun", spellID = 15269 },   -- Blackout
+        [GetSpellInfo(18093)]   = { category = "random_stun", spellID = 18093 },   -- Pyroclasm
+        [GetSpellInfo(12798)]   = { category = "random_stun", spellID = 12798 },   -- Revenge Stun
+        [GetSpellInfo(5530)]    = { category = "random_stun", spellID = 5530 },    -- Mace Stun Effect (Mace Specialization)
+        [GetSpellInfo(15283)]   = { category = "random_stun", spellID = 15283 },   -- Stunning Blow (Weapon Proc)
+        [GetSpellInfo(56)]      = { category = "random_stun", spellID = 56 },      -- Stun (Weapon Proc)
 
         -- Silences
-        [18469]   = "silence",      -- Counterspell - Silenced
-        [15487]   = "silence",      -- Silence
-        [18425]   = "silence",      -- Kick - Silenced
-        [24259]   = "silence",      -- Spell Lock
-        [18498]   = "silence",      -- Shield Bash - Silenced
-        [27559]   = "silence",      -- Silence (Jagged Obsidian Shield)
-        [19821]   = "silence",      -- Arcane Bomb Silence
-        [18278]   = "silence",      -- Silence (Weapon Proc)
+        [GetSpellInfo(18469)]   = { category = "silence", spellID = 18469 },      -- Counterspell - Silenced
+        [GetSpellInfo(15487)]   = { category = "silence", spellID = 15487 },      -- Silence
+        [GetSpellInfo(18425)]   = { category = "silence", spellID = 18425 },      -- Kick - Silenced
+        [GetSpellInfo(24259)]   = { category = "silence", spellID = 24259 },      -- Spell Lock
+        [GetSpellInfo(18498)]   = { category = "silence", spellID = 18498 },      -- Shield Bash - Silenced
+        [GetSpellInfo(19821)]   = { category = "silence", spellID = 19821 },      -- Arcane Bomb Silence
 
         -- Spells that DRs with itself only
-        --[19675] = "feral_charge",   -- Feral Charge Effect
-        [19185]   = "entrapment",     -- Entrapment
-        [605]     = "mind_control",   -- Mind Control Rank 1
-        [10911]   = "mind_control",   -- Mind Control Rank 2
-        [10912]   = "mind_control",   -- Mind Control Rank 3
-        [8056]    = "frost_shock",    -- Frost Shock Rank 1
-        [8058]    = "frost_shock",    -- Frost Shock Rank 2
-        [10472]   = "frost_shock",    -- Frost Shock Rank 3
-        [10473]   = "frost_shock",    -- Frost Shock Rank 4
-        [6789]    = "death_coil",     -- Death Coil Rank 1
-        [17925]   = "death_coil",     -- Death Coil Rank 2
-        [17926]   = "death_coil",     -- Death Coil Rank 2
-        [7922]    = "charge",         -- Charge Stun
+        --[GetSpellInfo(19675)] = { category = "feral_charge", spellID = 19675 },  -- Feral Charge Effect
+        [GetSpellInfo(19185)]   = { category = "entrapment", spellID = 19185 },    -- Entrapment
+        [GetSpellInfo(605)]     = { category = "mind_control", spellID = 605 },    -- Mind Control
+        [GetSpellInfo(8056)]    = { category = "frost_shock", spellID = 8056 },    -- Frost Shock
+        [GetSpellInfo(6789)]    = { category = "death_coil", spellID = 6789 },     -- Death Coil
+        [GetSpellInfo(7922)]    = { category = "charge", spellID = 7922 },         -- Charge Stun
     }
 end
 

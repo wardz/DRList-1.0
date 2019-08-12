@@ -4,12 +4,13 @@ SimpleTesting.__index = SimpleTesting
 local format = format or string.format
 local debugprofilestop = debugprofilestop or os.clock
 
-function SimpleTesting:New(addonName)
+function SimpleTesting:New(addonName, gameExpansion)
     assert(type(addonName) == "string")
 
     local acnt = {}
     setmetatable(acnt, SimpleTesting)
     acnt.addonName = addonName
+    acnt.gameExpansion = gameExpansion
     acnt.tests = {}
     acnt.testsIngame = {}
     return acnt
@@ -77,7 +78,7 @@ end
 
 function SimpleTesting:PrintResults(beginTime)
     local timeUsed = debugprofilestop() - beginTime
-    print(format("[%s] Completed %d/%d tests in %.2f seconds.", self.addonName, self.completedTests, self.totalTests, timeUsed))
+    print(format("[%s (%s)] Completed %d/%d tests in %.2f seconds.", self.addonName, self.gameExpansion, self.completedTests, self.totalTests, timeUsed))
 
     for i = 1, #self.errors do
         local err = self.errors[i]

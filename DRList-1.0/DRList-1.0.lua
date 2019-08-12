@@ -152,8 +152,10 @@ Lib.diminishedDurations = {
 
 --- Get table of all spells that DRs.
 -- Key is the spellID, and value is the unlocalized DR category.
+-- For Classic the key is the localized spell name instead, and value
+-- is a table containing both the DR category and spell ID.
 -- @see IterateSpellsByCategory
--- @treturn table {number=string}
+-- @treturn ?table {number=string}|table {string=table}
 function Lib:GetSpells()
     return Lib.spellList
 end
@@ -181,10 +183,19 @@ function Lib:GetResetTime(category)
 end
 
 --- Get unlocalized DR category by spell ID.
+-- For Classic you should pass in the spell name instead of ID.
+-- For Classic you also get an optional second return value
+-- which is the spell ID of the spell name you passed in.
 -- @tparam number spellID
--- @treturn ?string|nil The category name.
+-- @treturn[1] ?string|nil The category name.
+-- @treturn[2] ?number|nil The spell ID. (Classic only)
 function Lib:GetCategoryBySpellID(spellID)
-    return Lib.spellList[spellID]
+    if Lib.gameExpansion == "retail" then
+        return Lib.spellList[spellID]
+    end
+
+    local data = Lib.spellList[spellID]
+    if data then return data.category, data.spellID end
 end
 
 --- Get localized category from unlocalized category name, case sensitive.
@@ -226,8 +237,10 @@ do
         local newCat
         repeat
             index, newCat = next(Lib.spellList, index)
-            if index and newCat == category then
-                return index, category
+            if index then
+                if newCat == category or newCat.category == category then
+                    return index, category
+                end
             end
         until not index
     end

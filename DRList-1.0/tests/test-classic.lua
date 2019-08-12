@@ -1,5 +1,5 @@
 -- Running tests from command line: (Make sure you run from root/main folder)
--- > lua DRList-1.0/tests/test.lua
+-- > lua DRList-1.0/tests/test-classic.lua
 --
 -- Running tests ingame:
 -- /drlist
@@ -8,12 +8,20 @@ if loadfile then
     assert(loadfile("DRList-1.0/tests/engine.lua"))()
 end
 
-local Tests = SimpleTesting:New("DRList-1.0")
+local Tests = SimpleTesting:New("DRList-1.0", "Classic")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
-    GetBuildInfo = function() return nil, nil, nil, 80000 end -- always set this to retail
-    GetSpellInfo = function() return "" end
+    GetBuildInfo = function() return nil, nil, nil, 11302 end
+    GetSpellInfo = function(id)
+        -- Need to mock some of the spells used in testing
+        if id == 853 then return "Hammer of Justice"
+        elseif id == 122 then return "Frost Nova"
+        elseif id == 12355 then return "Impact"
+        elseif id == 20066 then return "Repentance"
+        elseif id == 5211 then return "Bash"
+        else return "" end
+    end
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()
@@ -22,11 +30,9 @@ end
 
 local DRList = LibStub("DRList-1.0")
 
-function Tests:BeforeEach()
-    -- We always run a test for retail first, then we can run tests for classic later
-    -- by setting DRList.gameExpansion = "classic" in the test function itself
-    DRList.gameExpansion = "retail"
-end
+--[[function Tests:BeforeEach()
+    DRList.gameExpansion = "classic"
+end]]
 
 Tests:It("Loads lib", function()
     assert(LibStub("DRList-1.0"))
@@ -35,30 +41,24 @@ end)
 
 Tests:It("GetsSpellList", function()
     assert(next(DRList.spellList))
-    assert(DRList:GetSpells()[853] == "stun")
-    assert(DRList:GetSpells()[339] == "root")
+    assert(DRList:GetSpells()["Hammer of Justice"].category == "stun")
+    assert(DRList:GetSpells()["Hammer of Justice"].spellID == 853)
+    assert(DRList:GetSpells()["Frost Nova"].category == "root")
+    assert(DRList:GetSpells()["Frost Nova"].spellID == 122)
+    assert(DRList:GetSpells()["Impact"].category == "random_stun")
 end)
 
 Tests:It("GetsResetTimes", function()
-    assert(DRList:GetResetTime() == 18.3)
-    assert(DRList:GetResetTime("stun") == 18.3)
-    assert(DRList:GetResetTime(123) == 18.3)
-    assert(DRList:GetResetTime(true) == 18.3)
-    assert(DRList:GetResetTime({}) == 18.3)
-    assert(DRList:GetResetTime("knockback") == 10.3)
-
-    DRList.gameExpansion = "classic"
     assert(DRList:GetResetTime() == 18.5)
+    assert(DRList:GetResetTime("stun") == 18.5)
+    assert(DRList:GetResetTime(123) == 18.5)
+    assert(DRList:GetResetTime(true) == 18.5)
+    assert(DRList:GetResetTime({}) == 18.5)
     assert(DRList:GetResetTime("knockback") == 18.5)
 end)
 
 Tests:It("GetsCategoryNames", function()
     assert(type(DRList.categoryNames[DRList.gameExpansion].stun) == "string")
-    assert(type(DRList:GetCategories().root) == "string")
-    assert(type(DRList:GetCategories().knockback) == "string")
-
-    DRList.gameExpansion = "classic"
-    assert(type(DRList.categoryNames["classic"].stun) == "string")
     assert(type(DRList:GetCategories().root) == "string")
     assert(type(DRList:GetCategories().random_root) == "string")
     assert(DRList:GetCategories().knockback == nil)
@@ -66,32 +66,24 @@ end)
 
 Tests:It("GetsCategoryNamesPvE", function()
     assert(type(DRList:GetPvECategories().stun) == "string")
-    assert(type(DRList:GetPvECategories().taunt) == "string")
     assert(DRList:GetPvECategories().disorient == nil)
-
-    DRList.gameExpansion = "classic"
-    assert(type(DRList:GetPvECategories().stun) == "string")
     assert(DRList:GetPvECategories().taunt == nil)
 end)
 
 Tests:It("GetsCategoryFromSpell", function()
-    assert(DRList:GetCategoryBySpellID(853) == "stun")
-    assert(DRList:GetCategoryBySpellID(339) == "root")
-    assert(DRList:GetCategoryBySpellID(1776) == "incapacitate")
-    -- assert(DRList:GetCategoryBySpellID(605) == "disorient")
+    assert(DRList:GetCategoryBySpellID("Hammer of Justice") == "stun")
+    assert(DRList:GetCategoryBySpellID("Frost Nova") == "root")
+    assert(DRList:GetCategoryBySpellID("Repentance") == "incapacitate")
+    assert(DRList:GetCategoryBySpellID("Impact") == "random_stun")
 
-    assert(DRList:GetCategoryBySpellID(123) == nil)
+    assert(select(2, DRList:GetCategoryBySpellID("Frost Nova")) == 122)
+    assert(select(2, DRList:GetCategoryBySpellID("Bash")) == 5211)
+
+    assert(DRList:GetCategoryBySpellID(1776) == nil)
     assert(DRList:GetCategoryBySpellID("123") == nil)
     assert(DRList:GetCategoryBySpellID(true) == nil)
     assert(DRList:GetCategoryBySpellID({}) == nil)
     assert(DRList:GetCategoryBySpellID() == nil)
-
-    -- Run same test again for classic
-    if DRList.gameExpansion == "retail" then
-        DRList.gameExpansion = "classic"
-        -- assert(DRList:GetCategoryBySpellID(605) == "mind_control")
-        Tests.tests.GetsCategoryFromSpell()
-    end
 end)
 
 Tests:It("GetsLocalizations", function()
@@ -104,11 +96,6 @@ Tests:It("GetsLocalizations", function()
 
     local low = string.lower
     assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
-    assert(low(DRList:GetCategoryLocalization("root")) == low(DRList.L.ROOTS))
-    assert(DRList:GetCategoryLocalization("knockback"))
-
-    DRList.gameExpansion = "classic"
-    assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
     assert(low(DRList:GetCategoryLocalization("random_root")) == low(DRList.L.RANDOM_ROOTS))
     assert(low(DRList:GetCategoryLocalization("mind_control")) == low(DRList.L.MIND_CONTROL))
     assert(DRList:GetCategoryLocalization("knockback") == nil)
@@ -117,7 +104,7 @@ end)
 Tests:It("ChecksCategoriesPvE", function()
     assert(next(DRList.categoriesPvE))
     assert(DRList:IsPvECategory("stun") == true)
-    assert(DRList:IsPvECategory("taunt") == true)
+    assert(DRList:IsPvECategory("taunt") == false)
     assert(DRList:IsPvECategory("disorient") == false)
 
     assert(DRList:IsPvECategory() == false)
@@ -125,10 +112,6 @@ Tests:It("ChecksCategoriesPvE", function()
     assert(DRList:IsPvECategory("") == false)
     assert(DRList:IsPvECategory(853) == false)
     assert(DRList:IsPvECategory(true) == false)
-
-    DRList.gameExpansion = "classic"
-    assert(DRList:IsPvECategory("stun") == true)
-    assert(DRList:IsPvECategory("taunt") == false)
 end)
 
 Tests:It("GetsNextDR", function()
@@ -146,21 +129,8 @@ Tests:It("GetsNextDR", function()
     assert(DRList:GetNextDR(true) == 0)
     assert(DRList:GetNextDR() == 0)
     assert(DRList:GetNextDR(-1, {}) == 0)
-    assert(DRList:GetNextDR(1, "random_stun") == 0)
 
-    assert(DRList:GetNextDR(1, "disorient") == 0.50)
-    assert(DRList:GetNextDR(2, "disorient") == 0.25)
-
-    assert(DRList:GetNextDR(0, "knockback") == 0)
     assert(DRList:GetNextDR(1, "knockback") == 0)
-
-    assert(DRList:GetNextDR(1, "taunt") ==  0.65)
-    assert(DRList:GetNextDR(2, "taunt") ==  0.42)
-    assert(DRList:GetNextDR(3, "taunt") ==  0.27)
-    assert(DRList:GetNextDR(4, "taunt") ==  0)
-    assert(DRList:GetNextDR(10, "taunt") ==  0)
-
-    DRList.gameExpansion = "classic"
     assert(DRList:GetNextDR(1, "taunt") ==  0)
     assert(DRList:GetNextDR(1, "random_stun") == 0.50)
     assert(DRList:GetNextDR(2, "random_root") == 0.25)
@@ -170,7 +140,7 @@ end)
 Tests:It("IterateSpellsByCategory", function()
     local ran = false
     for spellID, category in DRList:IterateSpellsByCategory("root") do
-        assert(type(spellID) == "number")
+        assert(type(spellID) == "string")
         assert(category == "root")
         ran = true
     end
@@ -179,35 +149,29 @@ Tests:It("IterateSpellsByCategory", function()
 
     for category, localizedCategory in pairs(DRList:GetPvECategories()) do
         for spellID, cat in DRList:IterateSpellsByCategory(category) do -- luacheck: ignore
-            assert(type(spellID) == "number")
+            assert(type(spellID) == "string")
             assert(category == cat)
             ran = true
             break
         end
     end
     assert(ran)
-
-    if DRList.gameExpansion == "retail" then
-        DRList.gameExpansion = "classic"
-        Tests.tests.IterateSpellsByCategory()
-    end
 end)
 
 -- This test is only ran ingame
 Tests:It("Verifies spell list", function()
-    DRList.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
     local success = true
     local err = ""
 
-    for spellID, category in pairs(DRList.spellList) do
-        if type(spellID) ~= "number" or not GetSpellInfo(spellID) then
+    for spellName, data in pairs(DRList.spellList) do
+        if type(spellName) ~= "string" or spellName ~= GetSpellInfo(data.spellID) then
             success = false
-            err = err .. "|cFFFF0000Invalid spell:|r " .. spellID .. "\n"
+            err = err .. "|cFFFF0000Invalid spell:|r " .. spellName .. "\n"
         end
 
-        if type(category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category] then
+        if type(data.category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][data.category] then
             success = false
-            err = err .. "|cFFFF0000Invalid category:|r " .. category .. "\n"
+            err = err .. "|cFFFF0000Invalid category:|r " .. data.category .. "\n"
         end
     end
 
@@ -219,11 +183,13 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    SLASH_DRLIST1 = "/drlist"
-    SlashCmdList["DRLIST"] = function()
-        Tests:RunAll()
-        DRList.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
+    if select(4, GetBuildInfo()) < 80000 then
+        SLASH_DRLIST1 = "/drlist"
+        SlashCmdList["DRLIST"] = function()
+            Tests:RunAll()
+        end
     end
 else
+    DRList.gameExpansion = "classic"
     Tests:RunAll()
 end

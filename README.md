@@ -44,7 +44,8 @@ ignore:
 
 ## Example Usage
 
-See [here](https://github.com/wardz/DRList-1.0/wiki/Example-Usage) for example usage code.  
+- [Example usage for Retail](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail)
+- [Example usage for Classic](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Classic)
 Feel free to open an issue ticket if you have any questions.
 
 ## Contributing

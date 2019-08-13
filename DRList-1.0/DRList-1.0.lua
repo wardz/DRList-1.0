@@ -187,8 +187,8 @@ end
 -- For Classic you also get an optional second return value
 -- which is the spell ID of the spell name you passed in.
 -- @tparam number spellID
--- @treturn[1] ?string|nil The category name.
--- @treturn[2] ?number|nil The spell ID. (Classic only)
+-- @treturn[1] string|nil The category name.
+-- @treturn[2] number|nil The spell ID. (Classic only)
 function Lib:GetCategoryBySpellID(spellID)
     if Lib.gameExpansion == "retail" then
         return Lib.spellList[spellID]

@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 5
+local MAJOR, MINOR = "DRList-1.0", 6
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -54,10 +54,14 @@ elseif locale == "ptBR" then
     --@localization(locale="ptBR", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
 elseif locale == "ruRU" then
     --@localization(locale="ruRU", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
-elseif locale == "esES" or locale == "esMX" then
+elseif locale == "esES" then
     --@localization(locale="esES", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
-elseif locale == "zhCN" or locale == "zhTW" then
+elseif locale == "esMX" then
+    --@localization(locale="esMX", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+elseif locale == "zhCN" then
     --@localization(locale="zhCN", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+elseif locale == "zhTW" then
+    --@localization(locale="zhTW", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
 end
 -- luacheck: pop
 -------------------------------------------------------------------------------

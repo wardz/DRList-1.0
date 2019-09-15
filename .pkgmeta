@@ -11,9 +11,8 @@ required-dependencies:
   - libstub
 
 ignore:
-  - README.md
-  - LICENSE.md
+  - DRList-1.0/README.md
   - release.sh
-  - DRList-1.0/tests/*
+  - DRList-1.0/DRList-1.0/tests/*
   - DRList-1.0/libs/LibStub/LibStub.toc
   - DRList-1.0/libs/LibStub/tests

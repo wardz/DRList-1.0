@@ -2,7 +2,7 @@
 ## Interface: 11302
 #@end-non-retail@
 #@retail@
-## Interface: 80200
+## Interface: 80205
 #@end-retail@
 ## Title: Lib: Diminishing Returns Database
 ## Notes: List of abilities that have diminishing returns and its categories.

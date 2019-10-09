@@ -248,7 +248,7 @@ else
         [GetSpellInfo(6770)]    = { category = "incapacitate", spellID = 6770 },    -- Sap
         [GetSpellInfo(1090)]    = { category = "incapacitate", spellID = 1090 },    -- Sleep
         [GetSpellInfo(13327)]   = { category = "incapacitate", spellID = 13327 },   -- Reckless Charge (Rocket Helmet)
-        [GetSpellInfo(13181)]   = { category = "incapacitate", spellID = 13181 },   -- Gnomish Mind Control Cap
+        --[GetSpellInfo(13181)]   = { category = "incapacitate", spellID = 13181 }, -- Gnomish Mind Control Cap
         [GetSpellInfo(26108)]   = { category = "incapacitate", spellID = 26108 },   -- Glimpse of Madness
         --[GetSpellInfo(18798)]   = { category = "incapacitate", spellID = 18798 }, -- Freeze (Freezing Band) TODO: confirm category
 

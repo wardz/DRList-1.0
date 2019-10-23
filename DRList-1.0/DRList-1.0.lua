@@ -33,12 +33,9 @@ L["TAUNTS"] = "Taunts"
 L["FEARS"] = "Fears"
 L["RANDOM_ROOTS"] = "Random roots"
 L["RANDOM_STUNS"] = "Random stuns"
-L["OPENER_STUN"] = "Opener stun" -- Cheap Shot & Pounce
-L["DEATH_COIL"] = GetSpellInfo(6789) or GetSpellInfo(47541)
 L["MIND_CONTROL"] = GetSpellInfo(605)
-L["CHARGE"] = GetSpellInfo(100)
-L["ENTRAPMENT"] = GetSpellInfo(19184) or GetSpellInfo(19387)
 L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840)
+L["KIDNEY_SHOT"] = GetSpellInfo(408)
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -105,16 +102,12 @@ Lib.categoryNames = {
         ["silence"] = L.SILENCES,
         ["stun"] = L.STUNS, -- controlled stun
         ["root"] = L.ROOTS, -- controlled root
-        ["disarm"] = L.DISARMS,
-        ["opener_stun"] = L.OPENER_STUN,
         ["random_stun"] = L.RANDOM_STUNS, -- random proc stun, usually short (<3s)
-        ["random_root"] = L.RANDOM_ROOTS,
+        ["random_root"] = L.RANDOM_ROOTS, -- May be removed in the future!
         ["fear"] = L.FEARS,
-        ["death_coil"] = L.DEATH_COIL,
         ["mind_control"] = L.MIND_CONTROL,
         ["frost_shock"] = L.FROST_SHOCK,
-        ["entrapment"] = L.ENTRAPMENT,
-        ["charge"] = L.CHARGE,
+        ["kidney_shot"] = L.KIDNEY_SHOT,
     },
 }
 

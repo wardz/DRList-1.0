@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 8
+local MAJOR, MINOR = "DRList-1.0", 9
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -122,7 +122,7 @@ Lib.categoriesPvE = {
 
     classic = {
         ["stun"] = L.STUNS,
-        ["opener_stun"] = L.OPENER_STUN,
+        ["kidney_shot"] = L.KIDNEY_SHOT,
         -- TODO: banish/MC?
     },
 }

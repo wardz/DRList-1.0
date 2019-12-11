@@ -204,7 +204,6 @@ else
         [GetSpellInfo(339)]     = { category = "root", spellID = 339 },      -- Entangling Roots
         [GetSpellInfo(19306)]   = { category = "root", spellID = 19306 },    -- Counterattack
         [GetSpellInfo(122)]     = { category = "root", spellID = 122 },      -- Frost Nova
-        [GetSpellInfo(8377)]    = { category = "root", spellID = 8377 },     -- Earthgrab (Totem)
     --  [GetSpellInfo(13099)]   = { category = "root", spellID = 13099 },    -- Net-o-Matic (These doesn't seem to DR here, maybe only with itself?)
     --  [GetSpellInfo(8312)]    = { category = "root", spellID = 8312 },     -- Trap
 

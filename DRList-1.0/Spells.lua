@@ -267,7 +267,7 @@ else
         [GetSpellInfo(19410)]   = { category = "random_stun", spellID = 19410 },   -- Improved Concussive Shot
         [GetSpellInfo(12355)]   = { category = "random_stun", spellID = 12355 },   -- Impact
         [GetSpellInfo(20170)]   = { category = "random_stun", spellID = 20170 },   -- Seal of Justice Stun
-        [GetSpellInfo(15269)]   = { category = "random_stun", spellID = 15269 },   -- Blackout
+        --[GetSpellInfo(15269)]   = { category = "random_stun", spellID = 15269 }, -- Blackout
         [GetSpellInfo(18093)]   = { category = "random_stun", spellID = 18093 },   -- Pyroclasm
         [GetSpellInfo(12798)]   = { category = "random_stun", spellID = 12798 },   -- Revenge Stun
         [GetSpellInfo(5530)]    = { category = "random_stun", spellID = 5530 },    -- Mace Stun Effect (Mace Specialization)

@@ -194,7 +194,7 @@ if Lib.gameExpansion == "retail" then
 
 else
 
-    -- Spell list for Classic patch 1.13.2 (** Work in progress, a lot is unconfirmed **)
+    -- Spell list for Classic (WIP)
     -- In Classic the spell ID payload is gone from the combat log, so we need the key here to be
     -- spell name instead. We also provide spell ID in the table value so it's possible to retrieve
     -- for example spell icon using GetSpellTexture(spellID) later on. (These functions only accept
@@ -262,7 +262,7 @@ else
         [GetSpellInfo(23694)]   = { category = "random_root", spellID = 23694 },   -- Improved Hamstring
         [GetSpellInfo(27868)]   = { category = "random_root", spellID = 27868 },   -- Freeze (Item proc and set bonus)
 
-        -- Random/short stuns
+        -- Random/short stuns (TODO: confirm category exists)
         [GetSpellInfo(16922)]   = { category = "random_stun", spellID = 16922 },   -- Improved Starfire
         [GetSpellInfo(19410)]   = { category = "random_stun", spellID = 19410 },   -- Improved Concussive Shot
         [GetSpellInfo(12355)]   = { category = "random_stun", spellID = 12355 },   -- Impact

@@ -2,7 +2,7 @@
 ## Interface: 11305
 #@end-non-retail@
 #@retail@
-## Interface: 80300
+## Interface: 90002
 #@end-retail@
 ## Title: Lib: Diminishing Returns Database
 ## Version: @project-version@

@@ -40,25 +40,83 @@ L["KIDNEY_SHOT"] = GetSpellInfo(408)
 -- luacheck: push ignore 542
 local locale = GetLocale()
 if locale == "deDE" then
-    --@localization(locale="deDE", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["FEARS"] = "Furchteffekte"
+    L["KNOCKBACKS"] = "Rückstoßeffekte"
+    L["ROOTS"] = "Bewegungsunfähigkeitseffekte"
+    L["SILENCES"] = "Stilleeffekte"
+    L["STUNS"] = "Betäubungseffekte"
+    L["TAUNTS"] = "Spotteffekte"
 elseif locale == "frFR" then
-    --@localization(locale="frFR", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["FEARS"] = "Peurs"
+    L["KNOCKBACKS"] = "Projections"
+    L["ROOTS"] = "Immobilisations"
+    L["SILENCES"] = "Silences"
+    L["STUNS"] = "Etourdissements"
+    L["TAUNTS"] = "Provocations"
 elseif locale == "itIT" then
     --@localization(locale="itIT", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
 elseif locale == "koKR" then
-    --@localization(locale="koKR", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["DISORIENTS"] = "방향 감각 상실"
+    L["INCAPACITATES"] = "행동 불가"
+    L["KNOCKBACKS"] = "밀쳐내기"
+    L["ROOTS"] = "이동 불가"
+    L["SILENCES"] = "침묵"
+    L["STUNS"] = "기절"
 elseif locale == "ptBR" then
     --@localization(locale="ptBR", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
 elseif locale == "ruRU" then
-    --@localization(locale="ruRU", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["DISARMS"] = "Разоружение"
+    L["DISORIENTS"] = "Дезориентация"
+    L["FEARS"] = "Опасения"
+    L["INCAPACITATES"] = "Паралич"
+    L["KNOCKBACKS"] = "Отбрасывание"
+    L["ROOTS"] = "Сковывание"
+    L["SILENCES"] = "Немота"
+    L["STUNS"] = "Оглушение"
+    L["TAUNTS"] = "Насмешки"
 elseif locale == "esES" then
-    --@localization(locale="esES", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["DISARMS"] = "Desarmar"
+    L["DISORIENTS"] = "Desorientar"
+    L["FEARS"] = "Miedos"
+    L["INCAPACITATES"] = "Incapacitar"
+    L["KNOCKBACKS"] = "Derribos"
+    L["RANDOM_ROOTS"] = "Raíces aleatorias"
+    L["RANDOM_STUNS"] = "Aturdir aleatorio"
+    L["ROOTS"] = "Raíces"
+    L["SILENCES"] = "Silencios"
+    L["STUNS"] = "Aturdimientos"
+    L["TAUNTS"] = "Provocaciones"
 elseif locale == "esMX" then
-    --@localization(locale="esMX", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["FEARS"] = "Miedos"
+    L["KNOCKBACKS"] = "Derribos"
+    L["ROOTS"] = "Raíces"
+    L["SILENCES"] = "Silencios"
+    L["STUNS"] = "Aturdimientos"
+    L["TAUNTS"] = "Provocaciones"
 elseif locale == "zhCN" then
-    --@localization(locale="zhCN", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["DISARMS"] = "缴械"
+    L["DISORIENTS"] = "迷惑"
+    L["FEARS"] = "恐惧"
+    L["INCAPACITATES"] = "瘫痪"
+    L["KNOCKBACKS"] = "击退"
+    L["RANDOM_ROOTS"] = "随机定身"
+    L["RANDOM_STUNS"] = "随机眩晕"
+    L["ROOTS"] = "定身"
+    L["SILENCES"] = "沉默"
+    L["STUNS"] = "昏迷"
+    L["TAUNTS"] = "嘲讽"
 elseif locale == "zhTW" then
-    --@localization(locale="zhTW", namespace="Categories", format="lua_additive_table", handle-unlocalized="ignore")@
+    L["DISARMS"] = "繳械"
+    L["DISORIENTS"] = "迷惑"
+    L["FEARS"] = "恐懼"
+    L["INCAPACITATES"] = "癱瘓"
+    L["KNOCKBACKS"] = "擊退"
+    L["RANDOM_ROOTS"] = "隨機定身"
+    L["RANDOM_STUNS"] = "隨機昏迷"
+    L["ROOTS"] = "定身"
+    L["SILENCES"] = "沉默"
+    L["STUNS"] = "昏迷"
+    L["TAUNTS"] = "嘲諷"
 end
 -- luacheck: pop
 -------------------------------------------------------------------------------

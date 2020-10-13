@@ -33,9 +33,7 @@ You can ignore this section if you don't use the [Curseforge packager](https://a
 
 ```
 externals:
-  libs/DRList-1.0:
-    url: git://github.com/wardz/DRList-1.0
-    tag: latest
+  libs/DRList-1.0: git://github.com/wardz/DRList-1.0
 
 ignore:
   - libs/DRList-1.0/DRList-1.0.toc # Optional

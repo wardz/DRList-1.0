@@ -20,7 +20,7 @@ DRList is updated to seamlessly support both Classic and Retail World of Warcraf
 Installing from source/master is not guaranteed to work. You should download a packaged version here instead:
 
 - [Curseforge Download](https://wow.curseforge.com/projects/drlist-1-0)  
-- [Github Download](https://github.com/wardz/drlist/releases)
+- [Github Download](https://github.com/wardz/drlist/releases)  
 Unzip it into `WoW/Interface/AddOns/YourAddon/libs` and add an entry for it in your addon's .toc file. (See Example Usage).
 You may also install it as a standalone addon by putting it directly in `WoW/Interface/AddOns/`. This is recommended when
 forking the library or creating addon packs/plugins where multiple addons use the lib.

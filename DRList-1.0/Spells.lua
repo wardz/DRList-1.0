@@ -133,6 +133,7 @@ if Lib.gameExpansion == "retail" then
 
         -- Roots
         -- Note: Short roots (<= 2s) usually have no DR, e.g Thunderstruck.
+        [334693]  = "root",            -- Absolute Zero (Breath of Sindragosa)
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
         [339]     = "root",            -- Entangling Roots

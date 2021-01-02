@@ -22,6 +22,8 @@ if Lib.gameExpansion == "retail" then
         [261589]  = "disorient",       -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient",       -- Seduction (Succubus)
         [5246]    = "disorient",       -- Intimidating Shout
+        [316593]  = "disorient",       -- Intimidating Shout 2 (not sure which one is correct in 9.0.1)
+        [316595]  = "disorient",       -- Intimidating Shout 3
         [35474]   = "disorient",       -- Drums of Panic (Item)
         [269186]  = "disorient",       -- Holographic Horror Projector (Item)
         [280062]  = "disorient",       -- Unluckydo (Item)

@@ -19,6 +19,7 @@ if Lib.gameExpansion == "retail" then
         [226943]  = "disorient",       -- Mind Bomb
         [2094]    = "disorient",       -- Blind
         [118699]  = "disorient",       -- Fear
+        [5484]    = "disorient",       -- Howl of Terror
         [261589]  = "disorient",       -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient",       -- Seduction (Succubus)
         [5246]    = "disorient",       -- Intimidating Shout

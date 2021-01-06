@@ -187,15 +187,17 @@ if Lib.gameExpansion == "retail" then
 --      [36213]   = "taunt",           -- Angered Earth (Earth Elemental, has no debuff)
 
         -- Knockbacks (Experimental)
---      [108199]  = "knockback",        -- Gorefiend's Grasp (has no debuff)
---      [202249]  = "knockback",        -- Overrun TODO: verify
-        [132469]  = "knockback",        -- Typhoon
+        [108199]  = "knockback",        -- Gorefiend's Grasp (Note: has no debuff)
+        [202249]  = "knockback",        -- Overrun TODO: verify
+        [61391]   = "knockback",        -- Typhoon
         [102793]  = "knockback",        -- Ursol's Vortex (Warning: May only be tracked on SPELL_AURA_REFRESH afaik)
         [186387]  = "knockback",        -- Bursting Shot
-        [236775]  = "knockback",        -- Hi-Explosive Trap
+        [236777]  = "knockback",        -- Hi-Explosive Trap
         [157981]  = "knockback",        -- Blast Wave
+        [237371]  = "knockback",        -- Ring of Peace (Note: has no debuff)
         [204263]  = "knockback",        -- Shining Force
         [51490]   = "knockback",        -- Thunderstorm
+--      [287712]  = "knockback",        -- Haywire (Kul'Tiran Racial)
     }
 
 else

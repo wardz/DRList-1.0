@@ -128,11 +128,13 @@ Lib.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
 Lib.resetTimes = {
     retail = {
         ["default"] = 18.5,
+        ["npc"] = 23.0, -- Against mobs it seems to last slightly longer, depending on server load
         ["knockback"] = 10.5, -- Knockbacks are immediately immune and only DRs for 10s
     },
 
     classic = {
         ["default"] = 18.5,
+        ["npc"] = 23.0,
     },
 }
 
@@ -226,7 +228,7 @@ function Lib:GetPvECategories()
 end
 
 --- Get constant for how long a DR lasts.
--- @tparam[opt="default"] string category Unlocalized category name
+-- @tparam[opt="default"] string category Unlocalized category name, or "npc" for PvE timer.
 -- @treturn number
 function Lib:GetResetTime(category)
     return Lib.resetTimes[Lib.gameExpansion][category or "default"] or Lib.resetTimes[Lib.gameExpansion].default

@@ -107,10 +107,12 @@ if Lib.gameExpansion == "retail" then
         [163505]  = "stun",            -- Rake (Prowl)
         [5211]    = "stun",            -- Mighty Bash
         [202244]  = "stun",            -- Overrun
+        [325321]  = "stun",            -- Wild Hunt's Charge
         [24394]   = "stun",            -- Intimidation
         [119381]  = "stun",            -- Leg Sweep
         [202346]  = "stun",            -- Double Barrel
         [853]     = "stun",            -- Hammer of Justice
+        [255941]  = "stun",            -- Wake of Ashes
         [64044]   = "stun",            -- Psychic Horror
         [200200]  = "stun",            -- Holy Word: Chastise Censure
         [1833]    = "stun",            -- Cheap Shot
@@ -134,6 +136,7 @@ if Lib.gameExpansion == "retail" then
         [287712]  = "stun",            -- Haymaker (Kul Tiran)
         [280061]  = "stun",            -- Brainsmasher Brew (Item)
         [245638]  = "stun",            -- Thick Shell (Item)
+        [332423]  = "stun",            -- Sparkling Driftglobe Core
 
         -- Roots
         -- Note: Short roots (<= 2s) usually have no DR, e.g Thunderstruck.
@@ -155,7 +158,9 @@ if Lib.gameExpansion == "retail" then
         [342375]  = "root",            -- Tormenting Backlash (Torghast pve, needs confirmation)
         [233582]  = "root",            -- Entrenched in Flame
         [116706]  = "root",            -- Disable
+        [324382]  = "root",            -- Clash
         [64695]   = "root",            -- Earthgrab (Totem effect)
+        [285515]  = "root",            -- Surge of Power
         [39965]   = "root",            -- Frost Grenade (Item)
         [75148]   = "root",            -- Embersilk Net (Item)
         [55536]   = "root",            -- Frostweave Net (Item)

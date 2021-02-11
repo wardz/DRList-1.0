@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 18
+local MAJOR, MINOR = "DRList-1.0", 19
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -227,7 +227,7 @@ function Lib:GetPvECategories()
     return Lib.categoriesPvE[Lib.gameExpansion]
 end
 
---- Get constant for how long a DR lasts.
+--- Get constant for how long a DR lasts total for a given category.
 -- @tparam[opt="default"] string category Unlocalized category name, or "npc" for PvE timer.
 -- @treturn number
 function Lib:GetResetTime(category)

@@ -166,13 +166,16 @@ Lib.categoryNames = {
     },
 }
 
--- Categories that have DR against mobs (not pets).
--- Note that only elites and quest bosses usually have root/taunt DR.
+-- Categories that have DR against mobs (not player pets).
+-- Note that only elites and quest bosses have DR on all categories.
+-- Normal mobs only have a stun and taunt DR.
 Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["root"] = L.ROOTS,
+        ["incapacitate"] = L.INCAPACITATES,
+        ["disorient"] = L.DISORIENTS,
     },
 
     classic = {

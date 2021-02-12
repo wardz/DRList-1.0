@@ -122,8 +122,16 @@ end
 -- luacheck: pop
 -------------------------------------------------------------------------------
 
--- Whether we're running Classic or Retail WoW
-Lib.gameExpansion = select(4, GetBuildInfo()) < 80000 and "classic" or "retail"
+-- Check which game version we're running
+do
+    local expansions = {
+        [WOW_PROJECT_MAINLINE] = "retail",
+        [WOW_PROJECT_CLASSIC] = "classic",
+        [WOW_PROJECT_TBC or 3] = "tbc",
+    }
+
+    Lib.gameExpansion = expansions[WOW_PROJECT_ID] or "unknown"
+end
 
 -- How long it takes for a DR to expire
 Lib.resetTimes = {
@@ -133,6 +141,10 @@ Lib.resetTimes = {
     },
 
     classic = {
+        ["default"] = 18.5,
+    },
+
+    tbc = {
         ["default"] = 18.5,
     },
 }
@@ -164,6 +176,8 @@ Lib.categoryNames = {
         ["frost_shock"] = L.FROST_SHOCK,
         ["kidney_shot"] = L.KIDNEY_SHOT,
     },
+
+    tbc = {},
 }
 
 -- Categories that have DR against mobs (not player pets).
@@ -182,6 +196,10 @@ Lib.categoriesPvE = {
         ["stun"] = L.STUNS,
         ["kidney_shot"] = L.KIDNEY_SHOT,
     },
+
+    tbc = {
+        ["stun"] = L.STUNS,
+    },
 }
 
 -- Successives diminished durations
@@ -196,6 +214,10 @@ Lib.diminishedDurations = {
     },
 
     classic = {
+        ["default"] = { 0.50, 0.25 },
+    },
+
+    tbc = {
         ["default"] = { 0.50, 0.25 },
     },
 }
@@ -244,12 +266,14 @@ end
 -- @treturn[1] string|nil The category name.
 -- @treturn[2] number|nil The spell ID. (Classic only)
 function Lib:GetCategoryBySpellID(spellID)
-    if Lib.gameExpansion == "retail" then
-        return Lib.spellList[spellID]
+    if Lib.gameExpansion == "classic" then
+        -- special case for classic as CLEU doesn't provide spellIDs
+        local data = Lib.spellList[spellID]
+        if not data then return end
+        return data.category, data.spellID
     end
 
-    local data = Lib.spellList[spellID]
-    if data then return data.category, data.spellID end
+    return Lib.spellList[spellID]
 end
 
 --- Get localized category from unlocalized category name, case sensitive.

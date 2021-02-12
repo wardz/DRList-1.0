@@ -12,7 +12,6 @@ local Tests = SimpleTesting:New("DRList-1.0", "Classic")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
-    GetBuildInfo = function() return nil, nil, nil, 11302 end
     GetSpellInfo = function(id)
         -- Need to mock some of the spells used in testing
         if id == 853 then return "Hammer of Justice"
@@ -22,6 +21,10 @@ if not Tests:IsInGame() then
         elseif id == 5211 then return "Bash"
         else return "" end
     end
+
+    WOW_PROJECT_MAINLINE = 1
+    WOW_PROJECT_CLASSIC = 2
+    WOW_PROJECT_ID = 2 -- set classic
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()

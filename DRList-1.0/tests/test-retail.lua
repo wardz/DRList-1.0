@@ -12,8 +12,11 @@ local Tests = SimpleTesting:New("DRList-1.0", "Retail")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
-    GetBuildInfo = function() return nil, nil, nil, 80000 end
     GetSpellInfo = function() return "" end
+
+    WOW_PROJECT_MAINLINE = 1
+    WOW_PROJECT_CLASSIC = 2
+    WOW_PROJECT_ID = 1 -- set retail
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()

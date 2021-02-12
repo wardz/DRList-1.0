@@ -18,6 +18,10 @@ globals = {
     "GetBuildInfo",
     "format",
     "strmatch",
+    "WOW_PROJECT_MAINLINE",
+    "WOW_PROJECT_CLASSIC",
+    "WOW_PROJECT_TBC",
+    "WOW_PROJECT_ID",
 
     -- Tests
     "SimpleTesting",

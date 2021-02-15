@@ -178,7 +178,7 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    if select(4, GetBuildInfo()) > 80000 then
+    if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then
         SLASH_DRLIST1 = "/drlist"
         SlashCmdList["DRLIST"] = function()
             Tests:RunAll()

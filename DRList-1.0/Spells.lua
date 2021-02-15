@@ -1,8 +1,9 @@
-local Lib = LibStub and LibStub("DRList-1.0")
+local Lib, version = LibStub("DRList-1.0")
+if Lib.spellList and version >= 20 then return end
 
 if Lib.gameExpansion == "retail" then
 
-    -- SpellID list for Retail WoW
+    -- SpellID list for Retail WoW (always latest expansion)
     Lib.spellList = {
         -- Disorients
         [207167]  = "disorient",       -- Blinding Sleet

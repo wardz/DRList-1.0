@@ -33,9 +33,9 @@ L["TAUNTS"] = "Taunts"
 L["FEARS"] = "Fears"
 L["RANDOM_ROOTS"] = "Random roots"
 L["RANDOM_STUNS"] = "Random stuns"
-L["MIND_CONTROL"] = GetSpellInfo(605)
-L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840)
-L["KIDNEY_SHOT"] = GetSpellInfo(408)
+L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
+L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840) or "Frost Shock"
+L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
 
 -- luacheck: push ignore 542
 local locale = GetLocale()

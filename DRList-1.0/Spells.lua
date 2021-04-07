@@ -289,16 +289,7 @@ elseif Lib.gameExpansion == "classic" then
         [GetSpellInfo(56)]      = { category = "random_stun", spellID = 56 },      -- Stun (Weapon Proc)
         [GetSpellInfo(21152)]   = { category = "random_stun", spellID = 21152 },   -- Earthshaker (Weapon Proc)
 
-        -- Silences (TODO: confirm category exists)
-        [GetSpellInfo(18469)]   = { category = "silence", spellID = 18469 },      -- Counterspell - Silenced
-        [GetSpellInfo(15487)]   = { category = "silence", spellID = 15487 },      -- Silence
-        [GetSpellInfo(18425)]   = { category = "silence", spellID = 18425 },      -- Kick - Silenced
-        [GetSpellInfo(24259)]   = { category = "silence", spellID = 24259 },      -- Spell Lock
-        [GetSpellInfo(18498)]   = { category = "silence", spellID = 18498 },      -- Shield Bash - Silenced
-        [GetSpellInfo(19821)]   = { category = "silence", spellID = 19821 },      -- Arcane Bomb Silence
-
         -- Spells that DRs with itself only
-        --[GetSpellInfo(19675)] = { category = "feral_charge", spellID = 19675 },  -- Feral Charge Effect
         [GetSpellInfo(408)]     = { category = "kidney_shot", spellID = 408 },     -- Kidney Shot
         [GetSpellInfo(605)]     = { category = "mind_control", spellID = 605 },    -- Mind Control
         [GetSpellInfo(13181)]   = { category = "mind_control", spellID = 13181 },  -- Gnomish Mind Control Cap

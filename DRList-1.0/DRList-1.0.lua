@@ -168,7 +168,6 @@ Lib.categoryNames = {
 
     classic = {
         ["incapacitate"] = L.INCAPACITATES,
-        ["silence"] = L.SILENCES,
         ["stun"] = L.STUNS, -- controlled stun
         ["root"] = L.ROOTS, -- controlled root
         ["random_stun"] = L.RANDOM_STUNS, -- random proc stun, usually short (<3s)

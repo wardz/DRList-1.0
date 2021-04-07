@@ -136,7 +136,6 @@ do
     local isTBC = _G.BackdropTemplateMixin and WOW_PROJECT_ID == 2
 
     Lib.gameExpansion = isClassic and "classic" or isTBC and "tbc" or "retail"
-    print(Lib.gameExpansion)
 end
 
 -- How long it takes for a DR to expire

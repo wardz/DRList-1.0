@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 20
+local MAJOR, MINOR = "DRList-1.0", 21
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -36,6 +36,7 @@ L["RANDOM_STUNS"] = "Random stuns"
 L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
+L["SLEEPS"] = GetSpellInfo(1090) or "Sleeps"
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -123,13 +124,19 @@ end
 
 -- Check which game version we're running
 do
-    local expansions = {
+    --[[local expansions = {
         [WOW_PROJECT_MAINLINE] = "retail",
         [WOW_PROJECT_CLASSIC] = "classic",
-        [WOW_PROJECT_TBC or 3] = "tbc",
+        [WOW_PROJECT_TBC] = "tbc",
     }
+    Lib.gameExpansion = expansions[WOW_PROJECT_ID] or "unknown"]]
 
-    Lib.gameExpansion = expansions[WOW_PROJECT_ID] or "unknown"
+    -- As of writing this, WOW_PROJECT_ID for classic & tbc is the exact same so we gotta do some additional checks here
+    local isClassic = _G.BackdropTemplateMixin == nil and WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
+    local isTBC = _G.BackdropTemplateMixin and WOW_PROJECT_ID == 2
+
+    Lib.gameExpansion = isClassic and "classic" or isTBC and "tbc" or "retail"
+    print(Lib.gameExpansion)
 end
 
 -- How long it takes for a DR to expire
@@ -178,11 +185,20 @@ Lib.categoryNames = {
         ["kidney_shot"] = L.KIDNEY_SHOT,
     },
 
-    tbc = {},
+    tbc = {
+        ["disorient"] = L.DISORIENTS,
+        ["incapacitate"] = L.INCAPACITATES,
+        ["stun"] = L.STUNS,
+        ["root"] = L.ROOTS,
+        ["sleep"] = L.SLEEPS,
+        ["fear"] = L.FEARS,
+        ["mind_control"] = L.MIND_CONTROL,
+        ["kidney_shot"] = L.KIDNEY_SHOT,
+    },
 }
 
--- Categories that have DR against mobs (not player pets).
--- Note that only elites and quest bosses have DR on all categories.
+-- Categories that have DR against normal mobs (not player pets).
+-- Note that elites and quest bosses have DR on ALL categories.
 -- Normal mobs only have a stun and taunt DR.
 Lib.categoriesPvE = {
     retail = {
@@ -198,6 +214,7 @@ Lib.categoriesPvE = {
 
     tbc = {
         ["stun"] = L.STUNS,
+        ["kidney_shot"] = L.KIDNEY_SHOT,
     },
 }
 

@@ -1,5 +1,5 @@
 local Lib, version = LibStub("DRList-1.0")
-if Lib.spellList and version >= 20 then return end
+if Lib.spellList and version >= 21 then return end
 
 if Lib.gameExpansion == "retail" then
 
@@ -206,6 +206,90 @@ if Lib.gameExpansion == "retail" then
 --      [287712]  = "knockback",        -- Haywire (Kul'Tiran Racial)
     }
 
+elseif Lib.gameExpansion == "tbc" then
+
+
+    -- Spells for TBC
+    -- Note: categories are still mostly unconfirmed
+    Lib.spellList = {
+        -- Incaps:
+        [22570] = "incapacitate", -- Maim
+        [3355]  = "incapacitate", -- Freezing Trap
+        [12826] = "incapacitate", -- Polymorph
+        [28271] = "incapacitate", -- Polymorph: Turtle
+        [28272] = "incapacitate", -- Polymorph: Pig
+        [20066] = "incapacitate", -- Repentance
+        [6770]  = "incapacitate", -- Sap
+        [1776]  = "incapacitate", -- Gouge
+        [13327] = "incapacitate", -- Reckless Charge (Rocket Helmet)
+
+        -- Disorients
+        [33786] = "disorient", -- Cyclone
+        [19503] = "disorient", -- Scatter Shot
+        [31661] = "disorient", -- Dragon's Breath
+        [2094]  = "disorient", -- Blind
+        --[27223] = "disorient", -- Death Coil TODO: confirm
+
+        -- Stuns
+        [8983]  = "stun", -- Bash
+        [9005]  = "stun", -- Pounce
+        [19577] = "stun", -- Intimidation
+        [853]   = "stun", -- Hammer of Justice
+        [1833]  = "stun", -- Cheap Shot
+        [30283] = "stun", -- Shadowfury
+        [22703] = "stun", -- Inferno Stun Effect
+        [12809] = "stun", -- Concussion Blow
+        [25274] = "stun", -- Intercept
+        [30197] = "stun", -- Intercept Stun (Felguard)
+        [20549] = "stun", -- War Stomp (Racial)
+        [4064]  = "stun", -- Rough Copper Bomb
+        [4065]  = "stun", -- Large Copper Bomb
+        [4066]  = "stun", -- Small Bronze Bomb
+        [4067]  = "stun", -- Big Bronze Bomb
+        [4068]  = "stun", -- Iron Grenade
+        [12421] = "stun", -- Mithril Frag Bomb
+        [4069]  = "stun", -- Big Iron Bomb
+        [12562] = "stun", -- The Big One
+        [12543] = "stun", -- Hi-Explosive Bomb
+        [19769] = "stun", -- Thorium Grenade
+        [19784] = "stun", -- Dark Iron Bomb
+        [30216] = "stun", -- Fel Iron Bomb
+        [30461] = "stun", -- The Bigger One
+        [30217] = "stun", -- Adamantite Grenade
+        [13237] = "stun", -- Goblin Mortar
+        [835]   = "stun", -- Tidal Charm
+
+        -- Sleep Effects
+        [1090]  = "sleep", -- Sleep
+        [18658] = "sleep", -- Hibernate
+        [19386] = "sleep", -- Wyvern Sting
+
+        -- Fears
+        [8122]  = "fear", -- Psychic Scream
+        [5782]  = "fear", -- Fear
+        [6358]  = "fear", -- Seduction (Succubus)
+        [5484]  = "fear", -- Howl of Terror
+        [1513]  = "fear", -- Scare Beast
+        [5246]  = "fear", -- Intimidating Shout
+        [5134]  = "fear", -- Flash Bomb Fear
+
+        -- Roots
+        [339]   = "root", -- Entangling Roots
+        [16979] = "root", -- Feral Charge
+        [19306] = "root", -- Counterattack
+        [27088] = "root", -- Frost Nova
+        [33395] = "root", -- Freeze (Water Elemental)
+        [44047] = "root", -- Chastise
+        [39965] = "root", -- Frost Grenade
+
+        -- Mind Controls
+        [605]   = "mind_control", -- Mind Control
+        [13181] = "mind_control", -- Gnomish Mind Control Cap
+
+        -- Spells that DR with itself only
+        [408]   = "kidney_shot",
+    }
+
 elseif Lib.gameExpansion == "classic" then
 
     -- Spell list for Classic (WIP)
@@ -230,7 +314,7 @@ elseif Lib.gameExpansion == "classic" then
         [GetSpellInfo(1833)]    = { category = "stun", spellID = 1833 },     -- Cheap Shot
         [GetSpellInfo(12809)]   = { category = "stun", spellID = 12809 },    -- Concussion Blow
         [GetSpellInfo(20253)]   = { category = "stun", spellID = 20253 },    -- Intercept Stun
-        [GetSpellInfo(7922)]    = { category = "stun", spellID = 7922 },     -- Charge Stun (Afaik this now DRs with stuns but it shouldn't? may be a bug)
+        [GetSpellInfo(7922)]    = { category = "stun", spellID = 7922 },     -- Charge Stun
         [GetSpellInfo(20549)]   = { category = "stun", spellID = 20549 },    -- War Stomp (Racial)
         [GetSpellInfo(4068)]    = { category = "stun", spellID = 4068 },     -- Iron Grenade
         [GetSpellInfo(19769)]   = { category = "stun", spellID = 19769 },    -- Thorium Grenade
@@ -295,8 +379,6 @@ elseif Lib.gameExpansion == "classic" then
         [GetSpellInfo(13181)]   = { category = "mind_control", spellID = 13181 },  -- Gnomish Mind Control Cap
         [GetSpellInfo(8056)]    = { category = "frost_shock", spellID = 8056 },    -- Frost Shock
     }
-elseif Lib.gameExpansion == "tbc" then
-    Lib.spellList = {}
 else
     error("DRList-1.0: Unsupported game expansion loaded.")
 end

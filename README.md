@@ -3,14 +3,14 @@
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in.
 
 **This addon is a fork/rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which seems to be abandoned.**
-DRList is updated to seamlessly support both Classic and Retail World of Warcraft, and most likely The Burning Crusade if it gets released.
+DRList is updated to seamlessly support both Classic, TBC and Retail World of Warcraft.
 
 [API Documentation.](https://wardz.github.io/DRList-1.0/)
 
 ## Upgrading from DRData to DRList
 
 - All occurances of `DRData` must be renamed to `DRList`.
-- There's a new category added for Disarms, depending on how your addon is coded you might need to account for this. (In Classic there's several new categories added, check the [wiki](https://github.com/wardz/DRList-1.0/wiki/DR-Categories).)
+- There's a new category added for Disarms, depending on how your addon is coded you might need to account for this. (In Classic/TBC there's several new categories added, check the [wiki](https://github.com/wardz/DRList-1.0/wiki/DR-Categories).)
 - If you used to access the tables directly, you'll now need to add the current expansion as an extra table property.
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table. For API functions there should be no need for changes.
@@ -25,9 +25,9 @@ Unzip it into `WoW/Interface/AddOns/YourAddon/libs` and add an entry for it in y
 You may also install it as a standalone addon by putting it directly in `WoW/Interface/AddOns/`. This is recommended when
 forking the library or creating addon packs/plugins where multiple addons use the lib.
 
-## Usage with Curseforge Packager
+## Usage with BigWigs Packager
 
-You can ignore this section if you don't use the [Curseforge packager](https://authors.curseforge.com/knowledge-base/projects/527-preparing-the-packagemeta-file).
+You can ignore this section if you don't use the [BigWigs packager.](https://github.com/BigWigsMods/packager)
 
 **addon/.pkgmeta**
 
@@ -42,7 +42,7 @@ ignore:
 
 ## Example Usage
 
-- [Example usage for Retail](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail)
+- [Example usage for Retail & TBC](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail)
 - [Example usage for Classic](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Classic)
 
 Feel free to open an issue ticket if you have any questions.

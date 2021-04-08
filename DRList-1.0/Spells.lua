@@ -225,12 +225,11 @@ elseif Lib.gameExpansion == "tbc" then
 
         -- Disorients
         [33786] = "disorient", -- Cyclone
-        [19503] = "disorient", -- Scatter Shot
-        [31661] = "disorient", -- Dragon's Breath
+        [19503] = "disorient", -- Scatter Shot -- TODO: confirm
+        [31661] = "disorient", -- Dragon's Breath -- TODO: confirm
         [2094]  = "disorient", -- Blind
-        --[27223] = "disorient", -- Death Coil TODO: confirm
 
-        -- Stuns
+        -- Controlled Stuns
         [8983]  = "stun", -- Bash
         [9005]  = "stun", -- Pounce
         [19577] = "stun", -- Intimidation
@@ -259,6 +258,18 @@ elseif Lib.gameExpansion == "tbc" then
         [13237] = "stun", -- Goblin Mortar
         [835]   = "stun", -- Tidal Charm
 
+        -- Random/short stuns
+        [16922]   = "random_stun",  -- Improved Starfire
+        [19410]   = "random_stun",  -- Improved Concussive Shot
+        [12355]   = "random_stun",  -- Impact
+        [20170]   = "random_stun",  -- Seal of Justice Stun
+        [15269]   = "random_stun",  -- Blackout
+        [18093]   = "random_stun",  -- Pyroclasm
+        [12798]   = "random_stun",  -- Revenge Stun
+        [5530]    = "random_stun",  -- Mace Stun Effect (Mace Specialization)
+        [15283]   = "random_stun",  -- Stunning Blow (Weapon Proc)
+        [56]      = "random_stun",  -- Stun (Weapon Proc)
+
         -- Sleep Effects
         [1090]  = "sleep", -- Sleep
         [18658] = "sleep", -- Hibernate
@@ -277,8 +288,10 @@ elseif Lib.gameExpansion == "tbc" then
         [339]   = "root", -- Entangling Roots
         [16979] = "root", -- Feral Charge
         [19306] = "root", -- Counterattack
+        [19185] = "root", -- Entrapment
         [27088] = "root", -- Frost Nova
         [33395] = "root", -- Freeze (Water Elemental)
+        [12494] = "root", -- Frostbite TODO: confirm
         [44047] = "root", -- Chastise
         [39965] = "root", -- Frost Grenade
 
@@ -286,8 +299,14 @@ elseif Lib.gameExpansion == "tbc" then
         [605]   = "mind_control", -- Mind Control
         [13181] = "mind_control", -- Gnomish Mind Control Cap
 
+        -- Disarms
+        [41392] = "disarm",
+        [676]   = "disarm",
+
         -- Spells that DR with itself only
         [408]   = "kidney_shot",
+        [31117] = "unstable_affliction",
+        [27223] = "death_coil",
     }
 
 elseif Lib.gameExpansion == "classic" then

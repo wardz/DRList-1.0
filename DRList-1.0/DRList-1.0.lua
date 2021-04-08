@@ -37,6 +37,8 @@ L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
 L["SLEEPS"] = GetSpellInfo(1090) or "Sleeps"
+L["DEATH_COIL"] = GetSpellInfo(27223) or GetSpellInfo(47541) "Death Coil"
+L["UNSTABLE_AFFLICTION"] = GetSpellInfo(31117) or "Unstable Affliction"
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -188,11 +190,15 @@ Lib.categoryNames = {
         ["disorient"] = L.DISORIENTS,
         ["incapacitate"] = L.INCAPACITATES,
         ["stun"] = L.STUNS,
+        ["random_stun"] = L.RANDOM_STUNS,
         ["root"] = L.ROOTS,
+        ["disarm"] = L.DISARMS,
         ["sleep"] = L.SLEEPS,
         ["fear"] = L.FEARS,
         ["mind_control"] = L.MIND_CONTROL,
         ["kidney_shot"] = L.KIDNEY_SHOT,
+        ["death_coil"] = L.DEATH_COIL,
+        ["unstable_affliction"] = L.UNSTABLE_AFFLICTION,
     },
 }
 

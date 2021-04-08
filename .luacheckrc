@@ -6,6 +6,8 @@ exclude_files = {
     ".luacheckrc"
 }
 
+not_globals = { "print" } -- just to help not forgetting to remove debug print statements
+
 ignore = {
     "212/self",  -- Unused argument
     "213", -- Unused loop variable

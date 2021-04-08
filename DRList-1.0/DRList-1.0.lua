@@ -37,7 +37,7 @@ L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(8056) or GetSpellInfo(196840) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
 L["SLEEPS"] = GetSpellInfo(1090) or "Sleeps"
-L["DEATH_COIL"] = GetSpellInfo(27223) or GetSpellInfo(47541) "Death Coil"
+L["DEATH_COIL"] = GetSpellInfo(27223) or GetSpellInfo(47541) or "Death Coil"
 L["UNSTABLE_AFFLICTION"] = GetSpellInfo(31117) or "Unstable Affliction"
 
 -- luacheck: push ignore 542

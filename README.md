@@ -14,6 +14,7 @@ DRList is updated to seamlessly support both Classic, TBC and Retail World of Wa
 - If you used to access the tables directly, you'll now need to add the current expansion as an extra table property.
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table. For API functions there should be no need for changes.
+- Calls to `IterateProviders` must be replaced with `IterateSpellsByCategory`.  
 
 ## Manual Install
 

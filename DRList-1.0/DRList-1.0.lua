@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 21
+local MAJOR, MINOR = "DRList-1.0", 22
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -126,18 +126,12 @@ end
 
 -- Check which game version we're running
 do
-    --[[local expansions = {
+    local expansions = {
         [WOW_PROJECT_MAINLINE] = "retail",
         [WOW_PROJECT_CLASSIC] = "classic",
-        [WOW_PROJECT_TBC] = "tbc",
+        [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "tbc",
     }
-    Lib.gameExpansion = expansions[WOW_PROJECT_ID] or "unknown"]]
-
-    -- As of writing this, WOW_PROJECT_ID for classic & tbc is the exact same so we gotta do some additional checks here
-    local isClassic = _G.BackdropTemplateMixin == nil and WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
-    local isTBC = _G.BackdropTemplateMixin and WOW_PROJECT_ID == 2
-
-    Lib.gameExpansion = isClassic and "classic" or isTBC and "tbc" or "retail"
+    Lib.gameExpansion = expansions[WOW_PROJECT_ID] or "unknown"
 end
 
 -- How long it takes for a DR to expire

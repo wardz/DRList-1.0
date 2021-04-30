@@ -15,7 +15,7 @@ if not Tests:IsInGame() then
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
-    WOW_PROJECT_TBC = 3
+    WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 3
     WOW_PROJECT_ID = 3 -- set tbc
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
@@ -172,8 +172,7 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    local isTBC = _G.BackdropTemplateMixin and WOW_PROJECT_ID == 2
-    if isTBC then
+    if WOW_PROJECT_BURNING_CRUSADE_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC then
         SLASH_DRLIST1 = "/drlist"
         SlashCmdList["DRLIST"] = function()
             Tests:RunAll()

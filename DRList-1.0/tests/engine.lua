@@ -78,14 +78,14 @@ end
 
 function SimpleTesting:PrintResults(beginTime)
     local timeUsed = debugprofilestop() - beginTime
-    print(format("[%s (%s)] Completed %d/%d tests in %.2f seconds.", self.addonName, self.gameExpansion, self.completedTests, self.totalTests, timeUsed))
+    print(format("[%s (%s)] Completed %d/%d tests in %.2f seconds.", self.addonName, self.gameExpansion, self.completedTests, self.totalTests, timeUsed)) -- luacheck: ignore
 
     for i = 1, #self.errors do
         local err = self.errors[i]
         if self:IsInGame() then
-            print(format("|CFF7EBFF1[%s]:|r |cFFFF0000%s|r", err.funcName, err.text))
+            print(format("|CFF7EBFF1[%s]:|r |cFFFF0000%s|r", err.funcName, err.text)) -- luacheck: ignore
         else
-            print(format("[%s]: %s", err.funcName, err.text))
+            print(format("[%s]: %s", err.funcName, err.text)) -- luacheck: ignore
         end
     end
 

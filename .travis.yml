@@ -29,7 +29,7 @@ script:
       curl -L -s -o release.sh https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh
       chmod +x ./release.sh
       ./release.sh -g classic
-      ./release.sh -g bc
+      ./release.sh -g bcc
       ./release.sh -g retail
     fi
 

@@ -217,6 +217,7 @@ elseif Lib.gameExpansion == "tbc" then
         [118]   = "incapacitate", -- Polymorph (Rank 1)
         [12824] = "incapacitate", -- Polymorph (Rank 2)
         [12825] = "incapacitate", -- Polymorph (Rank 3)
+        [12826] = "incapacitate", -- Polymorph (Rank 4)
         [28271] = "incapacitate", -- Polymorph: Turtle
         [28272] = "incapacitate", -- Polymorph: Pig
         [20066] = "incapacitate", -- Repentance

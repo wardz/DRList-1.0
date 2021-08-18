@@ -85,6 +85,7 @@ if Lib.gameExpansion == "retail" then
         [204490]  = "silence",         -- Sigil of Silence
 --      [78675]   = "silence",         -- Solar Beam (doesn't seem to DR)
         [202933]  = "silence",         -- Spider Sting
+        [356727]  = "silence",         -- Spider Venom
         [217824]  = "silence",         -- Shield of Virtue
         [15487]   = "silence",         -- Silence
         [1330]    = "silence",         -- Garrote
@@ -149,6 +150,7 @@ if Lib.gameExpansion == "retail" then
         [102359]  = "root",            -- Mass Entanglement
         [117526]  = "root",            -- Binding Shot (Note: debuff says stun but it's actually a root)
         [162480]  = "root",            -- Steel Trap
+        [273909]  = "root",            -- Steelclaw Trap
 --      [190927]  = "root_harpoon",    -- Harpoon (TODO: check if DRs with itself)
         [212638]  = "root",            -- Tracker's Net
         [201158]  = "root",            -- Super Sticky Tar

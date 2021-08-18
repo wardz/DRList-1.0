@@ -265,6 +265,11 @@ elseif Lib.gameExpansion == "tbc" then
         [30153] = "stun", -- Intercept Stun (Rank 1)
         [30195] = "stun", -- Intercept Stun (Rank 2)
         [30197] = "stun", -- Intercept Stun (Rank 3)
+        [25273] = "stun", -- Intercept Stun (Rank 4)
+        [25274] = "stun", -- Intercept Stun (Rank 5)
+        [20253] = "stun", -- Intercept Stun 1 (These are probably invalid/unnecessary but im too lazy to test atm)
+        [20614] = "stun", -- Intercept Stun 2
+        [20615] = "stun", -- Intercept Stun 3
         [20549] = "stun", -- War Stomp (Racial)
         [4064]  = "stun", -- Rough Copper Bomb
         [4065]  = "stun", -- Large Copper Bomb

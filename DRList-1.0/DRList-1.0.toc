@@ -1,7 +1,7 @@
 ## Interface: 90005
 ## Interface-Retail: 90005
 ## Interface-Classic: 11307
-## Interface-BCC: 20501
+## Interface-BCC: 20502
 ## Title: Lib: Diminishing Returns Database
 ## Version: @project-version@
 ## X-Category: Library

@@ -333,9 +333,9 @@ do
     local next = _G.next
 
     local function CategoryIterator(category, index)
-        local newCat
+        local spellList, newCat = Lib.spellList, nil
         repeat
-            index, newCat = next(Lib.spellList, index)
+            index, newCat = next(spellList, index)
             if index then
                 if newCat == category or newCat.category == category then
                     return index, category

@@ -181,7 +181,7 @@ Lib.categoryNames = {
         ["kidney_shot"] = L.KIDNEY_SHOT,
         ["death_coil"] = L.DEATH_COIL,
         ["unstable_affliction"] = L.UNSTABLE_AFFLICTION,
-        ["freezing_trap"] = L.FREEZING_TRAP,
+        ["freezing_trap"] = L.FREEZING_TRAP, -- DEPRECATED
         ["scatter_shot"] = L.SCATTER_SHOT,
     },
 }

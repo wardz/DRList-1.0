@@ -3,9 +3,7 @@ if Lib.spellList and version >= 26 then return end
 
 if Lib.gameExpansion == "retail" then
 
-    -- SpellID list for Retail WoW (always latest expansion)
     Lib.spellList = {
-        -- Disorients
         [207167]  = "disorient",       -- Blinding Sleet
         [207685]  = "disorient",       -- Sigil of Misery
         [33786]   = "disorient",       -- Cyclone
@@ -14,7 +12,7 @@ if Lib.gameExpansion == "retail" then
         [198909]  = "disorient",       -- Song of Chi-ji
         [202274]  = "disorient",       -- Incendiary Brew
         [105421]  = "disorient",       -- Blinding Light
-        [10326]   = "disorient",       -- Turn Evil (For Lichborne?)
+        [10326]   = "disorient",       -- Turn Evil
         [605]     = "disorient",       -- Mind Control
         [8122]    = "disorient",       -- Psychic Scream
         [226943]  = "disorient",       -- Mind Bomb
@@ -23,17 +21,11 @@ if Lib.gameExpansion == "retail" then
         [5484]    = "disorient",       -- Howl of Terror
         [261589]  = "disorient",       -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient",       -- Seduction (Succubus)
-        [5246]    = "disorient",       -- Intimidating Shout
+        [5246]    = "disorient",       -- Intimidating Shout 1
         [316593]  = "disorient",       -- Intimidating Shout 2 (not sure which one is correct in 9.0.1)
         [316595]  = "disorient",       -- Intimidating Shout 3
-        [35474]   = "disorient",       -- Drums of Panic (Item)
-        [269186]  = "disorient",       -- Holographic Horror Projector (Item)
-        [280062]  = "disorient",       -- Unluckydo (Item)
-        [267026]  = "disorient",       -- Giant Flower (Item)
-        [243576]  = "disorient",       -- Sticky Starfish (Item)
         [331866]  = "disorient",       -- Agent of Chaos (Venthyr Covenant)
 
-        -- Incapacitates
         [217832]  = "incapacitate",    -- Imprison
         [221527]  = "incapacitate",    -- Imprison (Honor talent)
         [2637]    = "incapacitate",    -- Hibernate
@@ -76,11 +68,7 @@ if Lib.gameExpansion == "retail" then
         [710]     = "incapacitate",    -- Banish
         [6789]    = "incapacitate",    -- Mortal Coil
         [107079]  = "incapacitate",    -- Quaking Palm (Pandaren racial)
-        [89637]   = "incapacitate",    -- Big Daddy (Item)
-        [255228]  = "incapacitate",    -- Polymorphed (Organic Discombobulation Grenade) (Item)
-        [71988]   = "incapacitate",    -- Vile Fumes (Item)
 
-        -- Silences
         [47476]   = "silence",         -- Strangulate
         [204490]  = "silence",         -- Sigil of Silence
 --      [78675]   = "silence",         -- Solar Beam (doesn't seem to DR)
@@ -91,7 +79,6 @@ if Lib.gameExpansion == "retail" then
         [1330]    = "silence",         -- Garrote
         [196364]  = "silence",         -- Unstable Affliction Silence Effect
 
-        -- Stuns
         [210141]  = "stun",            -- Zombie Explosion
         [334693]  = "stun",            -- Absolute Zero (Breath of Sindragosa)
         [108194]  = "stun",            -- Asphyxiate (Unholy)
@@ -100,7 +87,6 @@ if Lib.gameExpansion == "retail" then
         [91797]   = "stun",            -- Monstrous Blow (Mutated Ghoul)
         [287254]  = "stun",            -- Dead of Winter
         [179057]  = "stun",            -- Chaos Nova
---      [213491]  = "stun",            -- Demonic Trample (Only DRs with itself once)
         [205630]  = "stun",            -- Illidan's Grasp (Primary effect)
         [208618]  = "stun",            -- Illidan's Grasp (Secondary effect)
         [211881]  = "stun",            -- Fel Eruption
@@ -125,40 +111,31 @@ if Lib.gameExpansion == "retail" then
         [89766]   = "stun",            -- Axe Toss
         [171017]  = "stun",            -- Meteor Strike (Infernal)
         [171018]  = "stun",            -- Meteor Strike (Abyssal)
---      [22703]   = "stun",            -- Infernal Awakening (doesn't seem to DR)
         [30283]   = "stun",            -- Shadowfury
         [46968]   = "stun",            -- Shockwave
         [132168]  = "stun",            -- Shockwave (Protection)
         [145047]  = "stun",            -- Shockwave (Proving Grounds PvE)
         [132169]  = "stun",            -- Storm Bolt
         [199085]  = "stun",            -- Warpath
---      [213688]  = "stun",            -- Fel Cleave (doesn't seem to DR)
         [20549]   = "stun",            -- War Stomp (Tauren)
         [255723]  = "stun",            -- Bull Rush (Highmountain Tauren)
         [287712]  = "stun",            -- Haymaker (Kul Tiran)
-        [280061]  = "stun",            -- Brainsmasher Brew (Item)
-        [245638]  = "stun",            -- Thick Shell (Item)
-        [332423]  = "stun",            -- Sparkling Driftglobe Core
 
-        -- Roots
-        -- Note: Short roots (<= 2s) usually have no DR, e.g Thunderstruck.
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
         [339]     = "root",            -- Entangling Roots
         [170855]  = "root",            -- Entangling Roots (Nature's Grasp)
---      [45334]   = "root",            -- Immobilized (Wild Charge, doesn't seem to DR)
         [102359]  = "root",            -- Mass Entanglement
-        [117526]  = "root",            -- Binding Shot (Note: debuff says stun but it's actually a root)
+        [117526]  = "root",            -- Binding Shot
         [162480]  = "root",            -- Steel Trap
         [273909]  = "root",            -- Steelclaw Trap
---      [190927]  = "root_harpoon",    -- Harpoon (TODO: check if DRs with itself)
+--      [190927]  = "root_harpoon",    -- Harpoon (TODO: confirm)
         [212638]  = "root",            -- Tracker's Net
         [201158]  = "root",            -- Super Sticky Tar
         [122]     = "root",            -- Frost Nova
         [33395]   = "root",            -- Freeze
         [198121]  = "root",            -- Frostbite
-        [220107]  = "root",            -- Frostbite (Water Elemental? needs testing)
-        [342375]  = "root",            -- Tormenting Backlash (Torghast pve, needs confirmation)
+        [342375]  = "root",            -- Tormenting Backlash (Torghast PvE)
         [233582]  = "root",            -- Entrenched in Flame
         [116706]  = "root",            -- Disable
         [324382]  = "root",            -- Clash
@@ -168,41 +145,35 @@ if Lib.gameExpansion == "retail" then
         [75148]   = "root",            -- Embersilk Net (Item)
         [55536]   = "root",            -- Frostweave Net (Item)
         [268966]  = "root",            -- Hooked Deep Sea Net (Item)
-        [270399]  = "root",            -- Unleashed Roots (Item)
-        [270196]  = "root",            -- Chains of Light (Item)
-        [267024]  = "root",            -- Stranglevines (Item)
 
-        -- Disarms
         [209749]  = "disarm",          -- Faerie Swarm (Balance Honor Talent)
         [207777]  = "disarm",          -- Dismantle
         [233759]  = "disarm",          -- Grapple Weapon
         [236077]  = "disarm",          -- Disarm
 
-        -- Taunts (PvE)
         [56222]   = "taunt",           -- Dark Command
         [51399]   = "taunt",           -- Death Grip
         [185245]  = "taunt",           -- Torment
         [6795]    = "taunt",           -- Growl (Druid)
-        [2649]    = "taunt",           -- Growl (Hunter Pet) -- TODO: verify if DRs
+        [2649]    = "taunt",           -- Growl (Hunter Pet) (TODO: confirm)
         [20736]   = "taunt",           -- Distracting Shot
         [116189]  = "taunt",           -- Provoke
         [118635]  = "taunt",           -- Provoke (Black Ox Statue)
         [196727]  = "taunt",           -- Provoke (Niuzao)
         [204079]  = "taunt",           -- Final Stand
         [62124]   = "taunt",           -- Hand of Reckoning
-        [17735]   = "taunt",           -- Suffering (Voidwalker)
+        [17735]   = "taunt",           -- Suffering (Voidwalker) (TODO: confirm)
         [355]     = "taunt",           -- Taunt
---      [36213]   = "taunt",           -- Angered Earth (Earth Elemental, has no debuff)
 
-        -- Knockbacks (Experimental)
-        [108199]  = "knockback",        -- Gorefiend's Grasp (Note: has no debuff)
-        [202249]  = "knockback",        -- Overrun TODO: verify
+        -- Experimental
+        [108199]  = "knockback",        -- Gorefiend's Grasp
+        [202249]  = "knockback",        -- Overrun
         [61391]   = "knockback",        -- Typhoon
-        [102793]  = "knockback",        -- Ursol's Vortex (Warning: May only be tracked on SPELL_AURA_REFRESH afaik)
+        [102793]  = "knockback",        -- Ursol's Vortex
         [186387]  = "knockback",        -- Bursting Shot
         [236777]  = "knockback",        -- Hi-Explosive Trap
         [157981]  = "knockback",        -- Blast Wave
-        [237371]  = "knockback",        -- Ring of Peace (Note: has no debuff)
+        [237371]  = "knockback",        -- Ring of Peace
         [204263]  = "knockback",        -- Shining Force
         [51490]   = "knockback",        -- Thunderstorm
 --      [287712]  = "knockback",        -- Haywire (Kul'Tiran Racial)

@@ -12,7 +12,7 @@ local Tests = SimpleTesting:New("DRList-1.0", "Retail")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
-    GetSpellInfo = function(...) return ... or "" end
+    GetSpellInfo = function() return "" end
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2

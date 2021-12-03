@@ -357,24 +357,25 @@ elseif Lib.gameExpansion == "tbc" then
 
 elseif Lib.gameExpansion == "classic" then
 
-    -- Spell list for Classic (WIP)
+    -- Spell list for Classic Era
     -- In Classic the spell ID payload is gone from the combat log, so we need the key here to be
     -- spell name instead. We also provide spell ID in the table value so it's possible to retrieve
     -- for example spell icon using GetSpellTexture(spellID) later on. (These functions only accept
     -- spell names if the player has the spell in their spell book)
+    local GetSpellInfo = _G.GetSpellInfo -- upvalue
     Lib.spellList = {
         -- Controlled roots
         [GetSpellInfo(339)]     = { category = "root", spellID = 339 },      -- Entangling Roots
         [GetSpellInfo(19306)]   = { category = "root", spellID = 19306 },    -- Counterattack
         [GetSpellInfo(122)]     = { category = "root", spellID = 122 },      -- Frost Nova
-    --  [GetSpellInfo(13099)]   = { category = "root", spellID = 13099 },    -- Net-o-Matic (These doesn't seem to DR here, maybe only with itself?)
+    --  [GetSpellInfo(13099)]   = { category = "root", spellID = 13099 },    -- Net-o-Matic
     --  [GetSpellInfo(8312)]    = { category = "root", spellID = 8312 },     -- Trap
 
         -- Controlled stuns
         [GetSpellInfo(5211)]    = { category = "stun", spellID = 5211 },     -- Bash
         [GetSpellInfo(24394)]   = { category = "stun", spellID = 24394 },    -- Intimidation
         [GetSpellInfo(853)]     = { category = "stun", spellID = 853 },      -- Hammer of Justice
-        [GetSpellInfo(22703)]   = { category = "stun", spellID = 22703 },    -- Inferno Effect (Summon Infernal) TODO: confirm
+        [GetSpellInfo(22703)]   = { category = "stun", spellID = 22703 },    -- Inferno Effect
         [GetSpellInfo(9005)]    = { category = "stun", spellID = 9005 },     -- Pounce
         [GetSpellInfo(1833)]    = { category = "stun", spellID = 1833 },     -- Cheap Shot
         [GetSpellInfo(12809)]   = { category = "stun", spellID = 12809 },    -- Concussion Blow
@@ -422,15 +423,16 @@ elseif Lib.gameExpansion == "classic" then
 
         -- Random/short roots (TODO: confirm category exists)
         [GetSpellInfo(19229)]   = { category = "random_root", spellID = 19229 },   -- Improved Wing Clip
+--      [GetSpellInfo(27868)]   = { category = "random_root", spellID = 12494 },   -- Frostbite
         [GetSpellInfo(23694)]   = { category = "random_root", spellID = 23694 },   -- Improved Hamstring
         [GetSpellInfo(27868)]   = { category = "random_root", spellID = 27868 },   -- Freeze (Item proc and set bonus)
 
-        -- Random/short stuns (TODO: confirm category exists)
+        -- Random/short stuns (TODO: DRs with itself only or all random stuns?)
         [GetSpellInfo(16922)]   = { category = "random_stun", spellID = 16922 },   -- Improved Starfire
         [GetSpellInfo(19410)]   = { category = "random_stun", spellID = 19410 },   -- Improved Concussive Shot
         [GetSpellInfo(12355)]   = { category = "random_stun", spellID = 12355 },   -- Impact
         [GetSpellInfo(20170)]   = { category = "random_stun", spellID = 20170 },   -- Seal of Justice Stun
-        --[GetSpellInfo(15269)]   = { category = "random_stun", spellID = 15269 }, -- Blackout
+        [GetSpellInfo(15269)]   = { category = "random_stun", spellID = 15269 },   -- Blackout
         [GetSpellInfo(18093)]   = { category = "random_stun", spellID = 18093 },   -- Pyroclasm
         [GetSpellInfo(12798)]   = { category = "random_stun", spellID = 12798 },   -- Revenge Stun
         [GetSpellInfo(5530)]    = { category = "random_stun", spellID = 5530 },    -- Mace Stun Effect (Mace Specialization)

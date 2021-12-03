@@ -1,6 +1,6 @@
 # DRList (Diminishing Returns Database)
 
-> World of Warcraft library for providing diminishing returns categorization.
+World of Warcraft library for providing diminishing returns categorization.
 
 ## Contents
 
@@ -35,7 +35,7 @@ Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 
 1. Add an entry for `Libs/DRList-1.0./DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
-2. Add this repository to the packager's externals list.
+2. Add this repository to the packager's externals list, preferably with the latest tag.
 
 **/YourAddonProject/.pkgmeta:**
 

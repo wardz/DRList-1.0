@@ -37,6 +37,8 @@ jobs:
         if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
         run: |
           curl -L -s https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz | tar -xz
+          sudo luarocks install luafilesystem
+          sudo luarocks install penlight
           lua LDoc-1.4.6/ldoc.lua DRList-1.0/DRList-1.0.lua
 
       - name: Deploy docs to Github Pages

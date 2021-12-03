@@ -45,5 +45,5 @@ body:
       - Russian
       - Spanish
       - Brazil
-    validations:
-      required: true
+  validations:
+    required: true

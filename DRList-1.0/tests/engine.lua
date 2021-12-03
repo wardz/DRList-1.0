@@ -6,6 +6,7 @@ local debugprofilestop = debugprofilestop or os.clock
 
 function SimpleTesting:New(addonName, gameExpansion)
     assert(type(addonName) == "string")
+    assert(type(gameExpansion) == "string")
 
     local acnt = {}
     setmetatable(acnt, SimpleTesting)
@@ -13,6 +14,7 @@ function SimpleTesting:New(addonName, gameExpansion)
     acnt.gameExpansion = gameExpansion
     acnt.tests = {}
     acnt.testsIngame = {}
+
     return acnt
 end
 

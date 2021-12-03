@@ -5,7 +5,7 @@ World of Warcraft library for providing diminishing returns categorization.
 ## Contents
 
 - [About](#about)
-- [Install Manually](#manual-install))
+- [Install Manually](#manual-install)
 - [Install With BigWigsMods Packager](#usage-with-bigwigmods-packager)
 - [Upgrading From DRData to DRList](#upgrading-from-drdata-to-drlist)
 - [Example usage for Retail/TBC](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail)

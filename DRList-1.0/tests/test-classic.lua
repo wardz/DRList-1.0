@@ -189,7 +189,7 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    local isClassic = _G.BackdropTemplateMixin == nil and WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
+    local isClassic = WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
     if isClassic then
         SLASH_DRLIST1 = "/drlist"
         SlashCmdList["DRLIST"] = function()

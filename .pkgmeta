@@ -11,6 +11,6 @@ embedded-libraries:
   - libstub
 
 ignore:
-  - DRList-1.0/README.md
+  - README.md
   - DRList-1.0/DRList-1.0/tests
   - DRList-1.0/tests

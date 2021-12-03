@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - v*
+      - '!**-alpha**'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install and run Luacheck
+        uses: nebularg/actions-luacheck@v1
+        with:
+          args: --quiet
+
+      - name: Run all tests
+        run: |
+          lua DRList-1.0/tests/test-classic.lua
+          lua DRList-1.0/tests/test-tbc.lua
+          lua DRList-1.0/tests/test-retail.lua
+
+      - name: Remove libs folder for nolib-creation to work
+        if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
+        run: rm -rf DRList-1.0/libs
+
+      - name: Install and generate ldocs
+        if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
+        run: |
+          curl -L -s https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz | tar -xz
+          lua LDoc-1.4.6/ldoc.lua DRList-1.0/DRList-1.0.lua
+
+      - name: Deploy docs to Github Pages
+        if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages
+          folder: doc
+
+      - name: Create Classic Package
+        uses: BigWigsMods/packager@master
+        if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
+        with:
+          args: -g classic
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+
+      - name: Create TBC Package
+        uses: BigWigsMods/packager@master
+        if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
+        with:
+          args: -g bcc
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+
+      - name: Create Retail Package
+        uses: BigWigsMods/packager@master
+        if: ${{ success() && github.event_name != 'pull_request' && contains(github.ref, 'tags/v') }}
+        with:
+          args: -g retail
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}

@@ -17,7 +17,7 @@ World of Warcraft library for providing diminishing returns categorization.
 
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in.
 
-**This addon is a rewrite of [DRData-1.0.](https://www.wowace.com/projects/drdata-1-0) which is no longer maintained.**
+**This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) which is no longer maintained.**
 DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline)
 
 ### Manual Install

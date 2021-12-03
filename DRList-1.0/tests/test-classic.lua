@@ -34,13 +34,14 @@ end
 
 local DRList = LibStub("DRList-1.0")
 
---[[function Tests:BeforeEach()
+function Tests:BeforeEach()
     DRList.gameExpansion = "classic"
-end]]
+end
 
 Tests:It("Loads lib", function()
     assert(LibStub("DRList-1.0"))
     assert(type(LibStub("DRList-1.0").spellList) == "table")
+    assert(LibStub("DRList-1.0").gameExpansion == "classic")
 end)
 
 Tests:It("GetsSpellList", function()

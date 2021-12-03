@@ -26,13 +26,14 @@ end
 
 local DRList = LibStub("DRList-1.0")
 
---[[function Tests:BeforeEach()
-
-end]]
+function Tests:BeforeEach()
+    DRList.gameExpansion = "tbc"
+end
 
 Tests:It("Loads lib", function()
     assert(LibStub("DRList-1.0"))
     assert(type(LibStub("DRList-1.0").spellList) == "table")
+    assert(LibStub("DRList-1.0").gameExpansion == "tbc")
 end)
 
 Tests:It("GetsSpellList", function()
@@ -85,13 +86,13 @@ Tests:It("GetsLocalizations", function()
     local low = string.lower
     assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
     assert(low(DRList:GetCategoryLocalization("root")) == low(DRList.L.ROOTS))
-    assert(DRList:GetCategoryLocalization("random_root") == nil)
+    assert(low(DRList:GetCategoryLocalization("random_root")) == low(DRList.L.RANDOM_ROOTS))
 end)
 
 Tests:It("ChecksCategoriesPvE", function()
     assert(next(DRList.categoriesPvE))
     assert(DRList:IsPvECategory("stun") == true)
-    assert(DRList:IsPvECategory("taunt") == false)
+    --assert(DRList:IsPvECategory("taunt") == false)
     assert(DRList:IsPvECategory("disorient") == false)
 
     assert(DRList:IsPvECategory() == false)
@@ -116,7 +117,7 @@ Tests:It("GetsNextDR", function()
     assert(DRList:GetNextDR(true) == 0)
     assert(DRList:GetNextDR() == 0)
     assert(DRList:GetNextDR(-1, {}) == 0)
-    assert(DRList:GetNextDR(1, "random_stun") == 0)
+    assert(DRList:GetNextDR(1, "random_stun") == 0.50)
 
     assert(DRList:GetNextDR(1, "disorient") == 0.50)
     assert(DRList:GetNextDR(2, "disorient") == 0.25)
@@ -124,7 +125,7 @@ Tests:It("GetsNextDR", function()
     assert(DRList:GetNextDR(0, "knockback") == 0)
     assert(DRList:GetNextDR(1, "knockback") == 0)
 
-    assert(DRList:GetNextDR(1, "taunt") ==  0)
+    --assert(DRList:GetNextDR(1, "taunt") ==  0)
 end)
 
 Tests:It("IterateSpellsByCategory", function()

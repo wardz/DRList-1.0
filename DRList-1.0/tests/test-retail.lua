@@ -26,13 +26,14 @@ end
 
 local DRList = LibStub("DRList-1.0")
 
---[[function Tests:BeforeEach()
-
-end]]
+function Tests:BeforeEach()
+    DRList.gameExpansion = "retail"
+end
 
 Tests:It("Loads lib", function()
     assert(LibStub("DRList-1.0"))
     assert(type(LibStub("DRList-1.0").spellList) == "table")
+    assert(LibStub("DRList-1.0").gameExpansion == "retail")
 end)
 
 Tests:It("GetsSpellList", function()
@@ -47,7 +48,7 @@ Tests:It("GetsResetTimes", function()
     assert(DRList:GetResetTime(123) == 18.5)
     assert(DRList:GetResetTime(true) == 18.5)
     assert(DRList:GetResetTime({}) == 18.5)
-    assert(DRList:GetResetTime("knockback") == 10.5)
+    assert(DRList:GetResetTime("knockback") == 10)
     assert(DRList:GetResetTime("npc") == 23.0)
 end)
 

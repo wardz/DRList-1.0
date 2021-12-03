@@ -19,7 +19,7 @@ if not Tests:IsInGame() then
         elseif id == 12355 then return "Impact"
         elseif id == 20066 then return "Repentance"
         elseif id == 5211 then return "Bash"
-        else return "" end
+        else return id or "" end
     end
 
     WOW_PROJECT_MAINLINE = 1

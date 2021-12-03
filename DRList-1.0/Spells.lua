@@ -181,12 +181,15 @@ if Lib.gameExpansion == "retail" then
 
 elseif Lib.gameExpansion == "tbc" then
 
-
-    -- Spells for TBC, including each rank.
-    -- Note: categories are still largely unconfirmed.
     Lib.spellList = {
-        -- Incaps:
         [22570] = "incapacitate", -- Maim
+        [3355]  = "incapacitate", -- Freezing Trap Effect (Rank 1)
+        [14308] = "incapacitate", -- Freezing Trap Effect (Rank 2)
+        [14309] = "incapacitate", -- Freezing Trap Effect (Rank 3)
+        [19386] = "incapacitate", -- Wyvern Sting (Rank 1) (TODO: confirm)
+        [24132] = "incapacitate", -- Wyvern Sting (Rank 2)
+        [24133] = "incapacitate", -- Wyvern Sting (Rank 3)
+        [27068] = "incapacitate", -- Wyvern Sting (Rank 4)
         [118]   = "incapacitate", -- Polymorph (Rank 1)
         [12824] = "incapacitate", -- Polymorph (Rank 2)
         [12825] = "incapacitate", -- Polymorph (Rank 3)
@@ -205,15 +208,13 @@ elseif Lib.gameExpansion == "tbc" then
         [38764] = "incapacitate", -- Gouge (Rank 6)
         [13327] = "incapacitate", -- Reckless Charge (Rocket Helmet)
 
-        -- Disorients
         [33786] = "disorient", -- Cyclone
-        [31661] = "disorient", -- Dragon's Breath (Rank 1) -- TODO: confirm category
+        [31661] = "disorient", -- Dragon's Breath (Rank 1) (TODO: confirm category, Scatter Shot?)
         [33041] = "disorient", -- Dragon's Breath (Rank 2)
         [33042] = "disorient", -- Dragon's Breath (Rank 3)
         [33043] = "disorient", -- Dragon's Breath (Rank 4)
         [2094]  = "disorient", -- Blind
 
-        -- Controlled Stuns
         [5211]  = "stun", -- Bash (Rank 1)
         [6798]  = "stun", -- Bash (Rank 2)
         [8983]  = "stun", -- Bash (Rank 3)
@@ -238,7 +239,7 @@ elseif Lib.gameExpansion == "tbc" then
         [30197] = "stun", -- Intercept Stun (Rank 3)
         [25273] = "stun", -- Intercept Stun (Rank 4)
         [25274] = "stun", -- Intercept Stun (Rank 5)
-        [20253] = "stun", -- Intercept Stun 1 (These are probably invalid/unnecessary but im too lazy to test atm)
+        [20253] = "stun", -- Intercept Stun 1 (TODO: which IDs are the real ones?)
         [20614] = "stun", -- Intercept Stun 2
         [20615] = "stun", -- Intercept Stun 3
         [20549] = "stun", -- War Stomp (Racial)
@@ -259,7 +260,6 @@ elseif Lib.gameExpansion == "tbc" then
         [13237] = "stun", -- Goblin Mortar
         [835]   = "stun", -- Tidal Charm
 
-        -- Random/short stuns
         [16922]   = "random_stun",  -- Celestial Focus (Starfire Stun)
         [19410]   = "random_stun",  -- Improved Concussive Shot
         [12355]   = "random_stun",  -- Impact
@@ -271,17 +271,11 @@ elseif Lib.gameExpansion == "tbc" then
         [15283]   = "random_stun",  -- Stunning Blow (Weapon Proc)
         [56]      = "random_stun",  -- Stun (Weapon Proc)
 
-        -- Sleep Effects
         [1090]  = "sleep", -- Sleep
         [2637]  = "sleep", -- Hibernate (Rank 1)
         [18657] = "sleep", -- Hibernate (Rank 2)
         [18658] = "sleep", -- Hibernate (Rank 3)
-        [19386] = "sleep", -- Wyvern Sting (Rank 1)
-        [24132] = "sleep", -- Wyvern Sting (Rank 2)
-        [24133] = "sleep", -- Wyvern Sting (Rank 3)
-        [27068] = "sleep", -- Wyvern Sting (Rank 4)
 
-        -- Fears
         [8122]  = "fear", -- Psychic Scream (Rank 1)
         [8124]  = "fear", -- Psychic Scream (Rank 2)
         [10888] = "fear", -- Psychic Scream (Rank 3)
@@ -298,7 +292,6 @@ elseif Lib.gameExpansion == "tbc" then
         [5246]  = "fear", -- Intimidating Shout
         [5134]  = "fear", -- Flash Bomb Fear
 
-        -- Roots
         [339]   = "root", -- Entangling Roots (Rank 1)
         [1062]  = "root", -- Entangling Roots (Rank 2)
         [5195]  = "root", -- Entangling Roots (Rank 3)
@@ -313,7 +306,6 @@ elseif Lib.gameExpansion == "tbc" then
         [19971] = "root", -- Nature's Grasp (Rank 5)
         [19970] = "root", -- Nature's Grasp (Rank 6)
         [27010] = "root", -- Nature's Grasp (Rank 7)
-        --[16979] = "root", -- Feral Charge
         [19306] = "root", -- Counterattack (Rank 1)
         [20909] = "root", -- Counterattack (Rank 2)
         [20910] = "root", -- Counterattack (Rank 3)
@@ -325,34 +317,30 @@ elseif Lib.gameExpansion == "tbc" then
         [10230] = "root", -- Frost Nova (Rank 4)
         [27088] = "root", -- Frost Nova (Rank 5)
         [33395] = "root", -- Freeze (Water Elemental)
-        --[12494] = "root", -- Frostbite
-        --[44047] = "root", -- Chastise TODO: confirm
         [39965] = "root", -- Frost Grenade
 
-        -- Mind Controls
         [605]   = "mind_control", -- Mind Control (Rank 1)
         [10911] = "mind_control", -- Mind Control (Rank 2)
         [10912] = "mind_control", -- Mind Control (Rank 3)
         [13181] = "mind_control", -- Gnomish Mind Control Cap
 
-        -- Disarms
-        [41392] = "disarm", -- Riposte
-        [676]   = "disarm", -- Disarm
+        [41392] = "disarm", -- Riposte (TODO: confirm)
+        [676]   = "disarm", -- Disarm (TODO: confirm)
+
+        [12494] = "random_root",         -- Frostbite
+        [23694] = "random_root",         -- Improved Hamstring
+        [19229] = "random_root",         -- Improved Wing Clip
 
         -- Spells that DR with itself only
         [408]   = "kidney_shot",         -- Kidney Shot (Rank 1)
         [8643]  = "kidney_shot",         -- Kidney Shot (Rank 2)
-        [43523] = "unstable_affliction", -- Unstable Affliction 1 TODO: confirm
+        [43523] = "unstable_affliction", -- Unstable Affliction 1 (TODO: confirm)
         [31117] = "unstable_affliction", -- Unstable Affliction 2
         [6789]  = "death_coil",          -- Death Coil (Rank 1)
         [17925] = "death_coil",          -- Death Coil (Rank 2)
         [17926] = "death_coil",          -- Death Coil (Rank 3)
         [27223] = "death_coil",          -- Death Coil (Rank 4)
-        [3355]  = "freezing_trap",       -- Freezing Trap Effect (Rank 1)
-        [14308] = "freezing_trap",       -- Freezing Trap Effect (Rank 2)
-        [14309] = "freezing_trap",       -- Freezing Trap Effect (Rank 3)
-        [19503] = "scatter_shot",        -- Scatter Shot
-        [12494] = "random_root",         -- Frostbite (Seems to only be Frostbite for random_root)
+        [19503] = "scatter_shot",        -- Scatter Shot (TODO: confirm)
     }
 
 elseif Lib.gameExpansion == "classic" then

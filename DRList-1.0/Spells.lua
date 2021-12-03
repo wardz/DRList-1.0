@@ -318,6 +318,9 @@ elseif Lib.gameExpansion == "tbc" then
         [27088] = "root", -- Frost Nova (Rank 5)
         [33395] = "root", -- Freeze (Water Elemental)
         [39965] = "root", -- Frost Grenade
+        [13099] = "root", -- Net-o-Matic
+        [13138] = "root", -- Net-o-Matic Backfire 1
+        [16566] = "root", -- Net-o-Matic Backfire 2
 
         [605]   = "mind_control", -- Mind Control (Rank 1)
         [10911] = "mind_control", -- Mind Control (Rank 2)

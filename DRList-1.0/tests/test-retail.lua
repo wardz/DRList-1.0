@@ -16,6 +16,7 @@ if not Tests:IsInGame() then
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
+    WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
     WOW_PROJECT_ID = 1 -- set retail
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()

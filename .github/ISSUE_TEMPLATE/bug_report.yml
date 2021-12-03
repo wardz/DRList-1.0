@@ -1,0 +1,61 @@
+---
+name: Bug report
+description: Create an issue report to help us improve.
+title: "[BUG]: "
+labels: [bug]
+assignees:
+- wardz
+body:
+- type: markdown
+  attributes:
+    value: |
+      Please make sure you're using the latest version of DRList-1.0 before reporting a bug.
+      Other addons might not always contain the latest updated libraries.
+- type: textarea
+  id: what-happened
+  attributes:
+    label: What happened?
+    description: What is the issue? How do you reproduce it?
+  validations:
+    required: true
+- type: textarea
+  id: errors
+  attributes:
+    label: Is there any errors?
+    description: Is there any Lua errors triggered?
+    placeholder: "/console scriptErrors 1"
+    render: shell
+- type: dropdown
+  id: version
+  attributes:
+    label: Game Version
+    description: Which versions of World of Warcraft are you experiencing the issue for?
+    multiple: true
+    options:
+      - Retail
+      - The Burning Crusade Classic
+      - Classic Era
+  validations:
+    required: true
+- type: dropdown
+  id: language
+  attributes:
+    label: Game Language
+    description: What language is your World of Warcraft client running?
+    multiple: true
+    options:
+      - English
+      - French
+      - German
+      - Italian
+      - Korean
+      - Chinese
+      - Russian
+      - Spanish
+      - Brazil
+  validations:
+    required: true
+- type: textarea
+  id: user-comments
+  attributes:
+    label: Any additional info?

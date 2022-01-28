@@ -210,6 +210,20 @@ elseif Lib.gameExpansion == "tbc" then
         [11286] = "incapacitate", -- Gouge (Rank 5)
         [38764] = "incapacitate", -- Gouge (Rank 6)
         [13327] = "incapacitate", -- Reckless Charge (Rocket Helmet)
+        [4064]  = "incapacitate", -- Rough Copper Bomb
+        [4065]  = "incapacitate", -- Large Copper Bomb
+        [4066]  = "incapacitate", -- Small Bronze Bomb
+        [4067]  = "incapacitate", -- Big Bronze Bomb
+        [4068]  = "incapacitate", -- Iron Grenade
+        [12421] = "incapacitate", -- Mithril Frag Bomb
+        [4069]  = "incapacitate", -- Big Iron Bomb
+        [12562] = "incapacitate", -- The Big One
+        [12543] = "incapacitate", -- Hi-Explosive Bomb
+        [19769] = "incapacitate", -- Thorium Grenade
+        [19784] = "incapacitate", -- Dark Iron Bomb
+        [30216] = "incapacitate", -- Fel Iron Bomb
+        [30461] = "incapacitate", -- The Bigger One
+        [30217] = "incapacitate", -- Adamantite Grenade
 
         [33786] = "disorient", -- Cyclone
         [2094]  = "disorient", -- Blind
@@ -238,20 +252,6 @@ elseif Lib.gameExpansion == "tbc" then
         [25273] = "stun", -- Intercept Stun (Rank 4)
         [25274] = "stun", -- Intercept Stun (Rank 5)
         [20549] = "stun", -- War Stomp (Racial)
-        [4064]  = "stun", -- Rough Copper Bomb
-        [4065]  = "stun", -- Large Copper Bomb
-        [4066]  = "stun", -- Small Bronze Bomb
-        [4067]  = "stun", -- Big Bronze Bomb
-        [4068]  = "stun", -- Iron Grenade
-        [12421] = "stun", -- Mithril Frag Bomb
-        [4069]  = "stun", -- Big Iron Bomb
-        [12562] = "stun", -- The Big One
-        [12543] = "stun", -- Hi-Explosive Bomb
-        [19769] = "stun", -- Thorium Grenade
-        [19784] = "stun", -- Dark Iron Bomb
-        [30216] = "stun", -- Fel Iron Bomb
-        [30461] = "stun", -- The Bigger One
-        [30217] = "stun", -- Adamantite Grenade
         [13237] = "stun", -- Goblin Mortar
         [835]   = "stun", -- Tidal Charm
 
@@ -335,7 +335,6 @@ elseif Lib.gameExpansion == "tbc" then
         [17925] = "death_coil",          -- Death Coil (Rank 2)
         [17926] = "death_coil",          -- Death Coil (Rank 3)
         [27223] = "death_coil",          -- Death Coil (Rank 4)
-
         [44041] = "chastise",            -- Chastise (Rank 1)
         [44043] = "chastise",            -- Chastise (Rank 2)
         [44044] = "chastise",            -- Chastise (Rank 3)

@@ -72,6 +72,8 @@ elseif locale == "ruRU" then
     L["FEARS"] = "Опасения"
     L["INCAPACITATES"] = "Паралич"
     L["KNOCKBACKS"] = "Отбрасывание"
+    L["RANDOM_ROOTS"] = "Случайные корни"
+    L["RANDOM_STUNS"] = "Случайные оглушения"
     L["ROOTS"] = "Сковывание"
     L["SILENCES"] = "Немота"
     L["STUNS"] = "Оглушение"

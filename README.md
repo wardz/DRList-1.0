@@ -18,7 +18,7 @@ World of Warcraft library for providing diminishing returns categorization.
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in.
 
 **This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) which is no longer maintained.**
-DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline)
+DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline, eventually Wotlk)
 
 ### Manual Install
 
@@ -28,13 +28,13 @@ Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 - [Github Downloads](https://github.com/wardz/DRList-1.0/releases)
 
 1. Unzip file into `WoW/Interface/AddOns/YourAddon/Libs/`.
-2. Add an entry for `Libs/DRList-1.0./DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
+2. Add an entry for `Libs/DRList-1.0/DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
 
 ### Usage with BigWigsMods Packager
 
 Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 
-1. Add an entry for `Libs/DRList-1.0./DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
+1. Add an entry for `Libs/DRList-1.0/DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
 2. Add this repository to the packager's externals list, preferably with the latest tag.
 
 **/YourAddonProject/.pkgmeta:**

@@ -1,5 +1,5 @@
 local Lib, version = LibStub("DRList-1.0")
-if Lib.spellList and version >= 27 then return end
+if Lib.spellList and version >= 28 then return end
 
 if Lib.gameExpansion == "retail" then
 
@@ -22,7 +22,7 @@ if Lib.gameExpansion == "retail" then
         [261589]  = "disorient",       -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient",       -- Seduction (Succubus)
         [5246]    = "disorient",       -- Intimidating Shout 1
-        [316593]  = "disorient",       -- Intimidating Shout 2 (not sure which one is correct in 9.0.1)
+        [316593]  = "disorient",       -- Intimidating Shout 2 (TODO: not sure which one is correct in 9.0.1)
         [316595]  = "disorient",       -- Intimidating Shout 3
         [331866]  = "disorient",       -- Agent of Chaos (Venthyr Covenant)
 
@@ -189,7 +189,7 @@ elseif Lib.gameExpansion == "tbc" then
         [3355]  = "incapacitate", -- Freezing Trap Effect (Rank 1)
         [14308] = "incapacitate", -- Freezing Trap Effect (Rank 2)
         [14309] = "incapacitate", -- Freezing Trap Effect (Rank 3)
-        [19386] = "incapacitate", -- Wyvern Sting (Rank 1) (TODO: confirm)
+        [19386] = "incapacitate", -- Wyvern Sting (Rank 1)
         [24132] = "incapacitate", -- Wyvern Sting (Rank 2)
         [24133] = "incapacitate", -- Wyvern Sting (Rank 3)
         [27068] = "incapacitate", -- Wyvern Sting (Rank 4)
@@ -283,7 +283,7 @@ elseif Lib.gameExpansion == "tbc" then
         [14326] = "fear", -- Scare Beast (Rank 1)
         [14327] = "fear", -- Scare Beast (Rank 1)
         [5246]  = "fear", -- Intimidating Shout
-        [5134]  = "fear", -- Flash Bomb Fear
+        [5134]  = "fear", -- Flash Bomb Fear (Item)
 
         [339]   = "root", -- Entangling Roots (Rank 1)
         [1062]  = "root", -- Entangling Roots (Rank 2)
@@ -312,8 +312,8 @@ elseif Lib.gameExpansion == "tbc" then
         [10912] = "mind_control", -- Mind Control (Rank 3)
         [13181] = "mind_control", -- Gnomish Mind Control Cap
 
-        [41392] = "disarm", -- Riposte (TODO: confirm)
-        [676]   = "disarm", -- Disarm (TODO: confirm)
+        [41392] = "disarm", -- Riposte
+        [676]   = "disarm", -- Disarm
 
         [12494] = "random_root",         -- Frostbite
         [23694] = "random_root",         -- Improved Hamstring
@@ -329,7 +329,7 @@ elseif Lib.gameExpansion == "tbc" then
         -- Spells that DR with itself only
         [408]   = "kidney_shot",         -- Kidney Shot (Rank 1)
         [8643]  = "kidney_shot",         -- Kidney Shot (Rank 2)
-        [43523] = "unstable_affliction", -- Unstable Affliction 1 (TODO: confirm)
+        [43523] = "unstable_affliction", -- Unstable Affliction 1
         [31117] = "unstable_affliction", -- Unstable Affliction 2
         [6789]  = "death_coil",          -- Death Coil (Rank 1)
         [17925] = "death_coil",          -- Death Coil (Rank 2)
@@ -413,13 +413,13 @@ elseif Lib.gameExpansion == "classic" then
         [GetSpellInfo(5246)]    = { category = "fear", spellID = 5246 },          -- Intimidating Shout
         [GetSpellInfo(5134)]    = { category = "fear", spellID = 5134 },          -- Flash Bomb Fear
 
-        -- Random/short roots (TODO: confirm category exists)
+        -- Random/short roots
         [GetSpellInfo(19229)]   = { category = "random_root", spellID = 19229 },   -- Improved Wing Clip
 --      [GetSpellInfo(27868)]   = { category = "random_root", spellID = 12494 },   -- Frostbite
         [GetSpellInfo(23694)]   = { category = "random_root", spellID = 23694 },   -- Improved Hamstring
         [GetSpellInfo(27868)]   = { category = "random_root", spellID = 27868 },   -- Freeze (Item proc and set bonus)
 
-        -- Random/short stuns (TODO: DRs with itself only or all random stuns?)
+        -- Random/short stuns
         [GetSpellInfo(16922)]   = { category = "random_stun", spellID = 16922 },   -- Improved Starfire
         [GetSpellInfo(19410)]   = { category = "random_stun", spellID = 19410 },   -- Improved Concussive Shot
         [GetSpellInfo(12355)]   = { category = "random_stun", spellID = 12355 },   -- Impact

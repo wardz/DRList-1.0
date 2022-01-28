@@ -58,7 +58,7 @@ externals:
 ### Contributing
 
 - [Submit a pull request.](https://github.com/wardz/DRList-1.0/pulls)
-  I recommend creating a symlink between your WoW addons folder and `DRList-1.0/DRList-1.0/` when forking.
+  I recommend creating a symlink between your WoW addons folder and `DRList-1.0/DRList-1.0/` when forking. (See create_symlinks.bat)
   You should preferably load the addon using the toc file instead of xml so everything gets loaded for testing.
 - [Report bugs or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://www.curseforge.com/wow/addons/drlist-1-0/localization)

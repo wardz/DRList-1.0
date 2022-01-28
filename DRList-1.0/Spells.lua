@@ -265,11 +265,14 @@ elseif Lib.gameExpansion == "tbc" then
         [20170]   = "random_stun",  -- Seal of Justice Stun
         [15269]   = "random_stun",  -- Blackout
         [18093]   = "random_stun",  -- Pyroclasm
+        [39796]   = "random_stun",  -- Stoneclaw Stun
         [12798]   = "random_stun",  -- Revenge Stun
         [5530]    = "random_stun",  -- Mace Stun Effect (Mace Specialization)
         [15283]   = "random_stun",  -- Stunning Blow (Weapon Proc)
         [56]      = "random_stun",  -- Stun (Weapon Proc)
+        [34510]   = "random_stun",  -- Stormherald/Deep Thunder (Weapon Proc)
 
+        [10326] = "fear", -- Turn Evil (Might be PvE only until wotlk, adding just incase)
         [8122]  = "fear", -- Psychic Scream (Rank 1)
         [8124]  = "fear", -- Psychic Scream (Rank 2)
         [10888] = "fear", -- Psychic Scream (Rank 3)
@@ -322,6 +325,7 @@ elseif Lib.gameExpansion == "tbc" then
         [12494] = "random_root",         -- Frostbite
         [23694] = "random_root",         -- Improved Hamstring
         [19229] = "random_root",         -- Improved Wing Clip
+        [19185] = "random_root",         -- Entrapment
 
         [19503] = "scatter",        -- Scatter Shot
         [31661] = "scatter",        -- Dragon's Breath (Rank 1)

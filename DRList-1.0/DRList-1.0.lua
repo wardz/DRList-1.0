@@ -37,6 +37,8 @@ L["FROST_SHOCK"] = GetSpellInfo(15089) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
 L["DEATH_COIL"] = GetSpellInfo(28412) or "Death Coil"
 L["UNSTABLE_AFFLICTION"] = GetSpellInfo(31117) or "Unstable Affliction"
+L["CHASTISE"] = GetSpellInfo(44041) or "Chastise"
+L["COUNTERATTACK"] = GetSpellInfo(19306) or "Counterattack"
 L["FREEZING_TRAP"] = GetSpellInfo(27753) or "Freezing Trap" -- DEPRECATED
 L["SCATTER_SHOT"] = GetSpellInfo(23601) or "Scatter Shot" -- DEPRECATED
 
@@ -185,6 +187,8 @@ Lib.categoryNames = {
         ["kidney_shot"] = L.KIDNEY_SHOT,
         ["death_coil"] = L.DEATH_COIL,
         ["unstable_affliction"] = L.UNSTABLE_AFFLICTION,
+        ["chastise"] = L.CHASTISE,
+        ["counterattack"] = L.COUNTERATTACK,
         ["freezing_trap"] = L.FREEZING_TRAP, -- DEPRECATED
         ["scatter_shot"] = L.SCATTER_SHOT, -- DEPRECATED
     },

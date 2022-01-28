@@ -302,11 +302,6 @@ elseif Lib.gameExpansion == "tbc" then
         [19971] = "root", -- Nature's Grasp (Rank 5)
         [19970] = "root", -- Nature's Grasp (Rank 6)
         [27010] = "root", -- Nature's Grasp (Rank 7)
-        [19306] = "root", -- Counterattack (Rank 1)
-        [20909] = "root", -- Counterattack (Rank 2)
-        [20910] = "root", -- Counterattack (Rank 3)
-        [27067] = "root", -- Counterattack (Rank 4)
-        --[19185] = "root", -- Entrapment
         [122]   = "root", -- Frost Nova (Rank 1)
         [865]   = "root", -- Frost Nova (Rank 2)
         [6131]  = "root", -- Frost Nova (Rank 3)
@@ -346,6 +341,16 @@ elseif Lib.gameExpansion == "tbc" then
         [17926] = "death_coil",          -- Death Coil (Rank 3)
         [27223] = "death_coil",          -- Death Coil (Rank 4)
 
+        [44041] = "chastise",            -- Chastise (Rank 1)
+        [44043] = "chastise",            -- Chastise (Rank 2)
+        [44044] = "chastise",            -- Chastise (Rank 3)
+        [44045] = "chastise",            -- Chastise (Rank 4)
+        [44046] = "chastise",            -- Chastise (Rank 5)
+        [44047] = "chastise",            -- Chastise (Rank 6)
+        [19306] = "counterattack",       -- Counterattack (Rank 1)
+        [20909] = "counterattack",       -- Counterattack (Rank 2)
+        [20910] = "counterattack",       -- Counterattack (Rank 3)
+        [27067] = "counterattack",       -- Counterattack (Rank 4)
     }
 
 elseif Lib.gameExpansion == "classic" then

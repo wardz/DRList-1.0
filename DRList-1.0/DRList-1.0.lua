@@ -9,7 +9,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 27 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 28 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -30,14 +30,15 @@ L["TAUNTS"] = "Taunts"
 L["FEARS"] = "Fears"
 L["RANDOM_ROOTS"] = "Random roots"
 L["RANDOM_STUNS"] = "Random stuns"
+L["SCATTERS"] = "Scatters"
 L["SLEEPS"] = GetSpellInfo(1090) or "Sleep"
 L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(15089) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
 L["DEATH_COIL"] = GetSpellInfo(28412) or "Death Coil"
 L["UNSTABLE_AFFLICTION"] = GetSpellInfo(31117) or "Unstable Affliction"
-L["FREEZING_TRAP"] = GetSpellInfo(27753) or "Freezing Trap"
-L["SCATTER_SHOT"] = GetSpellInfo(23601) or "Scatter Shot"
+L["FREEZING_TRAP"] = GetSpellInfo(27753) or "Freezing Trap" -- DEPRECATED
+L["SCATTER_SHOT"] = GetSpellInfo(23601) or "Scatter Shot" -- DEPRECATED
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -179,12 +180,13 @@ Lib.categoryNames = {
         ["disarm"] = L.DISARMS,
         ["sleep"] = L.SLEEPS,
         ["fear"] = L.FEARS,
+        ["scatter"] = L.SCATTERS,
         ["mind_control"] = L.MIND_CONTROL,
         ["kidney_shot"] = L.KIDNEY_SHOT,
         ["death_coil"] = L.DEATH_COIL,
         ["unstable_affliction"] = L.UNSTABLE_AFFLICTION,
         ["freezing_trap"] = L.FREEZING_TRAP, -- DEPRECATED
-        ["scatter_shot"] = L.SCATTER_SHOT,
+        ["scatter_shot"] = L.SCATTER_SHOT, -- DEPRECATED
     },
 }
 

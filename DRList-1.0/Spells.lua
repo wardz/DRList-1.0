@@ -209,10 +209,6 @@ elseif Lib.gameExpansion == "tbc" then
         [13327] = "incapacitate", -- Reckless Charge (Rocket Helmet)
 
         [33786] = "disorient", -- Cyclone
-        [31661] = "disorient", -- Dragon's Breath (Rank 1) (TODO: confirm category, Scatter Shot?)
-        [33041] = "disorient", -- Dragon's Breath (Rank 2)
-        [33042] = "disorient", -- Dragon's Breath (Rank 3)
-        [33043] = "disorient", -- Dragon's Breath (Rank 4)
         [2094]  = "disorient", -- Blind
 
         [5211]  = "stun", -- Bash (Rank 1)
@@ -334,6 +330,12 @@ elseif Lib.gameExpansion == "tbc" then
         [23694] = "random_root",         -- Improved Hamstring
         [19229] = "random_root",         -- Improved Wing Clip
 
+        [19503] = "scatter",        -- Scatter Shot
+        [31661] = "scatter",        -- Dragon's Breath (Rank 1)
+        [33041] = "scatter",        -- Dragon's Breath (Rank 2)
+        [33042] = "scatter",        -- Dragon's Breath (Rank 3)
+        [33043] = "scatter",        -- Dragon's Breath (Rank 4)
+
         -- Spells that DR with itself only
         [408]   = "kidney_shot",         -- Kidney Shot (Rank 1)
         [8643]  = "kidney_shot",         -- Kidney Shot (Rank 2)
@@ -343,7 +345,7 @@ elseif Lib.gameExpansion == "tbc" then
         [17925] = "death_coil",          -- Death Coil (Rank 2)
         [17926] = "death_coil",          -- Death Coil (Rank 3)
         [27223] = "death_coil",          -- Death Coil (Rank 4)
-        [19503] = "scatter_shot",        -- Scatter Shot (TODO: confirm)
+
     }
 
 elseif Lib.gameExpansion == "classic" then

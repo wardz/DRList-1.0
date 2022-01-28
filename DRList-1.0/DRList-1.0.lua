@@ -180,7 +180,6 @@ Lib.categoryNames = {
         ["random_root"] = L.RANDOM_ROOTS,
         ["root"] = L.ROOTS,
         ["disarm"] = L.DISARMS,
-        ["sleep"] = L.SLEEPS,
         ["fear"] = L.FEARS,
         ["scatter"] = L.SCATTERS,
         ["mind_control"] = L.MIND_CONTROL,
@@ -189,6 +188,7 @@ Lib.categoryNames = {
         ["unstable_affliction"] = L.UNSTABLE_AFFLICTION,
         ["chastise"] = L.CHASTISE,
         ["counterattack"] = L.COUNTERATTACK,
+        ["sleep"] = L.SLEEPS, -- DEPRECATED
         ["freezing_trap"] = L.FREEZING_TRAP, -- DEPRECATED
         ["scatter_shot"] = L.SCATTER_SHOT, -- DEPRECATED
     },

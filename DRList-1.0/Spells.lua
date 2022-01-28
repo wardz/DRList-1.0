@@ -182,6 +182,9 @@ if Lib.gameExpansion == "retail" then
 elseif Lib.gameExpansion == "tbc" then
 
     Lib.spellList = {
+        [2637]  = "incapacitate", -- Hibernate (Rank 1)
+        [18657] = "incapacitate", -- Hibernate (Rank 2)
+        [18658] = "incapacitate", -- Hibernate (Rank 3)
         [22570] = "incapacitate", -- Maim
         [3355]  = "incapacitate", -- Freezing Trap Effect (Rank 1)
         [14308] = "incapacitate", -- Freezing Trap Effect (Rank 2)
@@ -266,11 +269,6 @@ elseif Lib.gameExpansion == "tbc" then
         [5530]    = "random_stun",  -- Mace Stun Effect (Mace Specialization)
         [15283]   = "random_stun",  -- Stunning Blow (Weapon Proc)
         [56]      = "random_stun",  -- Stun (Weapon Proc)
-
-        [1090]  = "sleep", -- Sleep
-        [2637]  = "sleep", -- Hibernate (Rank 1)
-        [18657] = "sleep", -- Hibernate (Rank 2)
-        [18658] = "sleep", -- Hibernate (Rank 3)
 
         [8122]  = "fear", -- Psychic Scream (Rank 1)
         [8124]  = "fear", -- Psychic Scream (Rank 2)

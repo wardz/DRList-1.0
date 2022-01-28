@@ -230,17 +230,13 @@ elseif Lib.gameExpansion == "tbc" then
         [30283] = "stun", -- Shadowfury (Rank 1)
         [30413] = "stun", -- Shadowfury (Rank 2)
         [30414] = "stun", -- Shadowfury (Rank 3)
-        [22703] = "stun", -- Inferno Effect
         [12809] = "stun", -- Concussion Blow
         [7922]  = "stun", -- Charge Stun
-        [30153] = "stun", -- Intercept Stun (Rank 1)
-        [30195] = "stun", -- Intercept Stun (Rank 2)
-        [30197] = "stun", -- Intercept Stun (Rank 3)
+        [20253] = "stun", -- Intercept Stun (Rank 1)
+        [20614] = "stun", -- Intercept Stun (Rank 2)
+        [20615] = "stun", -- Intercept Stun (Rank 3)
         [25273] = "stun", -- Intercept Stun (Rank 4)
         [25274] = "stun", -- Intercept Stun (Rank 5)
-        [20253] = "stun", -- Intercept Stun 1 (TODO: which IDs are the real ones?)
-        [20614] = "stun", -- Intercept Stun 2
-        [20615] = "stun", -- Intercept Stun 3
         [20549] = "stun", -- War Stomp (Racial)
         [4064]  = "stun", -- Rough Copper Bomb
         [4065]  = "stun", -- Large Copper Bomb
@@ -309,10 +305,7 @@ elseif Lib.gameExpansion == "tbc" then
         [10230] = "root", -- Frost Nova (Rank 4)
         [27088] = "root", -- Frost Nova (Rank 5)
         [33395] = "root", -- Freeze (Water Elemental)
-        [39965] = "root", -- Frost Grenade
-        [13099] = "root", -- Net-o-Matic
-        [13138] = "root", -- Net-o-Matic Backfire 1
-        [16566] = "root", -- Net-o-Matic Backfire 2
+        [39965] = "root", -- Frost Grenade (Item)
 
         [605]   = "mind_control", -- Mind Control (Rank 1)
         [10911] = "mind_control", -- Mind Control (Rank 2)
@@ -375,7 +368,6 @@ elseif Lib.gameExpansion == "classic" then
         [GetSpellInfo(5211)]    = { category = "stun", spellID = 5211 },     -- Bash
         [GetSpellInfo(24394)]   = { category = "stun", spellID = 24394 },    -- Intimidation
         [GetSpellInfo(853)]     = { category = "stun", spellID = 853 },      -- Hammer of Justice
-        [GetSpellInfo(22703)]   = { category = "stun", spellID = 22703 },    -- Inferno Effect
         [GetSpellInfo(9005)]    = { category = "stun", spellID = 9005 },     -- Pounce
         [GetSpellInfo(1833)]    = { category = "stun", spellID = 1833 },     -- Cheap Shot
         [GetSpellInfo(12809)]   = { category = "stun", spellID = 12809 },    -- Concussion Blow

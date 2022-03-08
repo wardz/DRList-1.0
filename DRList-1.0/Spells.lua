@@ -312,7 +312,8 @@ elseif Lib.gameExpansion == "tbc" then
         [10912] = "mind_control", -- Mind Control (Rank 3)
         [13181] = "mind_control", -- Gnomish Mind Control Cap
 
-        [41392] = "disarm", -- Riposte
+        [14251] = "disarm", -- Riposte
+        [34097] = "disarm", -- Riposte 2 (TODO: Check which ID is the correct one)
         [676]   = "disarm", -- Disarm
 
         [12494] = "random_root",         -- Frostbite

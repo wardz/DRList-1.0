@@ -2,7 +2,7 @@ enable-nolib-creation: yes
 package-as: DRList-1.0
 
 externals:
-  DRList-1.0/libs/LibStub: git://github.com/wardz/LibStub
+  DRList-1.0/libs/LibStub: https://github.com/wardz/LibStub
 
 move-folders:
   DRList-1.0/DRList-1.0: DRList-1.0

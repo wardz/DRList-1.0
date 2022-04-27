@@ -42,7 +42,7 @@ Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 ```yaml
 externals:
   Libs/DRList-1.0:
-    url: git://github.com/wardz/DRList-1.0
+    url: https://github.com/wardz/DRList-1.0
     tag: latest
 ```
 

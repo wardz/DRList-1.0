@@ -1,4 +1,5 @@
 package-as: DRList-1.0
+enable-toc-creation: yes
 
 externals:
   DRList-1.0/libs/LibStub: https://github.com/wardz/LibStub

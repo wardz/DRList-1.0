@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run Luacheck tests
-        uses: nebularg/actions-luacheck@v2
+        uses: nebularg/actions-luacheck@v1
         with:
           args: --quiet
 
@@ -42,7 +42,7 @@ jobs:
           lua LDoc-1.4.6/ldoc.lua DRList-1.0/DRList-1.0.lua
 
       - name: Deploy docs to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.3.5
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages
           folder: doc

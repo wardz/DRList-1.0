@@ -96,6 +96,7 @@ if Lib.gameExpansion == "retail" then
         [5211]    = "stun",            -- Mighty Bash
         [202244]  = "stun",            -- Overrun
         [325321]  = "stun",            -- Wild Hunt's Charge
+        [357021]  = "stun",            -- Consecutive Concussion
         [24394]   = "stun",            -- Intimidation
         [119381]  = "stun",            -- Leg Sweep
         [202346]  = "stun",            -- Double Barrel

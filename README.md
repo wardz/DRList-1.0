@@ -1,6 +1,6 @@
-# DRList (Diminishing Returns Database)
+# DRList-1.0 (Diminishing Returns Database)
 
-World of Warcraft library for providing diminishing returns categorization.
+World of Warcraft library for providing player diminishing returns categorization.
 
 ## Contents
 
@@ -15,10 +15,12 @@ World of Warcraft library for providing diminishing returns categorization.
 
 ### About
 
-Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in.
+Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in. You will have to keep track of actual DR timers yourself. 
 
-**This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) which is no longer maintained.**
+**This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) by Adirelle which is no longer maintained.**
 DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline, eventually Wotlk)
+
+___
 
 ### Manual Install
 
@@ -35,9 +37,9 @@ Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 
 1. Add an entry for `Libs/DRList-1.0/DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
-2. Add this repository to the packager's externals list, preferably with the latest tag.
+2. Add this repository to the packager's externals list. Preferably with the 'latest' tag to avoid using master branch, but both works.
 
-**/YourAddonProject/.pkgmeta:**
+_**.pkgmeta file:**_
 
 ```yaml
 externals:
@@ -58,7 +60,7 @@ externals:
 ### Contributing
 
 - [Submit a pull request.](https://github.com/wardz/DRList-1.0/pulls)
-  I recommend creating a symlink between your WoW addons folder and DRList-1.0 when forking.
+  I recommend creating a symlink between your WoW addons folder and DRList-1.0.
   You should preferably load the addon using the toc file instead of xml so everything gets loaded for testing.
 - [Report bugs or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://www.curseforge.com/wow/addons/drlist-1-0/localization)

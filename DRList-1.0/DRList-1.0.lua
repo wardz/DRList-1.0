@@ -271,9 +271,11 @@ function Lib:GetResetTime(category)
 end
 
 --- Get unlocalized DR category by spell ID.
--- For Classic you should pass in the spell name instead of ID.
+-- For Classic (vanilla) you should pass in the spell name instead of ID.
 -- For Classic you also get an optional second return value
--- which is the spell ID of the spell name you passed in.
+-- which is the hardcoded spell ID of the spell name you passed in.
+-- You should use this ID to query additional info from Blizzard API if needed, as
+-- spell names only works for the player if they have the spell in their current spellbook.
 -- @tparam number spellID
 -- @treturn[1] string|nil The category name.
 -- @treturn[2] number|nil The spell ID. (Classic only)

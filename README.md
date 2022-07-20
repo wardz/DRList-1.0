@@ -15,7 +15,7 @@ World of Warcraft library for providing player diminishing returns categorizatio
 
 ### About
 
-Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in. You will have to keep track of actual DR timers yourself. 
+Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in. You will have to keep track of actual DR timers yourself.
 
 **This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) by Adirelle which is no longer maintained.**
 DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline, eventually Wotlk)
@@ -56,6 +56,7 @@ externals:
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table.
 - Calls to `IterateProviders` must be replaced with [IterateSpellsByCategory](https://github.com/wardz/DRList-1.0/blob/620a36fc1ccbfb399ead1b874b9a0fc648113b9c/DRList-1.0/DRList-1.0.lua#L347-L356).
+- For Classic Era (vanilla) you need to mostly use spell names instead of spell IDs. See [here](https://wardz.github.io/DRList-1.0/#Lib:GetCategoryBySpellID) for more details.
 
 ### Contributing
 

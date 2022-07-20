@@ -1,5 +1,5 @@
 local Lib, version = LibStub("DRList-1.0")
-if Lib.spellList and version >= 30 then return end
+if Lib.spellList and version >= 31 then return end
 
 if Lib.gameExpansion == "retail" then
 
@@ -121,6 +121,7 @@ if Lib.gameExpansion == "retail" then
         [20549]   = "stun",            -- War Stomp (Tauren)
         [255723]  = "stun",            -- Bull Rush (Highmountain Tauren)
         [287712]  = "stun",            -- Haymaker (Kul Tiran)
+        [332423]  = "stun",            -- Sparkling Driftglobe Core (Kyrian Covenant)
 
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
@@ -153,7 +154,7 @@ if Lib.gameExpansion == "retail" then
         [236077]  = "disarm",          -- Disarm
 
         [56222]   = "taunt",           -- Dark Command
-        [51399]   = "taunt",           -- Death Grip
+        [51399]   = "taunt",           -- Death Grip (Taunt Effect)
         [185245]  = "taunt",           -- Torment
         [6795]    = "taunt",           -- Growl (Druid)
         [2649]    = "taunt",           -- Growl (Hunter Pet) (TODO: confirm)

@@ -441,7 +441,7 @@ elseif Lib.gameExpansion == "classic" then
         [GetSpellInfo(8056)]    = { category = "frost_shock", spellID = 8056 },    -- Frost Shock
     }
 else
-    error("DRList-1.0: Unsupported game expansion loaded.")
+    print("DRList-1.0: Unsupported game expansion loaded.") -- luacheck: ignore
 end
 
 -- Alias for DRData-1.0

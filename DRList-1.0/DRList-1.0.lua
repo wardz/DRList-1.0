@@ -195,7 +195,7 @@ Lib.categoryNames = {
 }
 
 -- Categories that have DR against normal mobs.
--- Note that this is specifically for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- Note that this is only for normal mobs on retail. Special mobs or pets have DR on all categories,
 -- see UnitClassification() and UnitIsQuestBoss().
 Lib.categoriesPvE = {
     retail = {

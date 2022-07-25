@@ -195,6 +195,8 @@ Lib.categoryNames = {
 }
 
 -- Categories that have DR against normal mobs.
+-- Note that this is specifically for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- see UnitClassification() and UnitIsQuestBoss().
 Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS, -- Lib.categoryNames.retail.taunt
@@ -257,6 +259,8 @@ end
 
 --- Get table of all categories that DRs in PvE only.
 -- Key is unlocalized name used for API functions, value is localized name used for UI.
+-- Note that this is only for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- see UnitClassification() and UnitIsQuestBoss().
 -- Tip: you can combine :GetPvECategories() and :IterateSpellsByCategory() to get spellIDs only for PvE aswell.
 -- @treturn table {string=string}
 function Lib:GetPvECategories()
@@ -298,9 +302,8 @@ function Lib:GetCategoryLocalization(category)
 end
 
 --- Check if a category has DR against mobs.
--- Note that this is only for mobs, player pets have DR on all categories.
--- Also taunt, root, disorient & incap only have DR against special mobs.
--- See UnitClassification() and UnitIsQuestBoss().
+-- Note that this is only for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- see UnitClassification() and UnitIsQuestBoss().
 -- @tparam string category Unlocalized category name
 -- @treturn bool
 function Lib:IsPvECategory(category)

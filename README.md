@@ -8,7 +8,7 @@ World of Warcraft library for providing player diminishing returns categorizatio
 - [Install Manually](#manual-install)
 - [Install With BigWigsMods Packager](#usage-with-bigwigmods-packager)
 - [Upgrading From DRData to DRList](#upgrading-from-drdata-to-drlist)
-- [Example usage for Retail/TBC](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail)
+- [Example usage for Retail/TBC/Wotlk](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail-&-TBC)
 - [Example usage for Classic](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Classic)
 - [API Documentation](https://wardz.github.io/DRList-1.0/)
 - [List of DR categories](https://github.com/wardz/DRList-1.0/wiki/DR-Categories)
@@ -18,7 +18,7 @@ World of Warcraft library for providing player diminishing returns categorizatio
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in. You will have to keep track of actual DR timers yourself.
 
 **This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) by Adirelle which is no longer maintained.**
-DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline, eventually Wotlk)
+DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline, Wotlk)
 
 ___
 
@@ -37,7 +37,7 @@ Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 Requires [LibStub](https://www.curseforge.com/wow/addons/libstub).
 
 1. Add an entry for `Libs/DRList-1.0/DRList-1.0.xml` into your addon's [TOC](https://wowpedia.fandom.com/wiki/TOC_format) file.
-2. Add this repository to the packager's externals list. Preferably with the 'latest' tag to avoid using master branch, but both works.
+2. Add this repository to the packager's externals list. Preferably with the 'latest' tag to avoid using master branch, but both works aslong as you load the xml file.
 
 _**.pkgmeta file:**_
 
@@ -51,7 +51,7 @@ externals:
 ### Upgrading from DRData to DRList
 
 - Any occurances of `DRData` must be renamed to `DRList`.
-- There's a few new DR categories added. Depending on how your addon is coded you might need to account for this. ([Category list](https://github.com/wardz/DRList-1.0/wiki/DR-Categories))
+- There's quite a few new DR categories added. Depending on how your addon is coded you might need to account for this. ([Category list](https://github.com/wardz/DRList-1.0/wiki/DR-Categories))
 - For accessing data tables **directly** you will now need to add the current expansion as an extra table property.
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table.
@@ -62,7 +62,6 @@ externals:
 
 - [Submit a pull request.](https://github.com/wardz/DRList-1.0/pulls)
   I recommend creating a symlink between your WoW addons folder and DRList-1.0.
-  You should preferably load the addon using the toc file instead of xml so everything gets loaded for testing.
 - [Report bugs or missing spells.](https://github.com/wardz/drlist-1.0/issues)
 - [Help translate.](https://www.curseforge.com/wow/addons/drlist-1-0/localization)
 

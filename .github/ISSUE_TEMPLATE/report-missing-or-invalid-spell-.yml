@@ -26,6 +26,7 @@ body:
     options:
       - Retail
       - The Burning Crusade Classic
+      - Wrath of the Lich King
       - Classic Era
   validations:
     required: true

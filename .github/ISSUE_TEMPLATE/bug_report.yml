@@ -1,16 +1,11 @@
 ---
 name: Bug report
-description: Create an issue report to help us improve.
+description: Create a bug report to help us improve.
 title: "[BUG]: "
 labels: [bug]
 assignees:
 - wardz
 body:
-- type: markdown
-  attributes:
-    value: |
-      Please make sure you're using the latest version of DRList-1.0 before reporting a bug.
-      Other addons might not always contain the latest updated libraries.
 - type: textarea
   id: what-happened
   attributes:
@@ -34,6 +29,7 @@ body:
     options:
       - Retail
       - The Burning Crusade Classic
+      - Wrath of the Lich King
       - Classic Era
   validations:
     required: true

@@ -22,6 +22,10 @@ function SimpleTesting:It(funcName, testFunc, ingameOnly)
     assert(type(funcName) == "string")
     assert(type(testFunc) == "function")
 
+    if (not ingameOnly and self.tests[funcName]) or (ingameOnly and self.testsIngame[funcName]) then
+        print("INFO: overwriting existing test:", funcName) -- luacheck: ignore
+    end
+
     if not ingameOnly then
         self.tests[funcName] = testFunc
     else

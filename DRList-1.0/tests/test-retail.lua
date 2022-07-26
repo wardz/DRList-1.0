@@ -13,6 +13,7 @@ if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
     GetSpellInfo = function() return "" end
+    GetBuildInfo = function() return 0, 0, 0, 0 end
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
@@ -40,6 +41,7 @@ Tests:It("GetsSpellList", function()
     assert(next(DRList.spellList))
     assert(DRList:GetSpells()[853] == "stun")
     assert(DRList:GetSpells()[339] == "root")
+    assert(DRList:GetSpells()[53537] == nil)
 end)
 
 Tests:It("GetsResetTimes", function()
@@ -187,6 +189,5 @@ if Tests:IsInGame() then
         end
     end
 else
-    DRList.gameExpansion = "retail"
     Tests:RunAll()
 end

@@ -13,12 +13,12 @@ if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
     GetSpellInfo = function() return "" end
-    GetBuildInfo = function() return 0, 0, 0, 0 end
+    GetBuildInfo = function() return 0, 0, 0, 30400 end -- set wotlk
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
     WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
-    WOW_PROJECT_ID = 5 -- set tbc
+    WOW_PROJECT_ID = 5 -- TODO: set wotlk here too once constant is added
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()
@@ -28,25 +28,29 @@ end
 local DRList = LibStub("DRList-1.0")
 
 function Tests:BeforeEach()
-    DRList.gameExpansion = "tbc"
+    DRList.gameExpansion = "wotlk"
 end
 
 Tests:It("Loads lib", function()
     assert(LibStub("DRList-1.0"))
     assert(type(LibStub("DRList-1.0").spellList) == "table")
-    assert(LibStub("DRList-1.0").gameExpansion == "tbc")
+    assert(LibStub("DRList-1.0").gameExpansion == "wotlk")
 end)
 
 Tests:It("GetsSpellList", function()
     assert(next(DRList.spellList))
-    assert(DRList:GetSpells()[853] == "stun")
+    assert(DRList:GetSpells()[132169] == nil)
+    assert(DRList:GetSpells()[44572] == "stun")
     assert(DRList:GetSpells()[339] == "root")
-    assert(DRList:GetSpells()[53537] == nil)
+    assert(DRList:GetSpells()[51514] == "incapacitate")
+    assert(DRList:GetSpells()[47476] == "silence")
+    assert(DRList:GetSpells()[6789] == "horror")
 end)
 
 Tests:It("GetsResetTimes", function()
     assert(DRList:GetResetTime() == 19)
     assert(DRList:GetResetTime("stun") == 19)
+    assert(DRList:GetResetTime("horror") == 19)
     assert(DRList:GetResetTime(123) == 19)
     assert(DRList:GetResetTime(true) == 19)
     assert(DRList:GetResetTime({}) == 19)
@@ -56,19 +60,26 @@ end)
 Tests:It("GetsCategoryNames", function()
     assert(type(DRList.categoryNames[DRList.gameExpansion].stun) == "string")
     assert(type(DRList:GetCategories().root) == "string")
+    assert(type(DRList:GetCategories().opener_stun) == "string")
+    assert(DRList:GetCategories().chastise == nil)
 end)
 
 Tests:It("GetsCategoryNamesPvE", function()
     assert(type(DRList:GetPvECategories().stun) == "string")
-    assert(type(DRList:GetPvECategories().kidney_shot) == "string")
-    assert(DRList:GetPvECategories().taunt == nil)
+    assert(type(DRList:GetPvECategories().opener_stun) == "string")
+    --assert(type(DRList:GetPvECategories().cyclone) == "string")
+    --assert(DRList:GetPvECategories().taunt == nil)
+    assert(DRList:GetPvECategories().horror == nil)
     assert(DRList:GetPvECategories().disorient == nil)
+    assert(DRList:GetPvECategories().kidney_shot == nil)
+    assert(DRList:GetPvECategories().chastise == nil)
 end)
 
 Tests:It("GetsCategoryFromSpell", function()
     assert(DRList:GetCategoryBySpellID(853) == "stun")
     assert(DRList:GetCategoryBySpellID(339) == "root")
     assert(DRList:GetCategoryBySpellID(1776) == "incapacitate")
+    assert(DRList:GetCategoryBySpellID(2094) == "fear")
 
     assert(DRList:GetCategoryBySpellID(123) == nil)
     assert(DRList:GetCategoryBySpellID("123") == nil)
@@ -85,17 +96,24 @@ Tests:It("GetsLocalizations", function()
     assert(DRList:GetCategoryLocalization({}) == nil)
     assert(DRList:GetCategoryLocalization() == nil)
 
+    assert(DRList:GetCategoryLocalization("kidney_shot") == nil)
+    assert(DRList:GetCategoryLocalization("chastise") == nil)
+
     local low = string.lower
     assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
     assert(low(DRList:GetCategoryLocalization("root")) == low(DRList.L.ROOTS))
     assert(low(DRList:GetCategoryLocalization("random_root")) == low(DRList.L.RANDOM_ROOTS))
+    assert(low(DRList:GetCategoryLocalization("horror")) == low(DRList.L.HORROR))
+    assert(low(DRList:GetCategoryLocalization("cyclone")) == low(DRList.L.CYCLONE))
 end)
 
 Tests:It("ChecksCategoriesPvE", function()
     assert(next(DRList.categoriesPvE))
     assert(DRList:IsPvECategory("stun") == true)
+    assert(DRList:IsPvECategory("opener_stun") == true)
     --assert(DRList:IsPvECategory("taunt") == false)
     assert(DRList:IsPvECategory("disorient") == false)
+    assert(DRList:IsPvECategory("horror") == false)
 
     assert(DRList:IsPvECategory() == false)
     assert(DRList:IsPvECategory({}) == false)
@@ -120,9 +138,13 @@ Tests:It("GetsNextDR", function()
     assert(DRList:GetNextDR() == 0)
     assert(DRList:GetNextDR(-1, {}) == 0)
     assert(DRList:GetNextDR(1, "random_stun") == 0.50)
+    assert(DRList:GetNextDR(1, "cyclone") == 0.50)
+    assert(DRList:GetNextDR(2, "horror") == 0.25)
+    assert(DRList:GetNextDR(2, "opener_stun") == 0.25)
 
-    assert(DRList:GetNextDR(1, "disorient") == 0.50)
-    assert(DRList:GetNextDR(2, "disorient") == 0.25)
+    assert(DRList:GetNextDR(1, "disorient") == 0)
+    assert(DRList:GetNextDR(2, "disorient") == 0)
+    assert(DRList:GetNextDR(2, "kidney_shot") == 0)
 
     assert(DRList:GetNextDR(0, "knockback") == 0)
     assert(DRList:GetNextDR(1, "knockback") == 0)
@@ -176,7 +198,8 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    if WOW_PROJECT_BURNING_CRUSADE_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC then
+    local tocVersion = select(4, GetBuildInfo())
+    if tocVersion >= 30400 and tocVersion < 40000 then -- TODO: change me
         SLASH_DRLIST1 = "/drlist"
         SlashCmdList["DRLIST"] = function()
             Tests:RunAll()

@@ -1,6 +1,7 @@
 ## Interface: 90205
 ## Interface-Classic: 11402
 ## Interface-BCC: 20504
+## Interface-Wrath: 30400
 ## Title: Lib: DRList-1.0
 ## Version: @project-version@
 ## X-Category: Library
@@ -18,4 +19,5 @@ tests\engine.lua
 tests\test-retail.lua
 tests\test-classic.lua
 tests\test-tbc.lua
+tests\test-wotlk.lua
 #@end-do-not-package@

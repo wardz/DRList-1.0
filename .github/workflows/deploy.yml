@@ -24,6 +24,7 @@ jobs:
         run: |
           lua DRList-1.0/tests/test-classic.lua
           lua DRList-1.0/tests/test-tbc.lua
+          lua DRList-1.0/tests/test-wotlk.lua
           lua DRList-1.0/tests/test-retail.lua
 
       - name: Check if minor versions matches

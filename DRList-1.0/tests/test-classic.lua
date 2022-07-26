@@ -21,6 +21,7 @@ if not Tests:IsInGame() then
         elseif id == 5211 then return "Bash"
         else return "" end
     end
+    GetBuildInfo = function() return 0, 0, 0, 0 end
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
@@ -197,6 +198,5 @@ if Tests:IsInGame() then
         end
     end
 else
-    DRList.gameExpansion = "classic"
     Tests:RunAll()
 end

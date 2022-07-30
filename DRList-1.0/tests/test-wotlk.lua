@@ -8,7 +8,7 @@ if loadfile then
     assert(loadfile("DRList-1.0/tests/engine.lua"))()
 end
 
-local Tests = SimpleTesting:New("DRList-1.0", "TBC")
+local Tests = SimpleTesting:New("DRList-1.0", "WOTLK")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end

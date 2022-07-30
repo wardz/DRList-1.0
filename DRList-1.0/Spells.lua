@@ -1,5 +1,5 @@
 local Lib, version = LibStub("DRList-1.0")
-if Lib.spellList and version >= 40 then return end
+if Lib.spellList and version >= 41 then return end
 
 if Lib.gameExpansion == "retail" then
 

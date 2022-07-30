@@ -216,9 +216,9 @@ Lib.categoryNames = {
         ["horror"] = L.HORROR,
         ["mind_control"] = L.MIND_CONTROL,
         ["cyclone"] = L.CYCLONE,
-        ["banish"] = L.BANISH,
         ["charge"] = L.CHARGE,
         ["opener_stun"] = L.OPENER_STUN,
+        ["counterattack"] = L.COUNTERATTACK,
     },
 }
 

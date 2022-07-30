@@ -214,6 +214,8 @@ elseif Lib.gameExpansion == "tbc" then
         [11285] = "incapacitate", -- Gouge (Rank 4)
         [11286] = "incapacitate", -- Gouge (Rank 5)
         [38764] = "incapacitate", -- Gouge (Rank 6)
+        [710]   = "incapacitate", -- Banish (Rank 1)
+        [18647] = "incapacitate", -- Banish (Rank 2)
         [13327] = "incapacitate", -- Reckless Charge (Rocket Helmet)
         [4064]  = "incapacitate", -- Rough Copper Bomb
         [4065]  = "incapacitate", -- Large Copper Bomb
@@ -372,12 +374,6 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [27068] = "incapacitate", -- Wyvern Sting (Rank 4)
         [49011] = "incapacitate", -- Wyvern Sting (Rank 5)
         [49012] = "incapacitate", -- Wyvern Sting (Rank 6)
-        [31661] = "incapacitate", -- Dragon's Breath (Rank 1) -- TODO: ??
-        [33041] = "incapacitate", -- Dragon's Breath (Rank 2)
-        [33042] = "incapacitate", -- Dragon's Breath (Rank 3)
-        [33043] = "incapacitate", -- Dragon's Breath (Rank 4)
-        [42949] = "incapacitate", -- Dragon's Breath (Rank 5)
-        [42950] = "incapacitate", -- Dragon's Breath (Rank 6)
         [118]   = "incapacitate", -- Polymorph (Rank 1)
         [12824] = "incapacitate", -- Polymorph (Rank 2)
         [12825] = "incapacitate", -- Polymorph (Rank 3)
@@ -393,6 +389,8 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [2070]  = "incapacitate", -- Sap (Rank 2)
         [11297] = "incapacitate", -- Sap (Rank 3)
         [51724] = "incapacitate", -- Sap (Rank 4)
+        [710]   = "incapacitate", -- Banish (Rank 1)
+        [18647] = "incapacitate", -- Banish (Rank 2)
         [9484]  = "incapacitate", -- Shackle Undead (Rank 1)
         [9485]  = "incapacitate", -- Shackle Undead (Rank 2)
         [10955] = "incapacitate", -- Shackle Undead (Rank 3)
@@ -465,11 +463,9 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [20549] = "stun", -- War Stomp (Racial)
 
         [16922]   = "random_stun",  -- Celestial Focus (Starfire Stun)
-        [19410]   = "random_stun",  -- Improved Concussive Shot
+        [28445]   = "random_stun",  -- Improved Concussive Shot
         [12355]   = "random_stun",  -- Impact
         [20170]   = "random_stun",  -- Seal of Justice Stun
-        [15269]   = "random_stun",  -- Blackout
-        [18093]   = "random_stun",  -- Pyroclasm
         [39796]   = "random_stun",  -- Stoneclaw Stun
         [12798]   = "random_stun",  -- Revenge Stun
         [5530]    = "random_stun",  -- Mace Stun Effect (Mace Specialization)
@@ -530,8 +526,9 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [55080] = "random_root",         -- Shattered Barrier
         [58373] = "random_root",         -- Glyph of Hamstring
         [23694] = "random_root",         -- Improved Hamstring
-        [19229] = "random_root",         -- Improved Wing Clip
+        [47168] = "random_root",         -- Improved Wing Clip
         [19185] = "random_root",         -- Entrapment
+        [63685] = "random_root",         -- Freeze (Frost Shock)
 
         [53359] = "disarm", -- Chimera Shot (Scorpid)
         [50541] = "disarm", -- Snatch (Rank 1)
@@ -578,18 +575,28 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [27006] = "opener_stun", -- Pounce (Rank 4)
         [49803] = "opener_stun", -- Pounce (Rank 5)
 
+        [31661] = "scatter", -- Dragon's Breath (Rank 1)
+        [33041] = "scatter", -- Dragon's Breath (Rank 2)
+        [33042] = "scatter", -- Dragon's Breath (Rank 3)
+        [33043] = "scatter", -- Dragon's Breath (Rank 4)
+        [42949] = "scatter", -- Dragon's Breath (Rank 5)
+        [42950] = "scatter", -- Dragon's Breath (Rank 6)
+        [19503] = "scatter", -- Scatter Shot
+
         -- Spells that DR with itself only
         [33786] = "cyclone",        -- Cyclone
-        [710]   = "banish",         -- Banish (Rank 1)
-        [18647] = "banish",         -- Banish (Rank 2)
         [605]   = "mind_control",   -- Mind Control
         [13181] = "mind_control",   -- Gnomish Mind Control Cap
-        [19503] = "scatter",        -- Scatter Shot
         [7922]  = "charge",         -- Charge Stun
+        [19306] = "counterattack",  -- Counterattack 1
+        [20909] = "counterattack",  -- Counterattack 2
+        [20910] = "counterattack",  -- Counterattack 3
+        [27067] = "counterattack",  -- Counterattack 4
+        [48998] = "counterattack",  -- Counterattack 5
+        [48999] = "counterattack",  -- Counterattack 6
+        --Storm, Earth and Fire has no DR
 
-        -- TODO: frost shock?, slow?, counterattack?, profession stuff
-        -- TODO: Storm, Earth and Fire proc
-        -- TODO: verify all
+        -- TODO: profession stuff
     }
 
 elseif Lib.gameExpansion == "classic" then

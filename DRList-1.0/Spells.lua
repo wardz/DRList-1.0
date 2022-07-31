@@ -521,6 +521,7 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [27088] = "root", -- Frost Nova (Rank 5)
         [42917] = "root", -- Frost Nova (Rank 6)
         [39965] = "root", -- Frost Grenade (Item)
+        [63685] = "root", -- Freeze (Frost Shock)
 
         [12494] = "random_root",         -- Frostbite
         [55080] = "random_root",         -- Shattered Barrier
@@ -528,7 +529,6 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [23694] = "random_root",         -- Improved Hamstring
         [47168] = "random_root",         -- Improved Wing Clip
         [19185] = "random_root",         -- Entrapment
-        [63685] = "random_root",         -- Freeze (Frost Shock)
 
         [53359] = "disarm", -- Chimera Shot (Scorpid)
         [50541] = "disarm", -- Snatch (Rank 1)

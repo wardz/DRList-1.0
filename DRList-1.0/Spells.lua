@@ -72,7 +72,7 @@ if Lib.gameExpansion == "retail" then
 
         [47476]   = "silence",         -- Strangulate
         [204490]  = "silence",         -- Sigil of Silence
---      [78675]   = "silence",         -- Solar Beam (doesn't seem to DR)
+--      [78675]   = "silence",         -- Solar Beam (has no DR)
         [202933]  = "silence",         -- Spider Sting
         [356727]  = "silence",         -- Spider Venom
         [217824]  = "silence",         -- Shield of Virtue
@@ -554,8 +554,8 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [24259] = "silence", -- Spell Lock
         [43523] = "silence", -- Unstable Affliction 1
         [31117] = "silence", -- Unstable Affliction 2
-        [18498] = "silence", -- Silenced - Gag Order 1
-        [74347] = "silence", -- Silenced - Gag Order 1
+        [18498] = "silence", -- Silenced - Gag Order (Shield Slam)
+        [74347] = "silence", -- Silenced - Gag Order (Heroic Throw?)
         [50613] = "silence", -- Arcane Torrent (Racial, Runic Power)
         [28730] = "silence", -- Arcane Torrent (Racial, Mana)
         [25046] = "silence", -- Arcane Torrent (Racial, Energy)

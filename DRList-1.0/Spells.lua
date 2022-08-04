@@ -1,5 +1,10 @@
-local Lib, version = LibStub("DRList-1.0")
-if Lib.spellList and version >= 42 then return end
+local MAJOR, MINOR = "DRList-1.0", 42 -- Don't forget to change this in DRList-1.0.lua aswell!
+local Lib = LibStub(MAJOR)
+if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
+    return
+end
+
+Lib.spellListVersion = MINOR
 
 if Lib.gameExpansion == "retail" then
 

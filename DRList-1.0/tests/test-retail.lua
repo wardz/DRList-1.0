@@ -13,11 +13,11 @@ if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
     GetSpellInfo = function() return "" end
-    GetBuildInfo = function() return 0, 0, 0, 0 end
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
     WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
+    WOW_PROJECT_WRATH_CLASSIC = 11
     WOW_PROJECT_ID = 1 -- set retail
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()

@@ -129,12 +129,8 @@ Lib.gameExpansion = ({
     [WOW_PROJECT_MAINLINE] = "retail",
     [WOW_PROJECT_CLASSIC] = "classic",
     [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "tbc",
+    [WOW_PROJECT_WRATH_CLASSIC or 11] = "wotlk",
 })[WOW_PROJECT_ID]
-
-local tocVersion = select(4, GetBuildInfo())
-if tocVersion >= 30400 and tocVersion < 40000 then
-    Lib.gameExpansion = "wotlk" -- temporary check for wotlk build until new constant is added
-end
 
 -- How long it takes for a DR to expire, in seconds.
 Lib.resetTimes = {

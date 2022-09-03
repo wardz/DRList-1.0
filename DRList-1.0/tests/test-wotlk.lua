@@ -1,5 +1,5 @@
 -- Running tests from command line: (Make sure you run from root/main folder)
--- > lua DRList-1.0/tests/test-tbc.lua
+-- > lua DRList-1.0/tests/test-wotlk.lua
 --
 -- Running tests ingame:
 -- /drlist
@@ -13,12 +13,12 @@ if not Tests:IsInGame() then
     strmatch = string.match
     GetLocale = function() return "enUS" end
     GetSpellInfo = function() return "" end
-    GetBuildInfo = function() return 0, 0, 0, 30400 end -- set wotlk
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
     WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
-    WOW_PROJECT_ID = 5 -- TODO: set wotlk here too once constant is added
+    WOW_PROJECT_WRATH_CLASSIC = 11
+    WOW_PROJECT_ID = 11
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()
@@ -198,8 +198,7 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    local tocVersion = select(4, GetBuildInfo())
-    if tocVersion >= 30400 and tocVersion < 40000 then -- TODO: change me
+    if WOW_PROJECT_WRATH_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC then
         SLASH_DRLIST1 = "/drlist"
         SlashCmdList["DRLIST"] = function()
             Tests:RunAll()

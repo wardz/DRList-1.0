@@ -20,7 +20,6 @@ globals = {
     "debugprofilestop",
     "format",
     "_G",
-    "GetBuildInfo",
     "GetLocale",
     "GetSpellInfo",
     "LibStub",
@@ -30,4 +29,5 @@ globals = {
     "WOW_PROJECT_MAINLINE",
     "WOW_PROJECT_CLASSIC",
     "WOW_PROJECT_BURNING_CRUSADE_CLASSIC",
+    "WOW_PROJECT_WRATH_CLASSIC",
 }

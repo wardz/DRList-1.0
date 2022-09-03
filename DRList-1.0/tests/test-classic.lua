@@ -21,11 +21,11 @@ if not Tests:IsInGame() then
         elseif id == 5211 then return "Bash"
         else return "" end
     end
-    GetBuildInfo = function() return 0, 0, 0, 0 end
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2
     WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
+    WOW_PROJECT_WRATH_CLASSIC = 11
     WOW_PROJECT_ID = 2 -- set classic
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()

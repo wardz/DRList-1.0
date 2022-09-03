@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 42 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 43 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -360,7 +360,7 @@ elseif Lib.gameExpansion == "tbc" then
         [27067] = "counterattack",       -- Counterattack (Rank 4)
     }
 
-elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE BETA ACCESS
+elseif Lib.gameExpansion == "wotlk" then
 
     -- SpellID list for Wrath of the Lich King.
     -- spellID for every rank is used over spell name to avoid name collisions, and faster lookups
@@ -415,6 +415,9 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [30216] = "incapacitate", -- Fel Iron Bomb
         [30461] = "incapacitate", -- The Bigger One
         [30217] = "incapacitate", -- Adamantite Grenade
+        [67769] = "incapacitate", -- Cobalt Frag Bomb
+        [67890] = "incapacitate", -- Cobalt Frag Bomb (Frag Belt)
+        [54466] = "incapacitate", -- Saronite Grenade
 
         [47481] = "stun", -- Gnaw (Ghoul Pet)
         [5211]  = "stun", -- Bash (Rank 1)
@@ -592,6 +595,7 @@ elseif Lib.gameExpansion == "wotlk" then -- STILL WORK IN PROGRESS, I DON'T HAVE
         [33786] = "cyclone",        -- Cyclone
         [605]   = "mind_control",   -- Mind Control
         [13181] = "mind_control",   -- Gnomish Mind Control Cap
+        [67799] = "mind_control",   -- Mind Amplification Dish
         [7922]  = "charge",         -- Charge Stun
         [19306] = "counterattack",  -- Counterattack 1
         [20909] = "counterattack",  -- Counterattack 2

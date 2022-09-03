@@ -530,6 +530,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [42917] = "root", -- Frost Nova (Rank 6)
         [39965] = "root", -- Frost Grenade (Item)
         [63685] = "root", -- Freeze (Frost Shock)
+        [55536] = "root", -- Frostweave Net (Item)
 
         [12494] = "random_root",         -- Frostbite
         [55080] = "random_root",         -- Shattered Barrier
@@ -604,8 +605,6 @@ elseif Lib.gameExpansion == "wotlk" then
         [48998] = "counterattack",  -- Counterattack 5
         [48999] = "counterattack",  -- Counterattack 6
         --Storm, Earth and Fire has no DR
-
-        -- TODO: profession stuff
     }
 
 elseif Lib.gameExpansion == "classic" then

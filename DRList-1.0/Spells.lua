@@ -546,6 +546,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [53540] = "disarm", -- Snatch (Rank 4)
         [53542] = "disarm", -- Snatch (Rank 5)
         [53543] = "disarm", -- Snatch (Rank 6)
+        [64346] = "disarm", -- Fiery Payback
         [64058] = "disarm", -- Psychic Horror Disarm Effect
         [51722] = "disarm", -- Dismantle
         [676]   = "disarm", -- Disarm

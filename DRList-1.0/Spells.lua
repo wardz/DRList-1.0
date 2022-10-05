@@ -31,6 +31,7 @@ if Lib.gameExpansion == "retail" then
         [316593]  = "disorient",       -- Intimidating Shout 2 (TODO: not sure which one is correct in 9.0.1)
         [316595]  = "disorient",       -- Intimidating Shout 3
         [331866]  = "disorient",       -- Agent of Chaos (Venthyr Covenant)
+        [360806]  = "disorient",       -- Sleep Walk
 
         [217832]  = "incapacitate",    -- Imprison
         [221527]  = "incapacitate",    -- Imprison (Honor talent)
@@ -128,6 +129,7 @@ if Lib.gameExpansion == "retail" then
         [255723]  = "stun",            -- Bull Rush (Highmountain Tauren)
         [287712]  = "stun",            -- Haymaker (Kul Tiran)
         [332423]  = "stun",            -- Sparkling Driftglobe Core (Kyrian Covenant)
+        [372245]  = "stun",            -- Terror of the Skies
 
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
@@ -153,6 +155,7 @@ if Lib.gameExpansion == "retail" then
         [75148]   = "root",            -- Embersilk Net (Item)
         [55536]   = "root",            -- Frostweave Net (Item)
         [268966]  = "root",            -- Hooked Deep Sea Net (Item)
+        [355689]  = "root",            -- Landslide
 
         [209749]  = "disarm",          -- Faerie Swarm (Balance Honor Talent)
         [207777]  = "disarm",          -- Dismantle

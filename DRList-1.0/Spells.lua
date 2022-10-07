@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 44 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 45 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -54,8 +54,11 @@ if Lib.gameExpansion == "retail" then
         [161372]  = "incapacitate",    -- Polymorph (Peacock)
         [277787]  = "incapacitate",    -- Polymorph (Baby Direhorn)
         [277792]  = "incapacitate",    -- Polymorph (Bumblebee)
+        [321395]  = "incapacitate",    -- Polymorph (Mawrat)
+        [391622]  = "incapacitate",    -- Polymorph (Duck)
         [82691]   = "incapacitate",    -- Ring of Frost
         [115078]  = "incapacitate",    -- Paralysis
+        [357768]  = "incapacitate",    -- Paralysis 2 (Perpetual Paralysis?)
         [20066]   = "incapacitate",    -- Repentance
         [9484]    = "incapacitate",    -- Shackle Undead
         [200196]  = "incapacitate",    -- Holy Word: Chastise
@@ -81,6 +84,8 @@ if Lib.gameExpansion == "retail" then
 --      [78675]   = "silence",         -- Solar Beam (has no DR)
         [202933]  = "silence",         -- Spider Sting
         [356727]  = "silence",         -- Spider Venom
+        [354831]  = "silence",         -- Wailing Arrow 1
+        [355596]  = "silence",         -- Wailing Arrow 2
         [217824]  = "silence",         -- Shield of Virtue
         [15487]   = "silence",         -- Silence
         [1330]    = "silence",         -- Garrote
@@ -134,6 +139,7 @@ if Lib.gameExpansion == "retail" then
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
         [339]     = "root",            -- Entangling Roots
+        [235963]  = "root",            -- Entangling Roots (Earthen Grasp)
         [170855]  = "root",            -- Entangling Roots (Nature's Grasp)
         [102359]  = "root",            -- Mass Entanglement
         [117526]  = "root",            -- Binding Shot

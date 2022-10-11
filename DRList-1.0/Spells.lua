@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 45 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 46 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -31,7 +31,6 @@ if Lib.gameExpansion == "retail" then
         [316593]  = "disorient",       -- Intimidating Shout 2 (TODO: not sure which one is correct in 9.0.1)
         [316595]  = "disorient",       -- Intimidating Shout 3
         [331866]  = "disorient",       -- Agent of Chaos (Venthyr Covenant)
-        [360806]  = "disorient",       -- Sleep Walk
 
         [217832]  = "incapacitate",    -- Imprison
         [221527]  = "incapacitate",    -- Imprison (Honor talent)
@@ -55,7 +54,6 @@ if Lib.gameExpansion == "retail" then
         [277787]  = "incapacitate",    -- Polymorph (Baby Direhorn)
         [277792]  = "incapacitate",    -- Polymorph (Bumblebee)
         [321395]  = "incapacitate",    -- Polymorph (Mawrat)
-        [391622]  = "incapacitate",    -- Polymorph (Duck)
         [82691]   = "incapacitate",    -- Ring of Frost
         [115078]  = "incapacitate",    -- Paralysis
         [357768]  = "incapacitate",    -- Paralysis 2 (Perpetual Paralysis?)
@@ -134,7 +132,6 @@ if Lib.gameExpansion == "retail" then
         [255723]  = "stun",            -- Bull Rush (Highmountain Tauren)
         [287712]  = "stun",            -- Haymaker (Kul Tiran)
         [332423]  = "stun",            -- Sparkling Driftglobe Core (Kyrian Covenant)
-        [372245]  = "stun",            -- Terror of the Skies
 
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
@@ -161,7 +158,6 @@ if Lib.gameExpansion == "retail" then
         [75148]   = "root",            -- Embersilk Net (Item)
         [55536]   = "root",            -- Frostweave Net (Item)
         [268966]  = "root",            -- Hooked Deep Sea Net (Item)
-        [355689]  = "root",            -- Landslide
 
         [209749]  = "disarm",          -- Faerie Swarm (Balance Honor Talent)
         [207777]  = "disarm",          -- Dismantle
@@ -195,6 +191,13 @@ if Lib.gameExpansion == "retail" then
         [51490]   = "knockback",        -- Thunderstorm
 --      [287712]  = "knockback",        -- Haywire (Kul'Tiran Racial)
     }
+
+    if GetSpellInfo(372245) and GetSpellInfo(372245) ~= "" then -- is Dragonflight Beta (quick temporary fix)
+        Lib.spellList[391622]  = "incapacitate"    -- Polymorph (Duck)
+        Lib.spellList[355689]  = "root"            -- Landslide
+        Lib.spellList[372245]  = "stun"            -- Terror of the Skies
+        Lib.spellList[360806]  = "disorient"       -- Sleep Walk
+    end
 
 elseif Lib.gameExpansion == "tbc" then
 

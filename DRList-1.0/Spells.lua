@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 46 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 47 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -13,6 +13,7 @@ if Lib.gameExpansion == "retail" then
         [207167]  = "disorient",       -- Blinding Sleet
         [207685]  = "disorient",       -- Sigil of Misery
         [33786]   = "disorient",       -- Cyclone
+        [360806]  = "disorient",       -- Sleep Walk
         [1513]    = "disorient",       -- Scare Beast
         [31661]   = "disorient",       -- Dragon's Breath
         [198909]  = "disorient",       -- Song of Chi-ji
@@ -54,6 +55,7 @@ if Lib.gameExpansion == "retail" then
         [277787]  = "incapacitate",    -- Polymorph (Baby Direhorn)
         [277792]  = "incapacitate",    -- Polymorph (Bumblebee)
         [321395]  = "incapacitate",    -- Polymorph (Mawrat)
+        [391622]  = "incapacitate",    -- Polymorph (Duck)
         [82691]   = "incapacitate",    -- Ring of Frost
         [115078]  = "incapacitate",    -- Paralysis
         [357768]  = "incapacitate",    -- Paralysis 2 (Perpetual Paralysis?)
@@ -106,8 +108,10 @@ if Lib.gameExpansion == "retail" then
         [5211]    = "stun",            -- Mighty Bash
         [202244]  = "stun",            -- Overrun
         [325321]  = "stun",            -- Wild Hunt's Charge
+        [372245]  = "stun",            -- Terror of the Skies
         [357021]  = "stun",            -- Consecutive Concussion
         [24394]   = "stun",            -- Intimidation
+        [389831]  = "stun",            -- Snowdrift
         [119381]  = "stun",            -- Leg Sweep
         [202346]  = "stun",            -- Double Barrel
         [853]     = "stun",            -- Hammer of Justice
@@ -139,6 +143,7 @@ if Lib.gameExpansion == "retail" then
         [235963]  = "root",            -- Entangling Roots (Earthen Grasp)
         [170855]  = "root",            -- Entangling Roots (Nature's Grasp)
         [102359]  = "root",            -- Mass Entanglement
+        [355689]  = "root",            -- Landslide
         [117526]  = "root",            -- Binding Shot
         [162480]  = "root",            -- Steel Trap
         [273909]  = "root",            -- Steelclaw Trap
@@ -191,13 +196,6 @@ if Lib.gameExpansion == "retail" then
         [51490]   = "knockback",        -- Thunderstorm
 --      [287712]  = "knockback",        -- Haywire (Kul'Tiran Racial)
     }
-
-    if GetSpellInfo(372245) and GetSpellInfo(372245) ~= "" then -- is Dragonflight Beta (quick temporary fix)
-        Lib.spellList[391622]  = "incapacitate"    -- Polymorph (Duck)
-        Lib.spellList[355689]  = "root"            -- Landslide
-        Lib.spellList[372245]  = "stun"            -- Terror of the Skies
-        Lib.spellList[360806]  = "disorient"       -- Sleep Walk
-    end
 
 elseif Lib.gameExpansion == "tbc" then
 

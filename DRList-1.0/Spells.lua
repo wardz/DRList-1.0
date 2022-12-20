@@ -40,6 +40,7 @@ if Lib.gameExpansion == "retail" then
         [3355]    = "incapacitate",    -- Freezing Trap
         [203337]  = "incapacitate",    -- Freezing Trap (Honor talent)
         [213691]  = "incapacitate",    -- Scatter Shot
+        [383121]  = "incapacitate",    -- Mass Polymorph
         [118]     = "incapacitate",    -- Polymorph
         [28271]   = "incapacitate",    -- Polymorph (Turtle)
         [28272]   = "incapacitate",    -- Polymorph (Pig)
@@ -152,6 +153,7 @@ if Lib.gameExpansion == "retail" then
         [201158]  = "root",            -- Super Sticky Tar
         [122]     = "root",            -- Frost Nova
         [33395]   = "root",            -- Freeze
+        [386770]  = "root",            -- Freezing Cold
         [198121]  = "root",            -- Frostbite
         [342375]  = "root",            -- Tormenting Backlash (Torghast PvE)
         [233582]  = "root",            -- Entrenched in Flame

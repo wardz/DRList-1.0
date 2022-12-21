@@ -20,6 +20,7 @@ if Lib.gameExpansion == "retail" then
         [202274]  = "disorient",       -- Incendiary Brew
         [105421]  = "disorient",       -- Blinding Light
         [10326]   = "disorient",       -- Turn Evil
+        [205364]  = "disorient",       -- Dominate Mind
         [605]     = "disorient",       -- Mind Control
         [8122]    = "disorient",       -- Psychic Scream
         [226943]  = "disorient",       -- Mind Bomb
@@ -37,6 +38,7 @@ if Lib.gameExpansion == "retail" then
         [221527]  = "incapacitate",    -- Imprison (Honor talent)
         [2637]    = "incapacitate",    -- Hibernate
         [99]      = "incapacitate",    -- Incapacitating Roar
+        [378441]  = "incapacitate",    -- Time Stop
         [3355]    = "incapacitate",    -- Freezing Trap
         [203337]  = "incapacitate",    -- Freezing Trap (Honor talent)
         [213691]  = "incapacitate",    -- Scatter Shot
@@ -115,6 +117,7 @@ if Lib.gameExpansion == "retail" then
         [389831]  = "stun",            -- Snowdrift
         [119381]  = "stun",            -- Leg Sweep
         [202346]  = "stun",            -- Double Barrel
+        [385149]  = "stun",            -- Exorcism
         [853]     = "stun",            -- Hammer of Justice
         [255941]  = "stun",            -- Wake of Ashes
         [64044]   = "stun",            -- Psychic Horror
@@ -128,6 +131,7 @@ if Lib.gameExpansion == "retail" then
         [171017]  = "stun",            -- Meteor Strike (Infernal)
         [171018]  = "stun",            -- Meteor Strike (Abyssal)
         [30283]   = "stun",            -- Shadowfury
+        [385954]  = "stun",            -- Shield Charge
         [46968]   = "stun",            -- Shockwave
         [132168]  = "stun",            -- Shockwave (Protection)
         [145047]  = "stun",            -- Shockwave (Proving Grounds PvE)
@@ -137,6 +141,7 @@ if Lib.gameExpansion == "retail" then
         [255723]  = "stun",            -- Bull Rush (Highmountain Tauren)
         [287712]  = "stun",            -- Haymaker (Kul Tiran)
         [332423]  = "stun",            -- Sparkling Driftglobe Core (Kyrian Covenant)
+        -- TODO: Inferal Awakening?
 
         [204085]  = "root",            -- Deathchill (Chains of Ice)
         [233395]  = "root",            -- Deathchill (Remorseless Winter)
@@ -146,6 +151,7 @@ if Lib.gameExpansion == "retail" then
         [102359]  = "root",            -- Mass Entanglement
         [355689]  = "root",            -- Landslide
         [117526]  = "root",            -- Binding Shot
+        [393456]  = "root",            -- Entrapment (Tar Trap)
         [162480]  = "root",            -- Steel Trap
         [273909]  = "root",            -- Steelclaw Trap
 --      [190927]  = "root_harpoon",    -- Harpoon (TODO: confirm)
@@ -155,12 +161,15 @@ if Lib.gameExpansion == "retail" then
         [33395]   = "root",            -- Freeze
         [386770]  = "root",            -- Freezing Cold
         [198121]  = "root",            -- Frostbite
+        [114404]  = "root",            -- Void Tendril's Grasp
         [342375]  = "root",            -- Tormenting Backlash (Torghast PvE)
         [233582]  = "root",            -- Entrenched in Flame
         [116706]  = "root",            -- Disable
         [324382]  = "root",            -- Clash
         [64695]   = "root",            -- Earthgrab (Totem effect)
+        [356738]  = "root",            -- Earth Unleashed
         [285515]  = "root",            -- Surge of Power
+        --[356356]  = "root",            -- Warbringer TODO: has DR?
         [39965]   = "root",            -- Frost Grenade (Item)
         [75148]   = "root",            -- Embersilk Net (Item)
         [55536]   = "root",            -- Frostweave Net (Item)

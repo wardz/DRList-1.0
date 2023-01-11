@@ -112,6 +112,7 @@ if Lib.gameExpansion == "retail" then
         [202244]  = "stun",            -- Overrun
         [325321]  = "stun",            -- Wild Hunt's Charge
         [372245]  = "stun",            -- Terror of the Skies
+        [117526]  = "stun",            -- Binding Shot
         [357021]  = "stun",            -- Consecutive Concussion
         [24394]   = "stun",            -- Intimidation
         [389831]  = "stun",            -- Snowdrift
@@ -150,7 +151,6 @@ if Lib.gameExpansion == "retail" then
         [170855]  = "root",            -- Entangling Roots (Nature's Grasp)
         [102359]  = "root",            -- Mass Entanglement
         [355689]  = "root",            -- Landslide
-        [117526]  = "root",            -- Binding Shot
         [393456]  = "root",            -- Entrapment (Tar Trap)
         [162480]  = "root",            -- Steel Trap
         [273909]  = "root",            -- Steelclaw Trap

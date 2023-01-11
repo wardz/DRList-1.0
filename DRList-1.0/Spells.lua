@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 47 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 48 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -167,7 +167,7 @@ if Lib.gameExpansion == "retail" then
         [116706]  = "root",            -- Disable
         [324382]  = "root",            -- Clash
         [64695]   = "root",            -- Earthgrab (Totem effect)
-        [356738]  = "root",            -- Earth Unleashed
+--      [356738]  = "root",            -- Earth Unleashed (doesn't seem to DR)
         [285515]  = "root",            -- Surge of Power
         --[356356]  = "root",            -- Warbringer TODO: has DR?
         [39965]   = "root",            -- Frost Grenade (Item)

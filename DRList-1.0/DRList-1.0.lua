@@ -225,7 +225,6 @@ Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
-        ["root"] = L.ROOTS,
     },
 
     classic = {

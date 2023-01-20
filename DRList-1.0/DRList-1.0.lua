@@ -9,7 +9,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 49 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 50 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -390,6 +390,6 @@ Lib.GetCategoryName = Lib.GetCategoryLocalization
 Lib.IsPVE = Lib.IsPvECategory
 Lib.NextDR = Lib.GetNextDR
 Lib.GetSpellCategory = Lib.GetCategoryBySpellID
-Lib.IterateSpells = Lib.IterateSpellsByCategory
 Lib.RESET_TIME = Lib.resetTimes[Lib.gameExpansion].default
 Lib.pveDR = Lib.categoriesPvE
+Lib.IterateSpells = function(cat) if cat then return Lib.IterateSpellsByCategory(cat) else return next, Lib.spellList end end

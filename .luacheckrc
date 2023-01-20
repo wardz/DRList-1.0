@@ -7,8 +7,8 @@ exclude_files = {
 }
 
 ignore = {
-    "212/self",  -- Unused argument
-    "213", -- Unused loop variable
+    "212/self", -- Unused argument 'self'
+    "213", -- Unused loop variables
 }
 
 -- Force error on 'print' in code to ensure we never forget to remove debug statements on release

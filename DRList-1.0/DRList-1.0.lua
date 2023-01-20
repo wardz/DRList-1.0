@@ -30,7 +30,7 @@ L["TAUNTS"] = "Taunts"
 L["FEARS"] = "Fears"
 L["RANDOM_ROOTS"] = "Random roots"
 L["RANDOM_STUNS"] = "Random stuns"
-L["OPENER_STUN"] = "Opener Stuns"
+L["OPENER_STUN"] = "Opener stuns"
 L["HORROR"] = "Horrors"
 L["SCATTERS"] = "Scatters"
 L["SLEEPS"] = GetSpellInfo(1090) or "Sleep"
@@ -135,7 +135,7 @@ Lib.gameExpansion = ({
 -- How long it takes for a DR to expire, in seconds.
 Lib.resetTimes = {
     retail = {
-        ["default"] = 18.5, -- 18 sec + 0.5 latency
+        ["default"] = 18.5, -- static 18 sec + 0.5 latency
         ["npc"] = 23, -- Against mobs it seems to last slightly longer, depending on server load
         ["knockback"] = 10.5, -- Knockbacks are immediately immune and only DRs for 10s
     },
@@ -219,11 +219,11 @@ Lib.categoryNames = {
 }
 
 -- Categories that have DR against normal mobs.
--- Note that this is only for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- Note that for retail some special mobs have DR on all categories,
 -- see UnitClassification() and UnitIsQuestBoss().
 Lib.categoriesPvE = {
     retail = {
-        ["taunt"] = L.TAUNTS, -- Lib.categoryNames.retail.taunt
+        ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["root"] = L.ROOTS,
     },
@@ -292,9 +292,9 @@ function Lib:GetCategories()
     return Lib.categoryNames[Lib.gameExpansion]
 end
 
---- Get table of all categories that DRs in PvE only.
+--- Get table of all categories that DRs in PvE.
 -- Key is unlocalized name used for API functions, value is localized name used for UI.
--- Note that this is only for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- Note that for retail some special mobs have DR on all categories,
 -- see UnitClassification() and UnitIsQuestBoss().
 -- Tip: you can combine :GetPvECategories() and :IterateSpellsByCategory() to get spellIDs only for PvE aswell.
 -- @treturn table {string=string}
@@ -337,7 +337,7 @@ function Lib:GetCategoryLocalization(category)
 end
 
 --- Check if a category has DR against mobs.
--- Note that this is only for normal mobs on retail. Special mobs or pets have DR on all categories,
+-- Note that for retail some special mobs have DR on all categories, you need to check for this yourself;
 -- see UnitClassification() and UnitIsQuestBoss().
 -- @tparam string category Unlocalized category name
 -- @treturn bool
@@ -378,7 +378,6 @@ do
     --- Iterate through the spells of a given category.
     -- @tparam string category Unlocalized category name
     -- @usage for spellID in DRList:IterateSpellsByCategory("root") do print(spellID) end
-    -- @warning Slow function, do not use for frequent combat related stuff unless you cache results.
     -- @return Iterator function
     function Lib:IterateSpellsByCategory(category)
         assert(Lib.categoryNames[Lib.gameExpansion][category], "invalid category")

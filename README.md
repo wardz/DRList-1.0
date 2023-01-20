@@ -6,7 +6,7 @@ World of Warcraft library for providing player diminishing returns categorizatio
 
 - [About](#about)
 - [Install Manually](#manual-install)
-- [Install With BigWigsMods Packager](#usage-with-bigwigmods-packager)
+- [Install With BigWigsMods Packager](#usage-with-bigwigsmods-packager)
 - [Upgrading From DRData to DRList](#upgrading-from-drdata-to-drlist)
 - [Example usage for Retail/TBC/Wotlk](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Retail-&-TBC)
 - [Example usage for Classic](https://github.com/wardz/DRList-1.0/wiki/Example-Usage-Classic)
@@ -18,7 +18,7 @@ World of Warcraft library for providing player diminishing returns categorizatio
 Library that contains (hopefully) the most up to date [diminishing returns](https://wow.gamepedia.com/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spell has a diminishing return, if it diminishes in PvE and the category it diminishes in. You will have to keep track of actual DR timers yourself.
 
 **This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) by Adirelle which is no longer maintained.**
-DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Mainline, Wotlk)
+DRList is updated to seamlessly support all World of Warcraft live clients. (Classic, TBC, Wotlk, Mainline)
 
 ___
 
@@ -50,12 +50,12 @@ externals:
 
 ### Upgrading from DRData to DRList
 
-- Any occurances of `DRData` must be renamed to `DRList`.
+- Any occurances of `DRData` must be renamed to `DRList`. Easiest is to just change the LibStub call so your DRData variable redirects to DRList.
 - There's quite a few new DR categories added. Depending on how your addon is coded you might need to account for this. ([Category list](https://github.com/wardz/DRList-1.0/wiki/DR-Categories))
-- For accessing data tables **directly** you will now need to add the current expansion as an extra table property.
+- For accessing raw data tables you will now need to add the current expansion as an extra table property.
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table.
-- Calls to `IterateProviders` must be replaced with [IterateSpellsByCategory](https://github.com/wardz/DRList-1.0/blob/620a36fc1ccbfb399ead1b874b9a0fc648113b9c/DRList-1.0/DRList-1.0.lua#L347-L356).
+- Calls to `IterateProviders` must be replaced with [IterateSpellsByCategory](https://github.com/wardz/DRList-1.0/blob/620a36fc1ccbfb399ead1b874b9a0fc648113b9c/DRList-1.0/DRList-1.0.lua#L347-L356). **Providers are obsolete.**
 - For Classic Era (vanilla) you need to mostly use spell names instead of spell IDs. See [here](https://wardz.github.io/DRList-1.0/#Lib:GetCategoryBySpellID) for more details.
 
 ### Contributing
@@ -67,4 +67,4 @@ externals:
 
 ### License
 
-Copyright (C) 2022 Wardz | [MIT License](https://opensource.org/licenses/mit-license.php).
+Copyright (C) 2023 Wardz | [MIT License](https://opensource.org/licenses/mit-license.php).

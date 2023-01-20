@@ -57,7 +57,7 @@ Tests:It("GetsResetTimes", function()
     assert(DRList:GetResetTime(true) == 18.5)
     assert(DRList:GetResetTime({}) == 18.5)
     assert(DRList:GetResetTime("knockback") == 10.5)
-    assert(DRList:GetResetTime("npc") == 23.0)
+    assert(DRList:GetResetTime("npc") == 21)
 end)
 
 Tests:It("GetsCategoryNames", function()

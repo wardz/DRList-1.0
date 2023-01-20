@@ -11,8 +11,14 @@ end
 local Tests = SimpleTesting:New("DRList-1.0", "TBC")
 if not Tests:IsInGame() then
     strmatch = string.match
-    GetLocale = function() return "enUS" end
     GetSpellInfo = function() return "" end
+    GetLocale = function()
+        if _G.arg and _G.arg[1] then
+            print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore
+            return _G.arg[1]
+        end
+        return "enUS"
+    end
 
     WOW_PROJECT_MAINLINE = 1
     WOW_PROJECT_CLASSIC = 2

@@ -11,7 +11,6 @@ end
 local Tests = SimpleTesting:New("DRList-1.0", "Classic")
 if not Tests:IsInGame() then
     strmatch = string.match
-    GetLocale = function() return "enUS" end
     GetSpellInfo = function(id)
         -- Need to mock some of the spells used in testing
         if id == 853 then return "Hammer of Justice"
@@ -20,6 +19,13 @@ if not Tests:IsInGame() then
         elseif id == 20066 then return "Repentance"
         elseif id == 5211 then return "Bash"
         else return "" end
+    end
+    GetLocale = function()
+        if _G.arg and _G.arg[1] then
+            print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore
+            return _G.arg[1]
+        end
+        return "enUS"
     end
 
     WOW_PROJECT_MAINLINE = 1

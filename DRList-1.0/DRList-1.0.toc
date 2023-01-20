@@ -1,7 +1,7 @@
 ## Interface: 100002
 ## Interface-Classic: 11403
 ## Interface-BCC: 20504
-## Interface-Wrath: 30400
+## Interface-Wrath: 30401
 ## Title: Lib: DRList-1.0
 ## Version: @project-version@
 ## X-Category: Library
@@ -14,6 +14,7 @@ libs\LibStub\LibStub.lua
 #@end-no-lib-strip@
 
 DRList-1.0.xml
+
 #@do-not-package@
 tests\engine.lua
 tests\test-retail.lua

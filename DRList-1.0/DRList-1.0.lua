@@ -136,23 +136,23 @@ Lib.gameExpansion = ({
 Lib.resetTimes = {
     retail = {
         ["default"] = 18.5, -- static 18 sec + 0.5 latency
-        ["npc"] = 23, -- Against mobs it seems to last slightly longer, depending on server load
+        ["npc"] = 21, -- Against mobs it seems to last slightly longer, depending on server load
         ["knockback"] = 10.5, -- Knockbacks are immediately immune and only DRs for 10s
     },
 
     classic = {
         ["default"] = 20, -- dynamic between 15 and 20s
-        ["npc"] = 23,
+        ["npc"] = 21,
     },
 
     tbc = {
         ["default"] = 20, -- dynamic between 15 and 20s
-        ["npc"] = 23,
+        ["npc"] = 21,
     },
 
     wotlk = {
         ["default"] = 20, -- dynamic between 15 and 20s
-        ["npc"] = 23,
+        ["npc"] = 21,
     },
 }
 

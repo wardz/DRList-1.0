@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 50 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 51 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -528,6 +528,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [9853]  = "root", -- Entangling Roots (Rank 6)
         [26989] = "root", -- Entangling Roots (Rank 7)
         [53308] = "root", -- Entangling Roots (Rank 8)
+        [65857] = "root", -- Entangling Roots (Rank 8) (TODO: Not sure which ID is correct)
         [19975] = "root", -- Nature's Grasp (Rank 1)
         [19974] = "root", -- Nature's Grasp (Rank 2)
         [19973] = "root", -- Nature's Grasp (Rank 3)
@@ -535,7 +536,8 @@ elseif Lib.gameExpansion == "wotlk" then
         [19971] = "root", -- Nature's Grasp (Rank 5)
         [19970] = "root", -- Nature's Grasp (Rank 6)
         [27010] = "root", -- Nature's Grasp (Rank 7)
-        [53312] = "root", -- Nature's Grasp (Rank 8)
+        [53313] = "root", -- Nature's Grasp (Rank 8)
+        [66070] = "root", -- Nature's Grasp (Rank 8) (TODO: Not sure which ID is correct)
         [50245] = "root", -- Pin (Rank 1)
         [53544] = "root", -- Pin (Rank 2)
         [53545] = "root", -- Pin (Rank 3)

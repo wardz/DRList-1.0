@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 51 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 52 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -17,7 +17,7 @@ if Lib.gameExpansion == "retail" then
         [1513]    = "disorient",       -- Scare Beast
         [31661]   = "disorient",       -- Dragon's Breath
         [198909]  = "disorient",       -- Song of Chi-ji
-        [202274]  = "disorient",       -- Incendiary Brew
+        [202274]  = "disorient",       -- Hot Trub
         [105421]  = "disorient",       -- Blinding Light
         [10326]   = "disorient",       -- Turn Evil
         [205364]  = "disorient",       -- Dominate Mind
@@ -85,6 +85,7 @@ if Lib.gameExpansion == "retail" then
         [47476]   = "silence",         -- Strangulate
         [204490]  = "silence",         -- Sigil of Silence
 --      [78675]   = "silence",         -- Solar Beam (has no DR)
+        [410065]  = "silence",         -- Reactive Resin
         [202933]  = "silence",         -- Spider Sting
         [356727]  = "silence",         -- Spider Venom
         [354831]  = "silence",         -- Wailing Arrow 1
@@ -169,6 +170,7 @@ if Lib.gameExpansion == "retail" then
         [64695]   = "root",            -- Earthgrab (Totem effect)
 --      [356738]  = "root",            -- Earth Unleashed (doesn't seem to DR)
         [285515]  = "root",            -- Surge of Power
+        [199042]  = "root",            -- Thunderstruck (Protection PvP Talent)
         --[356356]  = "root",            -- Warbringer TODO: has DR?
         [39965]   = "root",            -- Frost Grenade (Item)
         [75148]   = "root",            -- Embersilk Net (Item)
@@ -176,6 +178,8 @@ if Lib.gameExpansion == "retail" then
         [268966]  = "root",            -- Hooked Deep Sea Net (Item)
 
         [209749]  = "disarm",          -- Faerie Swarm (Balance Honor Talent)
+        [407032]  = "disarm",          -- Sticky Tar Bomb 1
+        [407031]  = "disarm",          -- Sticky Tar Bomb 2
         [207777]  = "disarm",          -- Dismantle
         [233759]  = "disarm",          -- Grapple Weapon
         [236077]  = "disarm",          -- Disarm

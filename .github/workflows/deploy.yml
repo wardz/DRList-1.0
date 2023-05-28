@@ -38,10 +38,10 @@ jobs:
 
       - name: Install and generate ldocs
         run: |
-          curl -L -s https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz | tar -xz
+          curl -L -s https://github.com/lunarmodules/ldoc/archive/v1.5.0.tar.gz | tar -xz
           sudo luarocks install luafilesystem
           sudo luarocks install penlight
-          lua LDoc-1.4.6/ldoc.lua DRList-1.0/DRList-1.0.lua
+          lua ldoc-1.5.0/ldoc.lua DRList-1.0/DRList-1.0.lua
 
       - name: Deploy docs to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4

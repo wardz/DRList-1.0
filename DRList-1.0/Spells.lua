@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 52 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 53 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -26,6 +26,7 @@ if Lib.gameExpansion == "retail" then
         [226943]  = "disorient",       -- Mind Bomb
         [2094]    = "disorient",       -- Blind
         [118699]  = "disorient",       -- Fear
+        [130616]  = "disorient",       -- Fear (Horrify)
         [5484]    = "disorient",       -- Howl of Terror
         [261589]  = "disorient",       -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient",       -- Seduction (Succubus)

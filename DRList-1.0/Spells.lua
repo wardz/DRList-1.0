@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 53 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 54 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -556,6 +556,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [10230] = "root", -- Frost Nova (Rank 4)
         [27088] = "root", -- Frost Nova (Rank 5)
         [42917] = "root", -- Frost Nova (Rank 6)
+        [64695] = "root", -- Earthgrab
         [39965] = "root", -- Frost Grenade (Item)
         [63685] = "root", -- Freeze (Frost Shock)
         [55536] = "root", -- Frostweave Net (Item)
@@ -633,7 +634,6 @@ elseif Lib.gameExpansion == "wotlk" then
         [27067] = "counterattack",  -- Counterattack 4
         [48998] = "counterattack",  -- Counterattack 5
         [48999] = "counterattack",  -- Counterattack 6
-        --Storm, Earth and Fire has no DR
     }
 
 elseif Lib.gameExpansion == "classic" then

@@ -1,7 +1,7 @@
-## Interface: 100100
+## Interface: 100105
 ## Interface-Classic: 11403
 ## Interface-BCC: 20504
-## Interface-Wrath: 30401
+## Interface-Wrath: 30402
 ## IconTexture: Interface\Icons\Spell_nature_heavypolymorph1
 ## Title: Lib: DRList-1.0
 ## Version: @project-version@

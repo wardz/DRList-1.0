@@ -1,10 +1,11 @@
-name: CI
-
 on:
   push:
     tags:
       - "v*"
       - "!**-alpha**"
+
+#env:
+  #GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN_MULTI_WORKFLOW }}
 
 jobs:
   deploy:
@@ -12,7 +13,7 @@ jobs:
 
     steps:
       - name: Clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -21,14 +22,14 @@ jobs:
         with:
           args: --quiet
 
-      - name: Run all personal tests
+      - name: Run personal tests
         run: |
           lua DRList-1.0/tests/test-classic.lua
           lua DRList-1.0/tests/test-tbc.lua
           lua DRList-1.0/tests/test-wotlk.lua
           lua DRList-1.0/tests/test-retail.lua
 
-      - name: Check if minor versions matches
+      - name: Check if lib minor versions matches
         run: |
           version_file1=$(sed -n 's/local MAJOR, MINOR = "DRList-1.0", \(.*\)--.*/\1/p' DRList-1.0/DRList-1.0.lua)
           version_file2=$(sed -n 's/local MAJOR, MINOR = "DRList-1.0", \(.*\)--.*/\1/p' DRList-1.0/Spells.lua)
@@ -36,12 +37,10 @@ jobs:
             echo "::error::DRList-1.0.lua minor version does not match Spells.lua version."
           fi
 
-      - name: Install and generate ldocs
-        run: |
-          curl -L -s https://github.com/lunarmodules/ldoc/archive/v1.5.0.tar.gz | tar -xz
-          sudo luarocks install luafilesystem
-          sudo luarocks install penlight
-          lua ldoc-1.5.0/ldoc.lua DRList-1.0/DRList-1.0.lua
+      - name: Generate docs with LDoc
+        uses: lunarmodules/ldoc@v1.5.0
+        with:
+          args: DRList-1.0/DRList-1.0.lua
 
       - name: Create and deploy packages
         uses: BigWigsMods/packager@v2
@@ -50,8 +49,7 @@ jobs:
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
           WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
 
-      - name: Deploy docs to Github Pages
+      - name: Deploy ldocs to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
           folder: doc

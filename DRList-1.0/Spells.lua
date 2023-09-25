@@ -8,7 +8,9 @@ Lib.spellListVersion = MINOR
 
 if Lib.gameExpansion == "retail" then
 
-    -- SpellID list for mainline aka retail WoW
+    -- SpellID list for mainline aka retail WoW.
+    -- Mostly contains spellIDs that are usable in arena only.
+    -- If you add any new data to these tables you also need to bump the MINOR version.
     Lib.spellList = {
         [207167]  = "disorient",       -- Blinding Sleet
         [207685]  = "disorient",       -- Sigil of Misery
@@ -200,6 +202,7 @@ if Lib.gameExpansion == "retail" then
         [355]     = "taunt",           -- Taunt
 
         -- Experimental
+        -- See https://github.com/wardz/DRList-1.0/wiki/DR-Categories#knockback-notes-retail
         [108199]  = "knockback",        -- Gorefiend's Grasp
         [202249]  = "knockback",        -- Overrun
         [61391]   = "knockback",        -- Typhoon
@@ -293,18 +296,18 @@ elseif Lib.gameExpansion == "tbc" then
         [13237] = "stun", -- Goblin Mortar
         [835]   = "stun", -- Tidal Charm
 
-        [16922]   = "random_stun",  -- Celestial Focus (Starfire Stun)
-        [19410]   = "random_stun",  -- Improved Concussive Shot
-        [12355]   = "random_stun",  -- Impact
-        [20170]   = "random_stun",  -- Seal of Justice Stun
-        [15269]   = "random_stun",  -- Blackout
-        [18093]   = "random_stun",  -- Pyroclasm
-        [39796]   = "random_stun",  -- Stoneclaw Stun
-        [12798]   = "random_stun",  -- Revenge Stun
-        [5530]    = "random_stun",  -- Mace Stun Effect (Mace Specialization)
-        [15283]   = "random_stun",  -- Stunning Blow (Weapon Proc)
-        [56]      = "random_stun",  -- Stun (Weapon Proc)
-        [34510]   = "random_stun",  -- Stormherald/Deep Thunder (Weapon Proc)
+        [16922]   = "random_stun", -- Celestial Focus (Starfire Stun)
+        [19410]   = "random_stun", -- Improved Concussive Shot
+        [12355]   = "random_stun", -- Impact
+        [20170]   = "random_stun", -- Seal of Justice Stun
+        [15269]   = "random_stun", -- Blackout
+        [18093]   = "random_stun", -- Pyroclasm
+        [39796]   = "random_stun", -- Stoneclaw Stun
+        [12798]   = "random_stun", -- Revenge Stun
+        [5530]    = "random_stun", -- Mace Stun Effect (Mace Specialization)
+        [15283]   = "random_stun", -- Stunning Blow (Weapon Proc)
+        [56]      = "random_stun", -- Stun (Weapon Proc)
+        [34510]   = "random_stun", -- Stormherald/Deep Thunder (Weapon Proc)
 
         [10326] = "fear", -- Turn Evil (Might be PvE only until wotlk, adding just incase)
         [8122]  = "fear", -- Psychic Scream (Rank 1)
@@ -354,16 +357,16 @@ elseif Lib.gameExpansion == "tbc" then
         [34097] = "disarm", -- Riposte 2 (TODO: Check which ID is the correct one)
         [676]   = "disarm", -- Disarm
 
-        [12494] = "random_root",         -- Frostbite
-        [23694] = "random_root",         -- Improved Hamstring
-        [19229] = "random_root",         -- Improved Wing Clip
-        [19185] = "random_root",         -- Entrapment
+        [12494] = "random_root", -- Frostbite
+        [23694] = "random_root", -- Improved Hamstring
+        [19229] = "random_root", -- Improved Wing Clip
+        [19185] = "random_root", -- Entrapment
 
-        [19503] = "scatter",        -- Scatter Shot
-        [31661] = "scatter",        -- Dragon's Breath (Rank 1)
-        [33041] = "scatter",        -- Dragon's Breath (Rank 2)
-        [33042] = "scatter",        -- Dragon's Breath (Rank 3)
-        [33043] = "scatter",        -- Dragon's Breath (Rank 4)
+        [19503] = "scatter", -- Scatter Shot
+        [31661] = "scatter", -- Dragon's Breath (Rank 1)
+        [33041] = "scatter", -- Dragon's Breath (Rank 2)
+        [33042] = "scatter", -- Dragon's Breath (Rank 3)
+        [33043] = "scatter", -- Dragon's Breath (Rank 4)
 
         -- Spells that DR with itself only
         [408]   = "kidney_shot",         -- Kidney Shot (Rank 1)
@@ -496,16 +499,16 @@ elseif Lib.gameExpansion == "wotlk" then
         [46968] = "stun", -- Shockwave
         [20549] = "stun", -- War Stomp (Racial)
 
-        [16922]   = "random_stun",  -- Celestial Focus (Starfire Stun)
-        [28445]   = "random_stun",  -- Improved Concussive Shot
-        [12355]   = "random_stun",  -- Impact
-        [20170]   = "random_stun",  -- Seal of Justice Stun
-        [39796]   = "random_stun",  -- Stoneclaw Stun
-        [12798]   = "random_stun",  -- Revenge Stun
-        [5530]    = "random_stun",  -- Mace Stun Effect (Mace Specialization)
-        [15283]   = "random_stun",  -- Stunning Blow (Weapon Proc)
-        [56]      = "random_stun",  -- Stun (Weapon Proc)
-        [34510]   = "random_stun",  -- Stormherald/Deep Thunder (Weapon Proc)
+        [16922]   = "random_stun", -- Celestial Focus (Starfire Stun)
+        [28445]   = "random_stun", -- Improved Concussive Shot
+        [12355]   = "random_stun", -- Impact
+        [20170]   = "random_stun", -- Seal of Justice Stun
+        [39796]   = "random_stun", -- Stoneclaw Stun
+        [12798]   = "random_stun", -- Revenge Stun
+        [5530]    = "random_stun", -- Mace Stun Effect (Mace Specialization)
+        [15283]   = "random_stun", -- Stunning Blow (Weapon Proc)
+        [56]      = "random_stun", -- Stun (Weapon Proc)
+        [34510]   = "random_stun", -- Stormherald/Deep Thunder (Weapon Proc)
 
         [1513]  = "fear", -- Scare Beast (Rank 1)
         [14326] = "fear", -- Scare Beast (Rank 2)
@@ -561,12 +564,12 @@ elseif Lib.gameExpansion == "wotlk" then
         [63685] = "root", -- Freeze (Frost Shock)
         [55536] = "root", -- Frostweave Net (Item)
 
-        [12494] = "random_root",         -- Frostbite
-        [55080] = "random_root",         -- Shattered Barrier
-        [58373] = "random_root",         -- Glyph of Hamstring
-        [23694] = "random_root",         -- Improved Hamstring
-        [47168] = "random_root",         -- Improved Wing Clip
-        [19185] = "random_root",         -- Entrapment
+        [12494] = "random_root", -- Frostbite
+        [55080] = "random_root", -- Shattered Barrier
+        [58373] = "random_root", -- Glyph of Hamstring
+        [23694] = "random_root", -- Improved Hamstring
+        [47168] = "random_root", -- Improved Wing Clip
+        [19185] = "random_root", -- Entrapment
 
         [53359] = "disarm", -- Chimera Shot (Scorpid)
         [50541] = "disarm", -- Snatch (Rank 1)
@@ -637,13 +640,13 @@ elseif Lib.gameExpansion == "wotlk" then
     }
 
 elseif Lib.gameExpansion == "classic" then
+    local GetSpellInfo = _G.GetSpellInfo -- upvalue
 
     -- SpellID list for Classic Era (vanilla)
     -- In Classic the spell ID payload is gone from the combat log, so we need the key here to be
     -- spell name instead. We also provide spell ID in the table value so it's possible to retrieve
     -- for example spell icon using GetSpellTexture(spellID) later on. (These functions only accept
-    -- spell names if the player has the spell in their spell book)
-    local GetSpellInfo = _G.GetSpellInfo -- upvalue
+    -- spell names if the player has the spell in their spell book).
     Lib.spellList = {
         -- Controlled roots
         [GetSpellInfo(339)]     = { category = "root", spellID = 339 },      -- Entangling Roots

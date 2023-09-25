@@ -39,19 +39,6 @@ jobs:
             echo "::error::DRList-1.0.lua minor version does not match Spells.lua version."
           fi
 
-      - name: Install and generate ldocs
-        run: |
-          curl -L -s https://github.com/lunarmodules/ldoc/archive/v1.5.0.tar.gz | tar -xz
-          sudo luarocks install luafilesystem
-          sudo luarocks install penlight
-          lua ldoc-1.5.0/ldoc.lua DRList-1.0/DRList-1.0.lua
-
-      - name: Deploy docs to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: doc
-
       - name: Create and deploy packages
         uses: BigWigsMods/packager@v2
         env:

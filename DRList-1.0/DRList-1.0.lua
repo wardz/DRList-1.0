@@ -9,7 +9,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 54 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 55 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -309,20 +309,14 @@ function Lib:GetResetTime(category)
 end
 
 --- Get unlocalized DR category by spell ID.
--- For Classic (vanilla) you should pass in the spell name instead of ID.
--- For Classic you also get an optional second return value
--- which is the hardcoded spell ID of the spell name you passed in.
--- You should use this ID to query additional info from Blizzard API if needed, as
--- spell names only works for the player if they have the spell in their current spellbook.
 -- @tparam number spellID
--- @treturn[1] string|nil The category name.
--- @treturn[2] number|nil The spell ID. (Classic only)
+-- @treturn string|nil The category name.
 function Lib:GetCategoryBySpellID(spellID)
     if Lib.gameExpansion == "classic" then
-        -- special case for classic as CLEU doesn't provide spellIDs
-        local data = Lib.spellList[spellID]
-        if not data then return end
-        return data.category, data.spellID
+        -- OBSOLETE: second return value is no longer needed after Classic Era patch 1.15.0.
+        local category = Lib.spellList[spellID]
+        if not category then return end
+        return category, spellID
     end
 
     return Lib.spellList[spellID]

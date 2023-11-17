@@ -11,15 +11,7 @@ end
 local Tests = SimpleTesting:New("DRList-1.0", "Classic")
 if not Tests:IsInGame() then
     strmatch = string.match
-    GetSpellInfo = function(id)
-        -- Need to mock some of the spells used in testing
-        if id == 853 then return "Hammer of Justice"
-        elseif id == 122 then return "Frost Nova"
-        elseif id == 12355 then return "Impact"
-        elseif id == 20066 then return "Repentance"
-        elseif id == 5211 then return "Bash"
-        else return "" end
-    end
+    GetSpellInfo = function() return "" end
     GetLocale = function()
         if _G.arg and _G.arg[1] then
             print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore
@@ -53,11 +45,10 @@ end)
 
 Tests:It("GetsSpellList", function()
     assert(next(DRList.spellList))
-    assert(DRList:GetSpells()["Hammer of Justice"].category == "stun")
-    assert(DRList:GetSpells()["Hammer of Justice"].spellID == 853)
-    assert(DRList:GetSpells()["Frost Nova"].category == "root")
-    assert(DRList:GetSpells()["Frost Nova"].spellID == 122)
-    assert(DRList:GetSpells()["Impact"].category == "random_stun")
+    assert(DRList:GetSpells()[853] == "stun")
+    assert(DRList:GetSpells()[339] == "root")
+    assert(DRList:GetSpells()[12355] == "random_stun")
+    assert(DRList:GetSpells()[33786] == nil)
 end)
 
 Tests:It("GetsResetTimes", function()
@@ -79,20 +70,21 @@ end)
 
 Tests:It("GetsCategoryNamesPvE", function()
     assert(type(DRList:GetPvECategories().stun) == "string")
+    assert(type(DRList:GetPvECategories().kidney_shot) == "string")
+    assert(DRList:GetPvECategories().random_stun == nil)
     assert(DRList:GetPvECategories().disorient == nil)
     assert(DRList:GetPvECategories().taunt == nil)
 end)
 
 Tests:It("GetsCategoryFromSpell", function()
-    assert(DRList:GetCategoryBySpellID("Hammer of Justice") == "stun")
-    assert(DRList:GetCategoryBySpellID("Frost Nova") == "root")
-    assert(DRList:GetCategoryBySpellID("Repentance") == "incapacitate")
-    assert(DRList:GetCategoryBySpellID("Impact") == "random_stun")
+    assert(DRList:GetCategoryBySpellID(853) == "stun")
+    assert(DRList:GetCategoryBySpellID(339) == "root")
+    assert(DRList:GetCategoryBySpellID(1776) == "incapacitate")
+    assert(DRList:GetCategoryBySpellID(12355) == "random_stun")
+    assert(DRList:GetCategoryBySpellID(8056) == "frost_shock")
+    assert(DRList:GetCategoryBySpellID(33786) == nil)
 
-    assert(select(2, DRList:GetCategoryBySpellID("Frost Nova")) == 122)
-    assert(select(2, DRList:GetCategoryBySpellID("Bash")) == 5211)
-
-    assert(DRList:GetCategoryBySpellID(1776) == nil)
+    assert(DRList:GetCategoryBySpellID(123) == nil)
     assert(DRList:GetCategoryBySpellID("123") == nil)
     assert(DRList:GetCategoryBySpellID(true) == nil)
     assert(DRList:GetCategoryBySpellID({}) == nil)
@@ -110,7 +102,9 @@ Tests:It("GetsLocalizations", function()
     local low = string.lower
     assert(low(DRList.categoryNames[DRList.gameExpansion]["stun"]) == low(DRList.L.STUNS))
     assert(low(DRList:GetCategoryLocalization("random_root")) == low(DRList.L.RANDOM_ROOTS))
+    assert(low(DRList:GetCategoryLocalization("root")) == low(DRList.L.ROOTS))
     assert(low(DRList:GetCategoryLocalization("mind_control")) == low(DRList.L.MIND_CONTROL))
+    assert(DRList:GetCategoryLocalization("disarm") == nil)
     assert(DRList:GetCategoryLocalization("knockback") == nil)
 end)
 
@@ -153,7 +147,7 @@ end)
 Tests:It("IterateSpellsByCategory", function()
     local ran = false
     for spellID, category in DRList:IterateSpellsByCategory("root") do
-        assert(type(spellID) == "string")
+        assert(type(spellID) == "number")
         assert(category == "root")
         ran = true
     end
@@ -162,7 +156,7 @@ Tests:It("IterateSpellsByCategory", function()
 
     for category, localizedCategory in pairs(DRList:GetPvECategories()) do
         for spellID, cat in DRList:IterateSpellsByCategory(category) do -- luacheck: ignore
-            assert(type(spellID) == "string")
+            assert(type(spellID) == "number")
             assert(category == cat)
             ran = true
             break
@@ -176,15 +170,15 @@ Tests:It("Verifies spell list", function()
     local success = true
     local err = ""
 
-    for spellName, data in pairs(DRList.spellList) do
-        if type(spellName) ~= "string" or spellName ~= GetSpellInfo(data.spellID) then
+    for spellID, category in pairs(DRList.spellList) do
+        if type(spellID) ~= "number" or not GetSpellInfo(spellID) then
             success = false
-            err = err .. "|cFFFF0000Invalid spell:|r " .. spellName .. "\n"
+            err = err .. "|cFFFF0000Invalid spell:|r " .. spellID .. "\n"
         end
 
-        if type(data.category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][data.category] then
+        if type(category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category] then
             success = false
-            err = err .. "|cFFFF0000Invalid category:|r " .. data.category .. "\n"
+            err = err .. "|cFFFF0000Invalid category:|r " .. category .. "\n"
         end
     end
 

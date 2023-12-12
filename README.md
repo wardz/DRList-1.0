@@ -55,7 +55,7 @@ externals:
   E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames.classic`. The only exception for this is
   the spell list table.
 - Calls to `IterateProviders` must be replaced with [IterateSpellsByCategory](https://github.com/wardz/DRList-1.0/blob/620a36fc1ccbfb399ead1b874b9a0fc648113b9c/DRList-1.0/DRList-1.0.lua#L347-L356). **Providers are obsolete.**
-- Any deprecated warnings from DRData-1.0 has now been removed, including the deprecated code.
+- Any deprecated category warnings from DRData-1.0 has now been removed, including the deprecated code.
 - ~~For Classic Era (vanilla) you need to mostly use spell names instead of spell IDs.~~ (As of 1.15.0+ this is no longer the case)
 
 ### Contributing

@@ -137,7 +137,6 @@ if Lib.gameExpansion == "retail" then
         [255723]  = "stun", -- Bull Rush (Racial, Highmountain Tauren)
         [287712]  = "stun", -- Haymaker (Racial, Kul Tiran)
         [332423]  = "stun", -- Sparkling Driftglobe Core (Kyrian Covenant)
-        -- TODO: Inferal Awakening?
 
         -- *** Controlled Root Effects ***
         [204085]  = "root", -- Deathchill (Chains of Ice)
@@ -150,7 +149,7 @@ if Lib.gameExpansion == "retail" then
         [393456]  = "root", -- Entrapment (Tar Trap)
         [162480]  = "root", -- Steel Trap
         [273909]  = "root", -- Steelclaw Trap
---      [190927]  = "root", -- Harpoon (TODO: confirm)
+--      [190927]  = "root", -- Harpoon
         [212638]  = "root", -- Tracker's Net
         [201158]  = "root", -- Super Sticky Tar
         [122]     = "root", -- Frost Nova
@@ -163,10 +162,10 @@ if Lib.gameExpansion == "retail" then
         [116706]  = "root", -- Disable
         [324382]  = "root", -- Clash
         [64695]   = "root", -- Earthgrab (Totem effect)
-        --[356738]  = "root", -- Earth Unleashed (doesn't seem to DR)
+        --[356738]  = "root", -- Earth Unleashed
         [285515]  = "root", -- Surge of Power
         [199042]  = "root", -- Thunderstruck (Protection PvP Talent)
-        --[356356]  = "root", -- Warbringer TODO: has DR?
+        --[356356]  = "root", -- Warbringer
         [39965]   = "root", -- Frost Grenade (Item)
         [75148]   = "root", -- Embersilk Net (Item)
         [55536]   = "root", -- Frostweave Net (Item)
@@ -199,14 +198,14 @@ if Lib.gameExpansion == "retail" then
         [51399]   = "taunt", -- Death Grip (Taunt Effect)
         [185245]  = "taunt", -- Torment
         [6795]    = "taunt", -- Growl (Druid)
-        [2649]    = "taunt", -- Growl (Hunter Pet) (TODO: confirm)
+        [2649]    = "taunt", -- Growl (Hunter Pet)
         [20736]   = "taunt", -- Distracting Shot
         [116189]  = "taunt", -- Provoke
         [118635]  = "taunt", -- Provoke (Black Ox Statue)
         [196727]  = "taunt", -- Provoke (Niuzao)
         [204079]  = "taunt", -- Final Stand
         [62124]   = "taunt", -- Hand of Reckoning
-        [17735]   = "taunt", -- Suffering (Voidwalker) (TODO: confirm)
+        [17735]   = "taunt", -- Suffering (Voidwalker)
         [355]     = "taunt", -- Taunt
 
         -- *** Controlled Knockback Effects ***
@@ -220,7 +219,7 @@ if Lib.gameExpansion == "retail" then
         [157981]  = "knockback", -- Blast Wave
         [204263]  = "knockback", -- Shining Force
         [51490]   = "knockback", -- Thunderstorm
-        --[287712]  = "knockback", -- Haywire (Kul'Tiran Racial)
+        --[287712]  = "knockback", -- Haywire (Racial, Kul'Tiran)
     }
 
 elseif Lib.gameExpansion == "tbc" then
@@ -560,7 +559,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [9853]  = "root", -- Entangling Roots (Rank 6)
         [26989] = "root", -- Entangling Roots (Rank 7)
         [53308] = "root", -- Entangling Roots (Rank 8)
-        [65857] = "root", -- Entangling Roots (Rank 8) (TODO: Not sure which ID is correct)
+        [65857] = "root", -- Entangling Roots (Rank 8) (TODO: not sure which ID is correct)
         [19975] = "root", -- Nature's Grasp (Rank 1)
         [19974] = "root", -- Nature's Grasp (Rank 2)
         [19973] = "root", -- Nature's Grasp (Rank 3)
@@ -569,7 +568,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [19970] = "root", -- Nature's Grasp (Rank 6)
         [27010] = "root", -- Nature's Grasp (Rank 7)
         [53313] = "root", -- Nature's Grasp (Rank 8)
-        [66070] = "root", -- Nature's Grasp (Rank 8) (TODO: Not sure which ID is correct)
+        [66070] = "root", -- Nature's Grasp (Rank 8) (TODO: not sure which ID is correct)
         [50245] = "root", -- Pin (Rank 1)
         [53544] = "root", -- Pin (Rank 2)
         [53545] = "root", -- Pin (Rank 3)
@@ -620,7 +619,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [18425] = "silence", -- Silenced - Improved Kick
         [24259] = "silence", -- Spell Lock
         [43523] = "silence", -- Unstable Affliction 1
-        [31117] = "silence", -- Unstable Affliction 2 (TODO: Not sure which ID is correct)
+        [31117] = "silence", -- Unstable Affliction 2 (TODO: not sure which ID is correct)
         [18498] = "silence", -- Silenced - Gag Order (Shield Slam)
         [74347] = "silence", -- Silenced - Gag Order (Heroic Throw)
         [50613] = "silence", -- Arcane Torrent (Racial, Runic Power)

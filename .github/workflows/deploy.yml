@@ -4,9 +4,6 @@ on:
       - "v*"
       - "!**-alpha**"
 
-#env:
-  #GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN_MULTI_WORKFLOW }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest

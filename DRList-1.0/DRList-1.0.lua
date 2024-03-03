@@ -301,7 +301,7 @@ end
 
 --- Get constant for how long a DR lasts for a given category.
 -- @tparam[opt="default"] string category Unlocalized category name, or "npc" for PvE timer.
--- @treturn number
+-- @treturn number Seconds before DR resets.
 function Lib:GetResetTime(category)
     return Lib.resetTimes[Lib.gameExpansion][category or "default"] or Lib.resetTimes[Lib.gameExpansion].default
 end

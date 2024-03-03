@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 55 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 56 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -10,7 +10,6 @@ if Lib.gameExpansion == "retail" then
 
     -- SpellID list for mainline aka retail WoW.
     -- Mostly contains spellIDs that are usable in arena only.
-    -- If you add any new data to these tables you also need to bump the MINOR version.
     Lib.spellList = {
         [207167]  = "disorient",       -- Blinding Sleet
         [207685]  = "disorient",       -- Sigil of Misery
@@ -780,8 +779,6 @@ elseif Lib.gameExpansion == "classic" then
         [10472]  = "frost_shock",  -- Frost Shock (Rank 1)
         [10473]  = "frost_shock",  -- Frost Shock (Rank 1)
     }
-else
-    print("DRList-1.0: Unsupported game expansion loaded.") -- luacheck: ignore
 end
 
 -- Alias for DRData-1.0

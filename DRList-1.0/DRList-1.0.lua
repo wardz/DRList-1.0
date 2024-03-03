@@ -355,24 +355,27 @@ do
     local next = _G.next
 
     local function CategoryIterator(category, index)
-        local spellList, newCat = Lib.spellList
+        local spellList, newCategory = Lib.spellList
         repeat
-            index, newCat = next(spellList, index)
-            if index then
-                if newCat == category or newCat.category == category then
-                    return index, category
-                end
+            index, newCategory = next(spellList, index)
+            if index and newCategory == category then
+                return index, category
             end
         until not index
     end
 
     --- Iterate through the spells of a given category.
-    -- @tparam string category Unlocalized category name
+    -- Pass "nil" to iterate through all spells instead.
+    -- Note that in classic a spell might have several spellIDs returned here due to spell ranks.
+    -- @tparam string|nil category Unlocalized category name
     -- @usage for spellID in DRList:IterateSpellsByCategory("root") do print(spellID) end
     -- @return Iterator function
     function Lib:IterateSpellsByCategory(category)
-        assert(Lib.categoryNames[Lib.gameExpansion][category], "invalid category")
-        return CategoryIterator, category
+        if category then
+            return CategoryIterator, category
+        else
+            return next, Lib.spellList
+        end
     end
 end
 
@@ -381,6 +384,6 @@ Lib.GetCategoryName = Lib.GetCategoryLocalization
 Lib.IsPVE = Lib.IsPvECategory
 Lib.NextDR = Lib.GetNextDR
 Lib.GetSpellCategory = Lib.GetCategoryBySpellID
+Lib.IterateSpells = Lib.IterateSpellsByCategory
 Lib.RESET_TIME = Lib.resetTimes[Lib.gameExpansion].default
 Lib.pveDR = Lib.categoriesPvE
-Lib.IterateSpells = function(cat) if cat then return Lib.IterateSpellsByCategory(cat) else return next, Lib.spellList end end

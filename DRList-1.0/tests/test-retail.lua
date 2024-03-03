@@ -150,14 +150,27 @@ Tests:It("IterateSpellsByCategory", function()
         ran = true
     end
     assert(ran)
-    ran = false
 
+    ran = false
+    for spellID, category in DRList:IterateSpellsByCategory("asdasdasdf") do
+        ran = true
+    end
+    assert(ran == false)
+
+    ran = false
+    for spellID, category in DRList:IterateSpellsByCategory(nil) do
+        assert(type(spellID) == "number")
+        assert(type(category) == "string")
+        ran = true
+    end
+    assert(ran)
+
+    ran = false
     for category, localizedCategory in pairs(DRList:GetPvECategories()) do
-        for spellID, cat in DRList:IterateSpellsByCategory(category) do -- luacheck: ignore
+        for spellID, cat in DRList:IterateSpellsByCategory(category) do
             assert(type(spellID) == "number")
             assert(category == cat)
             ran = true
-            break
         end
     end
     assert(ran)

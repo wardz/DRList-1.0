@@ -307,6 +307,7 @@ function Lib:GetResetTime(category)
 end
 
 --- Get unlocalized DR category by spell ID.
+-- This is the main checker for if a spell has a DR.
 -- @tparam number spellID
 -- @treturn string|nil The category name.
 function Lib:GetCategoryBySpellID(spellID)

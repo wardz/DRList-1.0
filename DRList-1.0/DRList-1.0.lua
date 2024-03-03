@@ -276,10 +276,8 @@ Lib.diminishedDurations = {
 
 --- Get table of all spells that DRs.
 -- Key is the spellID, and value is the unlocalized DR category.
--- For Classic the key is the localized spell name instead, and value
--- is a table containing both the DR category and spell ID. (Classic has no spellID payload in the combat log)
 -- @see IterateSpellsByCategory
--- @treturn ?table {number=string}|table {string=table}
+-- @treturn table {number=string}
 function Lib:GetSpells()
     return Lib.spellList
 end

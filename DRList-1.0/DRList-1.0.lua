@@ -33,6 +33,7 @@ L["RANDOM_STUNS"] = "Random stuns"
 L["OPENER_STUN"] = "Opener stuns"
 L["HORROR"] = "Horrors"
 L["SCATTERS"] = "Scatters"
+L["DRAGONS"] = GetSpellInfo(31661) or "Dragon's Breath"
 L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(15089) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
@@ -42,6 +43,7 @@ L["CHASTISE"] = GetSpellInfo(44041) or "Chastise"
 L["COUNTERATTACK"] = GetSpellInfo(19306) or "Counterattack"
 L["CYCLONE"] = GetSpellInfo(33786) or "Cyclone"
 L["CHARGE"] = GetSpellInfo(100) or "Charge"
+L["ENTRAPMENT"] = GetSpellInfo(64803) or "Entrapment"
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -128,7 +130,14 @@ Lib.gameExpansion = ({
     [WOW_PROJECT_CLASSIC] = "classic",
     [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "tbc",
     [WOW_PROJECT_WRATH_CLASSIC or 11] = "wotlk",
-})[WOW_PROJECT_ID] or "wotlk" -- Fallback to wotlk when unknown (most likely a new classic expansion build)
+    [WOW_PROJECT_CATA_CLASSIC or 12] = "cata",
+})[WOW_PROJECT_ID] or "cata" -- Fallback to cata when unknown (most likely a new classic expansion build)
+
+-- temporary Cata beta fix because WOW_PROJECT_ID is still 11
+local _, _, _, toc = GetBuildInfo()
+if toc > 40000 and toc < 50000 then
+    Lib.gameExpansion = "cata"
+end
 
 -- How long it takes for a DR to expire, in seconds.
 Lib.resetTimes = {
@@ -149,6 +158,10 @@ Lib.resetTimes = {
     },
 
     wotlk = {
+        ["default"] = 20, -- dynamic between 15 and 20s
+        ["npc"] = 21,
+    },
+	cata = {
         ["default"] = 20, -- dynamic between 15 and 20s
         ["npc"] = 21,
     },
@@ -213,6 +226,26 @@ Lib.categoryNames = {
         ["charge"] = L.CHARGE,
         ["opener_stun"] = L.OPENER_STUN,
         ["counterattack"] = L.COUNTERATTACK,
+        ["dragon"] = L.DRAGONS,
+        ["entrapment"] = L.ENTRAPMENT,
+    },
+
+    cata = {
+        ["incapacitate"] = L.INCAPACITATES,
+        ["stun"] = L.STUNS,
+        ["random_stun"] = L.RANDOM_STUNS,
+        ["random_root"] = L.RANDOM_ROOTS,
+        ["root"] = L.ROOTS,
+        ["disarm"] = L.DISARMS,
+        ["fear"] = L.FEARS,
+        ["scatter"] = L.SCATTERS,
+        ["silence"] = L.SILENCES,
+        ["horror"] = L.HORROR,
+        ["mind_control"] = L.MIND_CONTROL,
+        ["cyclone"] = L.CYCLONE,
+        ["counterattack"] = L.COUNTERATTACK,
+        ["dragon"] = L.DRAGONS,
+        ["entrapment"] = L.ENTRAPMENT,
     },
 }
 
@@ -240,6 +273,13 @@ Lib.categoriesPvE = {
         ["random_stun"] = L.RANDOM_STUNS,
         ["opener_stun"] = L.OPENER_STUN,
     },
+
+    cata = {
+        --["taunt"] = L.TAUNTS,
+        ["stun"] = L.STUNS,
+        ["random_stun"] = L.RANDOM_STUNS,
+        ["cyclone"] = L.CYCLONE,
+    },
 }
 
 -- Successives diminished durations
@@ -262,6 +302,10 @@ Lib.diminishedDurations = {
     },
 
     wotlk = {
+        ["default"] = { 0.50, 0.25 },
+    },
+
+    cata = {
         ["default"] = { 0.50, 0.25 },
     },
 }

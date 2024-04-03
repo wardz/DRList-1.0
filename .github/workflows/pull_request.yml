@@ -20,3 +20,19 @@ jobs:
         uses: nebularg/actions-luacheck@v1
         with:
           args: --quiet
+
+      - name: Run personal tests
+        run: |
+          lua DRList-1.0/tests/test-classic.lua
+          lua DRList-1.0/tests/test-tbc.lua
+          lua DRList-1.0/tests/test-wotlk.lua
+          lua DRList-1.0/tests/test-cata.lua
+          lua DRList-1.0/tests/test-retail.lua
+
+      - name: Check if lib minor versions matches
+        run: |
+          version_file1=$(sed -n 's/local MAJOR, MINOR = "DRList-1.0", \(.*\)--.*/\1/p' DRList-1.0/DRList-1.0.lua)
+          version_file2=$(sed -n 's/local MAJOR, MINOR = "DRList-1.0", \(.*\)--.*/\1/p' DRList-1.0/Spells.lua)
+          if [ "$version_file1" != "$version_file2" ]; then
+            echo "::error::DRList-1.0.lua minor version does not match Spells.lua version."
+          fi

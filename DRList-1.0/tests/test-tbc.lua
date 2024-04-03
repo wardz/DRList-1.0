@@ -12,6 +12,7 @@ local Tests = SimpleTesting:New("DRList-1.0", "TBC")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetSpellInfo = function() return "" end
+    GetBuildInfo = function() return 0, 0, 0, 0 end
     GetLocale = function()
         if _G.arg and _G.arg[1] then
             print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore

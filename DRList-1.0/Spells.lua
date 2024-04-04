@@ -595,7 +595,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [23694] = "random_root", -- Improved Hamstring
         [19185] = "random_root", -- Entrapment (Rank 1)
         [64803] = "random_root", -- Entrapment (Rank 2)
-        
+
         -- *** Disarm Weapon Effects ***
         [53359] = "disarm", -- Chimera Shot (Scorpid)
         [50541] = "disarm", -- Snatch (Rank 1)

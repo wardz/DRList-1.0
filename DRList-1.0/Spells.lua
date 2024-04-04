@@ -593,7 +593,9 @@ elseif Lib.gameExpansion == "wotlk" then
         [55080] = "random_root", -- Shattered Barrier
         [58373] = "random_root", -- Glyph of Hamstring
         [23694] = "random_root", -- Improved Hamstring
-
+        [19185] = "random_root", -- Entrapment (Rank 1)
+        [64803] = "random_root", -- Entrapment (Rank 2)
+        
         -- *** Disarm Weapon Effects ***
         [53359] = "disarm", -- Chimera Shot (Scorpid)
         [50541] = "disarm", -- Snatch (Rank 1)
@@ -644,12 +646,12 @@ elseif Lib.gameExpansion == "wotlk" then
 
         -- *** Scatter Effects ***
         [19503] = "scatter", -- Scatter Shot
-        [31661] = "dragons", -- Dragon's Breath (Rank 1)
-        [33041] = "dragons", -- Dragon's Breath (Rank 2)
-        [33042] = "dragons", -- Dragon's Breath (Rank 3)
-        [33043] = "dragons", -- Dragon's Breath (Rank 4)
-        [42949] = "dragons", -- Dragon's Breath (Rank 5)
-        [42950] = "dragons", -- Dragon's Breath (Rank 6)
+        [31661] = "scatter", -- Dragon's Breath (Rank 1)
+        [33041] = "scatter", -- Dragon's Breath (Rank 2)
+        [33042] = "scatter", -- Dragon's Breath (Rank 3)
+        [33043] = "scatter", -- Dragon's Breath (Rank 4)
+        [42949] = "scatter", -- Dragon's Breath (Rank 5)
+        [42950] = "scatter", -- Dragon's Breath (Rank 6)
 
         -- *** Spells that DRs with itself only ***
         [33786] = "cyclone",        -- Cyclone
@@ -663,8 +665,6 @@ elseif Lib.gameExpansion == "wotlk" then
         [7922]  = "charge",         -- Charge Stun
         [13181] = "mind_control",   -- Gnomish Mind Control Cap (Item)
         [67799] = "mind_control",   -- Mind Amplification Dish (Item)
-        [19185] = "entrapment", -- Entrapment (Rank 1)
-        [64803] = "entrapment", -- Entrapment (Rank 2)
     }
 
 elseif Lib.gameExpansion == "cata" then
@@ -794,6 +794,8 @@ elseif Lib.gameExpansion == "cata" then
         [83073] = "random_root", -- Shattered Barrier (4 seconds)
         [58373] = "random_root", -- Glyph of Hamstring
         [23694] = "random_root", -- Improved Hamstring
+        [19185] = "random_root", -- Entrapment (Rank 1)
+        [64803] = "random_root", -- Entrapment (Rank 2)
 
         -- *** Disarm Weapon Effects ***
         [50541] = "disarm", -- Snatch
@@ -840,11 +842,9 @@ elseif Lib.gameExpansion == "cata" then
 
         -- *** Spells that DRs with itself only ***
         [19503] = "scatter",       -- Scatter Shot
-        [31661] = "dragon",        -- Dragon's Breath
+        [31661] = "scatter",        -- Dragon's Breath
         [33786] = "cyclone",       -- Cyclone
         [19306] = "counterattack", -- Counterattack
-        [19185] = "entrapment", -- Entrapment (Rank 1)
-        [64803] = "entrapment", -- Entrapment (Rank 2)
     }
 
 elseif Lib.gameExpansion == "classic" then

@@ -842,7 +842,7 @@ elseif Lib.gameExpansion == "cata" then
 
         -- *** Spells that DRs with itself only ***
         [19503] = "scatter",       -- Scatter Shot
-        [31661] = "scatter",        -- Dragon's Breath
+        [31661] = "scatter",       -- Dragon's Breath
         [33786] = "cyclone",       -- Cyclone
         [19306] = "counterattack", -- Counterattack
     }

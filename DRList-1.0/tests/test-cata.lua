@@ -54,7 +54,7 @@ Tests:It("GetsSpellList", function()
     assert(DRList:GetSpells()[339] == "root")
     assert(DRList:GetSpells()[51514] == "incapacitate")
     assert(DRList:GetSpells()[47476] == "silence")
-    assert(DRList:GetSpells()[31661] == "dragon")
+    assert(DRList:GetSpells()[31661] == "scatter")
 end)
 
 Tests:It("GetsResetTimes", function()

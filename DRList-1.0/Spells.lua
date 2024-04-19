@@ -34,9 +34,9 @@ if Lib.gameExpansion == "retail" then
         [5484]    = "disorient", -- Howl of Terror
         [261589]  = "disorient", -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient", -- Seduction (Succubus)
-        [5246]    = "disorient", -- Intimidating Shout 1
-        [316593]  = "disorient", -- Intimidating Shout 2 (TODO: not sure which one is correct in 9.0.1)
-        [316595]  = "disorient", -- Intimidating Shout 3
+        [5246]    = "disorient", -- Intimidating Shout
+        [316593]  = "disorient", -- Intimidating Shout (Menace Main Target)
+        [316595]  = "disorient", -- Intimidating Shout (Menace Other Targets)
         [331866]  = "disorient", -- Agent of Chaos (Venthyr Covenant)
 
         -- *** Incapacitate Effects ***

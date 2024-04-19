@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 58 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 59 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -888,6 +888,7 @@ elseif Lib.gameExpansion == "classic" then
         [9823]  = "stun", -- Pounce (Rank 2)
         [9827]  = "stun", -- Pounce (Rank 3)
         [24394] = "stun", -- Intimidation
+        [428739] = "stun", -- Deep Freeze (Season of Discovery)
         [853]   = "stun", -- Hammer of Justice (Rank 1)
         [5588]  = "stun", -- Hammer of Justice (Rank 2)
         [5589]  = "stun", -- Hammer of Justice (Rank 3)

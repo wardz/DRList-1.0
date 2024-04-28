@@ -709,7 +709,7 @@ elseif Lib.gameExpansion == "cata" then
         [67769] = "incapacitate", -- Cobalt Frag Bomb (Item)
         [67890] = "incapacitate", -- Cobalt Frag Bomb (Item, Frag Belt)
         [54466] = "incapacitate", -- Saronite Grenade (Item)
-        [82676] = "incapacitate", -- Ring of Frost
+        [82691] = "incapacitate", -- Ring of Frost
 
         -- *** Controlled Stun Effects ***
         [47481] = "stun", -- Gnaw (Ghoul Pet)

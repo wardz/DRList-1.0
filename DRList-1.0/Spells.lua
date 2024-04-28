@@ -753,8 +753,8 @@ elseif Lib.gameExpansion == "cata" then
         [15283] = "random_stun", -- Stunning Blow (Weapon Proc)
         [56]    = "random_stun", -- Stun (Weapon Proc)
         [34510] = "random_stun", -- Stormherald/Deep Thunder (Weapon Proc)
-        [11210] = "random_stun", -- Improved Polymorph (Rank 1)
-        [12592] = "random_stun", -- Improved Polymorph (Rank 2)
+        [83046] = "random_stun", -- Improved Polymorph (Rank 1)
+        [83047] = "random_stun", -- Improved Polymorph (Rank 2)
 
         -- *** Fear Effects ***
         [1513]  = "fear", -- Scare Beast

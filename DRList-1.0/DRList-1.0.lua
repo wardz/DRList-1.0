@@ -41,6 +41,7 @@ L["DEATH_COIL"] = GetSpellInfo(28412) or "Death Coil"
 L["UNSTABLE_AFFLICTION"] = GetSpellInfo(31117) or "Unstable Affliction"
 L["CHASTISE"] = GetSpellInfo(44041) or "Chastise"
 L["COUNTERATTACK"] = GetSpellInfo(19306) or "Counterattack"
+L["BIND_ELEMENTAL"] = GetSpellInfo(76780) or "Bind Elemental"
 L["CYCLONE"] = GetSpellInfo(33786) or "Cyclone"
 L["CHARGE"] = GetSpellInfo(100) or "Charge"
 L["ENTRAPMENT"] = GetSpellInfo(64803) or "Entrapment"
@@ -246,6 +247,7 @@ Lib.categoryNames = {
         ["counterattack"] = L.COUNTERATTACK,
         ["dragon"] = L.DRAGONS,
         ["entrapment"] = L.ENTRAPMENT,
+        ["bind_elemental"] = L.BIND_ELEMENTAL,
     },
 }
 

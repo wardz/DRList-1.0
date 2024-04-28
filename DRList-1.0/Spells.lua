@@ -836,15 +836,16 @@ elseif Lib.gameExpansion == "cata" then
         [87100] = "horror", -- Sin and Punishment (Rank 2)
 
         -- *** Mind Control Effects ***
-        [605]   = "mind_control",   -- Mind Control
-        [13181] = "mind_control",   -- Gnomish Mind Control Cap (Item)
-        [67799] = "mind_control",   -- Mind Amplification Dish (Item)
+        [605]   = "mind_control", -- Mind Control
+        [13181] = "mind_control", -- Gnomish Mind Control Cap (Item)
+        [67799] = "mind_control", -- Mind Amplification Dish (Item)
 
         -- *** Spells that DRs with itself only ***
-        [19503] = "scatter",       -- Scatter Shot
-        [31661] = "scatter",       -- Dragon's Breath
-        [33786] = "cyclone",       -- Cyclone
+        [19503] = "scatter", -- Scatter Shot
+        [31661] = "scatter", -- Dragon's Breath
+        [33786] = "cyclone", -- Cyclone
         [19306] = "counterattack", -- Counterattack
+        [76780] = "bind_elemental", -- Bind Elemental
     }
 
 elseif Lib.gameExpansion == "classic" then

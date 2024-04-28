@@ -713,6 +713,7 @@ elseif Lib.gameExpansion == "cata" then
 
         -- *** Controlled Stun Effects ***
         [47481] = "stun", -- Gnaw (Ghoul Pet)
+        [91797] = "stun", -- Monstrous Blow (Dark Transformation)
         [5211]  = "stun", -- Bash
         [22570] = "stun", -- Maim
         [24394] = "stun", -- Intimidation

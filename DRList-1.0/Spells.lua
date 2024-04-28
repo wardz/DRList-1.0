@@ -727,13 +727,12 @@ elseif Lib.gameExpansion == "cata" then
         [12809] = "stun", -- Concussion Blow
         [60995] = "stun", -- Demon Charge
         [30153] = "stun", -- Intercept (Felguard)
-        [20253] = "stun", -- Intercept Stun
+        --[20253] = "stun", -- Intercept Stun
         [46968] = "stun", -- Shockwave
         [20549] = "stun", -- War Stomp (Racial)
         [9005]  = "stun", -- Pounce
         [1833]  = "stun", -- Cheap Shot
         [85388] = "stun", -- Throwdown
-        [20252] = "stun", -- Intercept
         [88625] = "stun", -- Holy Word: Chastise
         [54785] = "stun", -- Demon Leap (Warlock)
         [22703] = "stun", -- Inferno Effect

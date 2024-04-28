@@ -780,8 +780,8 @@ elseif Lib.gameExpansion == "cata" then
         [39965] = "root", -- Frost Grenade (Item)
         [55536] = "root", -- Frostweave Net (Item)
         [90327] = "root", -- Lock Jaw (Dog)
-        [11190] = "root", -- Improved Cone of Cold (Rank 1)
-        [12489] = "root", -- Improved Cone of Cold (Rank 2)
+        [83301] = "root", -- Improved Cone of Cold (Rank 1)
+        [83302] = "root", -- Improved Cone of Cold (Rank 2)
         [54706] = "root", -- Venom Web Spray (Silithid)
         [4167]  = "root", -- Web (Spider)
 

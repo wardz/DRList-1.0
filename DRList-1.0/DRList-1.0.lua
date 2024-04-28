@@ -33,7 +33,6 @@ L["RANDOM_STUNS"] = "Random stuns"
 L["OPENER_STUN"] = "Opener stuns"
 L["HORROR"] = "Horrors"
 L["SCATTERS"] = "Scatters"
-L["DRAGONS"] = GetSpellInfo(31661) or "Dragon's Breath"
 L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(15089) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
@@ -44,7 +43,6 @@ L["COUNTERATTACK"] = GetSpellInfo(19306) or "Counterattack"
 L["BIND_ELEMENTAL"] = GetSpellInfo(76780) or "Bind Elemental"
 L["CYCLONE"] = GetSpellInfo(33786) or "Cyclone"
 L["CHARGE"] = GetSpellInfo(100) or "Charge"
-L["ENTRAPMENT"] = GetSpellInfo(64803) or "Entrapment"
 
 -- luacheck: push ignore 542
 local locale = GetLocale()
@@ -227,8 +225,6 @@ Lib.categoryNames = {
         ["charge"] = L.CHARGE,
         ["opener_stun"] = L.OPENER_STUN,
         ["counterattack"] = L.COUNTERATTACK,
-        ["dragon"] = L.DRAGONS,
-        ["entrapment"] = L.ENTRAPMENT,
     },
 
     cata = {
@@ -245,8 +241,6 @@ Lib.categoryNames = {
         ["mind_control"] = L.MIND_CONTROL,
         ["cyclone"] = L.CYCLONE,
         ["counterattack"] = L.COUNTERATTACK,
-        ["dragon"] = L.DRAGONS,
-        ["entrapment"] = L.ENTRAPMENT,
         ["bind_elemental"] = L.BIND_ELEMENTAL,
     },
 }

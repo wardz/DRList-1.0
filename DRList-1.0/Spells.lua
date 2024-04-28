@@ -716,6 +716,7 @@ elseif Lib.gameExpansion == "cata" then
         [91797] = "stun", -- Monstrous Blow (Dark Transformation)
         [5211]  = "stun", -- Bash
         [22570] = "stun", -- Maim
+        [93986] = "stun", -- Aura of Foreboding (TODO: verify)
         [24394] = "stun", -- Intimidation
         [50519] = "stun", -- Sonic Blast
         [50518] = "stun", -- Ravage
@@ -747,15 +748,16 @@ elseif Lib.gameExpansion == "cata" then
         -- *** Non-controlled Stun Effects ***
         [28445] = "random_stun", -- Improved Concussive Shot
         [12355] = "random_stun", -- Impact
+        [83046] = "random_stun", -- Improved Polymorph (Rank 1)
+        [83047] = "random_stun", -- Improved Polymorph (Rank 2)
         [20170] = "random_stun", -- Seal of Justice Stun
         [39796] = "random_stun", -- Stoneclaw Stun
+        [85387] = "random_stun", -- Aftermath
         [12798] = "random_stun", -- Revenge Stun
         [5530]  = "random_stun", -- Mace Stun Effect (Mace Specialization)
         [15283] = "random_stun", -- Stunning Blow (Weapon Proc)
         [56]    = "random_stun", -- Stun (Weapon Proc)
         [34510] = "random_stun", -- Stormherald/Deep Thunder (Weapon Proc)
-        [83046] = "random_stun", -- Improved Polymorph (Rank 1)
-        [83047] = "random_stun", -- Improved Polymorph (Rank 2)
 
         -- *** Fear Effects ***
         [1513]  = "fear", -- Scare Beast
@@ -770,8 +772,11 @@ elseif Lib.gameExpansion == "cata" then
         [5134]  = "fear", -- Flash Bomb Fear (Item)
 
         -- *** Controlled Root Effects ***
+        [96293] = "root", -- Chains of Ice (Chilblains Rank 1)
+        [96294] = "root", -- Chains of Ice (Chilblains Rank 2)
         [339]   = "root", -- Entangling Roots
         [19975] = "root", -- Nature's Grasp
+        [93987] = "root", -- Aura of Foreboding (TODO: verify)
         [50245] = "root", -- Pin
         [33395] = "root", -- Freeze (Water Elemental)
         [122]   = "root", -- Frost Nova
@@ -796,6 +801,7 @@ elseif Lib.gameExpansion == "cata" then
         [23694] = "random_root", -- Improved Hamstring
         [19185] = "random_root", -- Entrapment (Rank 1)
         [64803] = "random_root", -- Entrapment (Rank 2)
+        -- TODO: check Paralysis 87193
 
         -- *** Disarm Weapon Effects ***
         [50541] = "disarm", -- Snatch
@@ -834,6 +840,7 @@ elseif Lib.gameExpansion == "cata" then
         [6789]  = "horror", -- Death Coil
         [87099] = "horror", -- Sin and Punishment (Rank 1)
         [87100] = "horror", -- Sin and Punishment (Rank 2)
+        [87204] = "horror", -- Sin and Punishment (TODO: check which ID is correct)
 
         -- *** Mind Control Effects ***
         [605]   = "mind_control", -- Mind Control

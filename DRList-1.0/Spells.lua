@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 60 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 61 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -831,15 +831,13 @@ elseif Lib.gameExpansion == "cata" then
         [69179] = "silence", -- Arcane Torrent (Rage version)
         [80483] = "silence", -- Arcane Torrent (Focus version)
         [31935] = "silence", -- Avenger's Shield
-        [81261] = "silence", -- Solar Beam
+        --[81261] = "silence", -- Solar Beam
         [50479] = "silence", -- Nether Shock (Nether Ray)
 
         -- *** Horror Effects ***
         [64044] = "horror", -- Psychic Horror
         [6789]  = "horror", -- Death Coil
-        [87099] = "horror", -- Sin and Punishment (Rank 1)
-        [87100] = "horror", -- Sin and Punishment (Rank 2)
-        [87204] = "horror", -- Sin and Punishment (TODO: check which ID is correct)
+        --[87204] = "horror", -- Sin and Punishment
 
         -- *** Mind Control Effects ***
         [605]   = "mind_control", -- Mind Control

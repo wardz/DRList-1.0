@@ -12,7 +12,6 @@ local Tests = SimpleTesting:New("DRList-1.0", "Cata")
 if not Tests:IsInGame() then
     strmatch = string.match
     GetSpellInfo = function() return "" end
-    GetBuildInfo = function() return 0, 0, 0, 41000 end
     GetLocale = function()
         if _G.arg and _G.arg[1] then
             print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore
@@ -25,7 +24,7 @@ if not Tests:IsInGame() then
     WOW_PROJECT_CLASSIC = 2
     WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
     WOW_PROJECT_WRATH_CLASSIC = 11
-    WOW_PROJECT_CATA_CLASSIC = 12
+    WOW_PROJECT_CATACLYSM_CLASSIC = 14
     WOW_PROJECT_ID = 12
 
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
@@ -218,7 +217,7 @@ Tests:It("Verifies spell list", function()
 end, true)
 
 if Tests:IsInGame() then
-    if WOW_PROJECT_CATA_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_CATA_CLASSIC then
+    if WOW_PROJECT_CATACLYSM_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC then
         SLASH_DRLIST1 = "/drlist"
         SlashCmdList["DRLIST"] = function()
             Tests:RunAll()

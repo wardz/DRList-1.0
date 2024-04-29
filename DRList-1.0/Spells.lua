@@ -716,7 +716,7 @@ elseif Lib.gameExpansion == "cata" then
         [91797] = "stun", -- Monstrous Blow (Dark Transformation)
         [5211]  = "stun", -- Bash
         [22570] = "stun", -- Maim
-        [93986] = "stun", -- Aura of Foreboding (TODO: verify)
+        [93986] = "stun", -- Aura of Foreboding
         [24394] = "stun", -- Intimidation
         [50519] = "stun", -- Sonic Blast
         [50518] = "stun", -- Ravage
@@ -776,7 +776,6 @@ elseif Lib.gameExpansion == "cata" then
         [96294] = "root", -- Chains of Ice (Chilblains Rank 2)
         [339]   = "root", -- Entangling Roots
         [19975] = "root", -- Nature's Grasp
-        [93987] = "root", -- Aura of Foreboding (TODO: verify)
         [50245] = "root", -- Pin
         [33395] = "root", -- Freeze (Water Elemental)
         [122]   = "root", -- Frost Nova

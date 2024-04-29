@@ -804,7 +804,7 @@ elseif Lib.gameExpansion == "cata" then
         -- TODO: check Paralysis 87193
 
         -- *** Disarm Weapon Effects ***
-        [50541] = "disarm", -- Snatch
+        [50541] = "disarm", -- Clench
         [64346] = "disarm", -- Fiery Payback
         [64058] = "disarm", -- Psychic Horror Disarm Effect
         [51722] = "disarm", -- Dismantle

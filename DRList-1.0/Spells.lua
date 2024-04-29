@@ -779,6 +779,7 @@ elseif Lib.gameExpansion == "cata" then
         [50245] = "root", -- Pin
         [33395] = "root", -- Freeze (Water Elemental)
         [122]   = "root", -- Frost Nova
+        [87193] = "root", -- Paralysis
         [64695] = "root", -- Earthgrab
         [63685] = "root", -- Freeze (Frost Shock)
         [39965] = "root", -- Frost Grenade (Item)
@@ -800,7 +801,6 @@ elseif Lib.gameExpansion == "cata" then
         [23694] = "random_root", -- Improved Hamstring
         [19185] = "random_root", -- Entrapment (Rank 1)
         [64803] = "random_root", -- Entrapment (Rank 2)
-        -- TODO: check Paralysis 87193
 
         -- *** Disarm Weapon Effects ***
         [50541] = "disarm", -- Clench

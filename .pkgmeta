@@ -9,4 +9,3 @@ ignore:
   - CHANGELOG.md
   - DRList-1.0/libs
   - DRList-1.0/tests
-  - "DRList-1.0/*.toc"

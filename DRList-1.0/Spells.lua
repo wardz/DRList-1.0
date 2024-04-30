@@ -793,10 +793,8 @@ elseif Lib.gameExpansion == "cata" then
         [12494] = "random_root", -- Frostbite
         [83301] = "random_root", -- Improved Cone of Cold (Rank 1)
         [83302] = "random_root", -- Improved Cone of Cold (Rank 2)
-        [44745] = "random_root", -- Shattered Barrier (Rank 1)
-        [55080] = "random_root", -- Shattered Barrier (2 seconds)
-        [54787] = "random_root", -- Shattered Barrier (Rank 2)
-        [83073] = "random_root", -- Shattered Barrier (4 seconds)
+        [55080] = "random_root", -- Shattered Barrier (Rank 1)
+        [83073] = "random_root", -- Shattered Barrier (Rank 2)
         [58373] = "random_root", -- Glyph of Hamstring
         [23694] = "random_root", -- Improved Hamstring
         [19185] = "random_root", -- Entrapment (Rank 1)

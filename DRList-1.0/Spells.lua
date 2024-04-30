@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 61 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 62 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -785,14 +785,14 @@ elseif Lib.gameExpansion == "cata" then
         [39965] = "root", -- Frost Grenade (Item)
         [55536] = "root", -- Frostweave Net (Item)
         [90327] = "root", -- Lock Jaw (Dog)
-        [83301] = "root", -- Improved Cone of Cold (Rank 1)
-        [83302] = "root", -- Improved Cone of Cold (Rank 2)
         [54706] = "root", -- Venom Web Spray (Silithid)
         [4167]  = "root", -- Web (Spider)
 
         -- *** Non-controlled Root Effects ***
         [47168] = "random_root", -- Improved Wing Clip
         [12494] = "random_root", -- Frostbite
+        [83301] = "random_root", -- Improved Cone of Cold (Rank 1)
+        [83302] = "random_root", -- Improved Cone of Cold (Rank 2)
         [44745] = "random_root", -- Shattered Barrier (Rank 1)
         [55080] = "random_root", -- Shattered Barrier (2 seconds)
         [54787] = "random_root", -- Shattered Barrier (Rank 2)

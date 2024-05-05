@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 62 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 63 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -685,6 +685,7 @@ elseif Lib.gameExpansion == "cata" then
         [61721] = "incapacitate", -- Polymorph: Rabbit
         [61780] = "incapacitate", -- Polymorph: Turkey
         [61305] = "incapacitate", -- Polymorph: Black Cat
+        [82691] = "incapacitate", -- Ring of Frost (Also shared with Deep Freeze as seperate DR?)
         [20066] = "incapacitate", -- Repentance
         [1776]  = "incapacitate", -- Gouge
         [6770]  = "incapacitate", -- Sap
@@ -709,52 +710,41 @@ elseif Lib.gameExpansion == "cata" then
         [67769] = "incapacitate", -- Cobalt Frag Bomb (Item)
         [67890] = "incapacitate", -- Cobalt Frag Bomb (Item, Frag Belt)
         [54466] = "incapacitate", -- Saronite Grenade (Item)
-        [82691] = "incapacitate", -- Ring of Frost
 
         -- *** Controlled Stun Effects ***
         [47481] = "stun", -- Gnaw (Ghoul Pet)
         [91797] = "stun", -- Monstrous Blow (Dark Transformation)
         [5211]  = "stun", -- Bash
+        [9005]  = "stun", -- Pounce
         [22570] = "stun", -- Maim
-        [93986] = "stun", -- Aura of Foreboding
+        [90337] = "stun", -- Bad Manner (Monkey)
+        [93433] = "stun", -- Burrow Attack (Worm)
         [24394] = "stun", -- Intimidation
+        [56626] = "stun", -- Sting (Wasp)
         [50519] = "stun", -- Sonic Blast
-        [50518] = "stun", -- Ravage
-        [44572] = "stun", -- Deep Freeze
+        [44572] = "stun", -- Deep Freeze (Also shared with Ring of Frost as seperate DR?)
         [853]   = "stun", -- Hammer of Justice
         [2812]  = "stun", -- Holy Wrath
+        [88625] = "stun", -- Holy Word: Chastise
         [408]   = "stun", -- Kidney Shot
+        [1833]  = "stun", -- Cheap Shot
         [58861] = "stun", -- Bash (Spirit Wolves)
+        [93986] = "stun", -- Aura of Foreboding
+        [89766] = "stun", -- Axe Toss (Felguard)
+        [54786] = "stun", -- Demon Leap
+        [22703] = "stun", -- Inferno Effect
         [30283] = "stun", -- Shadowfury
         [12809] = "stun", -- Concussion Blow
-        [60995] = "stun", -- Demon Charge
-        [30153] = "stun", -- Intercept (Felguard)
-        --[20253] = "stun", -- Intercept Stun
         [46968] = "stun", -- Shockwave
-        [20549] = "stun", -- War Stomp (Racial)
-        [9005]  = "stun", -- Pounce
-        [1833]  = "stun", -- Cheap Shot
         [85388] = "stun", -- Throwdown
-        [88625] = "stun", -- Holy Word: Chastise
-        [54785] = "stun", -- Demon Leap (Warlock)
-        [22703] = "stun", -- Inferno Effect
-        [56626] = "stun", -- Sting (Wasp)
-        [19577] = "stun", -- Intimidation
-        [93433] = "stun", -- Burrow Attack (Worm)
-        [89766] = "stun", -- Axe Toss (Felguard)
-        [7922]  = "stun", -- Charge Stun
-        [90337] = "stun", -- Bad Manner (Monkey)
+        [20549] = "stun", -- War Stomp (Racial)
 
         -- *** Non-controlled Stun Effects ***
-        [28445] = "random_stun", -- Improved Concussive Shot
         [12355] = "random_stun", -- Impact
-        [83046] = "random_stun", -- Improved Polymorph (Rank 1)
+        [83046] = "random_stun", -- Improved Polymorph (Rank 1) -- TODO: check in future, should be a controlled stun
         [83047] = "random_stun", -- Improved Polymorph (Rank 2)
-        [20170] = "random_stun", -- Seal of Justice Stun
         [39796] = "random_stun", -- Stoneclaw Stun
         [85387] = "random_stun", -- Aftermath
-        [12798] = "random_stun", -- Revenge Stun
-        [5530]  = "random_stun", -- Mace Stun Effect (Mace Specialization)
         [15283] = "random_stun", -- Stunning Blow (Weapon Proc)
         [56]    = "random_stun", -- Stun (Weapon Proc)
         [34510] = "random_stun", -- Stormherald/Deep Thunder (Weapon Proc)
@@ -776,7 +766,10 @@ elseif Lib.gameExpansion == "cata" then
         [96294] = "root", -- Chains of Ice (Chilblains Rank 2)
         [339]   = "root", -- Entangling Roots
         [19975] = "root", -- Nature's Grasp
-        [50245] = "root", -- Pin
+        [90327] = "root", -- Lock Jaw (Dog)
+        [54706] = "root", -- Venom Web Spray (Silithid)
+        [50245] = "root", -- Pin (Crab)
+        [4167]  = "root", -- Web (Spider)
         [33395] = "root", -- Freeze (Water Elemental)
         [122]   = "root", -- Frost Nova
         [87193] = "root", -- Paralysis
@@ -784,36 +777,31 @@ elseif Lib.gameExpansion == "cata" then
         [63685] = "root", -- Freeze (Frost Shock)
         [39965] = "root", -- Frost Grenade (Item)
         [55536] = "root", -- Frostweave Net (Item)
-        [90327] = "root", -- Lock Jaw (Dog)
-        [54706] = "root", -- Venom Web Spray (Silithid)
-        [4167]  = "root", -- Web (Spider)
 
         -- *** Non-controlled Root Effects ***
+        [19185] = "random_root", -- Entrapment (Rank 1)
+        [64803] = "random_root", -- Entrapment (Rank 2)
         [47168] = "random_root", -- Improved Wing Clip
-        [12494] = "random_root", -- Frostbite
         [83301] = "random_root", -- Improved Cone of Cold (Rank 1)
         [83302] = "random_root", -- Improved Cone of Cold (Rank 2)
         [55080] = "random_root", -- Shattered Barrier (Rank 1)
         [83073] = "random_root", -- Shattered Barrier (Rank 2)
-        [58373] = "random_root", -- Glyph of Hamstring
         [23694] = "random_root", -- Improved Hamstring
-        [19185] = "random_root", -- Entrapment (Rank 1)
-        [64803] = "random_root", -- Entrapment (Rank 2)
 
         -- *** Disarm Weapon Effects ***
-        [50541] = "disarm", -- Clench
-        [64346] = "disarm", -- Fiery Payback
+        [50541] = "disarm", -- Clench (Scorpid)
+        [91644] = "disarm", -- Snatch (Bird of Prey)
         [64058] = "disarm", -- Psychic Horror Disarm Effect
         [51722] = "disarm", -- Dismantle
         [676]   = "disarm", -- Disarm
-        [91644] = "disarm", -- Snatch (Bird of Prey)
 
         -- *** Silence Effects ***
         [47476] = "silence", -- Strangulate
+        [50479] = "silence", -- Nether Shock (Nether Ray)
         [34490] = "silence", -- Silencing Shot
         [18469] = "silence", -- Silenced - Improved Counterspell (Rank 1)
         [55021] = "silence", -- Silenced - Improved Counterspell (Rank 2)
-        [63529] = "silence", -- Silenced - Shield of the Templar
+        [31935] = "silence", -- Avenger's Shield
         [15487] = "silence", -- Silence
         [1330]  = "silence", -- Garrote - Silence
         [18425] = "silence", -- Silenced - Improved Kick
@@ -821,21 +809,16 @@ elseif Lib.gameExpansion == "cata" then
         [24259] = "silence", -- Spell Lock
         [31117] = "silence", -- Silenced - Unstable Affliction (Rank 1)
         [43523] = "silence", -- Silenced - Unstable Affliction (Rank 2)
-        [18498] = "silence", -- Silenced - Gag Order (Shield Slam)
-        [74347] = "silence", -- Silenced - Gag Order (Heroic Throw)
+        [18498] = "silence", -- Silenced - Gag Order
         [50613] = "silence", -- Arcane Torrent (Racial, Runic Power)
         [28730] = "silence", -- Arcane Torrent (Racial, Mana)
         [25046] = "silence", -- Arcane Torrent (Racial, Energy)
         [69179] = "silence", -- Arcane Torrent (Rage version)
         [80483] = "silence", -- Arcane Torrent (Focus version)
-        [31935] = "silence", -- Avenger's Shield
-        --[81261] = "silence", -- Solar Beam
-        [50479] = "silence", -- Nether Shock (Nether Ray)
 
         -- *** Horror Effects ***
         [64044] = "horror", -- Psychic Horror
         [6789]  = "horror", -- Death Coil
-        --[87204] = "horror", -- Sin and Punishment
 
         -- *** Mind Control Effects ***
         [605]   = "mind_control", -- Mind Control
@@ -848,6 +831,7 @@ elseif Lib.gameExpansion == "cata" then
         [33786] = "cyclone", -- Cyclone
         [19306] = "counterattack", -- Counterattack
         [76780] = "bind_elemental", -- Bind Elemental
+        -- TODO: taunts, knockbacks?
     }
 
 elseif Lib.gameExpansion == "classic" then

@@ -468,7 +468,7 @@ elseif Lib.gameExpansion == "wotlk" then
         [54466] = "incapacitate", -- Saronite Grenade (Item)
 
         -- *** Controlled Stun Effects ***
-        [47481] = "stun", -- Gnaw (Ghoul Pet)
+        [91800] = "stun", -- Gnaw (Ghoul Pet)
         [5211]  = "stun", -- Bash (Rank 1)
         [6798]  = "stun", -- Bash (Rank 2)
         [8983]  = "stun", -- Bash (Rank 3)

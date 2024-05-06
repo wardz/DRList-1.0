@@ -12,13 +12,10 @@
 ## X-Curse-Project-ID: 315757
 ## X-Wago-ID: 9rN4BxKD
 
-#@no-lib-strip@
-libs\LibStub\LibStub.lua
-#@end-no-lib-strip@
-
 DRList-1.0.xml
 
 #@do-not-package@
+libs\LibStub\LibStub.lua
 tests\engine.lua
 tests\test-retail.lua
 tests\test-classic.lua

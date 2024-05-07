@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 63 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 64 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -685,7 +685,7 @@ elseif Lib.gameExpansion == "cata" then
         [61721] = "incapacitate", -- Polymorph: Rabbit
         [61780] = "incapacitate", -- Polymorph: Turkey
         [61305] = "incapacitate", -- Polymorph: Black Cat
-        [82691] = "incapacitate", -- Ring of Frost (Also shared with Deep Freeze as seperate DR?)
+        [82691] = "incapacitate", -- Ring of Frost
         [20066] = "incapacitate", -- Repentance
         [1776]  = "incapacitate", -- Gouge
         [6770]  = "incapacitate", -- Sap
@@ -722,12 +722,12 @@ elseif Lib.gameExpansion == "cata" then
         [24394] = "stun", -- Intimidation
         [56626] = "stun", -- Sting (Wasp)
         [50519] = "stun", -- Sonic Blast
-        [44572] = "stun", -- Deep Freeze (Also shared with Ring of Frost as seperate DR?)
+        [44572] = "stun", -- Deep Freeze
         [83046] = "stun", -- Improved Polymorph (Rank 1)
         [83047] = "stun", -- Improved Polymorph (Rank 2)
         [853]   = "stun", -- Hammer of Justice
         [2812]  = "stun", -- Holy Wrath
-        [88625] = "stun", -- Holy Word: Chastise
+        --[88625] = "stun", -- Holy Word: Chastise
         [408]   = "stun", -- Kidney Shot
         [1833]  = "stun", -- Cheap Shot
         [58861] = "stun", -- Bash (Spirit Wolves)
@@ -824,6 +824,13 @@ elseif Lib.gameExpansion == "cata" then
         [605]   = "mind_control", -- Mind Control
         [13181] = "mind_control", -- Gnomish Mind Control Cap (Item)
         [67799] = "mind_control", -- Mind Amplification Dish (Item)
+
+        -- *** Special Shared DRs ***
+        -- Atm these would overwrite existing previous table values so this is commented out for now
+        -- until i get the time to work on a better solution. For now this edge case category is
+        -- best handled inside your addon itself.
+        --[44572] = "deep_freeze_rof", -- Deep Freeze
+        --[82691] = "deep_freeze_rof", -- Ring of Frost
 
         -- *** Spells that DRs with itself only ***
         [19503] = "scatter", -- Scatter Shot

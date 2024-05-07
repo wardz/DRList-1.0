@@ -723,12 +723,15 @@ elseif Lib.gameExpansion == "cata" then
         [56626] = "stun", -- Sting (Wasp)
         [50519] = "stun", -- Sonic Blast
         [44572] = "stun", -- Deep Freeze (Also shared with Ring of Frost as seperate DR?)
+        [83046] = "stun", -- Improved Polymorph (Rank 1)
+        [83047] = "stun", -- Improved Polymorph (Rank 2)
         [853]   = "stun", -- Hammer of Justice
         [2812]  = "stun", -- Holy Wrath
         [88625] = "stun", -- Holy Word: Chastise
         [408]   = "stun", -- Kidney Shot
         [1833]  = "stun", -- Cheap Shot
         [58861] = "stun", -- Bash (Spirit Wolves)
+        [39796] = "stun", -- Stoneclaw Stun
         [93986] = "stun", -- Aura of Foreboding
         [89766] = "stun", -- Axe Toss (Felguard)
         [54786] = "stun", -- Demon Leap
@@ -741,9 +744,6 @@ elseif Lib.gameExpansion == "cata" then
 
         -- *** Non-controlled Stun Effects ***
         [12355] = "random_stun", -- Impact
-        [83046] = "random_stun", -- Improved Polymorph (Rank 1) -- TODO: check in future, should be a controlled stun
-        [83047] = "random_stun", -- Improved Polymorph (Rank 2)
-        [39796] = "random_stun", -- Stoneclaw Stun
         [85387] = "random_stun", -- Aftermath
         [15283] = "random_stun", -- Stunning Blow (Weapon Proc)
         [56]    = "random_stun", -- Stun (Weapon Proc)

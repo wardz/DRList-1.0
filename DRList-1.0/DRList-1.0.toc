@@ -21,4 +21,5 @@ tests\test-retail.lua
 tests\test-classic.lua
 tests\test-tbc.lua
 tests\test-wotlk.lua
+tests\test-cata.lua
 #@end-do-not-package@

@@ -26,6 +26,7 @@ jobs:
           lua DRList-1.0/tests/test-wotlk.lua
           lua DRList-1.0/tests/test-cata.lua
           lua DRList-1.0/tests/test-retail.lua
+          lua DRList-1.0/tests/test-retail.lua -frFR
 
       - name: Check if lib minor versions matches
         run: |

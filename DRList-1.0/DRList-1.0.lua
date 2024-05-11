@@ -9,7 +9,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 64 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 65 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -33,6 +33,7 @@ L["RANDOM_STUNS"] = "Random stuns"
 L["OPENER_STUN"] = "Opener stuns"
 L["HORROR"] = "Horrors"
 L["SCATTERS"] = "Scatters"
+L["DEEP_FREEZE_ROF"] = "DF/RoF Shared"
 L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
 L["FROST_SHOCK"] = GetSpellInfo(15089) or "Frost Shock"
 L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
@@ -236,6 +237,7 @@ Lib.categoryNames = {
         ["cyclone"] = L.CYCLONE,
         ["counterattack"] = L.COUNTERATTACK,
         ["bind_elemental"] = L.BIND_ELEMENTAL,
+        ["deep_freeze_rof"] = L.DEEP_FREEZE_ROF,
     },
 }
 
@@ -307,7 +309,7 @@ Lib.diminishedDurations = {
 --- Get table of all spells that DRs.
 -- Key is the spellID, and value is the unlocalized DR category.
 -- @see IterateSpellsByCategory
--- @treturn table {number=string}
+-- @treturn table {number=string|table}
 function Lib:GetSpells()
     return Lib.spellList
 end
@@ -336,19 +338,20 @@ function Lib:GetResetTime(category)
     return Lib.resetTimes[Lib.gameExpansion][category or "default"] or Lib.resetTimes[Lib.gameExpansion].default
 end
 
+local type = _G.type -- GetCategoryBySpellID() is ran frequently from the CLEU so might aswell upvalue this
+
 --- Get unlocalized DR category by spell ID.
 -- This is the main checker for if a spell has a DR.
 -- @tparam number spellID
--- @treturn string|nil The category name.
+-- @treturn ?string The category name.
+-- @treturn ?{string,...} Read-only array with multiple categories if spellID has any shared DR categories. (Note: array includes main category too)
 function Lib:GetCategoryBySpellID(spellID)
-    if Lib.gameExpansion == "classic" then
-        -- OBSOLETE: second return value is no longer needed after Classic Era patch 1.15.0.
-        local category = Lib.spellList[spellID]
-        if not category then return end
-        return category, spellID
+    local category = Lib.spellList[spellID]
+    if category and type(category) == "table" then
+        return category[1], category
     end
 
-    return Lib.spellList[spellID]
+    return category
 end
 
 --- Get localized category from unlocalized category name, case sensitive.
@@ -389,8 +392,16 @@ do
         local spellList, newCategory = Lib.spellList
         repeat
             index, newCategory = next(spellList, index)
-            if index and newCategory == category then
-                return index, category
+            if index then
+                if newCategory == category then
+                    return index, category
+                elseif type(newCategory) == "table" then
+                    for i = 1, #newCategory do
+                        if newCategory[i] == category then
+                            return index, category
+                        end
+                    end
+                end
             end
         until not index
     end

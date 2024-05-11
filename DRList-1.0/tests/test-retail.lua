@@ -10,22 +10,9 @@ end
 
 local Tests = SimpleTesting:New("DRList-1.0", "Retail")
 if not Tests:IsInGame() then
-    strmatch = string.match
-    GetSpellInfo = function() return "" end
-    GetLocale = function()
-        if _G.arg and _G.arg[1] then
-            print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore
-            return _G.arg[1]
-        end
-        return "enUS"
-    end
-
-    WOW_PROJECT_MAINLINE = 1
-    WOW_PROJECT_CLASSIC = 2
-    WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
-    WOW_PROJECT_WRATH_CLASSIC = 11
     WOW_PROJECT_ID = 1 -- set retail
 
+    assert(loadfile("DRList-1.0/tests/wow-stubs.lua"))()
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()
     assert(loadfile("DRList-1.0/Spells.lua"))()
@@ -76,6 +63,14 @@ Tests:It("GetsCategoryFromSpell", function()
     assert(DRList:GetCategoryBySpellID(853) == "stun")
     assert(DRList:GetCategoryBySpellID(339) == "root")
     assert(DRList:GetCategoryBySpellID(1776) == "incapacitate")
+
+    assert(select(2, DRList:GetCategoryBySpellID(82691)) == nil)
+    assert(DRList:GetCategoryBySpellID(82691) == "incapacitate")
+    assert(select(2, DRList:GetCategoryBySpellID(1776)) == nil)
+
+    assert(DRList:GetCategoryBySpellID(287712) == "stun")
+    assert(select(2, DRList:GetCategoryBySpellID(287712))[1] == "stun")
+    assert(select(2, DRList:GetCategoryBySpellID(287712))[2] == "knockback")
 
     assert(DRList:GetCategoryBySpellID(123) == nil)
     assert(DRList:GetCategoryBySpellID("123") == nil)
@@ -160,7 +155,7 @@ Tests:It("IterateSpellsByCategory", function()
     ran = false
     for spellID, category in DRList:IterateSpellsByCategory(nil) do
         assert(type(spellID) == "number")
-        assert(type(category) == "string")
+        assert(type(category) == "string" or type(category) == "table")
         ran = true
     end
     assert(ran)
@@ -174,9 +169,26 @@ Tests:It("IterateSpellsByCategory", function()
         end
     end
     assert(ran)
+
+    ran = false
+    for spellID, category in DRList:IterateSpellsByCategory("knockback") do
+        if spellID == 287712 then
+            assert(category == "knockback")
+            ran = true
+        end
+    end
+    assert(ran)
+
+    ran = false
+    for spellID, category in DRList:IterateSpellsByCategory("stun") do
+        if spellID == 287712 then
+            assert(category == "stun")
+            ran = true
+        end
+    end
+    assert(ran)
 end)
 
--- This test is only ran ingame
 Tests:It("Verifies spell list", function()
     local success = true
     local err = ""
@@ -187,9 +199,18 @@ Tests:It("Verifies spell list", function()
             err = err .. "|cFFFF0000Invalid spell:|r " .. spellID .. "\n"
         end
 
-        if type(category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category] then
-            success = false
-            err = err .. "|cFFFF0000Invalid category:|r " .. category .. "\n"
+        if type(category) == "table" then
+            for i = 1, #category do
+                if type(category[i]) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category[i]] then
+                    success = false
+                    err = err .. "|cFFFF0000Invalid category:|r " .. category[i] .. "\n"
+                end
+            end
+        else
+            if type(category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category] then
+                success = false
+                err = err .. "|cFFFF0000Invalid category:|r " .. category .. "\n"
+            end
         end
     end
 
@@ -198,7 +219,7 @@ Tests:It("Verifies spell list", function()
     end
 
     return success
-end, true)
+end)
 
 if Tests:IsInGame() then
     if WOW_PROJECT_ID == WOW_PROJECT_MAINLINE then

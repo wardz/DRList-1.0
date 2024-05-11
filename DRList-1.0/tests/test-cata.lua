@@ -10,23 +10,9 @@ end
 
 local Tests = SimpleTesting:New("DRList-1.0", "Cata")
 if not Tests:IsInGame() then
-    strmatch = string.match
-    GetSpellInfo = function() return "" end
-    GetLocale = function()
-        if _G.arg and _G.arg[1] then
-            print("Setting locale to " .. _G.arg[1]) -- luacheck: ignore
-            return _G.arg[1]
-        end
-        return "enUS"
-    end
+    WOW_PROJECT_ID = 14 -- set cata
 
-    WOW_PROJECT_MAINLINE = 1
-    WOW_PROJECT_CLASSIC = 2
-    WOW_PROJECT_BURNING_CRUSADE_CLASSIC = 5
-    WOW_PROJECT_WRATH_CLASSIC = 11
-    WOW_PROJECT_CATACLYSM_CLASSIC = 14
-    WOW_PROJECT_ID = 12
-
+    assert(loadfile("DRList-1.0/tests/wow-stubs.lua"))()
     assert(loadfile("DRList-1.0/libs/LibStub/LibStub.lua"))()
     assert(loadfile("DRList-1.0/DRList-1.0.lua"))()
     assert(loadfile("DRList-1.0/Spells.lua"))()
@@ -38,8 +24,6 @@ function Tests:BeforeEach()
     DRList.gameExpansion = "cata"
 end
 
--- TODO: needs some rework once cata categories/spells are confirmed
-
 Tests:It("Loads lib", function()
     assert(LibStub("DRList-1.0"))
     assert(type(LibStub("DRList-1.0").spellList) == "table")
@@ -49,7 +33,7 @@ end)
 Tests:It("GetsSpellList", function()
     assert(next(DRList.spellList))
     assert(DRList:GetSpells()[132169] == nil)
-    assert(DRList:GetSpells()[44572] == "stun")
+    assert(DRList:GetSpells()[44572][1] == "stun")
     assert(DRList:GetSpells()[339] == "root")
     assert(DRList:GetSpells()[51514] == "incapacitate")
     assert(DRList:GetSpells()[47476] == "silence")
@@ -60,6 +44,7 @@ Tests:It("GetsResetTimes", function()
     assert(DRList:GetResetTime() == 20)
     assert(DRList:GetResetTime("stun") == 20)
     assert(DRList:GetResetTime("horror") == 20)
+    assert(DRList:GetResetTime("deep_freeze_rof") == 20)
     assert(DRList:GetResetTime(123) == 20)
     assert(DRList:GetResetTime(true) == 20)
     assert(DRList:GetResetTime({}) == 20)
@@ -69,7 +54,9 @@ end)
 Tests:It("GetsCategoryNames", function()
     assert(type(DRList.categoryNames[DRList.gameExpansion].stun) == "string")
     assert(type(DRList:GetCategories().root) == "string")
+    assert(type(DRList:GetCategories().deep_freeze_rof) == "string")
     assert(DRList:GetCategories().chastise == nil)
+    assert(DRList:GetCategories().opener_stun == nil)
 end)
 
 Tests:It("GetsCategoryNamesPvE", function()
@@ -87,6 +74,18 @@ Tests:It("GetsCategoryFromSpell", function()
     assert(DRList:GetCategoryBySpellID(339) == "root")
     assert(DRList:GetCategoryBySpellID(1776) == "incapacitate")
     assert(DRList:GetCategoryBySpellID(2094) == "fear")
+    assert(DRList:GetCategoryBySpellID(287712) == nil)
+
+    assert(DRList:GetCategoryBySpellID(82691) == "incapacitate")
+    assert(type(select(2, DRList:GetCategoryBySpellID(82691))) == "table")
+    assert(select(2, DRList:GetCategoryBySpellID(82691))[1] == "incapacitate")
+    assert(select(2, DRList:GetCategoryBySpellID(82691))[2] == "deep_freeze_rof")
+
+    assert(select(2, DRList:GetCategoryBySpellID(44572))[1] == "stun")
+    assert(select(2, DRList:GetCategoryBySpellID(44572))[2] == "deep_freeze_rof")
+    assert(DRList:GetCategoryBySpellID(44572) == "stun")
+
+    assert(select(2, DRList:GetCategoryBySpellID(1776)) == nil)
 
     assert(DRList:GetCategoryBySpellID(123) == nil)
     assert(DRList:GetCategoryBySpellID("123") == nil)
@@ -159,9 +158,9 @@ end)
 
 Tests:It("IterateSpellsByCategory", function()
     local ran = false
-    for spellID, category in DRList:IterateSpellsByCategory("root") do
+    for spellID, category in DRList:IterateSpellsByCategory("stun") do
         assert(type(spellID) == "number")
-        assert(category == "root")
+        assert(category == "stun")
         ran = true
     end
     assert(ran)
@@ -175,7 +174,7 @@ Tests:It("IterateSpellsByCategory", function()
     ran = false
     for spellID, category in DRList:IterateSpellsByCategory(nil) do
         assert(type(spellID) == "number")
-        assert(type(category) == "string")
+        assert(type(category) == "string" or type(category) == "table")
         ran = true
     end
     assert(ran)
@@ -190,9 +189,13 @@ Tests:It("IterateSpellsByCategory", function()
         end
     end
     assert(ran)
+
+    for spellID, category in DRList:IterateSpellsByCategory("deep_freeze_rof") do
+        assert(spellID == 82691 or spellID == 44572)
+        assert(category == "deep_freeze_rof")
+    end
 end)
 
--- This test is only ran ingame
 Tests:It("Verifies spell list", function()
     local success = true
     local err = ""
@@ -203,9 +206,18 @@ Tests:It("Verifies spell list", function()
             err = err .. "|cFFFF0000Invalid spell:|r " .. spellID .. "\n"
         end
 
-        if type(category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category] then
-            success = false
-            err = err .. "|cFFFF0000Invalid category:|r " .. category .. "\n"
+        if type(category) == "table" then
+            for i = 1, #category do
+                if type(category[i]) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category[i]] then
+                    success = false
+                    err = err .. "|cFFFF0000Invalid category:|r " .. category[i] .. "\n"
+                end
+            end
+        else
+            if type(category) ~= "string" or not DRList.categoryNames[DRList.gameExpansion][category] then
+                success = false
+                err = err .. "|cFFFF0000Invalid category:|r " .. category .. "\n"
+            end
         end
     end
 
@@ -214,7 +226,7 @@ Tests:It("Verifies spell list", function()
     end
 
     return success
-end, true)
+end)
 
 if Tests:IsInGame() then
     if WOW_PROJECT_CATACLYSM_CLASSIC and WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC then

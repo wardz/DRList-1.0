@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 64 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 65 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -135,7 +135,7 @@ if Lib.gameExpansion == "retail" then
         [199085]  = "stun", -- Warpath
         [20549]   = "stun", -- War Stomp (Racial, Tauren)
         [255723]  = "stun", -- Bull Rush (Racial, Highmountain Tauren)
-        [287712]  = "stun", -- Haymaker (Racial, Kul Tiran)
+        [287712]  = { "stun", "knockback" }, -- Haymaker (Racial, Kul Tiran)
         [332423]  = "stun", -- Sparkling Driftglobe Core (Kyrian Covenant)
 
         -- *** Controlled Root Effects ***
@@ -219,7 +219,6 @@ if Lib.gameExpansion == "retail" then
         [157981]  = "knockback", -- Blast Wave
         [204263]  = "knockback", -- Shining Force
         [51490]   = "knockback", -- Thunderstorm
-        --[287712]  = "knockback", -- Haywire (Racial, Kul'Tiran)
     }
 
 elseif Lib.gameExpansion == "tbc" then
@@ -685,7 +684,7 @@ elseif Lib.gameExpansion == "cata" then
         [61721] = "incapacitate", -- Polymorph: Rabbit
         [61780] = "incapacitate", -- Polymorph: Turkey
         [61305] = "incapacitate", -- Polymorph: Black Cat
-        [82691] = "incapacitate", -- Ring of Frost
+        [82691] = { "incapacitate", "deep_freeze_rof" }, -- Ring of Frost (Also shares DR with Deep Freeze)
         [20066] = "incapacitate", -- Repentance
         [1776]  = "incapacitate", -- Gouge
         [6770]  = "incapacitate", -- Sap
@@ -722,7 +721,7 @@ elseif Lib.gameExpansion == "cata" then
         [24394] = "stun", -- Intimidation
         [56626] = "stun", -- Sting (Wasp)
         [50519] = "stun", -- Sonic Blast
-        [44572] = "stun", -- Deep Freeze
+        [44572] = { "stun", "deep_freeze_rof" }, -- Deep Freeze (Also shares DR with Ring of Frost)
         [83046] = "stun", -- Improved Polymorph (Rank 1)
         [83047] = "stun", -- Improved Polymorph (Rank 2)
         [853]   = "stun", -- Hammer of Justice
@@ -824,13 +823,6 @@ elseif Lib.gameExpansion == "cata" then
         [605]   = "mind_control", -- Mind Control
         [13181] = "mind_control", -- Gnomish Mind Control Cap (Item)
         [67799] = "mind_control", -- Mind Amplification Dish (Item)
-
-        -- *** Special Shared DRs ***
-        -- Atm these would overwrite existing previous table values so this is commented out for now
-        -- until i get the time to work on a better solution. For now this edge case category is
-        -- best handled inside your addon itself.
-        --[44572] = "deep_freeze_rof", -- Deep Freeze
-        --[82691] = "deep_freeze_rof", -- Ring of Frost
 
         -- *** Spells that DRs with itself only ***
         [19503] = "scatter", -- Scatter Shot

@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 65 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 66 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -806,8 +806,6 @@ elseif Lib.gameExpansion == "cata" then
         [18425] = "silence", -- Silenced - Improved Kick
         [86759] = "silence", -- Silenced - Improved Kick (Rank 2)
         [24259] = "silence", -- Spell Lock
-        [31117] = "silence", -- Silenced - Unstable Affliction (Rank 1)
-        [43523] = "silence", -- Silenced - Unstable Affliction (Rank 2)
         [18498] = "silence", -- Silenced - Gag Order
         [50613] = "silence", -- Arcane Torrent (Racial, Runic Power)
         [28730] = "silence", -- Arcane Torrent (Racial, Mana)

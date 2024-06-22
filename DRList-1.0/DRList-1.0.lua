@@ -13,7 +13,7 @@ local MAJOR, MINOR = "DRList-1.0", 67 -- Don't forget to change this in Spells.l
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
-local GetSpellName = C_Spell and C_Spell.GetSpellName or GetSpellInfo
+local GetSpellName = _G.C_Spell and _G.C_Spell.GetSpellName or _G.GetSpellInfo
 
 Lib.L = {}
 

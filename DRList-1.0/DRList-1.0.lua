@@ -13,6 +13,8 @@ local MAJOR, MINOR = "DRList-1.0", 66 -- Don't forget to change this in Spells.l
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
+local GetSpellName = C_Spell and C_Spell.GetSpellName or GetSpellInfo
+
 Lib.L = {}
 
 -------------------------------------------------------------------------------
@@ -34,16 +36,16 @@ L["OPENER_STUN"] = "Opener stuns"
 L["HORROR"] = "Horrors"
 L["SCATTERS"] = "Scatters"
 L["DEEP_FREEZE_ROF"] = "DF/RoF Shared"
-L["MIND_CONTROL"] = GetSpellInfo(605) or "Mind Control"
-L["FROST_SHOCK"] = GetSpellInfo(15089) or "Frost Shock"
-L["KIDNEY_SHOT"] = GetSpellInfo(408) or "Kidney Shot"
-L["DEATH_COIL"] = GetSpellInfo(28412) or "Death Coil"
-L["UNSTABLE_AFFLICTION"] = GetSpellInfo(31117) or "Unstable Affliction"
-L["CHASTISE"] = GetSpellInfo(44041) or "Chastise"
-L["COUNTERATTACK"] = GetSpellInfo(19306) or "Counterattack"
-L["BIND_ELEMENTAL"] = GetSpellInfo(76780) or "Bind Elemental"
-L["CYCLONE"] = GetSpellInfo(33786) or "Cyclone"
-L["CHARGE"] = GetSpellInfo(100) or "Charge"
+L["MIND_CONTROL"] = GetSpellName(605) or "Mind Control"
+L["FROST_SHOCK"] = GetSpellName(15089) or "Frost Shock"
+L["KIDNEY_SHOT"] = GetSpellName(408) or "Kidney Shot"
+L["DEATH_COIL"] = GetSpellName(28412) or "Death Coil"
+L["UNSTABLE_AFFLICTION"] = GetSpellName(31117) or "Unstable Affliction"
+L["CHASTISE"] = GetSpellName(44041) or "Chastise"
+L["COUNTERATTACK"] = GetSpellName(19306) or "Counterattack"
+L["BIND_ELEMENTAL"] = GetSpellName(76780) or "Bind Elemental"
+L["CYCLONE"] = GetSpellName(33786) or "Cyclone"
+L["CHARGE"] = GetSpellName(100) or "Charge"
 
 -- luacheck: push ignore 542
 local locale = GetLocale()

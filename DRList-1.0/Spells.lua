@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 67 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 68 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -209,7 +209,7 @@ if Lib.gameExpansion == "retail" then
         [355]     = "taunt", -- Taunt
 
         -- *** Controlled Knockback Effects ***
-        -- Experimental, see https://github.com/wardz/DRList-1.0/wiki/DR-Categories#knockback-notes-retail
+        -- Note: not every knockback has an aura.
         [108199]  = "knockback", -- Gorefiend's Grasp
         [202249]  = "knockback", -- Overrun
         [61391]   = "knockback", -- Typhoon
@@ -652,6 +652,14 @@ elseif Lib.gameExpansion == "wotlk" then
         [42949] = "scatter", -- Dragon's Breath (Rank 5)
         [42950] = "scatter", -- Dragon's Breath (Rank 6)
 
+        -- *** Force Taunt Effects ***
+        [56222]   = "taunt", -- Dark Command
+        [51399]   = "taunt", -- Death Grip (Taunt Effect)
+        [6795]    = "taunt", -- Growl (Druid)
+        [20736]   = "taunt", -- Distracting Shot
+        [62124]   = "taunt", -- Hand of Reckoning
+        [355]     = "taunt", -- Taunt
+
         -- *** Spells that DRs with itself only ***
         [33786] = "cyclone",        -- Cyclone
         [19306] = "counterattack",  -- Counterattack 1
@@ -822,13 +830,22 @@ elseif Lib.gameExpansion == "cata" then
         [13181] = "mind_control", -- Gnomish Mind Control Cap (Item)
         [67799] = "mind_control", -- Mind Amplification Dish (Item)
 
+        -- *** Force Taunt Effects ***
+        [56222]   = "taunt", -- Dark Command
+        [51399]   = "taunt", -- Death Grip (Taunt Effect)
+        [6795]    = "taunt", -- Growl (Druid)
+        [20736]   = "taunt", -- Distracting Shot
+        [62124]   = "taunt", -- Hand of Reckoning
+        [355]     = "taunt", -- Taunt
+
+        -- TODO: knockbacks?
+
         -- *** Spells that DRs with itself only ***
         [19503] = "scatter", -- Scatter Shot
         [31661] = "scatter", -- Dragon's Breath
         [33786] = "cyclone", -- Cyclone
         [19306] = "counterattack", -- Counterattack
         [76780] = "bind_elemental", -- Bind Elemental
-        -- TODO: taunts, knockbacks?
     }
 
 elseif Lib.gameExpansion == "classic" then
@@ -974,5 +991,6 @@ elseif Lib.gameExpansion == "classic" then
         [10473]  = "frost_shock",  -- Frost Shock (Rank 4)
     }
 end
+
 -- Alias for DRData-1.0
 Lib.spells = Lib.spellList

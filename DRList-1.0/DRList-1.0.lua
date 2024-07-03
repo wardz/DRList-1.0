@@ -9,7 +9,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 67 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 68 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -222,6 +222,7 @@ Lib.categoryNames = {
         ["charge"] = L.CHARGE,
         ["opener_stun"] = L.OPENER_STUN,
         ["counterattack"] = L.COUNTERATTACK,
+        ["taunt"] = L.TAUNTS,
     },
 
     cata = {
@@ -240,6 +241,7 @@ Lib.categoryNames = {
         ["counterattack"] = L.COUNTERATTACK,
         ["bind_elemental"] = L.BIND_ELEMENTAL,
         ["deep_freeze_rof"] = L.DEEP_FREEZE_ROF,
+        ["taunt"] = L.TAUNTS,
     },
 }
 
@@ -262,17 +264,17 @@ Lib.categoriesPvE = {
     },
 
     wotlk = {
-        --["taunt"] = L.TAUNTS,
+        ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["random_stun"] = L.RANDOM_STUNS,
         ["opener_stun"] = L.OPENER_STUN,
     },
 
     cata = {
-        --["taunt"] = L.TAUNTS,
+        ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["random_stun"] = L.RANDOM_STUNS,
-        ["cyclone"] = L.CYCLONE,
+        ["cyclone"] = L.CYCLONE, -- TODO: check me cata+wrath
     },
 }
 
@@ -297,10 +299,12 @@ Lib.diminishedDurations = {
 
     wotlk = {
         ["default"] = { 0.50, 0.25 },
+        ["taunt"] = { 0.65, 0.42, 0.27 },
     },
 
     cata = {
         ["default"] = { 0.50, 0.25 },
+        ["taunt"] = { 0.65, 0.42, 0.27 },
     },
 }
 

@@ -320,6 +320,7 @@ end
 
 --- Get table of all DR categories.
 -- Key is unlocalized name used for API functions, value is localized name used for UI.
+-- Note: the 'taunt' category should be ignored for players, but not player pets.
 -- @treturn table {string=string}
 function Lib:GetCategories()
     return Lib.categoryNames[Lib.gameExpansion]
@@ -347,6 +348,7 @@ local type = _G.type -- GetCategoryBySpellID() is ran frequently from the CLEU s
 --- Get unlocalized DR category by spell ID.
 -- This is the main checker for if a spell has a DR.
 -- See https://github.com/wardz/DRList-1.0/wiki/Example-Usage for full example usage.
+-- Note: the 'taunt' category should be ignored for players, but not player pets.
 -- @tparam number spellID
 -- @treturn ?string The category name.
 -- @treturn ?{string,...} Read-only array with multiple categories if spellID has any shared DR categories. (Note: array includes main category too)

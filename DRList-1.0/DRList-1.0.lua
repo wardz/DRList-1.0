@@ -9,7 +9,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 68 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 69 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -377,7 +377,7 @@ function Lib:IsPvECategory(category)
     return Lib.categoriesPvE[Lib.gameExpansion][category] and true or false -- make sure bool is always returned here
 end
 
---- Get next successive diminished duration
+--- Get a specific diminished duration value.
 -- @tparam number diminished How many times the DR has been applied so far
 -- @tparam[opt="default"] string category Unlocalized category name
 -- @usage local reduction = DRList:GetNextDR(1) -- returns 0.50, half duration on debuff
@@ -390,6 +390,23 @@ function Lib:GetNextDR(diminished, category)
     end
 
     return durations and durations[diminished] or 0
+end
+
+--- Set the next successive diminished duration.
+-- @tparam number diminished How many times the DR has been applied so far
+-- @tparam[opt="default"] string category Unlocalized category name
+-- @usage data.diminished = DRList:NextDR(data.diminished)
+-- @treturn number
+function Lib:NextDR(diminished, category)
+    local durations = Lib.diminishedDurations[Lib.gameExpansion][category or "default"] or Lib.diminishedDurations[Lib.gameExpansion].default
+
+    for i = 1, #durations do
+        if diminished > durations[i] then
+            return durations[i]
+        end
+    end
+
+    return 0
 end
 
 do
@@ -431,7 +448,6 @@ end
 -- keep same API as DRData-1.0 for easier transitions
 Lib.GetCategoryName = Lib.GetCategoryLocalization
 Lib.IsPVE = Lib.IsPvECategory
-Lib.NextDR = Lib.GetNextDR
 Lib.GetSpellCategory = Lib.GetCategoryBySpellID
 Lib.IterateSpells = Lib.IterateSpellsByCategory
 --Lib.IterateProviders = Lib.IterateSpellsByCategory -- OBSOLETE

@@ -22,6 +22,7 @@ globals = {
     "_G",
     "GetLocale",
     "GetSpellInfo",
+    "C_Spell",
     "LibStub",
     "strmatch",
     "SlashCmdList",

@@ -13,7 +13,7 @@ local MAJOR, MINOR = "DRList-1.0", 68 -- Don't forget to change this in Spells.l
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
-local GetSpellName = _G.C_Spell and _G.C_Spell.GetSpellName or _G.GetSpellInfo
+local GetSpellName = C_Spell and C_Spell.GetSpellName or GetSpellInfo
 
 Lib.L = {}
 
@@ -63,8 +63,6 @@ elseif locale == "frFR" then
     L["SILENCES"] = "Silences"
     L["STUNS"] = "Etourdissements"
     L["TAUNTS"] = "Provocations"
-elseif locale == "itIT" then
-    -- TODO translate me
 elseif locale == "koKR" then
     L["DISORIENTS"] = "방향 감각 상실"
     L["INCAPACITATES"] = "행동 불가"
@@ -72,8 +70,6 @@ elseif locale == "koKR" then
     L["ROOTS"] = "이동 불가"
     L["SILENCES"] = "침묵"
     L["STUNS"] = "기절"
-elseif locale == "ptBR" then
-    -- TODO: translate me
 elseif locale == "ruRU" then
     L["DISARMS"] = "Разоружение"
     L["DISORIENTS"] = "Дезориентация"
@@ -133,7 +129,7 @@ Lib.gameExpansion = ({
     [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "tbc",
     [WOW_PROJECT_WRATH_CLASSIC or 11] = "wotlk",
     [WOW_PROJECT_CATACLYSM_CLASSIC or 14] = "cata",
-})[WOW_PROJECT_ID] or "cata" -- Fallback to cata when unknown (most likely a new classic expansion build)
+})[WOW_PROJECT_ID] or "cata" -- Fallback to cata when unknown ID (most likely a new classic expansion build)
 
 -- How long it takes for a DR to expire, in seconds.
 Lib.resetTimes = {
@@ -314,8 +310,9 @@ Lib.diminishedDurations = {
 -------------------------------------------------------------------------------
 
 --- Get table of all spells that DRs.
--- Key is the spellID, and value is the unlocalized DR category.
--- @see IterateSpellsByCategory
+-- Key is the spellID, and value is the unlocalized DR category string.
+-- Value is instead a table of strings for spells that have shared DRs.
+-- @see GetCategoryBySpellID
 -- @treturn table {number=string|table}
 function Lib:GetSpells()
     return Lib.spellList
@@ -330,7 +327,7 @@ end
 
 --- Get table of all categories that DRs in PvE.
 -- Key is unlocalized name used for API functions, value is localized name used for UI.
--- Note that for retail some special mobs have DR on all categories,
+-- Note that for retail some special mobs have DR on all categories, you need to check for this yourself;
 -- see UnitClassification() and UnitIsQuestBoss(). Player pets have DR on all categories.
 -- Tip: you can combine :GetPvECategories() and :IterateSpellsByCategory() to get spellIDs only for PvE aswell.
 -- @treturn table {string=string}
@@ -349,6 +346,7 @@ local type = _G.type -- GetCategoryBySpellID() is ran frequently from the CLEU s
 
 --- Get unlocalized DR category by spell ID.
 -- This is the main checker for if a spell has a DR.
+-- See https://github.com/wardz/DRList-1.0/wiki/Example-Usage for full example usage.
 -- @tparam number spellID
 -- @treturn ?string The category name.
 -- @treturn ?{string,...} Read-only array with multiple categories if spellID has any shared DR categories. (Note: array includes main category too)
@@ -415,7 +413,7 @@ do
 
     --- Iterate through the spells of a given category.
     -- Pass "nil" to iterate through all spells instead.
-    -- Note that in classic a spell might have several spellIDs returned here due to spell ranks.
+    -- Note: a spell might be returned multiple times here due to spell ranks in classic, check its name to avoid duplicates.
     -- @tparam string|nil category Unlocalized category name
     -- @usage for spellID in DRList:IterateSpellsByCategory("root") do print(spellID) end
     -- @return Iterator function
@@ -434,5 +432,7 @@ Lib.IsPVE = Lib.IsPvECategory
 Lib.NextDR = Lib.GetNextDR
 Lib.GetSpellCategory = Lib.GetCategoryBySpellID
 Lib.IterateSpells = Lib.IterateSpellsByCategory
+--Lib.IterateProviders = Lib.IterateSpellsByCategory -- OBSOLETE
+--Lib.GetProviders = Lib.GetSpells() -- OBSOLETE
 Lib.RESET_TIME = Lib.resetTimes[Lib.gameExpansion].default
 Lib.pveDR = Lib.categoriesPvE

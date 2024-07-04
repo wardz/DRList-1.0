@@ -385,8 +385,11 @@ end
 --- Get a specific diminished duration value.
 -- @tparam number diminished How many times the DR has been applied so far
 -- @tparam[opt="default"] string category Unlocalized category name
--- @usage local reduction = DRList:GetNextDR(1) -- returns 0.50, half duration on debuff
--- @treturn number DR percentage in decimals. Returns 0 if max DR is reached or arguments are invalid.
+-- @usage local duration = DRList:GetNextDR(1) -- 0.50 (half aura duration)
+-- @usage local duration = DRList:GetNextDR(2) -- 0.25 (quarter aura duration)
+-- @usage local duration = DRList:GetNextDR(3) -- 0.00 (zero aura duration / immune)
+-- @usage local duration = DRList:GetNextDR(1, "knockback") -- 0.00 (immediately immune)
+-- @treturn number Diminished duration value or 0 for invalid arguments
 function Lib:GetNextDR(diminished, category)
     local durations = Lib.diminishedDurations[Lib.gameExpansion][category or "default"]
     if not durations and Lib.categoryNames[Lib.gameExpansion][category] then
@@ -397,11 +400,15 @@ function Lib:GetNextDR(diminished, category)
     return durations and durations[diminished] or 0
 end
 
---- Set the next successive diminished duration.
--- @tparam number diminished How many times the DR has been applied so far
+--- Get the next successive diminished duration value.
+-- @tparam number diminished The current diminished duration value
 -- @tparam[opt="default"] string category Unlocalized category name
--- @usage data.diminished = DRList:NextDR(data.diminished)
--- @treturn number
+-- @usage
+-- local diminished = 1.0 -- initial full aura duration
+-- diminished = DRList:NextDR(diminished, "stun") -- 0.50 (half aura duration)
+-- diminished = DRList:NextDR(diminished, "stun") -- 0.25 (quarter aura duration)
+-- diminished = DRList:NextDR(diminished, "stun") -- 0.00 (zero aura duration / immune)
+-- @treturn number Diminished duration value
 function Lib:NextDR(diminished, category)
     local durations = Lib.diminishedDurations[Lib.gameExpansion][category or "default"] or Lib.diminishedDurations[Lib.gameExpansion].default
 

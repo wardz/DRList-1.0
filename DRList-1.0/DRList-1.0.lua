@@ -162,6 +162,7 @@ Lib.resetTimes = {
 
 -- List of all DR categories, english -> localized.
 Lib.categoryNames = {
+    --- @table categoryNames.retail
     retail = {
         ["disorient"] = L.DISORIENTS,
         ["incapacitate"] = L.INCAPACITATES,
@@ -173,11 +174,12 @@ Lib.categoryNames = {
         ["knockback"] = L.KNOCKBACKS,
     },
 
+    --- @table categoryNames.classic
     classic = {
         ["incapacitate"] = L.INCAPACITATES,
-        ["stun"] = L.STUNS, -- controlled stun
-        ["root"] = L.ROOTS, -- controlled root
-        ["random_stun"] = L.RANDOM_STUNS, -- random proc stun, usually short (<3s)
+        ["stun"] = L.STUNS,
+        ["root"] = L.ROOTS,
+        ["random_stun"] = L.RANDOM_STUNS,
         ["random_root"] = L.RANDOM_ROOTS,
         ["fear"] = L.FEARS,
         ["mind_control"] = L.MIND_CONTROL,
@@ -185,6 +187,7 @@ Lib.categoryNames = {
         ["kidney_shot"] = L.KIDNEY_SHOT,
     },
 
+    --- @table categoryNames.tbc
     tbc = {
         ["disorient"] = L.DISORIENTS,
         ["incapacitate"] = L.INCAPACITATES,
@@ -203,6 +206,7 @@ Lib.categoryNames = {
         ["counterattack"] = L.COUNTERATTACK,
     },
 
+    --- @table categoryNames.wotlk
     wotlk = {
         ["incapacitate"] = L.INCAPACITATES,
         ["stun"] = L.STUNS,
@@ -222,6 +226,7 @@ Lib.categoryNames = {
         ["taunt"] = L.TAUNTS,
     },
 
+    --- @table categoryNames.cata
     cata = {
         ["incapacitate"] = L.INCAPACITATES,
         ["stun"] = L.STUNS,

@@ -123,8 +123,26 @@ Tests:It("GetsNextDR", function()
 
     assert(DRList:GetNextDR(0, "knockback") == 0)
     assert(DRList:GetNextDR(1, "knockback") == 0)
+end)
 
-    --assert(DRList:GetNextDR(1, "taunt") ==  0)
+Tests:It("NextDR", function()
+    assert(DRList:NextDR(1, "stun") == 0.50)
+    assert(DRList:NextDR(0.5, "stun") == 0.25)
+    assert(DRList:NextDR(0.25, "stun") == 0)
+
+    local diminished = DRList:NextDR(1)
+    assert(diminished == 0.50)
+    diminished = DRList:NextDR(diminished)
+    assert(diminished == 0.25)
+    diminished = DRList:NextDR(diminished)
+    assert(diminished == 0)
+
+    assert(DRList:NextDR(1, "asdf") == 0.50)
+    assert(DRList:NextDR(0.5, "asdf") == 0.25)
+    assert(DRList:NextDR(0.25, {}) == 0)
+    assert(DRList:NextDR(0.25, true) == 0)
+    assert(DRList:NextDR(0.25, -1) == 0)
+    assert(DRList:NextDR(0.25, 1) == 0)
 end)
 
 Tests:It("IterateSpellsByCategory", function()

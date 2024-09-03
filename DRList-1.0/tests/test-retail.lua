@@ -221,8 +221,10 @@ Tests:It("Verifies spell list", function()
     local success = true
     local err = ""
 
+    local GetSpellName = C_Spell and C_Spell.GetSpellName or GetSpellInfo
+
     for spellID, category in pairs(DRList.spellList) do
-        if type(spellID) ~= "number" or not GetSpellInfo(spellID) then
+        if type(spellID) ~= "number" or not GetSpellName(spellID) then
             success = false
             err = err .. "|cFFFF0000Invalid spell:|r " .. spellID .. "\n"
         end

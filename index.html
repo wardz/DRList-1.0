@@ -31,6 +31,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
 </ul>
 
 
@@ -64,15 +65,15 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Lib:GetResetTime">Lib:GetResetTime ([category="default"])</a></td>
-	<td class="summary">Get constant for how long a DR lasts for a given category.</td>
+	<td class="summary">Get the default DR reset time value or a category specific reset time.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Lib:GetCategoryBySpellID">Lib:GetCategoryBySpellID (spellID)</a></td>
-	<td class="summary">Get unlocalized DR category by spell ID.</td>
+	<td class="name" nowrap><a href="#Lib:GetCategoryBySpellID">Lib:GetCategoryBySpellID (Debuffs)</a></td>
+	<td class="summary">Get DR category by spellID.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Lib:GetCategoryLocalization">Lib:GetCategoryLocalization (category)</a></td>
-	<td class="summary">Get localized category from unlocalized category name, case sensitive.</td>
+	<td class="summary">Get localized category name.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Lib:IsPvECategory">Lib:IsPvECategory (category)</a></td>
@@ -80,11 +81,38 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Lib:GetNextDR">Lib:GetNextDR (diminished[, category="default"])</a></td>
-	<td class="summary">Get next successive diminished duration</td>
+	<td class="summary">Get a specific diminished duration value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Lib:NextDR">Lib:NextDR (duration[, category="default"])</a></td>
+	<td class="summary">Get the next successive diminished duration value.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Lib:IterateSpellsByCategory">Lib:IterateSpellsByCategory (category)</a></td>
 	<td class="summary">Iterate through the spells of a given category.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#categoryNames.retail">categoryNames.retail</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#categoryNames.classic">categoryNames.classic</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#categoryNames.tbc">categoryNames.tbc</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#categoryNames.wotlk">categoryNames.wotlk</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#categoryNames.cata">categoryNames.cata</a></td>
+	<td class="summary"></td>
 	</tr>
 </table>
 
@@ -103,6 +131,7 @@
     Get table of all spells that DRs.
  Key is the spellID, and value is the unlocalized DR category string.
  Value is instead a table of strings for spells that have shared DRs.
+ Tables are read-only. Copy them if you need to modify data.
 
 
 
@@ -128,7 +157,8 @@
     <dd>
     Get table of all DR categories.
  Key is unlocalized name used for API functions, value is localized name used for UI.
- Note: the 'taunt' category should be ignored for players, but not player pets.
+ Tables are read-only. Copy them if you need to modify data.
+ Note: You might want to ignore the 'taunt' category if your addon only track player DRs.
 
 
 
@@ -150,9 +180,9 @@
     <dd>
     Get table of all categories that DRs in PvE.
  Key is unlocalized name used for API functions, value is localized name used for UI.
+ Tables are read-only. Copy them if you need to modify data.
  Note that for retail some special mobs have DR on all categories, you need to check for this yourself;
  see UnitClassification() and UnitIsQuestBoss(). Player pets have DR on all categories.
- Tip: you can combine :GetPvECategories() and :IterateSpellsByCategory() to get spellIDs only for PvE aswell.
 
 
 
@@ -172,7 +202,8 @@
     <strong>Lib:GetResetTime ([category="default"])</strong>
     </dt>
     <dd>
-    Get constant for how long a DR lasts for a given category.
+    Get the default DR reset time value or a category specific reset time.
+ Passing in the category is now recommended as reset times may differ between categories.
 
 
     <h3>Parameters:</h3>
@@ -188,29 +219,32 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        Seconds before DR resets.
+        Reset time in seconds
     </ol>
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">local</span> expirationTime = <span class="function-name">GetTime</span>() + DRList:<span class="function-name">GetResetTime</span>(<span class="string">"stun"</span>) <span class="comment">-- Compare against GetTime() later on</span></pre></li>
+        <li><pre class="example">C_Timer.<span class="function-name">After</span>(DRList:<span class="function-name">GetResetTime</span>(<span class="string">"stun"</span>), <span class="keyword">function</span>() <span class="global">print</span>(<span class="string">"DR finished"</span>) <span class="keyword">end</span>)</pre></li>
+    </ul>
 
 </dd>
     <dt>
     <a name = "Lib:GetCategoryBySpellID"></a>
-    <strong>Lib:GetCategoryBySpellID (spellID)</strong>
+    <strong>Lib:GetCategoryBySpellID (Debuffs)</strong>
     </dt>
     <dd>
-    Get unlocalized DR category by spell ID.
- This is the main checker for if a spell has a DR.
- See https://github.com/wardz/DRList-1.0/wiki/Example-Usage for full example usage.
- Note: the 'taunt' category should be ignored for players, but not player pets.
+    Get DR category by spellID.
+ This is the main checker for if a spell/debuff has a DR. See wiki for example usage.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">spellID</span>
+        <li><span class="parameter">Debuffs</span>
             <span class="types"><span class="type">number</span></span>
-
+         spellID
         </li>
     </ul>
 
@@ -218,7 +252,7 @@
     <ol>
         <li>
            <span class="types">optional <a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-        The category name.</li>
+        The unlocalized category name.</li>
         <li>
            <span class="types">optional <a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">{string,...}</a></span>
         Read-only array with multiple categories if spellID has any shared DR categories. (Note: array includes main category too)</li>
@@ -233,7 +267,7 @@
     <strong>Lib:GetCategoryLocalization (category)</strong>
     </dt>
     <dd>
-    Get localized category from unlocalized category name, case sensitive.
+    Get localized category name.
 
 
     <h3>Parameters:</h3>
@@ -248,7 +282,7 @@
     <ol>
 
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a> or <span class="type">nil</span></span>
-        The localized category name.
+        The localized category name
     </ol>
 
 
@@ -289,7 +323,9 @@
     <strong>Lib:GetNextDR (diminished[, category="default"])</strong>
     </dt>
     <dd>
-    Get next successive diminished duration
+    Get a specific diminished duration value.
+ Passing in the category is now recommended as diminished durations may differ between categories.
+ Any unknown categories (unless omitted/nil) will always return 0 as value here unlike NextDR().
 
 
     <h3>Parameters:</h3>
@@ -309,14 +345,58 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        DR percentage in decimals. Returns 0 if max DR is reached or arguments are invalid.
+        Diminished duration value or 0 for invalid arguments
     </ol>
 
 
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">local</span> reduction = DRList:<span class="function-name">GetNextDR</span>(<span class="number">1</span>) <span class="comment">-- returns 0.50, half duration on debuff</span></pre>
+        <li><pre class="example"><span class="keyword">local</span> duration = DRList:<span class="function-name">GetNextDR</span>(<span class="number">1</span>, <span class="string">"stun"</span>) <span class="comment">-- 0.50 (half aura duration)</span></pre></li>
+        <li><pre class="example"><span class="keyword">local</span> duration = DRList:<span class="function-name">GetNextDR</span>(<span class="number">2</span>, <span class="string">"stun"</span>) <span class="comment">-- 0.25 (quarter aura duration)</span></pre></li>
+        <li><pre class="example"><span class="keyword">local</span> duration = DRList:<span class="function-name">GetNextDR</span>(<span class="number">3</span>, <span class="string">"stun"</span>) <span class="comment">-- 0.00 (zero aura duration / immune)</span></pre></li>
+        <li><pre class="example"><span class="keyword">local</span> duration = DRList:<span class="function-name">GetNextDR</span>(<span class="number">1</span>, <span class="string">"knockback"</span>) <span class="comment">-- 0.00 (immediately immune)</span></pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Lib:NextDR"></a>
+    <strong>Lib:NextDR (duration[, category="default"])</strong>
+    </dt>
+    <dd>
+    Get the next successive diminished duration value.
+ Same as the DRData-1.0 version. Passing in the category is now recommended as diminished durations may differ between categories.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+         The current diminished duration value. Throws error if not a number.
+        </li>
+        <li><span class="parameter">category</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         Unlocalized category name
+         (<em>default</em> "default")
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Diminished duration value
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">local</span> duration = DRList:<span class="function-name">NextDR</span>(<span class="number">0.50</span>) <span class="comment">-- returns 0.25 (quarter aura duration)</span></pre></li>
+        <li><pre class="example"><span class="keyword">local</span> duration = <span class="number">1.0</span> <span class="comment">-- initial full aura duration
+</span>duration = DRList:<span class="function-name">NextDR</span>(duration, <span class="string">"stun"</span>) <span class="comment">-- 0.50 (half aura duration)
+</span>duration = DRList:<span class="function-name">NextDR</span>(duration, <span class="string">"stun"</span>) <span class="comment">-- 0.25 (quarter aura duration)
+</span>duration = DRList:<span class="function-name">NextDR</span>(duration, <span class="string">"stun"</span>) <span class="comment">-- 0.00 (zero aura duration / immune)</span></pre></li>
     </ul>
 
 </dd>
@@ -326,8 +406,8 @@
     </dt>
     <dd>
     Iterate through the spells of a given category.
- Pass "nil" to iterate through all spells instead.
- Note: a spell might be returned multiple times here due to spell ranks in classic, check its name to avoid duplicates.
+ Pass nil to iterate through all spells instead.
+ Note: In classic this also iterates through every single spell rank. Check the spell names if you dont want duplicates.
 
 
     <h3>Parameters:</h3>
@@ -348,8 +428,289 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">for</span> spellID <span class="keyword">in</span> DRList:<span class="function-name">IterateSpellsByCategory</span>(<span class="string">"root"</span>) <span class="keyword">do</span> <span class="global">print</span>(spellID) <span class="keyword">end</span></pre>
+        <pre class="example"><span class="keyword">for</span> spellID, category <span class="keyword">in</span> DRList:<span class="function-name">IterateSpellsByCategory</span>(<span class="string">"root"</span>) <span class="keyword">do</span> <span class="global">print</span>(spellID) <span class="keyword">end</span></pre>
     </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "categoryNames.retail"></a>
+    <strong>categoryNames.retail</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">[disorient]</span>
+
+        </li>
+        <li><span class="parameter">[incapacitate]</span>
+
+        </li>
+        <li><span class="parameter">[silence]</span>
+
+        </li>
+        <li><span class="parameter">[stun]</span>
+
+        </li>
+        <li><span class="parameter">[root]</span>
+
+        </li>
+        <li><span class="parameter">[disarm]</span>
+
+        </li>
+        <li><span class="parameter">[taunt]</span>
+
+        </li>
+        <li><span class="parameter">[knockback]</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "categoryNames.classic"></a>
+    <strong>categoryNames.classic</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">[incapacitate]</span>
+
+        </li>
+        <li><span class="parameter">[stun]</span>
+
+        </li>
+        <li><span class="parameter">[root]</span>
+
+        </li>
+        <li><span class="parameter">[random_stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_root]</span>
+
+        </li>
+        <li><span class="parameter">[fear]</span>
+
+        </li>
+        <li><span class="parameter">[mind_control]</span>
+
+        </li>
+        <li><span class="parameter">[frost_shock]</span>
+
+        </li>
+        <li><span class="parameter">[kidney_shot]</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "categoryNames.tbc"></a>
+    <strong>categoryNames.tbc</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">[disorient]</span>
+
+        </li>
+        <li><span class="parameter">[incapacitate]</span>
+
+        </li>
+        <li><span class="parameter">[stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_root]</span>
+
+        </li>
+        <li><span class="parameter">[root]</span>
+
+        </li>
+        <li><span class="parameter">[disarm]</span>
+
+        </li>
+        <li><span class="parameter">[fear]</span>
+
+        </li>
+        <li><span class="parameter">[scatter]</span>
+
+        </li>
+        <li><span class="parameter">[mind_control]</span>
+
+        </li>
+        <li><span class="parameter">[kidney_shot]</span>
+
+        </li>
+        <li><span class="parameter">[death_coil]</span>
+
+        </li>
+        <li><span class="parameter">[unstable_affliction]</span>
+
+        </li>
+        <li><span class="parameter">[chastise]</span>
+
+        </li>
+        <li><span class="parameter">[counterattack]</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "categoryNames.wotlk"></a>
+    <strong>categoryNames.wotlk</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">[incapacitate]</span>
+
+        </li>
+        <li><span class="parameter">[stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_root]</span>
+
+        </li>
+        <li><span class="parameter">[root]</span>
+
+        </li>
+        <li><span class="parameter">[disarm]</span>
+
+        </li>
+        <li><span class="parameter">[fear]</span>
+
+        </li>
+        <li><span class="parameter">[scatter]</span>
+
+        </li>
+        <li><span class="parameter">[silence]</span>
+
+        </li>
+        <li><span class="parameter">[horror]</span>
+
+        </li>
+        <li><span class="parameter">[mind_control]</span>
+
+        </li>
+        <li><span class="parameter">[cyclone]</span>
+
+        </li>
+        <li><span class="parameter">[charge]</span>
+
+        </li>
+        <li><span class="parameter">[opener_stun]</span>
+
+        </li>
+        <li><span class="parameter">[counterattack]</span>
+
+        </li>
+        <li><span class="parameter">[taunt]</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "categoryNames.cata"></a>
+    <strong>categoryNames.cata</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">[incapacitate]</span>
+
+        </li>
+        <li><span class="parameter">[stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_stun]</span>
+
+        </li>
+        <li><span class="parameter">[random_root]</span>
+
+        </li>
+        <li><span class="parameter">[root]</span>
+
+        </li>
+        <li><span class="parameter">[disarm]</span>
+
+        </li>
+        <li><span class="parameter">[fear]</span>
+
+        </li>
+        <li><span class="parameter">[scatter]</span>
+
+        </li>
+        <li><span class="parameter">[silence]</span>
+
+        </li>
+        <li><span class="parameter">[horror]</span>
+
+        </li>
+        <li><span class="parameter">[mind_control]</span>
+
+        </li>
+        <li><span class="parameter">[cyclone]</span>
+
+        </li>
+        <li><span class="parameter">[counterattack]</span>
+
+        </li>
+        <li><span class="parameter">[bind_elemental]</span>
+
+        </li>
+        <li><span class="parameter">[deep_freeze_rof]</span>
+
+        </li>
+        <li><span class="parameter">[taunt]</span>
+
+        </li>
+    </ul>
+
+
+
+
 
 </dd>
 </dl>
@@ -359,7 +720,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-07-03 20:31:10 </i>
+<i style="float:right;">Last updated 2024-09-03 05:41:26 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

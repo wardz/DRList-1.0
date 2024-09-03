@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 69 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 70 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -28,7 +28,6 @@ if Lib.gameExpansion == "retail" then
         [205364]  = "disorient", -- Dominate Mind
         [605]     = "disorient", -- Mind Control
         [8122]    = "disorient", -- Psychic Scream
-        [226943]  = "disorient", -- Mind Bomb
         [2094]    = "disorient", -- Blind
         [118699]  = "disorient", -- Fear
         [130616]  = "disorient", -- Fear (Horrify)
@@ -66,6 +65,8 @@ if Lib.gameExpansion == "retail" then
         [277792]  = "incapacitate", -- Polymorph (Bumblebee)
         [321395]  = "incapacitate", -- Polymorph (Mawrat)
         [391622]  = "incapacitate", -- Polymorph (Duck)
+        [460396]  = "incapacitate", -- Polymorph (Mosswool)
+        [461489]  = "incapacitate", -- Polymorph (Mosswool) 2
         [82691]   = "incapacitate", -- Ring of Frost
         [115078]  = "incapacitate", -- Paralysis
         [357768]  = "incapacitate", -- Paralysis 2 (Perpetual Paralysis?)
@@ -108,11 +109,13 @@ if Lib.gameExpansion == "retail" then
         [202244]  = "stun", -- Overrun
         [325321]  = "stun", -- Wild Hunt's Charge
         [372245]  = "stun", -- Terror of the Skies
+        [408544]  = "stun", -- Seismic Slam
         [117526]  = "stun", -- Binding Shot
         [357021]  = "stun", -- Consecutive Concussion
         [24394]   = "stun", -- Intimidation
         [389831]  = "stun", -- Snowdrift
         [119381]  = "stun", -- Leg Sweep
+        [458605]  = "stun", -- Leg Sweep 2
         [202346]  = "stun", -- Double Barrel
         [385149]  = "stun", -- Exorcism
         [853]     = "stun", -- Hammer of Justice
@@ -142,6 +145,7 @@ if Lib.gameExpansion == "retail" then
         -- *** Controlled Root Effects ***
         [204085]  = "root", -- Deathchill (Chains of Ice)
         [233395]  = "root", -- Deathchill (Remorseless Winter)
+        [454787]  = "root", -- Ice Prison
         [339]     = "root", -- Entangling Roots
         [235963]  = "root", -- Entangling Roots (Earthen Grasp)
         [170855]  = "root", -- Entangling Roots (Nature's Grasp)
@@ -174,6 +178,7 @@ if Lib.gameExpansion == "retail" then
 
         -- *** Silence Effects ***
         [47476]   = "silence", -- Strangulate
+        [374776]  = "silence", -- Tightening Grasp
         [204490]  = "silence", -- Sigil of Silence
 --      [78675]   = "silence", -- Solar Beam (has no DR)
         [410065]  = "silence", -- Reactive Resin
@@ -216,10 +221,12 @@ if Lib.gameExpansion == "retail" then
         [61391]   = "knockback", -- Typhoon
         [102793]  = "knockback", -- Ursol's Vortex
         [186387]  = "knockback", -- Bursting Shot
-        [236777]  = "knockback", -- Hi-Explosive Trap
+        [236776]  = "knockback", -- Hi-Explosive Trap
+        [236777]  = "knockback", -- Hi-Explosive Trap 2
         [157981]  = "knockback", -- Blast Wave
         [204263]  = "knockback", -- Shining Force
         [51490]   = "knockback", -- Thunderstorm
+        [357214]  = "knockback", -- Wing Buffet (Racial, Evoker)
     }
 
 elseif Lib.gameExpansion == "tbc" then

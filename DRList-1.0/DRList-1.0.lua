@@ -357,7 +357,7 @@ end
 
 --- Get DR category by spellID.
 -- This is the main checker for if a spell/debuff has a DR. See wiki for example usage.
--- @tparam number Debuffs spellID
+-- @tparam number spellID Debuff spellId
 -- @treturn ?string The unlocalized category name.
 -- @treturn ?{string,...} Read-only array with multiple categories if spellID has any shared DR categories. (Note: array includes main category too)
 function Lib:GetCategoryBySpellID(spellID)

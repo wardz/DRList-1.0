@@ -11,7 +11,7 @@ if Lib.gameExpansion == "retail" then
     ------------------------------------------------
     -- SpellID list for mainline aka retail WoW.
     -- Mostly contains spells that are usable in arena only.
-    -- Note: These are the debuff spellIds specificially.
+    -- Note: These are the debuff spellIds specifically.
     ------------------------------------------------
     Lib.spellList = {
         -- *** Disorient Effects ***

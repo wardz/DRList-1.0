@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 70 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 71 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -38,6 +38,7 @@ if Lib.gameExpansion == "retail" then
         [316593]  = "disorient", -- Intimidating Shout (Menace Main Target)
         [316595]  = "disorient", -- Intimidating Shout (Menace Other Targets)
         [331866]  = "disorient", -- Agent of Chaos (Venthyr Covenant)
+        [324263]  = "disorient", -- Sulfuric Emission (Soulbind Ability)
 
         -- *** Incapacitate Effects ***
         [217832]  = "incapacitate", -- Imprison
@@ -117,7 +118,6 @@ if Lib.gameExpansion == "retail" then
         [119381]  = "stun", -- Leg Sweep
         [458605]  = "stun", -- Leg Sweep 2
         [202346]  = "stun", -- Double Barrel
-        [385149]  = "stun", -- Exorcism
         [853]     = "stun", -- Hammer of Justice
         [255941]  = "stun", -- Wake of Ashes
         [64044]   = "stun", -- Psychic Horror
@@ -143,27 +143,28 @@ if Lib.gameExpansion == "retail" then
         [332423]  = "stun", -- Sparkling Driftglobe Core (Kyrian Covenant)
 
         -- *** Controlled Root Effects ***
+        -- Note: roots with duration <= 2s has no DR and are commented out
         [204085]  = "root", -- Deathchill (Chains of Ice)
         [233395]  = "root", -- Deathchill (Remorseless Winter)
         [454787]  = "root", -- Ice Prison
         [339]     = "root", -- Entangling Roots
         [235963]  = "root", -- Entangling Roots (Earthen Grasp)
         [170855]  = "root", -- Entangling Roots (Nature's Grasp)
+        --[16979]   = "root", -- Wild Charge (has no DR)
         [102359]  = "root", -- Mass Entanglement
         [355689]  = "root", -- Landslide
         [393456]  = "root", -- Entrapment (Tar Trap)
         [162480]  = "root", -- Steel Trap
-        [273909]  = "root", -- Steelclaw Trap
---      [190927]  = "root", -- Harpoon
+--      [190927]  = "root", -- Harpoon (has no DR)
         [212638]  = "root", -- Tracker's Net
         [201158]  = "root", -- Super Sticky Tar
         [122]     = "root", -- Frost Nova
         [33395]   = "root", -- Freeze
         [386770]  = "root", -- Freezing Cold
         [198121]  = "root", -- Frostbite
+        --[199786]  = "root", -- Glacial Spike (has no DR)
         [114404]  = "root", -- Void Tendril's Grasp
         [342375]  = "root", -- Tormenting Backlash (Torghast PvE)
-        [233582]  = "root", -- Entrenched in Flame
         [116706]  = "root", -- Disable
         [324382]  = "root", -- Clash
         [64695]   = "root", -- Earthgrab (Totem effect)
@@ -212,6 +213,7 @@ if Lib.gameExpansion == "retail" then
         [204079]  = "taunt", -- Final Stand
         [62124]   = "taunt", -- Hand of Reckoning
         [17735]   = "taunt", -- Suffering (Voidwalker)
+        [1161]    = "taunt", -- Challenging Shout
         [355]     = "taunt", -- Taunt
 
         -- *** Controlled Knockback Effects ***
@@ -220,13 +222,15 @@ if Lib.gameExpansion == "retail" then
         [202249]  = "knockback", -- Overrun
         [61391]   = "knockback", -- Typhoon
         [102793]  = "knockback", -- Ursol's Vortex
+        [431620]  = "knockback", -- Upheaval
         [186387]  = "knockback", -- Bursting Shot
         [236776]  = "knockback", -- Hi-Explosive Trap
         [236777]  = "knockback", -- Hi-Explosive Trap 2
+        [462031]  = "knockback", -- Implosive Trap
         [157981]  = "knockback", -- Blast Wave
-        [204263]  = "knockback", -- Shining Force
         [51490]   = "knockback", -- Thunderstorm
-        [357214]  = "knockback", -- Wing Buffet (Racial, Evoker)
+        [368970]  = "knockback", -- Tail Swipe (Racial, Dracthyr)
+        [357214]  = "knockback", -- Wing Buffet (Racial, Dracthyr)
     }
 
 elseif Lib.gameExpansion == "tbc" then

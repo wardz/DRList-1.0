@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 71 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 72 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -93,7 +93,7 @@ if Lib.gameExpansion == "retail" then
 
         -- *** Controlled Stun Effects ***
         [210141]  = "stun", -- Zombie Explosion
-        [334693]  = "stun", -- Absolute Zero (Breath of Sindragosa)
+        [377048]  = "stun", -- Absolute Zero (Breath of Sindragosa)
         [108194]  = "stun", -- Asphyxiate (Unholy)
         [221562]  = "stun", -- Asphyxiate (Blood)
         [91800]   = "stun", -- Gnaw (Ghoul)

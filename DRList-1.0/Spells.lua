@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 72 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 73 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -161,7 +161,7 @@ if Lib.gameExpansion == "retail" then
         [122]     = "root", -- Frost Nova
         [33395]   = "root", -- Freeze
         [386770]  = "root", -- Freezing Cold
-        [198121]  = "root", -- Frostbite
+        [378760]  = "root", -- Frostbite
         --[199786]  = "root", -- Glacial Spike (has no DR)
         [114404]  = "root", -- Void Tendril's Grasp
         [342375]  = "root", -- Tormenting Backlash (Torghast PvE)

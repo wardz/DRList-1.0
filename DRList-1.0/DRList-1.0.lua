@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 74 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 75 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -131,7 +131,8 @@ Lib.gameExpansion = ({
     [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "tbc",
     [WOW_PROJECT_WRATH_CLASSIC or 11] = "wotlk",
     [WOW_PROJECT_CATACLYSM_CLASSIC or 14] = "cata",
-})[WOW_PROJECT_ID] or "cata" -- Fallback to cata when unknown ID (most likely a new classic expansion build)
+    [WOW_PROJECT_MISTS_CLASSIC or 19] = "mop",
+})[WOW_PROJECT_ID] or "mop" -- Fallback to mop when unknown ID (most likely a new classic expansion build)
 
 -- How long it takes for a DR to expire, in seconds.
 Lib.resetTimes = {
@@ -142,7 +143,7 @@ Lib.resetTimes = {
     },
 
     classic = {
-        ["default"] = 20, -- Dynamic reset between 15s and 20s, set it to max
+        ["default"] = 20, -- Classic has dynamic reset between 15s and 20s, set it to max
         ["npc"] = 20,
     },
 
@@ -157,6 +158,11 @@ Lib.resetTimes = {
     },
 
     cata = {
+        ["default"] = 20,
+        ["npc"] = 20,
+    },
+
+    mop = {
         ["default"] = 20,
         ["npc"] = 20,
     },
@@ -247,6 +253,24 @@ Lib.categoryNames = {
         ["deep_freeze_rof"] = L.DEEP_FREEZE_ROF,
         ["taunt"] = L.TAUNTS,
     },
+
+    --- @table categoryNames.mop
+    mop = {
+        ["disorient"] = L.DISORIENTS,
+        ["incapacitate"] = L.INCAPACITATES,
+        ["silence"] = L.SILENCES,
+        ["disarm"] = L.DISARMS,
+        ["fear"] = L.FEARS,
+        ["stun"] = L.STUNS,
+        ["random_stun"] = L.RANDOM_STUNS,
+        ["root"] = L.ROOTS,
+        ["random_root"] = L.RANDOM_ROOTS,
+        ["horror"] = L.HORROR,
+        ["cyclone"] = L.CYCLONE,
+        ["knockback"] = L.KNOCKBACKS,
+        ["mind_control"] = L.MIND_CONTROL,
+        ["taunt"] = L.TAUNTS,
+    },
 }
 
 -- Categories that have DR against normal mobs.
@@ -278,7 +302,14 @@ Lib.categoriesPvE = {
         ["taunt"] = L.TAUNTS,
         ["stun"] = L.STUNS,
         ["random_stun"] = L.RANDOM_STUNS,
-        ["cyclone"] = L.CYCLONE, -- TODO: check me cata+wrath
+        ["cyclone"] = L.CYCLONE,
+    },
+
+    mop = {
+        ["taunt"] = L.TAUNTS,
+        ["stun"] = L.STUNS,
+        ["random_stun"] = L.RANDOM_STUNS,
+        ["cyclone"] = L.CYCLONE,
     },
 }
 
@@ -309,6 +340,12 @@ Lib.diminishedDurations = {
     cata = {
         ["default"] = { 0.50, 0.25 },
         ["taunt"] = { 0.65, 0.42, 0.27 },
+    },
+
+    mop = {
+        ["default"] = { 0.50, 0.25 },
+        ["taunt"] = { 0.65, 0.42, 0.27 },
+        ["knockback"] = {},
     },
 }
 

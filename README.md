@@ -16,7 +16,7 @@ World of Warcraft library for providing player diminishing returns categorizatio
 Library that contains (hopefully) the most up to date [diminishing returns](https://warcraft.wiki.gg/wiki/Diminishing_returns) categorization. This is purely the diminishing return data itself with API's to determine if a spellID has a diminishing return, if it diminishes in PvE and the category it diminishes in. You will have to keep track of actual DR timers yourself.
 
 **This addon is a rewrite of [DRData-1.0](https://www.wowace.com/projects/drdata-1-0) by Adirelle which is no longer maintained.**
-DRList is updated to seamlessly support all World of Warcraft clients. (Classic, TBC, Wotlk, Cataclysm, Retail)
+DRList is updated to seamlessly support all World of Warcraft clients. (Classic, TBC, Wotlk, Cataclysm, MoP, Retail)
 
 ___
 
@@ -47,8 +47,8 @@ externals:
 ### Upgrading from DRData to DRList
 
 - Any references to `DRData` must be changed to `DRList`. Easiest is to just change the LibStub call so your local DRData variable points to DRList.
-- For accessing **raw** data tables you will now need to add the current expansion as an extra table property.
-  E.g `DRData.categoryNames` to `DRList.categoryNames.retail` or `DRList.categoryNames[DRList.gameExpansion]`. The only exception for this is the spell list table.
+- When referencing data tables **directly**, you must now include the current expansion as an additional table property.
+  E.g `DRData.categoryNames` to `DRList.categoryNames.retail`. The only exception for this is the spell list table.
 - Calls to `Lib:IterateProviders()` must be replaced with [Lib:IterateSpellsByCategory()](https://wardz.github.io/DRList-1.0/#Lib:IterateSpellsByCategory) as providers are now obsolete.
 - `Lib:GetSpellCategory()` now has an optional [second return value](https://wardz.github.io/DRList-1.0/#Lib:GetCategoryBySpellID) for spells with shared DRs.
   - `Lib.spellList[spellID]` now returns a `table` for spells with shared DRs instead of a `string`.
@@ -61,4 +61,4 @@ externals:
 
 ### License
 
-Copyright (C) 2024 Wardz | [MIT License](https://opensource.org/licenses/mit-license.php).
+Copyright (C) 2025 Wardz | [MIT License](https://opensource.org/licenses/mit-license.php).

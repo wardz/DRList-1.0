@@ -23,13 +23,12 @@ jobs:
 
       - name: Run personal tests
         run: |
-          lua DRList-1.0/tests/test-classic.lua
-          lua DRList-1.0/tests/test-tbc.lua
-          lua DRList-1.0/tests/test-wotlk.lua
-          lua DRList-1.0/tests/test-cata.lua
-          lua DRList-1.0/tests/test-mop.lua
-          lua DRList-1.0/tests/test-retail.lua
+          set -e
+          for file in DRList-1.0/tests/test-*.lua; do
+            lua "$file" || exit 1
+          done
           lua DRList-1.0/tests/test-retail.lua -frFR
+          lua DRList-1.0/tests/test-classic.lua -deDE
 
       - name: Check if lib minor versions matches
         run: |
@@ -37,4 +36,5 @@ jobs:
           version_file2=$(sed -n 's/local MAJOR, MINOR = "DRList-1.0", \(.*\)--.*/\1/p' DRList-1.0/Spells.lua)
           if [ "$version_file1" != "$version_file2" ]; then
             echo "::error::DRList-1.0.lua minor version does not match Spells.lua version."
+            exit 1
           fi

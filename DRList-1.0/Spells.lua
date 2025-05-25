@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 76 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 77 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -905,9 +905,9 @@ elseif Lib.gameExpansion == "mop" then
         [113801] = "stun", -- Bash (Treants)
         [117526] = "stun", -- Binding Shot
         [24394]  = "stun", -- Intimidation
-        --[126246] = "stun", -- Lullaby (Crane pet) -- TODO: need confirmation
-        --[126423] = "stun", -- Petrifying Gaze (Basilisk pet) -- TODO: need confirmation
-        --[126355] = "stun", -- Quill (Porcupine pet) -- TODO: need confirmation
+        [126246] = "stun", -- Lullaby (Crane pet) -- TODO: verify category
+        [126423] = "stun", -- Petrifying Gaze (Basilisk pet) -- TODO: verify category
+        [126355] = "stun", -- Quill (Porcupine pet) -- TODO: verify category
         [90337]  = "stun", -- Bad Manner (Monkey)
         [56626]  = "stun", -- Sting (Wasp)
         [50519]  = "stun", -- Sonic Blast

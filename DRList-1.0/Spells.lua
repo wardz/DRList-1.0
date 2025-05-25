@@ -892,7 +892,7 @@ elseif Lib.gameExpansion == "mop" then
         [99]     = "disorient", -- Disorienting Roar
         [19503]  = "disorient", -- Scatter Shot
         [31661]  = "disorient", -- Dragon's Breath
-        [123394] = "disorient", -- Breath of Fire (TODO: verify id)
+        [123393] = "disorient", -- Glyph of Breath of Fire
         [88625]  = "disorient", -- Holy Word: Chastise
 
         -- *** Controlled Stun Effects ***
@@ -1002,7 +1002,7 @@ elseif Lib.gameExpansion == "mop" then
         -- *** Silence Effects ***
         -- [108194] = "silence", -- Asphyxiate (TODO: check silence id)
         [47476]  = "silence", -- Strangulate
-        [114237] = "silence", -- Glyph of Fae Silence (TODO: verify id)
+        [114238] = "silence", -- Glyph of Fae Silence
         [34490]  = "silence", -- Silencing Shot
         [102051] = "silence", -- Frostjaw
         [55021]  = "silence", -- Counterspell

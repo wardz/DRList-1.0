@@ -394,14 +394,18 @@ function Lib:GetResetTime(category)
 end
 
 --- Get DR category by spellID.
--- This is the primary function to check if a spell/debuff has a DR. See wiki for examples.
+-- This is the primary function to check if a spell/debuff has a DR. See wiki for full example usage.
+-- @usage
+-- local category, categories = DRList:GetCategoryBySpellID(1234)
+-- if not category then return end
+-- if categories then for i = 1, #categories do print(categories[i]) end else print(category) end
 -- @tparam number spellID Debuff spellId
 -- @treturn ?string The unlocalized category name.
 -- @treturn ?{string,...} Read-only array with multiple categories if spellID has any shared DR categories. (Note: array includes main category too)
 function Lib:GetCategoryBySpellID(spellID)
     local category = Lib.spellList[spellID]
-    if category and type(category) == "table" then
-        return category[1], category
+    if category and type(category) == "table" then -- Shared DRs
+        return category[1], category -- Return the first element as the main category (for backward compatibility)
     end
 
     return category

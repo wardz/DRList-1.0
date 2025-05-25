@@ -21,6 +21,7 @@ if Lib.gameExpansion == "retail" then
         [360806]  = "disorient", -- Sleep Walk
         [1513]    = "disorient", -- Scare Beast
         [31661]   = "disorient", -- Dragon's Breath
+        [353084]  = "disorient", -- Ring of Fire
         [198909]  = "disorient", -- Song of Chi-ji
         [202274]  = "disorient", -- Hot Trub
         [105421]  = "disorient", -- Blinding Light
@@ -32,7 +33,6 @@ if Lib.gameExpansion == "retail" then
         [118699]  = "disorient", -- Fear
         [130616]  = "disorient", -- Fear (Horrify)
         [5484]    = "disorient", -- Howl of Terror
-        [353084]  = "disorient", -- Ring of Fire
         [261589]  = "disorient", -- Seduction (Grimoire of Sacrifice)
         [6358]    = "disorient", -- Seduction (Succubus)
         [5246]    = "disorient", -- Intimidating Shout
@@ -831,8 +831,8 @@ elseif Lib.gameExpansion == "cata" then
         [50613] = "silence", -- Arcane Torrent (Racial, Runic Power)
         [28730] = "silence", -- Arcane Torrent (Racial, Mana)
         [25046] = "silence", -- Arcane Torrent (Racial, Energy)
-        [69179] = "silence", -- Arcane Torrent (Rage version)
-        [80483] = "silence", -- Arcane Torrent (Focus version)
+        [69179] = "silence", -- Arcane Torrent (Racial, Rage)
+        [80483] = "silence", -- Arcane Torrent (Racial, Focus)
 
         -- *** Horror Effects ***
         [64044] = "horror", -- Psychic Horror
@@ -850,8 +850,6 @@ elseif Lib.gameExpansion == "cata" then
         [20736]   = "taunt", -- Distracting Shot
         [62124]   = "taunt", -- Hand of Reckoning
         [355]     = "taunt", -- Taunt
-
-        -- TODO: knockbacks?
 
         -- *** Spells that DRs with itself only ***
         [19503] = "scatter", -- Scatter Shot
@@ -944,7 +942,7 @@ elseif Lib.gameExpansion == "mop" then
 
         -- *** Fear Effects ***
         [113004] = "fear", -- Intimidating Roar (Symbiosis)
-        [113056] = "fear", -- Intimidating Roar (Symbiosis)
+        [113056] = "fear", -- Intimidating Roar (Symbiosis 2)
         [1513]   = "fear", -- Scare Beast
         [10326]  = "fear", -- Turn Evil
         [145067] = "fear", -- Turn Evil (Evil is a Point of View)
@@ -976,7 +974,7 @@ elseif Lib.gameExpansion == "mop" then
         [122]    = "root", -- Frost Nova
         [110693] = "root", -- Frost Nova (Symbiosis)
         [116706] = "root", -- Disable
-        [ 87194] = "root", -- Glyph of Mind Blast
+        [87194]  = "root", -- Glyph of Mind Blast
         [114404] = "root", -- Void Tendrils
         [115197] = "root", -- Partial Paralysis
         [63685]  = "root", -- Freeze (Frost Shock)
@@ -1010,15 +1008,15 @@ elseif Lib.gameExpansion == "mop" then
         [116709] = "silence", -- Spear Hand Strike
         [31935]  = "silence", -- Avenger's Shield
         [15487]  = "silence", -- Silence
-        [1330]   = "silence", -- Garrote - Silence
+        [1330]   = "silence", -- Garrote
         [24259]  = "silence", -- Spell Lock
         [115782] = "silence", -- Optical Blast (Observer)
         [18498]  = "silence", -- Silenced - Gag Order
         [50613]  = "silence", -- Arcane Torrent (Racial, Runic Power)
         [28730]  = "silence", -- Arcane Torrent (Racial, Mana)
         [25046]  = "silence", -- Arcane Torrent (Racial, Energy)
-        [69179]  = "silence", -- Arcane Torrent (Rage version)
-        [80483]  = "silence", -- Arcane Torrent (Focus version)
+        [69179]  = "silence", -- Arcane Torrent (Racial, Rage)
+        [80483]  = "silence", -- Arcane Torrent (Racial, Focus)
 
         -- *** Horror Effects ***
         [64044]  = "horror", -- Psychic Horror
@@ -1056,7 +1054,7 @@ elseif Lib.gameExpansion == "mop" then
 elseif Lib.gameExpansion == "classic" then
 
     ------------------------------------------------
-    -- SpellID list for Classic Era (Vanilla)
+    -- SpellID list for Classic Era + Season of Discovery
     ------------------------------------------------
     Lib.spellList = {
         -- *** Controlled Root Effects ***
@@ -1073,15 +1071,14 @@ elseif Lib.gameExpansion == "classic" then
         [19971] = "root", -- Nature's Grasp (Rank 5)
         [19970] = "root", -- Nature's Grasp (Rank 6)
         [19306] = "root", -- Counterattack (Rank 1)
-        [20909] = "root", -- Counterattack (Rank 1)
-        [20910] = "root", -- Counterattack (Rank 1)
+        [20909] = "root", -- Counterattack (Rank 2)
+        [20910] = "root", -- Counterattack (Rank 3)
         [122]   = "root", -- Frost Nova (Rank 1)
         [865]   = "root", -- Frost Nova (Rank 2)
         [6131]  = "root", -- Frost Nova (Rank 3)
         [10230] = "root", -- Frost Nova (Rank 4)
 
         -- *** Non-controlled Root Effects ***
-        -- TODO: is this category TBC/Wrath only?
         [19229] = "random_root", -- Improved Wing Clip
         [23694] = "random_root", -- Improved Hamstring
         [27868] = "random_root", -- Freeze (Item Proc)

@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 77 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 78 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -962,6 +962,7 @@ elseif Lib.gameExpansion == "mop" then
         [96294]  = "root", -- Chains of Ice (Chilblains Root)
         [339]    = "root", -- Entangling Roots
         [113275] = "root", -- Entangling Roots (Symbiosis)
+        [113770] = "root", -- Entangling Roots (Treants)
         [102359] = "root", -- Mass Entanglement
         [19975]  = "root", -- Nature's Grasp
         [128405] = "root", -- Narrow Escape

@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 78 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 79 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -891,6 +891,7 @@ elseif Lib.gameExpansion == "mop" then
         [19503]  = "disorient", -- Scatter Shot
         [31661]  = "disorient", -- Dragon's Breath
         [123393] = "disorient", -- Glyph of Breath of Fire
+        [105421] = "disorient", -- Blinding Light
         [88625]  = "disorient", -- Holy Word: Chastise
 
         -- *** Controlled Stun Effects ***

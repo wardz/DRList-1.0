@@ -32,7 +32,7 @@ end)
 
 Tests:It("GetsSpellList", function()
     assert(next(DRList.spellList))
-    assert(DRList:GetSpells()[132169] == nil)
+    assert(DRList:GetSpells()[93986] == nil)
     assert(DRList:GetSpells()[339] == "root")
     assert(DRList:GetSpells()[51514] == "incapacitate")
     assert(DRList:GetSpells()[47476] == "silence")

@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 79 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 80 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -932,6 +932,7 @@ elseif Lib.gameExpansion == "mop" then
         [30283]  = "stun", -- Shadowfury
         [132168] = "stun", -- Shockwave
         [107570] = "stun", -- Storm Bolt
+        [132169] = "stun", -- Storm Bolt 2
         [20549]  = "stun", -- War Stomp (Racial)
 
         -- *** Non-controlled Stun Effects ***

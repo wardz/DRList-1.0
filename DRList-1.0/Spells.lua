@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "DRList-1.0", 80 -- Don't forget to change this in DRList-1.0.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 81 -- Don't forget to change this in DRList-1.0.lua aswell!
 local Lib = LibStub(MAJOR)
 if Lib.spellListVersion and Lib.spellListVersion >= MINOR then
     return
@@ -976,6 +976,7 @@ elseif Lib.gameExpansion == "mop" then
         [33395]  = "root", -- Freeze (Water Elemental)
         [122]    = "root", -- Frost Nova
         [110693] = "root", -- Frost Nova (Symbiosis)
+        [115757] = "root", -- Frost Nova (Glyph of Ice Block)
         [116706] = "root", -- Disable
         [87194]  = "root", -- Glyph of Mind Blast
         [114404] = "root", -- Void Tendrils

@@ -171,7 +171,6 @@ if Lib.gameExpansion == "retail" then
         [324382]  = "root", -- Clash
         [64695]   = "root", -- Earthgrab (Totem effect)
         --[356738]  = "root", -- Earth Unleashed
-        [285515]  = "root", -- Surge of Power
         [199042]  = "root", -- Thunderstruck (Protection PvP Talent)
         --[356356]  = "root", -- Warbringer
         [39965]   = "root", -- Frost Grenade (Item)

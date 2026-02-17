@@ -10,7 +10,7 @@ License: MIT
 
 --- DRList-1.0
 -- @module DRList-1.0
-local MAJOR, MINOR = "DRList-1.0", 81 -- Don't forget to change this in Spells.lua aswell!
+local MAJOR, MINOR = "DRList-1.0", 82 -- Don't forget to change this in Spells.lua aswell!
 local Lib = assert(LibStub, MAJOR .. " requires LibStub."):NewLibrary(MAJOR, MINOR)
 if not Lib then return end -- already loaded
 
@@ -137,9 +137,9 @@ Lib.gameExpansion = ({
 -- How long it takes for a DR to expire, in seconds.
 Lib.resetTimes = {
     retail = {
-        ["default"] = 18.5, -- Static 18 sec (+0.5 latency) reset time for most categories
-        ["npc"] = 20, -- Against mobs it seems to still be dynamic, set it to max
-        ["knockback"] = 10.5, -- Knockbacks are immediately immune and only DRs for 10s
+        ["default"] = 16.5, -- Static 16 sec (+0.5 latency) reset time for most categories
+        ["npc"] = 16.5,
+        ["knockback"] = 10.5, -- Knockbacks are immediately immune and only DRs for 10s (TODO: check me for midnight)
     },
 
     classic = {
@@ -274,7 +274,7 @@ Lib.categoryNames = {
     },
 }
 
--- Categories that have DR against normal mobs.
+-- Categories that always have DR against normal mobs.
 Lib.categoriesPvE = {
     retail = {
         ["taunt"] = L.TAUNTS,
@@ -317,10 +317,10 @@ Lib.categoriesPvE = {
 -- Successive diminished durations
 Lib.diminishedDurations = {
     retail = {
-        -- Decreases by 50%, immune at the 4th application
-        ["default"] = { 0.50, 0.25 },
+        -- Decreases by 50%, immune at the 3th application
+        ["default"] = { 0.50 },
         -- Decreases by 35%, immune at the 5th application
-        ["taunt"] = { 0.65, 0.42, 0.27 },
+        ["taunt"] = { 0.65, 0.42, 0.27 }, -- TODO: check me for midnight
         -- Immediately immune
         ["knockback"] = {},
     },

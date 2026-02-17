@@ -101,6 +101,7 @@ if Lib.gameExpansion == "retail" then
         [91797]   = "stun", -- Monstrous Blow (Mutated Ghoul)
         [287254]  = "stun", -- Dead of Winter
         [179057]  = "stun", -- Chaos Nova
+        [1234195] = "stun", -- Void Nova
         [205630]  = "stun", -- Illidan's Grasp (Primary effect)
         [208618]  = "stun", -- Illidan's Grasp (Secondary effect)
         [211881]  = "stun", -- Fel Eruption

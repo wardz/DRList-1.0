@@ -22,7 +22,6 @@ if Lib.gameExpansion == "retail" then
         [1513]    = "disorient", -- Scare Beast
         [31661]   = "disorient", -- Dragon's Breath
         [353084]  = "disorient", -- Ring of Fire
-        [198909]  = "disorient", -- Song of Chi-ji
         [202274]  = "disorient", -- Hot Trub
         [105421]  = "disorient", -- Blinding Light
         [10326]   = "disorient", -- Turn Evil
@@ -44,6 +43,7 @@ if Lib.gameExpansion == "retail" then
         -- *** Incapacitate Effects ***
         [217832]  = "incapacitate", -- Imprison
         [221527]  = "incapacitate", -- Imprison (Honor talent)
+        [198909]  = "incapacitate", -- Song of Chi-ji
         [2637]    = "incapacitate", -- Hibernate
         [99]      = "incapacitate", -- Incapacitating Roar
         [378441]  = "incapacitate", -- Time Stop
